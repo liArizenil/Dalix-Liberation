@@ -1,0 +1,73 @@
+respawn = 3;
+respawndelay = 3;
+disabledAI = true;
+
+enableDebugConsole = 1;
+allowFunctionsLog = 0;
+
+loadScreen="res\liberation.jpg";
+onLoadMission = $STR_MISSION_TITLE;
+author = "[수정 및 최적화]Dawn, Felix, [번역지원]MD. Faker, [GREUH] Zbug, [GREUH] McKeewa";
+onLoadName = $STR_MISSION_TITLE;
+
+joinUnassigned = 0;
+
+class Header
+{
+	gameType = CTI;
+	minPlayers = 1;
+	maxPlayers = 70;
+};
+
+#include "GREUH\UI\GREUH_interface.hpp"
+#include "ui\liberation_interface.hpp"
+#include "ui\liberation_notifications.hpp"
+#include "ui\mission_params.hpp"
+#include "VAM\VAM_comm_menu.hpp"
+#include "scripts\AdvancedRadio\ui\Radio_interface.hpp"
+
+class CfgDebriefing
+{
+	class End1
+	{
+		title =	$STR_SORRY;
+		subtitle = "";
+		description = $STR_COMMANDER_NOT_AUTHORIZED;
+		pictureBackground = "";
+	};
+	class DLCDec
+	{
+		title = "Unauthorized DLC Dectected";
+		subtitle = "허가 되지 않은 DLC 발견";
+		description = "Please disable Global Mobilization DLC from Launcher";
+		pictureBackground = "";
+	};
+	class LackPlayer
+	{
+		title = "Need More Blufor";
+		subtitle = "더 많은 청군이 요구됨";
+		description = "Please wait untill we get more blufor";
+		pictureBackground = "";
+	};
+	class Timeout
+	{
+		title = "Opfor play time exceeded";
+		subtitle = "플레이 시간 초과";
+		description = "Play time limit exceeded";
+		pictureBackground = "";
+	};
+};
+/*
+class EARPLUG
+{
+	#include "GF_Earplugs\GF_Earplugs_HPP.hpp"	
+};*/
+
+class CfgFunctions 
+{
+	#include "vcom\cfgFunctions.hpp"
+};
+
+class Extended_PreInit_EventHandlers {
+	VCM_CBASettings = call compile preprocessFileLineNumbers "Vcom\Functions\VCM_CBASettings.sqf";
+};
