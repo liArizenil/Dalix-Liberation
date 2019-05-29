@@ -157,6 +157,8 @@ if(side player == GRLIB_side_enemy) then {
 			"U_O_FullGhillie_lsh",
 			"U_O_T_FullGhillie_tna_F"
 		];
+		OPFOR_Sight = OPFOR_Sight + [
+		    "optic_Nightstalker"
 	};
 	if(typeOf player == "O_Pilot_F") then {
 		OPFOR_Weapons = OPFOR_Weapons + [
