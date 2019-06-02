@@ -2,7 +2,7 @@ waitUntil {!isNull(findDisplay 46)};
 disableSerialization;
 (findDisplay 46) displayAddEventHandler ["KeyDown", {
 	private _handled = false;
-	if(_this select 1 == 0x08) then {  // key 6		DIK_6 
+	if(_this select 1 == 0x0C) then {  // key 6		DIK_6 
 		if (isNil "AR_active") then {AR_active = false;};
 		if (AR_active) exitWith {AR_active = false; _handled = true;};
 
@@ -42,7 +42,7 @@ disableSerialization;
 		}];
 			_handled = true;
 	};
-	if(_this select 1 == 0x09) then {
+	if(_this select 1 == 0x0D) then {
 		if(!alive player)exitWith{};
 		if((primaryWeapon player!="")||{(handgunWeapon player!="")})then{player action["switchWeapon",player,player,-1];};
 	};
