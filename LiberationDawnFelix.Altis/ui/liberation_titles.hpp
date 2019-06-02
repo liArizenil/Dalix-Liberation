@@ -96,7 +96,7 @@ fadeout = 0;
 		w = 0.35 * safezoneW;
 		y = 0.2 * safezoneH + safezoneY;
 		h = 0.6 * safezoneH;
-		text = "res\splash_libe_xmas.paa";
+		text = "res\splash_libe_6_6.paa";
 	  };
 	  class VersionLabel {
 		idc = -1;
