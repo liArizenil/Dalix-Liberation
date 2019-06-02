@@ -400,6 +400,10 @@
 						<German>Bauen</German>
 						<Spanish>Construir</Spanish>
 						<Russian>Построить</Russian>
+				</Key>	
+				<Key ID="STR_BUILD_WARNING">
+						<Original>Unauthorized build can be lead to the punishment </Original>
+						<Korean>허가받지 않은 건설은 처벌로 이어질 수도 있습니다.</Korean>	
 				</Key>
 				<Key ID="STR_MANPOWER">
 						<Original>노동 인력</Original>
