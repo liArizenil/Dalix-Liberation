@@ -62,7 +62,7 @@ while { true } do {
 			build_confirmed = 0;
 		} else {
 			if(!(buildtype == 6 || buildtype == 99)) then {
-				hintC "허가받지 않은 건설은 처벌로 이어질수도 있습니다.";
+				hintC localize "STR_BUILD_WARNING";
 				hintC_EH = findDisplay 57 displayAddEventHandler ["unload", {
 					0 = _this spawn {
 						_this select 0 displayRemoveEventHandler ["unload", hintC_EH];
