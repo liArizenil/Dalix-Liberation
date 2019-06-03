@@ -43,7 +43,6 @@ if (!isDedicated && hasInterface) then {
 	if(side player == GRLIB_side_enemy) then {
 		private ["_bluforcount"];
 		_bluforcount = {side _x == GRLIB_side_friendly} count (allPlayers);
-		["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		
 		if(_bluforcount < 15) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
