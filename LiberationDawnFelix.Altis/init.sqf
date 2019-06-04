@@ -30,6 +30,7 @@ if (!isDedicated && hasInterface) then {
 	[] execVM "VAM\VAM_init.sqf";
 	[] execVM "GREUH\scripts\GREUH_activate.sqf";
 	[] execVM "scripts\motd.sqf";
+	[] execVM "scripts\outlw_magRepack\MagRepack_init_sv.sqf";
 
 	if(side player == GRLIB_side_friendly) then {
 		[] execVM "IgiLoad\IgiLoadInit.sqf";
