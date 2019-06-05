@@ -244,8 +244,15 @@ if(side player == GRLIB_side_enemy) then {
 			if(!(headgear player in OPFOR_Helmet) && headgear player != "") then {
 				removeHeadgear player;
 			};
-			if(!(backpack player in OPFOR_Backpacks) && backpack player != "") then {
-				removeBackpack player;
+			if(backpack player != "") then {
+				{
+					if(_x == "APERSMineDispenser_Mag") then {
+						player removeItemFromBackpack _x;
+					};
+				} forEach backpackItems player;
+				if(!(backpack player in OPFOR_Backpacks)) then {
+					removeBackpack player;
+				};
 			};
 			if(((primaryWeaponItems player) select 0) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 0);
@@ -374,8 +381,15 @@ if(side player == GRLIB_side_enemy) then {
 			if(!(headgear player in OPFOR_Helmet) && headgear player != "") then {
 				removeHeadgear player;
 			};
-			if(!(backpack player in OPFOR_Backpacks) && backpack player != "") then {
-				removeBackpack player;
+			if(backpack player != "") then {
+				{
+					if(_x == "APERSMineDispenser_Mag") then {
+						player removeItemFromBackpack _x;
+					};
+				} forEach backpackItems player;
+				if(!(backpack player in OPFOR_Backpacks)) then {
+					removeBackpack player;
+				};
 			};
 			if(((primaryWeaponItems player) select 0) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 0);
