@@ -62,7 +62,6 @@ if (!isDedicated && hasInterface) then {
 				["end1", false, false,false,false] call BIS_fnc_endMission;
 			};
 		};
-		if
 	};
 	waitUntil { alive player };
 	[] call compileFinal preprocessFileLineNumbers "scripts\client\init_client.sqf";
