@@ -64,7 +64,8 @@ if(side player == GRLIB_side_enemy) then {
 		"optic_SOS_khk_F",
 		"optic_MRCO",
 		"optic_hamr",
-		"optic_Hamr_khk_F"
+		"optic_Hamr_khk_F",
+		"optic_Nightstalker"
 	];
 	OPFOR_Vest = [
 		"V_PlateCarrierGL_mtp",
@@ -156,9 +157,6 @@ if(side player == GRLIB_side_enemy) then {
 			"U_O_FullGhillie_sard",
 			"U_O_FullGhillie_lsh",
 			"U_O_T_FullGhillie_tna_F"
-		];
-		OPFOR_Sight = OPFOR_Sight + [
-		    "optic_Nightstalker"
 		];
 	};
 	if(typeOf player == "O_Pilot_F") then {
