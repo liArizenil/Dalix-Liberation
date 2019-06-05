@@ -9,8 +9,6 @@ GRLIB_color_friendly = "ColorBLUFOR";
 GRLIB_color_enemy = "ColorOPFOR";
 GRLIB_color_enemy_bright = "ColorRED";
 
-GRLIB_Opfor_respawn_timer = 120;
-GRLIB_Opfor_Air_respawn_timer = 180;
 GRLIB_sector_size = 600;
 GRLIB_capture_size = 175;
 GRLIB_radiotower_size = 1500;
