@@ -539,7 +539,7 @@ if(side player == GRLIB_side_enemy) then {
 					spawn_position = [ spawn_position select 0, spawn_position select 1, 2800 + (random 200) ];
 					halojumping = true;
 					sleep 0.1;
-					[ [ name player, spawn_position ], "remote_call_noti_opfordeployed" ] call bis_fnc_mp;
+					[ [ name player, spawn_position ], "remote_call_opfordeployed" ] call bis_fnc_mp;
 					cutRsc ["fasttravel", "PLAIN", 1];
 					playSound "parasound";
 					sleep 2;
