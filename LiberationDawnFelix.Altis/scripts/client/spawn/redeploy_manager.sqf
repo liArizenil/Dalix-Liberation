@@ -203,10 +203,9 @@ if(side player == GRLIB_side_enemy) then {
 	player setVariable["deploy_timer",210,false];
 	[] spawn {
 		while { true } do {
-			if(player getVariable "deploy_timer" > 0) then {
-				player setVariable["deploy_timer", ((player getVariable "deploy_timer") - 1), false];
-			};
-			sleep 1;
+			waitUntil {player getVariable "deploy_timer" > 0};
+			player setVariable["deploy_timer", ((player getVariable "deploy_timer") - 0.01), false];
+			sleep 0.01;
 		};
 	};
 	[] spawn {
