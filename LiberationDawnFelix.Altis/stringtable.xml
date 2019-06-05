@@ -890,6 +890,14 @@
 						<Spanish>La FOB %1 ha sido destruida!</Spanish>
 						<Russian>FOB %1 была уничтожена!</Russian>
 				</Key>
+				<Key ID="STR_NOTIFICATION_OPFORDEPLOY_TITLE">	
+						<Original>OPFOR player has been Deployed</Original>	
+						<Korean>대항군 플레이어가 배치되었습니다.</Korean>	
+				</Key>	
+				<Key ID="STR_NOTIFICATION_OPFORDEPLOY_TEXT">	
+						<Original>%1 has been deployed near by %2</Original>	
+						<Korean>%1 님이 %2 에 배치되었습니다.</Korean>	
+				</Key>
 				<Key ID="STR_NOTIFICATION_BATTLEGROUP_TITLE">
 						<Original>적군의 병력이 오고있습니다.</Original>
 						<French>FORCES HOSTILES EN APPROCHE</French>
