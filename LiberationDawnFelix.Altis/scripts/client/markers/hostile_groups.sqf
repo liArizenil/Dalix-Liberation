@@ -17,7 +17,7 @@ while { true } do {
 		private [ "_nextgroup" ];
 		_nextgroup = _x;
 		if ( (side _nextgroup != side player) && (({ !captive _x } count ( units _nextgroup ) ) > 0)) then {
-			if ( ([(getpos leader _nextgroup), side player, GRLIB_radiotower_size] call F_getNearestTower != "") || ((([getpos (leader _nextgroup)] call F_getNearestFob) distance2D (leader _nextgroup)) < 300 && side _nextgroup == GRLIB_side_enemy)) then {
+			if ([(getpos leader _nextgroup), side player, GRLIB_radiotower_size] call F_getNearestTower != "") then {
 
 				_hostile_groups pushback _nextgroup;
 			};
@@ -33,5 +33,5 @@ while { true } do {
 		_hostile_markers pushback _marker;
 	} foreach _hostile_groups;
 
-	sleep (60 + (random 60));
+	sleep (60 + (random 30));
 };
