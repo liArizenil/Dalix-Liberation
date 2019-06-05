@@ -29,6 +29,17 @@ bannedbackpack = [	"I_UAV_06_backpack_F",
 			"C_UAV_06_medical_backpack_F"
 ];
 if(side player == GRLIB_side_enemy) then {
+	Air_Whitelist = [
+		"",
+		"76561198145769064", //EpT_Schna
+		"76561197962812389", //UvRay
+		"76561198048248374", //podoria
+		"76561198098053217", //BuckGeneral
+		"76561198165728044", //jomo
+		"76561198174243409", //lalalala
+		"76561198097060234", //hanmike
+		"76561198084225545" //nam
+	];
 	OPFOR_Weapons = [
 		"hgun_Pistol_heavy_01_F",
 		"hgun_ACPC2_F",
