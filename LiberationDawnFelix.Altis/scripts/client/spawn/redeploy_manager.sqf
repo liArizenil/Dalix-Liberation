@@ -576,10 +576,16 @@ if(side player == GRLIB_side_enemy) then {
 				};
 				if(spawntype == 3) then { //spawn in sector
 					_sectorpos = [ getMarkerPos (active_sectors select (lbCurSel 1501)), random 100, random 360 ] call BIS_fnc_relPos;
+					_near_AIs = [ _sectorpos nearEntities [["Man"], 800], { !(isPlayer _x) && (side _x == side player) && (vehicle _x == _x) } ] call BIS_fnc_conditionalSelect;
 					_spawnpos = zeropos;
-					while { _spawnpos distance zeropos < 1000 } do {
-						_spawnpos = ( [ _sectorpos, random 50, random 360 ] call BIS_fnc_relPos ) findEmptyPosition [5, 100, "B_Heli_Light_01_F"];
-						if ( count _spawnpos == 0 ) then { _spawnpos = zeropos; };
+					if(count _near_AIs > 0) then {
+						_spawnpos = getPos (_near_AIs call BIS_fnc_selectRandom);
+					}
+					else{
+						while { _spawnpos distance zeropos < 1000 } do {
+							_spawnpos = ( [ _sectorpos, random 50, random 360 ] call BIS_fnc_relPos ) findEmptyPosition [5, 100, "B_Quadbike_01_F"];
+							if ( count _spawnpos == 0 ) then { _spawnpos = zeropos; };
+						};
 					};
 					player setpos _spawnpos;
 				};
