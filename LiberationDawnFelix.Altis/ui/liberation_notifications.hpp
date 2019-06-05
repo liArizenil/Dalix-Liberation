@@ -95,7 +95,8 @@ class CfgNotifications
 	class lib_Opfor_deployed : lib_default_notification	
 	{	
 		title = $STR_NOTIFICATION_OPFORDEPLOY_TITLE;	
-		description = $STR_NOTIFICATION_OPFORDEPLOY_TEXT;	
+		description = $STR_NOTIFICATION_OPFORDEPLOY_TEXT;
+		color[] = {1,0,0,1};
 	};
 	class lib_intel_prisoner : lib_intel
 	{
