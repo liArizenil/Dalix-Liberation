@@ -202,7 +202,7 @@ class Params
 		title = "OPFOR Respawn Timer : Infantry";
 		values[] = {0,60,90,120,150,180,210};
 		texts[] = {"0 sec","60 sec","90 sec","120 sec","150 sec","180 sec", "210 sec"};
-		default = 120;
+		default = 150;
 	};
 	class OPFORAirRespawnTimer{
 		title = "OPFOR Respawn Timer : Pilot";
