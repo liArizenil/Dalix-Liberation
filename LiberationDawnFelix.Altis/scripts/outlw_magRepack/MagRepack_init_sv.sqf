@@ -41,8 +41,8 @@ if (typeName(outlw_MR_keyList select 0) != "BOOL") then
 };
 
 outlw_MR_shift = outlw_MR_keyList select 0;
-outlw_MR_ctrl = outlw_MR_keyList select 1;
-outlw_MR_alt = outlw_MR_keyList select 2;
+outlw_MR_alt = outlw_MR_keyList select 1;
+outlw_MR_ctrl = outlw_MR_keyList select 2;
 outlw_MR_keybinding = outlw_MR_keyList select 3;
 
 [] execVM "scripts\outlw_magRepack\Scripts\MagRepack_Main.sqf";
@@ -57,8 +57,8 @@ waitUntil {!(isNull (findDisplay 46))};
 
 (findDisplay 46) displayAddEventHandler ["KeyDown", "_this call outlw_MR_keyDown;"];
 
-systemChat "탄창 재장전 스크립트 활성화..";
-systemChat ("탄창 재장전 키 : " + (call outlw_MR_keyListToString));
+systemChat localize "STR_MAGREPACK_STARTED";
+systemChat (localize "STR_MAGREPACK_KEY" + (call outlw_MR_keyListToString));
 
 
 
