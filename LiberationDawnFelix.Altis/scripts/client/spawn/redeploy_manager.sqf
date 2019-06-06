@@ -563,6 +563,10 @@ if(side player == GRLIB_side_enemy) then {
 
 					sleep 4;
 					halojumping = false;
+					waitUntil { !alive player || ((getPosATL player) select 2) < 100 };
+					player setVelocity [0,0,0];
+					player action ["openParachute"];
+					
 					waitUntil { !alive player || isTouchingGround player };
 					if ( _backpack != "" && _backpack != "B_Parachute" ) then {
 						sleep 2;
