@@ -80,12 +80,8 @@ if(side player == GRLIB_side_enemy) then {
 		"optic_Nightstalker"
 	];
 	OPFOR_Vest = [
-		"V_PlateCarrierGL_mtp",
-		"V_PlateCarrierGL_rgr",
 		"V_PlateCarrierGL_tna_F",
 		"V_PlateCarrierGL_blk",
-		"V_PlateCarrier1_rgr",
-		"V_PlateCarrier1_rgr_noflag_F",
 		"V_PlateCarrier1_tna_F",
 		"V_PlateCarrier1_blk",
 		"V_TacVest_brn",
