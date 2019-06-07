@@ -39,6 +39,7 @@ if(side player == GRLIB_side_enemy) then {
 		"76561198174243409", //lalalala
 		"76561198097060234", //hanmike
 		"76561198084225545", //nam
+		"76561198069484270", // extankone
 		"76561198801945974" //아코도리
 	];
 	OPFOR_Weapons = [
