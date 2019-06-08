@@ -5,6 +5,7 @@ GRLIB_side_enemy = EAST;
 GRLIB_side_resistance = RESISTANCE;
 GRLIB_side_civilian = CIVILIAN;
 GRLIB_respawn_marker = "respawn_west";
+GRLIB_OPFOR_respawn_marker = "respawn_east";
 GRLIB_color_friendly = "ColorBLUFOR";
 GRLIB_color_enemy = "ColorOPFOR";
 GRLIB_color_enemy_bright = "ColorRED";
