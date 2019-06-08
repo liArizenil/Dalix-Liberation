@@ -54,12 +54,17 @@ if (!isDedicated && hasInterface) then {
 		if(_bluforcount < 30 && {side _x == GRLIB_side_enemy} count (allPlayers) > 2) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		};
+		if(typeOf player == "O_Soldier_AT_F") then {
+			if(_bluforcount < 99) then {
+				["notonwhitelist", false, false,false,false] call BIS_fnc_endMission;
+			};
+		};
 		if(typeOf player == "O_Pilot_F") then {
 			if(_bluforcount < 35) then {
 				["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 			};
 			if(!(((getPlayerUID player) in Air_Whitelist) || (call BIS_fnc_admin == 2))) then {
-				["end1", false, false,false,false] call BIS_fnc_endMission;
+				["notonwhitelist", false, false,false,false] call BIS_fnc_endMission;
 			};
 		};
 	};

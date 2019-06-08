@@ -37,17 +37,17 @@ outlw_MR_applyKeybinding =
 	profileNamespace setVariable ["outlw_MR_keyList_profile", outlw_MR_keyList];
 	
 	outlw_MR_shift = outlw_MR_keyList select 0;
-	outlw_MR_ctrl = outlw_MR_keyList select 1;
-	outlw_MR_alt = outlw_MR_keyList select 2;
+	outlw_MR_alt = outlw_MR_keyList select 1;
+	outlw_MR_ctrl = outlw_MR_keyList select 2;
 	outlw_MR_keybinding = outlw_MR_keyList select 3;
 	
 	if (count _this > 1 && {_this select 1}) then
 	{
-		_systemString = "Mag Repack keybinding has been reset to ";
+		_systemString = localize "STR_MAGREPACK_KEYRESET";
 	}
 	else
 	{
-		_systemString = "Mag Repack keybinding has been updated to ";
+		_systemString = localize "STR_MAGREPACK_KEYCHANGED";
 		closeDialog 0;
 	};
 	
