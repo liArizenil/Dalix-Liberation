@@ -55,7 +55,7 @@ if (!isDedicated && hasInterface) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		};
 		if(typeOf player == "O_Soldier_AT_F") then {
-			if(_bluforcount < 99) then {
+			if(_bluforcount < 30) then {
 				["notonwhitelist", false, false,false,false] call BIS_fnc_endMission;
 			};
 		};
