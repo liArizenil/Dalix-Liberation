@@ -224,7 +224,7 @@ if(side player == GRLIB_side_enemy) then {
 		while { true } do {		
 			waitUntil {
 				sleep 0.1;
-				isNull (uiNamespace getVariable ["RscDisplayArsenal", displayNull]) && ((player distance (getmarkerpos GRLIB_respawn_marker) < 50) ) && vehicle player == player && alive player && !dialog && howtoplay == 0
+				isNull (uiNamespace getVariable ["RscDisplayArsenal", displayNull]) && ((player distance (getmarkerpos GRLIB_OPFOR_respawn_marker) < 30) ) && vehicle player == player && alive player && !dialog && howtoplay == 0
 			};
 			if({side _x == GRLIB_side_friendly} count (allPlayers) < 35) then {
 				["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
@@ -364,12 +364,12 @@ if(side player == GRLIB_side_enemy) then {
 		while { true } do {
 			waitUntil {
 				sleep 0.1;
-				isNull (uiNamespace getVariable ["RscDisplayArsenal", displayNull]) && ((player distance (getmarkerpos GRLIB_respawn_marker) < 50) ) && vehicle player == player && alive player && !dialog && howtoplay == 0
+				isNull (uiNamespace getVariable ["RscDisplayArsenal", displayNull]) && ((player distance (getmarkerpos GRLIB_OPFOR_respawn_marker) < 30) ) && vehicle player == player && alive player && !dialog && howtoplay == 0
 			};
 			if(!(primaryWeapon player in OPFOR_Weapons) && primaryWeapon player != "") then {
 				player removeWeapon (primaryWeapon player);
 			};
-			if(secondaryWeapon player != "") then {
+			if(!(secondaryWeapon player in OPFOR_Weapons) && secondaryWeapon player != "") then {
 				player removeWeapon (secondaryWeapon player);
 			};
 			if(!(vest player in OPFOR_Vest) && vest player != "") then {
