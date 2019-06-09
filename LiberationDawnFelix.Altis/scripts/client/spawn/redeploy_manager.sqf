@@ -210,7 +210,8 @@ if(side player == GRLIB_side_enemy) then {
 		};
 	};
 	[] spawn {
-		format [ "%1님이 대항군에 참여하셨습니다.", name player] remoteExec ["systemChat"];
+		format ["%1 : %2 joined OPFOR", getPlayerUID player, name player] remoteExec ["diag_log"];
+		
 		sleep 5400;
 		format [ "%1님의 대항군 플레이 시간이 만료 되었습니다.", name player] remoteExec ["systemChat"];
 		["Timeout", false, false,false,false] call BIS_fnc_endMission;
@@ -231,34 +232,37 @@ if(side player == GRLIB_side_enemy) then {
 			};
 			if(!(primaryWeapon player in OPFOR_Weapons) && primaryWeapon player != "") then {
 				player removeWeapon (primaryWeapon player);
-				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
+				hint parseText format ["<t color='#ff0000'>선택하신 주무장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(secondaryWeapon player != "") then {
 				player removeWeapon (secondaryWeapon player);
-				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
+				hint parseText format ["<t color='#ff0000'>선택하신 보조무장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(vest player in OPFOR_Vest) && vest player != "") then {
 				removeVest player;
-				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
+				hint parseText format ["<t color='#ff0000'>선택하신 조끼는 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(uniform player in OPFOR_Uniform) && uniform player != "") then {
 				removeUniform player;
-				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
+				hint parseText format ["<t color='#ff0000'>선택하신 복장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(headgear player in OPFOR_Helmet) && headgear player != "") then {
 				removeHeadgear player;
-				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
+				hint parseText format ["<t color='#ff0000'>선택하신 헬맷은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
-			if(backpack player != "") then {
-				{
-					if(_x == "APERSMineDispenser_Mag") then {
-						player removeItemFromBackpack _x;
-					};
-				} forEach backpackItems player;
-				if(!(backpack player in OPFOR_Backpacks)) then {
-					removeBackpack player;
-				};
+			if(!(backpack player in OPFOR_Backpacks && backpack player != "")) then {
+				removeBackpack player;
+				hint parseText format ["<t color='#ff0000'>선택하신 가방은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
+            _mags = magazines player;
+			if (!isNil "_mags") then {
+                {
+                    if(_x in bannedmines) then {
+                        player removeMagazines _x;
+						hint parseText format ["<t color='#ff0000'>대인지뢰류는 사용 불가능합니다.</t>"];
+                    };
+                }foreach(magazines player);
+            };
 			if(((primaryWeaponItems player) select 0) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 0);
 			};
@@ -373,34 +377,37 @@ if(side player == GRLIB_side_enemy) then {
 			};
 			if(!(primaryWeapon player in OPFOR_Weapons) && primaryWeapon player != "") then {
 				player removeWeapon (primaryWeapon player);
-				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
+				hint parseText format ["<t color='#ff0000'>선택하신 주무장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(secondaryWeapon player in OPFOR_Weapons) && secondaryWeapon player != "") then {
 				player removeWeapon (secondaryWeapon player);
-				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
+				hint parseText format ["<t color='#ff0000'>선택하신 보조무장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(vest player in OPFOR_Vest) && vest player != "") then {
 				removeVest player;
-				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
+				hint parseText format ["<t color='#ff0000'>선택하신 조끼는 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(uniform player in OPFOR_Uniform) && uniform player != "") then {
 				removeUniform player;
-				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
+				hint parseText format ["<t color='#ff0000'>선택하신 복장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(headgear player in OPFOR_Helmet) && headgear player != "") then {
 				removeHeadgear player;
-				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
+				hint parseText format ["<t color='#ff0000'>선택하신 헬맷은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
-			if(backpack player != "") then {
-				{
-					if(_x == "APERSMineDispenser_Mag") then {
-						player removeItemFromBackpack _x;
-					};
-				} forEach backpackItems player;
-				if(!(backpack player in OPFOR_Backpacks)) then {
-					removeBackpack player;
-				};
+			if(!(backpack player in OPFOR_Backpacks && backpack player != "")) then {
+				removeBackpack player;
+				hint parseText format ["<t color='#ff0000'>선택하신 가방은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
+            _mags = magazines player;
+			if (!isNil "_mags") then {
+                {
+                    if(_x in bannedmines) then {
+                        player removeMagazines _x;
+						hint parseText format ["<t color='#ff0000'>대인지뢰류는 사용 불가능합니다.</t>"];
+                    };
+                }foreach(magazines player);
+            };
 			if(((primaryWeaponItems player) select 0) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 0);
 			};
