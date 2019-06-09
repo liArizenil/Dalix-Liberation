@@ -174,6 +174,45 @@ if(side player == GRLIB_side_enemy) then {
 			"U_O_T_FullGhillie_tna_F"
 		];
 	};
+	if(typeOf player == "O_soldier_AT_F") then {
+		OPFOR_Weapons = OPFOR_Weapons + [
+		    "SMG_03_camo",
+			"SMG_03_khaki",
+			"SMG_03_hex",
+			"SMG_03_black",
+			"SMG_03_TR_camo",
+			"SMG_03_TR_khaki",
+			"SMG_03_TR_hex",
+			"SMG_03_TR_black",
+			"SMG_03C_camo",
+			"SMG_03C_khaki",
+			"SMG_03C_hex",
+			"SMG_03C_black",
+			"SMG_03C_TR_camo",
+			"SMG_03C_TR_khaki",
+			"SMG_03C_TR_hex",
+			"SMG_03C_TR_black",
+			"hgun_PDW2000_F",
+			"SMG_05_F",
+			"SMG_01_F",
+			"SMG_02_F",
+			"launch_NLAW_F"
+		];
+		OPFOR_Helmet = OPFOR_Helmet + [
+			"H_HelmetO_ViperSP_ghex_F",
+			"H_HelmetO_ViperSP_hex_F",
+			"H_HelmetO_ghex_F",
+			"H_HelmetO_oucamo",
+			"H_HelmetO_ocamo"
+		];
+		OPFOR_Uniform = OPFOR_Uniform + [
+			"U_O_T_Soldier_F",
+			"U_O_CombatUniform_oucamo",
+			"U_O_CombatUniform_ocamo",
+			"U_O_V_Soldier_Viper_hex_F",
+			"U_O_V_Soldier_Viper_F"
+		];
+	};
 	if(typeOf player == "O_Pilot_F") then {
 		OPFOR_Weapons = OPFOR_Weapons + [
 			"hgun_PDW2000_F",
@@ -181,11 +220,11 @@ if(side player == GRLIB_side_enemy) then {
 			"SMG_02_F"
 		];
 		OPFOR_Helmet = OPFOR_Helmet + [
-			"H_PilotHelmetFighter_O"
+			"H_PilotHelmetFighter_O",
+			"H_PilotHelmetHeli_O"
 		];
 		OPFOR_Uniform = OPFOR_Uniform + [
-			"U_O_PilotCoveralls",
-			"U_B_PilotCoveralls"
+			"U_O_PilotCoveralls"
 		];
 	};
 };
