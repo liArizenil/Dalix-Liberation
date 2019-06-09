@@ -1252,6 +1252,26 @@
 						<Original>Keybinding:</Original>
 						<Korean>탄창 재포장 메뉴 키 : </Korean>
 				</Key>
+				<Key ID="STR_MAGREPACK_KEYBINDINGDESC">
+						<Original>Mag Repack: Keybindings</Original>
+						<Korean>탄창 재포장: 키 설정</Korean>
+				</Key>
+				<Key ID="STR_MAGREPACK_KEYBINDING">
+						<Original>Keybinding:</Original>
+						<Korean>키 설정:</Korean>
+				</Key>
+				<Key ID="STR_MAGREPACK_MODIFIERS">
+						<Original>Modifiers:</Original>
+						<Korean>수정자:</Korean>
+				</Key>
+				<Key ID="STR_MAGREPACK_APPLY">
+						<Original>Apply</Original>
+						<Korean>적용</Korean>
+				</Key>
+				<Key ID="STR_MAGREPACK_CANCEL">
+						<Original>Cancel</Original>
+						<Korean>취소</Korean>
+				</Key>
 				<Key ID="STR_PARAMS_DAYDURATION">
 						<Original>하루를 몇 시간으로 (hours)</Original>
 						<French>Durée du jour (heures)</French>
