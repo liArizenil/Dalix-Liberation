@@ -15,7 +15,8 @@ GRLIB_arsenal_backpacks = [
 
 ];
 
-bannedbackpack = [	"I_UAV_06_backpack_F",
+bannedbackpack = [	
+                        "I_UAV_06_backpack_F",
 			"O_UAV_06_backpack_F",
 			"B_UAV_06_backpack_F",
 			"I_UAV_06_medical_backpack_F",
@@ -28,6 +29,15 @@ bannedbackpack = [	"I_UAV_06_backpack_F",
 			"C_UAV_06_backpack_F",
 			"C_UAV_06_medical_backpack_F"
 ];
+bannedmines = [
+			"APERSBoundingMine_Range_Mag",
+			"APERSMine_Range_Mag",
+			"SLAMDirectionalMine_Wire_Mag",
+			"APERSTripMine_Wire_Mag",
+			"ClaymoreDirectionalMine_Remote_Mag",
+			"APERSMineDispenser_Mag",
+			"TrainingMine_Mag"	
+];			
 if(side player == GRLIB_side_enemy) then {
 	Air_Whitelist = [
 		"",
