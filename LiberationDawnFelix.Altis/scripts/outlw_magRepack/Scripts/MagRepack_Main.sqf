@@ -28,7 +28,7 @@ outlw_MR_createDialog =
 
 	createDialog "MagRepack_Dialog_Main";
 
-	((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 1001) ctrlSetText ("Mag Repack [" + outlw_MR_version + "]");
+	((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 1001) ctrlSetText ("탄창 재포장");
 
 	outlw_MR_blur = ppEffectCreate ["DynamicBlur", 401];
 	outlw_MR_blur ppEffectEnable true;
@@ -56,7 +56,7 @@ outlw_MR_createDialog =
 		player playMove ("Ainv" + _stance + "Mstp" + _raised + _weapon + "Dnon");
 	};
 
-	((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 22170) lbAdd "All Ammo Types";
+	((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 22170) lbAdd "모든 탄약 종류";
 	((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 22170) lbSetData [0, ""];
 	((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 22170) lbSetCurSel 0;
 
@@ -68,24 +68,24 @@ outlw_MR_createDialog =
 
 	if (outlw_MR_debugMode) then
 	{
-		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9002) ctrlSetStructuredText parseText "Debug Mode: <t align='right'>On</t>";
+		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9002) ctrlSetStructuredText parseText "디버그 모드: <t align='right'>켜기</t>";
 	}
 	else
 	{
-		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9002) ctrlSetStructuredText parseText "Debug Mode: <t align='right'>Off</t>";
+		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9002) ctrlSetStructuredText parseText "디버그 모드: <t align='right'>끄기</t>";
 	};
 
 	if (outlw_MR_doHideFull) then
 	{
-		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9004) ctrlSetStructuredText parseText "Show Full: <t align='right'>Off</t>";
+		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9004) ctrlSetStructuredText parseText "모두 보기: <t align='right'>끄기</t>";
 	}
 	else
 	{
-		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9004) ctrlSetStructuredText parseText "Show Full: <t align='right'>On</t>";
+		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9004) ctrlSetStructuredText parseText "모두 보기: <t align='right'>켜기</t>";
 	};
 
-	((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9003) ctrlSetStructuredText parseText "Keybindings";
-	((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9005) ctrlSetStructuredText parseText "About";
+	((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9003) ctrlSetStructuredText parseText "키 설정";
+	((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9005) ctrlSetStructuredText parseText "제작자";
 
 	outlw_MR_startingInfo = call outlw_MR_debugInfo;
 
@@ -141,12 +141,12 @@ outlw_MR_populateMagListBox =
 	private ["_this", "_args", "_magListTitle", "_magTypes", "_magAmmoCounts", "_magAmmoCaps", "_magCounts", "_bgrndPos", "_n", "_a"];
 
 	_args = call outlw_MR_magInfo;
-	_magListTitle = "All Magazines";
+	_magListTitle = "모든 탄창";
 
 	if (outlw_MR_sourceType != "" || {outlw_MR_targetType != ""} || {outlw_MR_currentFilter != ""}) then
 	{
 		_args = (_args) call outlw_MR_filter;
-		_magListTitle = "Compatible Mags";
+		_magListTitle = "호환 탄창";
 	};
 
 	lnbClear ((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 1500);
@@ -156,11 +156,11 @@ outlw_MR_populateMagListBox =
 	if (outlw_MR_doHideFull) then
 	{
 		_args = (_args) call outlw_MR_hideFull;
-		_magListTitle = "Non-Full Magazines";
+		_magListTitle = "탄이 남은 탄창";
 
 		if (outlw_MR_sourceType != "" || {outlw_MR_targetType != ""} || {outlw_MR_currentFilter != ""}) then
 		{
-			_magListTitle = "Compatible, Non-Full";
+			_magListTitle = "호환됨, 탄 남음";
 		};
 	};
 
@@ -391,15 +391,15 @@ outlw_MR_repackingText =
 {
 	private ["_repacking"];
 
-	_repacking = "Repacking...";
+	_repacking = "재포장 중...";
 
 	while {outlw_MR_isRepacking} do
 	{
 		_repacking = _repacking + ".";
 
-		if (_repacking == "Repacking....") then
+		if (_repacking == "재포장 중....") then
 		{
-			_repacking = "Repacking";
+			_repacking = "재포장 중";
 		};
 
 		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 1008) ctrlSetText _repacking;
@@ -872,13 +872,13 @@ outlw_MR_debugSwitch =
 	{
 		outlw_MR_debugMode = false;
 		profileNamespace setVariable ["outlw_MR_debugMode_profile", false];
-		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9002) ctrlSetStructuredText parseText "Debug Mode: <t align='right'>Off</t>";
+		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9002) ctrlSetStructuredText parseText "디버그 모드: <t align='right'>끄기</t>";
 	}
 	else
 	{
 		outlw_MR_debugMode = true;
 		profileNamespace setVariable ["outlw_MR_debugMode_profile", true];
-		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9002) ctrlSetStructuredText parseText "Debug Mode: <t align='right'>On</t>";
+		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9002) ctrlSetStructuredText parseText "디버그 모드: <t align='right'>켜기</t>";
 	};
 };
 
@@ -888,13 +888,13 @@ outlw_MR_showFullSwitch =
 	{
 		outlw_MR_doHideFull = false;
 		profileNamespace setVariable ["outlw_MR_doHideFull_profile", false];
-		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9004) ctrlSetStructuredText parseText "Show Full: <t align='right'>On</t>";
+		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9004) ctrlSetStructuredText parseText "모두 보기: <t align='right'>켜기</t>";
 	}
 	else
 	{
 		outlw_MR_doHideFull = true;
 		profileNamespace setVariable ["outlw_MR_doHideFull_profile", true];
-		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9004) ctrlSetStructuredText parseText "Show Full: <t align='right'>Off</t>";
+		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 9004) ctrlSetStructuredText parseText "모두 보기: <t align='right'>끄기</t>";
 	}:
 
 	call outlw_MR_populateMagListBox;
@@ -980,7 +980,7 @@ outlw_MR_onDialogDestroy =
 			default {_difStr = "No Change"};
 		};
 
-		hint parseText ("<br/><t size='1.05'>Mag Repack Debug</t><t size='0.95'><br/><br/>All Mags<br/>[" + str((outlw_MR_startingInfo select 0) select 0) + "] >> [" + str((_endingInfo select 0) select 0) + "]<br/>Ammo: " + _difStr + "<br/><br/>" + _output + "</t>");
+		hint parseText ("<br/><t size='1.05'>탄창 재포장 디버그</t><t size='0.95'><br/><br/>모든 탄창<br/>[" + str((outlw_MR_startingInfo select 0) select 0) + "] >> [" + str((_endingInfo select 0) select 0) + "]<br/>Ammo: " + _difStr + "<br/><br/>" + _output + "</t>");
 	};
 
 	[] spawn
