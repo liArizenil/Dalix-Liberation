@@ -46,6 +46,7 @@ if(side player == GRLIB_side_enemy) then {
 		"76561198393142505", // hello
 		"76561198111425223", // Basia_Romanovski
 		"76561198255854264", // LOUNGE
+		"76561198180218822", // KIY
 		"76561198801945974" //아코도리
 	];
 	OPFOR_Weapons = [
