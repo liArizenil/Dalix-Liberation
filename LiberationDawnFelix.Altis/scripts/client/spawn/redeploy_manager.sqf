@@ -231,18 +231,23 @@ if(side player == GRLIB_side_enemy) then {
 			};
 			if(!(primaryWeapon player in OPFOR_Weapons) && primaryWeapon player != "") then {
 				player removeWeapon (primaryWeapon player);
+				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(secondaryWeapon player != "") then {
 				player removeWeapon (secondaryWeapon player);
+				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(vest player in OPFOR_Vest) && vest player != "") then {
 				removeVest player;
+				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(uniform player in OPFOR_Uniform) && uniform player != "") then {
 				removeUniform player;
+				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(headgear player in OPFOR_Helmet) && headgear player != "") then {
 				removeHeadgear player;
+				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(backpack player != "") then {
 				{
@@ -368,18 +373,23 @@ if(side player == GRLIB_side_enemy) then {
 			};
 			if(!(primaryWeapon player in OPFOR_Weapons) && primaryWeapon player != "") then {
 				player removeWeapon (primaryWeapon player);
+				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(secondaryWeapon player in OPFOR_Weapons) && secondaryWeapon player != "") then {
 				player removeWeapon (secondaryWeapon player);
+				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(vest player in OPFOR_Vest) && vest player != "") then {
 				removeVest player;
+				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(uniform player in OPFOR_Uniform) && uniform player != "") then {
 				removeUniform player;
+				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(!(headgear player in OPFOR_Helmet) && headgear player != "") then {
 				removeHeadgear player;
+				hint parseText format ["<t color='#ff0000'>선택 장비 중 일부가 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if(backpack player != "") then {
 				{
