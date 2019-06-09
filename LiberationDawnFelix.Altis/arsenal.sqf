@@ -16,7 +16,7 @@ GRLIB_arsenal_backpacks = [
 ];
 
 bannedbackpack = [	
-                        "I_UAV_06_backpack_F",
+            "I_UAV_06_backpack_F",
 			"O_UAV_06_backpack_F",
 			"B_UAV_06_backpack_F",
 			"I_UAV_06_medical_backpack_F",
@@ -57,6 +57,15 @@ if(side player == GRLIB_side_enemy) then {
 		"76561198111425223", // Basia_Romanovski
 		"76561198255854264", // LOUNGE
 		"76561198180218822", // KIY
+		"76561198166137266", // GGURRU
+        "76561198195208007", // Bullgom
+        "76561198272781942", // Arizen
+        "76561198148895720", // Korose
+        "76561198153942003", // C4
+        "76561198077911760", // 제주샘물
+        "76561198057511052", // PvtCostUK
+        "76561198110624509", // Dawn
+        "76561198296986472", // Felix
 		"76561198801945974" //아코도리
 	];
 	OPFOR_Weapons = [
