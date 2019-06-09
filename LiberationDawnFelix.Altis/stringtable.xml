@@ -1238,11 +1238,11 @@
 				</Key>
 				<Key ID="STR_MAGREPACK_KEYRESET">
 						<Original>Mag Repack keybinding has been reset to </Original>
-						<Korean>탄창 재포장키가 다음으로 초기화 됐습니다 : </Korean>
+						<Korean>탄창 재포장키가 다음으로 초기화되었습니다 : </Korean>
 				</Key>
 				<Key ID="STR_MAGREPACK_KEYCHANGED">
 						<Original>Mag Repack keybinding has been updated to </Original>
-						<Korean>탄창 재포장키가 다음으로 변경 됐습니다 : </Korean>
+						<Korean>탄창 재포장키가 다음으로 변경되었습니다 : </Korean>
 				</Key>
 				<Key ID="STR_MAGREPACK_STARTED">
 						<Original>Mag Repack Initialized</Original>
@@ -1250,7 +1250,7 @@
 				</Key>
 				<Key ID="STR_MAGREPACK_KEY">
 						<Original>Keybinding:</Original>
-						<Korean>탄창 재포장 키 : </Korean>
+						<Korean>탄창 재포장 메뉴 키 : </Korean>
 				</Key>
 				<Key ID="STR_PARAMS_DAYDURATION">
 						<Original>하루를 몇 시간으로 (hours)</Original>
