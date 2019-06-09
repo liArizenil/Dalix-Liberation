@@ -254,15 +254,15 @@ if(side player == GRLIB_side_enemy) then {
 				removeBackpack player;
 				hint parseText format ["<t color='#ff0000'>선택하신 가방은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
-            _mags = magazines player;
+            		_mags = magazines player;
 			if (!isNil "_mags") then {
-                {
-                    if(_x in bannedmines) then {
-                        player removeMagazines _x;
+                		{
+                    			if(_x in bannedmines) then {
+                        			player removeMagazines _x;
 						hint parseText format ["<t color='#ff0000'>대인지뢰류는 사용 불가능합니다.</t>"];
-                    };
-                }foreach(magazines player);
-            };
+                    			};
+                		}foreach(_mags);
+            		};
 			if(((primaryWeaponItems player) select 0) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 0);
 			};
@@ -399,15 +399,15 @@ if(side player == GRLIB_side_enemy) then {
 				removeBackpack player;
 				hint parseText format ["<t color='#ff0000'>선택하신 가방은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
-            _mags = magazines player;
+            		_mags = magazines player;
 			if (!isNil "_mags") then {
-                {
-                    if(_x in bannedmines) then {
-                        player removeMagazines _x;
+                		{
+                    			if(_x in bannedmines) then {
+                        			player removeMagazines _x;
 						hint parseText format ["<t color='#ff0000'>대인지뢰류는 사용 불가능합니다.</t>"];
-                    };
-                }foreach(magazines player);
-            };
+                    			};
+                		}foreach(_mags);
+            		};
 			if(((primaryWeaponItems player) select 0) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 0);
 			};
