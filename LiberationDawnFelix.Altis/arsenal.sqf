@@ -66,6 +66,8 @@ if(side player == GRLIB_side_enemy) then {
 		"76561198057511052", // PvtCostUK
 		"76561198110624509", // Dawn
 		"76561198296986472", // Felix
+		"76561198098430411", // CukaBurger
+		"76561198318120602", // Big Boss
 		"76561198801945974" //아코도리
 	];
 	OPFOR_Weapons = [
