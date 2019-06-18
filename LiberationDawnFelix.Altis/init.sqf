@@ -48,19 +48,19 @@ if (!isDedicated && hasInterface) then {
 		if(_bluforcount < 15) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		};
-		if(_bluforcount < 25 && {side _x == GRLIB_side_enemy} count (allPlayers) > 1) then {
+		if(_bluforcount < 20 && {side _x == GRLIB_side_enemy} count (allPlayers) > 1) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		};
-		if(_bluforcount < 30 && {side _x == GRLIB_side_enemy} count (allPlayers) > 2) then {
+		if(_bluforcount < 25 && {side _x == GRLIB_side_enemy} count (allPlayers) > 3) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		};
 		if(typeOf player == "O_Soldier_AT_F") then {
-			if(_bluforcount < 30) then {
+			if(_bluforcount < 25) then {
 		        	["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 			};
 		};
 		if(typeOf player == "O_Pilot_F") then {
-			if(_bluforcount < 35) then {
+			if(_bluforcount < 30) then {
 				["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 			};
 			if(!(((getPlayerUID player) in Air_Whitelist) || (call BIS_fnc_admin == 2))) then {
