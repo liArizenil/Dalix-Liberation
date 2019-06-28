@@ -73,6 +73,7 @@ if(side player == GRLIB_side_enemy) then {
 		"76561198138557818", // darkcat
 		"76561198031713380", // KOI
 		"76561198074014359", // slowstar
+		"76561197999778911",// Airborne
 		"76561198801945974" //아코도리
 	];
 	OPFOR_Weapons = [
