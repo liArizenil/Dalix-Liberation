@@ -263,6 +263,12 @@ if(side player == GRLIB_side_enemy) then {
                     			};
                 		}foreach(_mags);
             		};
+					_hmd = hmd player;
+                    			if(_hmd in bannedgoggles) then {
+                        			player unassignItem _hmd;
+									player removeItem _hmd;
+						hint parseText format ["<t color='#ff0000'>대항군은 열상 탐지 장비 사용이 불가능합니다.</t>"];
+                    			};
 			if(((primaryWeaponItems player) select 0) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 0);
 			};
@@ -408,6 +414,12 @@ if(side player == GRLIB_side_enemy) then {
                     			};
                 		}foreach(_mags);
             		};
+					_hmd = hmd player;
+                    			if(_hmd in bannedgoggles) then {
+                        			player unassignItem _hmd;
+									player removeItem _hmd;
+						hint parseText format ["<t color='#ff0000'>대항군은 열상 탐지 장비 사용이 불가능합니다.</t>"];
+                    			};
 			if(((primaryWeaponItems player) select 0) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 0);
 			};
