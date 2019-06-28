@@ -37,7 +37,12 @@ bannedmines = [
 	"ClaymoreDirectionalMine_Remote_Mag",
 	"APERSMineDispenser_Mag",
 	"TrainingMine_Mag"	
-];			
+];
+bannedgoggles = [
+	"NVGogglesB_grn_F",
+	"NVGogglesB_gry_F",
+	"NVGogglesB_blk_F"
+];
 if(side player == GRLIB_side_enemy) then {
 	Air_Whitelist = [
 		"",
@@ -66,14 +71,6 @@ if(side player == GRLIB_side_enemy) then {
 		"76561198057511052", // PvtCostUK
 		"76561198110624509", // Dawn
 		"76561198296986472", // Felix
-		"76561198098430411", // CukaBurger
-		"76561198318120602", // Big Boss
-		"76561198137420658", // GAST
-		"76561198056369894", // 임씨
-		"76561198138557818", // darkcat
-		"76561198031713380", // KOI
-		"76561198074014359", // slowstar
-		"76561197999778911",// Airborne
 		"76561198801945974" //아코도리
 	];
 	OPFOR_Weapons = [
@@ -127,13 +124,9 @@ if(side player == GRLIB_side_enemy) then {
 		"V_TacVest_blk"
 	];
 	OPFOR_Backpacks = [
-		"B_ViperLightHarness_ghex_F",
-		"B_ViperLightHarness_oli_F",
 		"B_ViperLightHarness_khk_F",
 		"B_ViperLightHarness_hex_F",
 		"B_ViperLightHarness_blk_F",
-		"B_ViperHarness_ghex_F",
-		"B_ViperHarness_oli_F",
 		"B_ViperHarness_khk_F",
 		"B_ViperHarness_hex_F",
 		"B_ViperHarness_blk_F",
@@ -162,18 +155,13 @@ if(side player == GRLIB_side_enemy) then {
 			"arifle_Katiba_C_F"
 		];
 		OPFOR_Helmet = OPFOR_Helmet + [
-			"H_HelmetO_ViperSP_ghex_F",
-			"H_HelmetO_ViperSP_hex_F",
-			"H_HelmetO_ghex_F",
 			"H_HelmetO_oucamo",
 			"H_HelmetO_ocamo"
 		];
 		OPFOR_Uniform = OPFOR_Uniform + [
-			"U_O_T_Soldier_F",
 			"U_O_CombatUniform_oucamo",
 			"U_O_CombatUniform_ocamo",
-			"U_O_V_Soldier_Viper_hex_F",
-			"U_O_V_Soldier_Viper_F"
+			"U_O_V_Soldier_Viper_hex_F"
 		];
 	};
 	if(typeOf player == "O_sniper_F") then {
@@ -187,9 +175,6 @@ if(side player == GRLIB_side_enemy) then {
 			"srifle_GM6_camo_F"
 		];
 		OPFOR_Helmet = OPFOR_Helmet + [
-			"H_HelmetO_ViperSP_ghex_F",
-			"H_HelmetO_ViperSP_hex_F",
-			"H_HelmetO_ghex_F",
 			"H_HelmetO_oucamo",
 			"H_HelmetO_ocamo"
 		];
@@ -227,18 +212,13 @@ if(side player == GRLIB_side_enemy) then {
 			"launch_NLAW_F"
 		];
 		OPFOR_Helmet = OPFOR_Helmet + [
-			"H_HelmetO_ViperSP_ghex_F",
-			"H_HelmetO_ViperSP_hex_F",
-			"H_HelmetO_ghex_F",
 			"H_HelmetO_oucamo",
 			"H_HelmetO_ocamo"
 		];
 		OPFOR_Uniform = OPFOR_Uniform + [
-			"U_O_T_Soldier_F",
 			"U_O_CombatUniform_oucamo",
 			"U_O_CombatUniform_ocamo",
-			"U_O_V_Soldier_Viper_hex_F",
-			"U_O_V_Soldier_Viper_F"
+			"U_O_V_Soldier_Viper_hex_F"
 		];
 	};
 	if(typeOf player == "O_Pilot_F") then {
