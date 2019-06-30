@@ -227,7 +227,7 @@ if(side player == GRLIB_side_enemy) then {
 				sleep 0.1;
 				isNull (uiNamespace getVariable ["RscDisplayArsenal", displayNull]) && ((player distance (getmarkerpos GRLIB_OPFOR_respawn_marker) < 30) ) && vehicle player == player && alive player && !dialog && howtoplay == 0
 			};
-			if({side _x == GRLIB_side_friendly} count (allPlayers) < 35) then {
+			if({side _x == GRLIB_side_friendly} count (allPlayers) < 20) then {
 				["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 			};
 			if(!(primaryWeapon player in OPFOR_Weapons) && primaryWeapon player != "") then {
