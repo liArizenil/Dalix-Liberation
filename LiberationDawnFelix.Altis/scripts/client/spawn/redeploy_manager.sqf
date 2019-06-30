@@ -458,8 +458,13 @@ if(side player == GRLIB_side_enemy) then {
 			} forEach allPlayers;
 			lbClear 1501;
 			{
-				lbAdd [ 1501 , markerText _x];
+				if(!([ markerpos _x ] call F_sectorOwnership in blufor_sectors)) then {
+					_sectors pushback _x;
+				};
 			} forEach active_sectors;
+			{
+				lbAdd [ 1501 , markerText _x];
+			} forEach _sectors;
 			
 			ctrlEnable [ 1600 , false ];
 			ctrlSetText[ 1600 , format["%1",[player getVariable "deploy_timer"] call F_secondsToTimer]];
@@ -525,7 +530,7 @@ if(side player == GRLIB_side_enemy) then {
 					else{
 						if(!(_oldsectorobject isEqualTo(active_sectors select (lbcursel 1501)))) then {
 							spawntype = 3;
-							_oldsectorobject = active_sectors select (lbcursel 1501);
+							_oldsectorobject = _sectors select (lbcursel 1501);
 							lbClear 1500;
 							lbSetCurSel[1500,-1];
 							spawn_position = getMarkerPos (_oldsectorobject);
@@ -555,10 +560,15 @@ if(side player == GRLIB_side_enemy) then {
 						_opforplayer pushback _x;
 					};
 				} forEach allPlayers;
+				{
+					if(!([ markerpos _x ] call F_sectorOwnership in blufor_sectors)) then {
+						_sectors pushback _x;
+					};
+				} forEach active_sectors;
 				lbClear 1501;
 				{
 					lbAdd [ 1501 , markerText _x];
-				} forEach active_sectors;
+				} forEach _sectors;
 				uiSleep 0.1;
 			};
 
@@ -595,7 +605,7 @@ if(side player == GRLIB_side_enemy) then {
 					sleep 4;
 					halojumping = false;
 					waitUntil { !alive player || ((getPosATL player) select 2) < 150 };
-					player setVelocity [0,0,0];
+					vehicle player setVelocity [0,0,0];
 					player action ["openParachute"];
 					
 					waitUntil { !alive player || isTouchingGround player };
@@ -611,11 +621,13 @@ if(side player == GRLIB_side_enemy) then {
 					player setpos _spawnpos;
 				};
 				if(spawntype == 3) then { //spawn in sector
-					_sectorpos = [ getMarkerPos (active_sectors select (lbCurSel 1501)), random 100, random 360 ] call BIS_fnc_relPos;
-					_near_AIs = [ _sectorpos nearEntities [["Man"], 800], { !(isPlayer _x) && (side _x == side player) && (vehicle _x == _x) } ] call BIS_fnc_conditionalSelect;
+					_sectorpos = [ getMarkerPos (_sectors select (lbCurSel 1501)), random 100, random 360 ] call BIS_fnc_relPos;
+					_near_AIs = [ _sectorpos nearEntities [["Man"], 800], { !(isPlayer _x) && (side _x == side player) && (vehicle _x == _x) && alive _x } ] call BIS_fnc_conditionalSelect;
 					_spawnpos = zeropos;
 					if(count _near_AIs > 0) then {
-						_spawnpos = getPos (_near_AIs call BIS_fnc_selectRandom);
+						_replaceable_AI = (_near_AIs call BIS_fnc_selectRandom);
+						_spawnpos = getPos _replaceable_AI;
+						deleteVehicle _replaceable_AI;
 					}
 					else{
 						while { _spawnpos distance zeropos < 1000 } do {
