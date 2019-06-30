@@ -274,6 +274,7 @@ if(side player == GRLIB_side_enemy) then {
 			};
 			if(!(((primaryWeaponItems player) select 2) in OPFOR_Sight) && ((primaryWeaponItems player) select 2) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 2);
+				hint parseText format ["<t color='#ff0000'>선택하신 조준경은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if ( !GRLIB_fatigue ) then {
 				player enableStamina false;
@@ -425,6 +426,7 @@ if(side player == GRLIB_side_enemy) then {
 			};
 			if(!(((primaryWeaponItems player) select 2) in OPFOR_Sight) && ((primaryWeaponItems player) select 2) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 2);
+				hint parseText format ["<t color='#ff0000'>선택하신 조준경은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
 			if ( !GRLIB_fatigue ) then {
 				player enableStamina false;
