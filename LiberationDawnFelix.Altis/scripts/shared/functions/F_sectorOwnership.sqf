@@ -1,7 +1,7 @@
 params [ "_thatpos", [ "_localsize", GRLIB_capture_size ] ];
 private [ "_cap_thresold_count", "_cap_thresold_ratio", "_cap_min_ratio", "_sectorside", "_countblufor_ownership", "_countopfor_ownership", "_blufor_ratio" ];
 
-_cap_thresold_count = 3;
+_cap_thresold_count = 2;
 _cap_thresold_ratio = 0.85;
 _cap_min_ratio = 0.51;
 
@@ -18,6 +18,6 @@ if ( _countblufor_ownership == 0 && _countopfor_ownership <= _cap_thresold_count
 
 if ( _countblufor_ownership > 0 && ( ( _countopfor_ownership <= _cap_thresold_count && _blufor_ratio > _cap_min_ratio ) || _blufor_ratio > _cap_thresold_ratio) ) then { _sectorside = GRLIB_side_friendly; };
 
-if ( _countblufor_ownership == 0 && _countopfor_ownership > _cap_thresold_count ) then { _sectorside = GRLIB_side_enemy; };
+if ( _countblufor_ownership == 0 && _countopfor_ownership >= _cap_thresold_count ) then { _sectorside = GRLIB_side_enemy; };
 
 _sectorside
