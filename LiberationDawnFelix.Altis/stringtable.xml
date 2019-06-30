@@ -1525,11 +1525,20 @@
 						<Russian>Увеличенная</Russian>
 				</Key>
 				<Key ID="STR_FRIENDLY_FIRE">
-						<Original>경고 : 아군 사격</Original>
-						<French>Attention: tirs alliés</French>
-						<German>Achtung: Eigenbeschuss</German>
-						<Spanish>Atención: fuego amigo</Spanish>
-						<Russian>Предупреждение: дружественный огонь</Russian>
+						<Original>Friendly Fire</Original>
+						<Korean>아군 사격</Korean>
+						<French>tirs alliés</French>
+						<German>Eigenbeschuss</German>
+						<Spanish>fuego amigo</Spanish>
+						<Russian>дружественный огонь</Russian>
+				</Key>
+				<Key ID="STR_WARNING_FF">
+						<Original>!!Warning!!</Original>
+						<Korean>!!경고!!</Korean>
+						<French>!!tirs alliés!!</French>
+						<German>!!Eigenbeschuss!!</German>
+						<Spanish>!!fuego amigo!!</Spanish>
+						<Russian>!!дружественный огонь!!</Russian>
 				</Key>
 				<Key ID="STR_PARAM_TEAMKILL_PENALTY">
 						<Original>아군 사살 페널티</Original>
