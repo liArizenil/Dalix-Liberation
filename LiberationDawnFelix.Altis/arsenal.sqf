@@ -90,35 +90,6 @@ if(side player == GRLIB_side_enemy) then {
 		"hgun_Rook40_F",
 		"hgun_Pistol_heavy_02_F"
 	];
-	OPFOR_Sight = [
-		"optic_ACO_grn_smg",
-		"optic_aco_smg",
-		"optic_ACO_grn",
-		"optic_aco",
-		"optic_Arco",
-		"optic_Arco_ghex_F",
-		"optic_Arco_blk_F",
-		"optic_DMS",
-		"optic_DMS_ghex_F",
-		"optic_AMS_snd",
-		"optic_AMS_khk",
-		"optic_ams",
-		"optic_ERCO_snd_F",
-		"optic_ERCO_khk_F",
-		"optic_ERCO_blk_F",
-		"optic_Holosight",
-		"optic_Holosight_smg",
-		"optic_Holosight_smg_khk_F",
-		"optic_Holosight_smg_blk_F",
-		"optic_Holosight_khk_F",
-		"optic_Holosight_blk_F",
-		"optic_SOS",
-		"optic_SOS_khk_F",
-		"optic_MRCO",
-		"optic_hamr",
-		"optic_Hamr_khk_F",
-		"optic_Nightstalker"
-	];
 	OPFOR_Vest = [
 		"V_PlateCarrierGL_tna_F",
 		"V_PlateCarrierGL_blk",
@@ -148,6 +119,7 @@ if(side player == GRLIB_side_enemy) then {
 		"B_AssaultPack_ocamo",
 		"B_AssaultPack_blk"
 	];
+	OPFOR_Sight = [];
 	OPFOR_Helmet = [];
 	OPFOR_Uniform = [];
 	if(typeOf player == "O_soldier_M_F") then {
@@ -171,6 +143,35 @@ if(side player == GRLIB_side_enemy) then {
 			"U_O_CombatUniform_ocamo",
 			"U_O_V_Soldier_Viper_hex_F"
 		];
+		OPFOR_Sight = OPFOR_Sight + [
+			"optic_ACO_grn_smg",
+			"optic_aco_smg",
+			"optic_ACO_grn",
+			"optic_aco",
+			"optic_Arco",
+			"optic_Arco_ghex_F",
+			"optic_Arco_blk_F",
+			"optic_DMS",
+			"optic_DMS_ghex_F",
+			"optic_AMS_snd",
+			"optic_AMS_khk",
+			"optic_ams",
+			"optic_ERCO_snd_F",
+			"optic_ERCO_khk_F",
+			"optic_ERCO_blk_F",
+			"optic_Holosight",
+			"optic_Holosight_smg",
+			"optic_Holosight_smg_khk_F",
+			"optic_Holosight_smg_blk_F",
+			"optic_Holosight_khk_F",
+			"optic_Holosight_blk_F",
+			"optic_SOS",
+			"optic_SOS_khk_F",
+			"optic_MRCO",
+			"optic_hamr",
+			"optic_Hamr_khk_F",
+			"optic_Nightstalker"
+		];	
 	};
 	if(typeOf player == "O_sniper_F") then {
 		OPFOR_Weapons = OPFOR_Weapons + [
@@ -193,6 +194,11 @@ if(side player == GRLIB_side_enemy) then {
 			"U_O_FullGhillie_sard",
 			"U_O_FullGhillie_lsh",
 			"U_O_T_FullGhillie_tna_F"
+		];
+		OPFOR_Sight = OPFOR_Sight + [
+			"optic_KHS_old",
+			"optic_tws",
+			"optic_NVS"
 		];
 	};
 	if(typeOf player == "O_soldier_AT_F") then {
@@ -228,6 +234,35 @@ if(side player == GRLIB_side_enemy) then {
 			"U_O_CombatUniform_ocamo",
 			"U_O_V_Soldier_Viper_hex_F"
 		];
+		OPFOR_Sight = OPFOR_Sight + [
+			"optic_ACO_grn_smg",
+			"optic_aco_smg",
+			"optic_ACO_grn",
+			"optic_aco",
+			"optic_Arco",
+			"optic_Arco_ghex_F",
+			"optic_Arco_blk_F",
+			"optic_DMS",
+			"optic_DMS_ghex_F",
+			"optic_AMS_snd",
+			"optic_AMS_khk",
+			"optic_ams",
+			"optic_ERCO_snd_F",
+			"optic_ERCO_khk_F",
+			"optic_ERCO_blk_F",
+			"optic_Holosight",
+			"optic_Holosight_smg",
+			"optic_Holosight_smg_khk_F",
+			"optic_Holosight_smg_blk_F",
+			"optic_Holosight_khk_F",
+			"optic_Holosight_blk_F",
+			"optic_SOS",
+			"optic_SOS_khk_F",
+			"optic_MRCO",
+			"optic_hamr",
+			"optic_Hamr_khk_F",
+			"optic_Nightstalker"
+		];
 	};
 	if(typeOf player == "O_Pilot_F") then {
 		OPFOR_Weapons = OPFOR_Weapons + [
@@ -241,6 +276,35 @@ if(side player == GRLIB_side_enemy) then {
 		];
 		OPFOR_Uniform = OPFOR_Uniform + [
 			"U_O_PilotCoveralls"
+		];
+		OPFOR_Sight = OPFOR_Sight + [
+			"optic_ACO_grn_smg",
+			"optic_aco_smg",
+			"optic_ACO_grn",
+			"optic_aco",
+			"optic_Arco",
+			"optic_Arco_ghex_F",
+			"optic_Arco_blk_F",
+			"optic_DMS",
+			"optic_DMS_ghex_F",
+			"optic_AMS_snd",
+			"optic_AMS_khk",
+			"optic_ams",
+			"optic_ERCO_snd_F",
+			"optic_ERCO_khk_F",
+			"optic_ERCO_blk_F",
+			"optic_Holosight",
+			"optic_Holosight_smg",
+			"optic_Holosight_smg_khk_F",
+			"optic_Holosight_smg_blk_F",
+			"optic_Holosight_khk_F",
+			"optic_Holosight_blk_F",
+			"optic_SOS",
+			"optic_SOS_khk_F",
+			"optic_MRCO",
+			"optic_hamr",
+			"optic_Hamr_khk_F",
+			"optic_Nightstalker"
 		];
 	};
 };
