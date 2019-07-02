@@ -45,7 +45,6 @@ bannedgoggles = [
 ];
 if(side player == GRLIB_side_enemy) then {
 	Air_Whitelist = [
-		"",
 		"76561198145769064", //EpT_Schna
 		"76561197962812389", //UvRay
 		"76561198048248374", //podoria
@@ -122,7 +121,7 @@ if(side player == GRLIB_side_enemy) then {
 			"H_HelmetLeaderO_ocamo",
 			"H_HelmetLeaderO_oucamo",
 			"H_HelmetB_camo",
-			"H_HelmetB_grass
+			"H_HelmetB_grass"
 		];
 		OPFOR_Uniform = OPFOR_Uniform + [
 			"U_O_CombatUniform_oucamo",
@@ -146,7 +145,7 @@ if(side player == GRLIB_side_enemy) then {
 			"B_AssaultPack_ocamo",
 			"B_AssaultPack_blk"
 		];
-		OPFOR_Muzzles = OPFOR_Muzzle + [
+		OPFOR_Muzzles = OPFOR_Muzzles + [
 			"muzzle_snds_B_snd_F",
 			"muzzle_snds_B_khk_F",
 			"muzzle_snds_B"
@@ -167,7 +166,7 @@ if(side player == GRLIB_side_enemy) then {
 			"H_HelmetLeaderO_ocamo",
 			"H_HelmetLeaderO_oucamo",
 			"H_HelmetB_camo",
-			"H_HelmetB_grass
+			"H_HelmetB_grass"
 		];
 		OPFOR_Uniform = OPFOR_Uniform + [
 			"U_O_T_Sniper_F",
@@ -227,7 +226,7 @@ if(side player == GRLIB_side_enemy) then {
 			"H_HelmetLeaderO_ocamo",
 			"H_HelmetLeaderO_oucamo",
 			"H_HelmetB_camo",
-			"H_HelmetB_grass
+			"H_HelmetB_grass"
 		];
 		OPFOR_Uniform = OPFOR_Uniform + [
 			"U_O_CombatUniform_oucamo",
@@ -253,7 +252,7 @@ if(side player == GRLIB_side_enemy) then {
 			"optic_Holosight_blk_F",
 			"optic_MRCO",
 			"optic_hamr",
-			"optic_Hamr_khk_F",
+			"optic_Hamr_khk_F"
 		];
 		OPFOR_Backpacks = OPFOR_Backpacks + [
 			"B_AssaultPack_khk",
@@ -301,8 +300,7 @@ if(side player == GRLIB_side_enemy) then {
 			"optic_SOS_khk_F",
 			"optic_MRCO",
 			"optic_hamr",
-			"optic_Hamr_khk_F",
-			"optic_Nightstalker"
+			"optic_Hamr_khk_F"
 		];
 		OPFOR_Backpacks = OPFOR_Backpacks + [
 			"B_Parachute"
