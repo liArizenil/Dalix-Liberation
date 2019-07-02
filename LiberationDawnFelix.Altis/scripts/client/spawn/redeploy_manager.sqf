@@ -269,8 +269,9 @@ if(side player == GRLIB_side_enemy) then {
 									player removeItem _hmd;
 						hint parseText format ["<t color='#ff0000'>대항군은 열상 탐지 장비 사용이 불가능합니다.</t>"];
                     			};
-			if(((primaryWeaponItems player) select 0) != "") then {
+			if(!(((primaryWeaponItems player) select 0) in OPFOR_Muzzles) && ((primaryWeaponItems player) select 0) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 0);
+				hint parseText format ["<t color='#ff0000'>선택하신 소음기는 사용 불가능한 장비입니다.</t><br/>지정사수만 소음기 장착이 가능합니다."];
 			};
 			if(!(((primaryWeaponItems player) select 2) in OPFOR_Sight) && ((primaryWeaponItems player) select 2) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 2);
@@ -421,8 +422,9 @@ if(side player == GRLIB_side_enemy) then {
 									player removeItem _hmd;
 						hint parseText format ["<t color='#ff0000'>대항군은 열상 탐지 장비 사용이 불가능합니다.</t>"];
                     			};
-			if(((primaryWeaponItems player) select 0) != "") then {
+			if(!(((primaryWeaponItems player) select 0) in OPFOR_Muzzles) && ((primaryWeaponItems player) select 0) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 0);
+				hint parseText format ["<t color='#ff0000'>선택하신 소음기는 사용 불가능한 장비입니다.</t><br/>지정사수만 소음기 장착이 가능합니다."];
 			};
 			if(!(((primaryWeaponItems player) select 2) in OPFOR_Sight) && ((primaryWeaponItems player) select 2) != "") then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 2);
