@@ -119,6 +119,8 @@ if(side player == GRLIB_side_enemy) then {
 			"srifle_DMR_06_camo_F"
 		];
 		OPFOR_Helmet = OPFOR_Helmet + [
+			"H_HelmetO_oucamo",
+			"H_HelmetO_ocamo",
 			"H_HelmetSpecO_ocamo",
 			"H_HelmetSpecO_blk",
 			"H_HelmetLeaderO_ocamo",
@@ -170,6 +172,8 @@ if(side player == GRLIB_side_enemy) then {
 			"srifle_GM6_camo_F"
 		];
 		OPFOR_Helmet = OPFOR_Helmet + [
+			"H_HelmetO_oucamo",
+			"H_HelmetO_ocamo",
 			"H_HelmetSpecO_ocamo",
 			"H_HelmetSpecO_blk",
 			"H_HelmetLeaderO_ocamo",
@@ -233,6 +237,8 @@ if(side player == GRLIB_side_enemy) then {
 			"launch_RPG32_F"
 		];
 		OPFOR_Helmet = OPFOR_Helmet + [
+			"H_HelmetO_oucamo",
+			"H_HelmetO_ocamo",
 			"H_HelmetSpecO_ocamo",
 			"H_HelmetSpecO_blk",
 			"H_HelmetLeaderO_ocamo",
