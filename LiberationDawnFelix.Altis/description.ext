@@ -57,6 +57,13 @@ class CfgDebriefing
 		description = "Please wait untill we get more blufor";
 		pictureBackground = "";
 	};
+	class Needmoresectors
+	{
+		title = "Need More BLUFOR Sectors";
+		subtitle = "청군이 더 많은 지역을 점령해야됩니다.";
+		description = "Need more BLUFOR sectors for unlock this slot";
+		pictureBackground = "";
+	};
 	class Timeout
 	{
 		title = "Opfor play time exceeded";
