@@ -219,7 +219,7 @@ if(side player == GRLIB_side_enemy) then {
 
 	if(typeOf player == "O_Pilot_F") then { //---------------------------------- this is pilot -------------------------------------
 		if(count(blufor_sectors) < 15) then {
-			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
+			["Needmoresectors", false, false,false,false] call BIS_fnc_endMission;
 		};
 		player addEventHandler ["Killed",{ player setVariable["deploy_timer",GRLIB_Opfor_Air_respawn_timer,false];}];
 		while { true } do {		
@@ -368,9 +368,13 @@ if(side player == GRLIB_side_enemy) then {
 				_aircraft setPylonLoadOut["pylonBayCenter2",""];
 				_aircraft setPylonLoadOut["pylonBayCenter3",""];
 				_aircraft flyInHeight (120 + (random 180));
+				_aircraft removeWeaponTurret ["weapon_KAB250Launcher",[-1]];
+				_aircraft addWeaponTurret ["weapon_SDBLauncher",[-1]];
+				_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
+				_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
+				_aircraft addMagazineTurret ["magazine_Fighter02_Gun30mm_AA_x180",[-1]];
 				player moveindriver _aircraft;
 			};
-
 			if (dialog) then {
 				closeDialog 0;
 			};
