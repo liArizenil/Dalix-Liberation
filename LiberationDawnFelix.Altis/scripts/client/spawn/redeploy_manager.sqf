@@ -375,6 +375,7 @@ if(side player == GRLIB_side_enemy) then {
 				_aircraft addMagazineTurret ["magazine_Fighter02_Gun30mm_AA_x180",[-1]];
 				player moveindriver _aircraft;
 			};
+			
 			if (dialog) then {
 				closeDialog 0;
 			};
