@@ -91,13 +91,9 @@ if(side player == GRLIB_side_enemy) then {
 		"hgun_Pistol_heavy_02_F"
 	];
 	OPFOR_Vest = [
-		"V_PlateCarrierGL_tna_F",
 		"V_PlateCarrierGL_blk",
-		"V_PlateCarrier1_tna_F",
 		"V_PlateCarrier1_blk",
 		"V_TacVest_brn",
-		"V_I_G_resistanceLeader_F",
-		"V_TacVest_oli",
 		"V_TacVest_camo",
 		"V_TacVest_khk",
 		"V_TacVest_blk",
@@ -145,11 +141,6 @@ if(side player == GRLIB_side_enemy) then {
 			"B_ViperHarness_khk_F",
 			"B_ViperHarness_hex_F",
 			"B_ViperHarness_blk_F",
-			"B_AssaultPack_mcamo",
-			"B_AssaultPack_rgr",
-			"B_AssaultPack_dgtl",
-			"B_AssaultPack_sgg",
-			"B_AssaultPack_tna_F",
 			"B_AssaultPack_khk",
 			"B_AssaultPack_cbr",
 			"B_AssaultPack_ocamo",
@@ -163,12 +154,9 @@ if(side player == GRLIB_side_enemy) then {
 	};
 	if(typeOf player == "O_sniper_F") then {
 		OPFOR_Weapons = OPFOR_Weapons + [
-			"srifle_DMR_04_Tan_F",
-			"srifle_DMR_04_F",
 			"srifle_LRR_F",
 			"srifle_LRR_camo_F",
 			"srifle_LRR_tna_F",
-			"srifle_GM6_ghex_F",
 			"srifle_GM6_camo_F"
 		];
 		OPFOR_Helmet = OPFOR_Helmet + [
@@ -201,11 +189,6 @@ if(side player == GRLIB_side_enemy) then {
 			"B_ViperHarness_khk_F",
 			"B_ViperHarness_hex_F",
 			"B_ViperHarness_blk_F",
-			"B_AssaultPack_mcamo",
-			"B_AssaultPack_rgr",
-			"B_AssaultPack_dgtl",
-			"B_AssaultPack_sgg",
-			"B_AssaultPack_tna_F",
 			"B_AssaultPack_khk",
 			"B_AssaultPack_cbr",
 			"B_AssaultPack_ocamo",
@@ -259,11 +242,6 @@ if(side player == GRLIB_side_enemy) then {
 			"optic_Arco",
 			"optic_Arco_ghex_F",
 			"optic_Arco_blk_F",
-			"optic_DMS",
-			"optic_DMS_ghex_F",
-			"optic_AMS_snd",
-			"optic_AMS_khk",
-			"optic_ams",
 			"optic_ERCO_snd_F",
 			"optic_ERCO_khk_F",
 			"optic_ERCO_blk_F",
@@ -273,19 +251,11 @@ if(side player == GRLIB_side_enemy) then {
 			"optic_Holosight_smg_blk_F",
 			"optic_Holosight_khk_F",
 			"optic_Holosight_blk_F",
-			"optic_SOS",
-			"optic_SOS_khk_F",
 			"optic_MRCO",
 			"optic_hamr",
 			"optic_Hamr_khk_F",
-			"optic_Nightstalker"
 		];
 		OPFOR_Backpacks = OPFOR_Backpacks + [
-			"B_AssaultPack_mcamo",
-			"B_AssaultPack_rgr",
-			"B_AssaultPack_dgtl",
-			"B_AssaultPack_sgg",
-			"B_AssaultPack_tna_F",
 			"B_AssaultPack_khk",
 			"B_AssaultPack_cbr",
 			"B_AssaultPack_ocamo",
