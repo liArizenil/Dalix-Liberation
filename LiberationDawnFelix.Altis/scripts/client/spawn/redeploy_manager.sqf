@@ -464,6 +464,7 @@ if(side player == GRLIB_side_enemy) then {
 					_sectors pushback _x;
 				};
 			} forEach active_sectors;
+			_sectors = [];
 			{
 				lbAdd [ 1501 , markerText _x];
 			} forEach _sectors;
@@ -562,6 +563,7 @@ if(side player == GRLIB_side_enemy) then {
 						_opforplayer pushback _x;
 					};
 				} forEach allPlayers;
+				_sectors = [];
 				{
 					if(!([ markerpos _x ] call F_sectorOwnership in blufor_sectors)) then {
 						_sectors pushback _x;
