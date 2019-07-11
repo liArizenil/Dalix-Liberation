@@ -32,7 +32,12 @@ if ( _ownership == GRLIB_side_friendly ) exitWith {
 	};
 };
 
-_attacktime = round(GRLIB_vulnerability_timer / ((combat_readiness % 10) + 1));
+if(combat_readiness <= 4875) then {
+	_attacktime = round(-1*((6/25)*combat_readiness) + GRLIB_vulnerability_timer);
+}
+else{
+	_attacktime = 30;
+};
 [ [ _sector, 1, _attacktime ] , "remote_call_sector" ] call BIS_fnc_MP;
 
 while { _attacktime > 0 && ( _ownership == GRLIB_side_enemy || _ownership == GRLIB_side_resistance ) } do {
