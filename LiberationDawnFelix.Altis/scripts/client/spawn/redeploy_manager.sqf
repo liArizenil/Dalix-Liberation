@@ -303,10 +303,6 @@ if(side player == GRLIB_side_enemy) then {
 					_opforplayer pushback _x;
 				};
 			} forEach allPlayers;
-			lbClear 1501;
-			{
-				lbAdd [ 1501 , markerText _x];
-			} forEach active_sectors;
 			
 			ctrlEnable [ 1600 , false ];
 			ctrlSetText[ 1600 , format["%1",[player getVariable "deploy_timer"] call F_secondsToTimer]];
@@ -341,10 +337,10 @@ if(side player == GRLIB_side_enemy) then {
 					};
 				} forEach allPlayers;
 
-				lbClear 1501;
-				{
-					lbAdd [ 1501 , markerText _x];
-				} forEach active_sectors;
+				//lbClear 1501;
+				//{
+				//	lbAdd [ 1501 , markerText _x];
+				//} forEach active_sectors;
 
 				uiSleep 0.1;
 			};
@@ -463,16 +459,16 @@ if(side player == GRLIB_side_enemy) then {
 					_opforplayer pushback _x;
 				};
 			} forEach allPlayers;
-			_sectors = [];
-			lbClear 1501;
-			{
-				if(!([ markerpos _x ] call F_sectorOwnership in blufor_sectors)) then {
-					_sectors pushback _x;
-				};
-			} forEach active_sectors;
-			{
-				lbAdd [ 1501 , markerText _x];
-			} forEach _sectors;
+			//_sectors = [];
+			//lbClear 1501;
+			//{
+			//	if(!([ markerpos _x ] call F_sectorOwnership in blufor_sectors)) then {
+			//		_sectors pushback _x;
+			//	};
+			//} forEach active_sectors;
+			//{
+			//	lbAdd [ 1501 , markerText _x];
+			//} forEach _sectors;
 			
 			ctrlEnable [ 1600 , false ];
 			ctrlSetText[ 1600 , format["%1",[player getVariable "deploy_timer"] call F_secondsToTimer]];
@@ -568,16 +564,16 @@ if(side player == GRLIB_side_enemy) then {
 						_opforplayer pushback _x;
 					};
 				} forEach allPlayers;
-				_sectors = [];
-				{
-					if(!([ markerpos _x ] call F_sectorOwnership in blufor_sectors)) then {
-						_sectors pushback _x;
-					};
-				} forEach active_sectors;
-				lbClear 1501;
-				{
-					lbAdd [ 1501 , markerText _x];
-				} forEach _sectors;
+				//_sectors = [];
+				//{
+				//	if(!([ markerpos _x ] call F_sectorOwnership in blufor_sectors)) then {
+				//		_sectors pushback _x;
+				//	};
+				//} forEach active_sectors;
+				//lbClear 1501;
+				//{
+				//	lbAdd [ 1501 , markerText _x];
+				//} forEach _sectors;
 				uiSleep 0.1;
 			};
 
