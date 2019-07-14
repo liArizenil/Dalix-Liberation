@@ -351,6 +351,7 @@ FAR_public_EH =
 		{
 			if(side _killed == side _killer) then {
 				systemChat format["%2님에 의해 %1님이 부상당했습니다.(오인사격)", name _killed, name _killer];
+				_killer addrating -100;
 			}
 			else{
 				if(side _killer == GRLIB_side_friendly) then{
