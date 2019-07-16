@@ -75,6 +75,8 @@ while{true} do {
 		};
 	} forEach allGroups;
 	
+	diag_log "Cleaner Done.";
+	
 	if ((count(_playerUnit)) >= 20) then {	
 		sleep 100;	
 	} else {	
