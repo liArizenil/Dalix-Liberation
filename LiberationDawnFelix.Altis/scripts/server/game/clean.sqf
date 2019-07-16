@@ -24,8 +24,14 @@ while{true} do {
 	//시체 클리너
 	{
 		deleteVehicle _x;
-	} foreach allDead;
-	//크레이터 클리너
+	} forEach allDead;
+	//AI 클리너(수중에 있는 AI 삭제)
+	{
+		if(!(isPlayer _x) && (surfaceIsWater position _x)) then {
+			deleteVehicle _x;
+		};
+	} forEach allUnits;
+	//크레이터 클리너(작동 안함)
 	
 	//아이템 클리너
 	{
@@ -69,5 +75,9 @@ while{true} do {
 		};
 	} forEach allGroups;
 	
-	sleep 180;
+	if ((count(_playerUnit)) >= 20) then {	
+		sleep 100;	
+	} else {	
+		sleep 240;	
+	};
 };
