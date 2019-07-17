@@ -1,3 +1,5 @@
+sleep 120;
+
 fn_checkDistance ={
 	private["_limitDistance","_units","_object","_bool"];
 	_limitDistance = _this select 0;
@@ -5,22 +7,27 @@ fn_checkDistance ={
 	_object = _this select 2;
 	_bool = false;
 	
-	_units = [_units,{(_x distance _object) < _limitDistance}] call BIS_fnc_conditionalSelect;
+	_units = [_units,{((_x distance _object) < _limitDistance) && isPlayer _x}] call BIS_fnc_conditionalSelect;
 	if(count(_units) == 0) then {
 		_bool = true;
 	};
 	if(count([] call F_getNearestFob) > 0) then {
-		if((_object distance [] call F_getNearestFob) < 125) then{
+		if((_object distance ([] call F_getNearestFob)) < 125) then{
 			_bool = true;
 		};
 	};
-	
 	_bool
 };
 private["_playerUnit"];
-_playerUnit = (playableUnits + switchableUnits);
 
 while{true} do {
+	_playerUnit = (playableUnits + switchableUnits);
+
+	if ((count(_playerUnit)) >= 20) then {
+		sleep 100;
+	} else {
+		sleep 240;
+	};
 	//시체 클리너
 	{
 		deleteVehicle _x;
@@ -71,15 +78,9 @@ while{true} do {
 	//빈 그룹 클리너
 	{
 		if (count(units(_x)) == 0) then { 
-        		deleteGroup(_x);
+        	deleteGroup(_x);
 		};
 	} forEach allGroups;
 	
 	diag_log "Cleaner Done.";
-	
-	if ((count(_playerUnit)) >= 20) then {	
-		sleep 100;	
-	} else {	
-		sleep 240;	
-	};
 };
