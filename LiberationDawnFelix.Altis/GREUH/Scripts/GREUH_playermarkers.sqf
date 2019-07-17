@@ -27,8 +27,8 @@ while { true } do {
 			} foreach _marker_objs;
 
 			private _playableunits = [];
-			if ( count playableUnits > 0 ) then {
-				_playableunits = [ playableUnits, { (side (group _x)) == (side (group player)) } ] call BIS_fnc_conditionalSelect;
+			if ( count (playableUnits  + allUnitsUAV) > 0 ) then {
+				_playableunits = [ playableUnits + allUnitsUAV, { (side (group _x)) == (side (group player)) } ] call BIS_fnc_conditionalSelect;
 			} else {
 				_playableunits = [ player ];
 			};
@@ -53,7 +53,11 @@ while { true } do {
 
 			private _stuff_to_unmark = [];
 			{
-				if ( (vehicle _x != _x) || !(alive _x) ) then {
+				if ( (vehicle _x != _x) || !(alive _x)) then {
+					_stuff_to_unmark pushback _x;
+					_marked_players = _marked_players - [_x];
+				};
+				if((unitIsUAV _x) && (isNull((UAVControl _x) select 0) || !isUAVConnected _x)) then {
 					_stuff_to_unmark pushback _x;
 					_marked_players = _marked_players - [_x];
 				};
@@ -85,15 +89,21 @@ while { true } do {
 				private _nextplayer = _x;
 				private _marker = _nextplayer getVariable [ "spotmarker", "" ];
 				if ( _marker == "" ) then {
-					_marker = ( createMarkerLocal [ format [ "playermarker%1", (allUnits find _x) * (time % 1000) * (floor (random 100)) ], getpos _nextplayer ] );
+					_marker = ( createMarkerLocal [ format [ "playermarker%1", ((allUnits + allUnitsUAV) find _x) * (time % 1000) * (floor (random 100)) ], getpos _nextplayer ] );
 					_marker_objs pushback [ _marker, _nextplayer ];
 					_nextplayer setVariable [ "spotmarker", _marker ];
 
 					private _playername = "";
-					if( count (squadParams _nextplayer) != 0 ) then {
-						_playername = "[" + ((squadParams _nextplayer select 0) select 0) + "] ";
+					if(unitIsUAV _nextplayer && isUAVConnected _nextplayer) then {
+						_playername = name((UAVControl _nextplayer) select 0);
+						_playername = _playername + "(" + getText (_cfg >> typeOf _nextplayer >> "displayName") + ")";
+					}
+					else{
+						if( count (squadParams _nextplayer) != 0 ) then {
+							_playername = "[" + ((squadParams _nextplayer select 0) select 0) + "] ";
+						};
+						_playername = _playername + (name _nextplayer);
 					};
-					_playername = _playername + (name _nextplayer);
 					_marker setMarkerTextLocal _playername;
 
 					_marker setMarkerSizeLocal [ 0.75, 0.75 ];
@@ -134,9 +144,8 @@ while { true } do {
 					_marker setMarkerSizeLocal [0.75,0.75];
 					_marker setMarkerColorLocal _color;
 				};
-
-				private _datcrew = crew _nextvehicle;
 				private _vehiclename = "";
+				private _datcrew = crew _nextvehicle;
 				{
 					if (isPlayer _x) then {
 						_vehiclename = _vehiclename + (name _x);
@@ -149,7 +158,6 @@ while { true } do {
 					};
 					_vehiclename = _vehiclename + " ";
 				} foreach  _datcrew;
-
 				_vehiclename = _vehiclename + "(" + getText (_cfg >> typeOf _nextvehicle >> "displayName") + ")";
 				_marker setMarkerTextLocal _vehiclename;
 			} foreach _marked_vehicles;
