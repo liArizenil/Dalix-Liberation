@@ -365,6 +365,7 @@ if(side player == GRLIB_side_enemy) then {
 				_aircraft setPylonLoadOut["pylonBayCenter3",""];
 				_aircraft flyInHeight (120 + (random 180));
 				_aircraft removeWeaponTurret ["weapon_KAB250Launcher",[-1]];
+				_aircraft removeWeaponTurret ["Laserdesignator_pilotCamera",[-1]];
 				_aircraft addWeaponTurret ["weapon_SDBLauncher",[-1]];
 				_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
 				_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
