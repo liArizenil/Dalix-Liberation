@@ -43,69 +43,27 @@ bannedgoggles = [
 	"NVGogglesB_gry_F",
 	"NVGogglesB_blk_F"
 ];
-if(side player == GRLIB_side_enemy) then {
-	Air_Whitelist = [
-		"76561198145769064", //EpT_Schna
-		"76561197962812389", //UvRay
-		"76561198048248374", //podoria
-		"76561198098053217", //BuckGeneral
-		"76561198165728044", //jomo
-		"76561198174243409", //lalalala
-		"76561198097060234", //hanmike
-		"76561198084225545", //nam
-		"76561198069484270", // extankone
-		"76561198327397583", // ahahahah
-		"76561198153832535", // TROLLSpeyba
-		"76561198072689222", // GrapeBlack
-		"76561198393142505", // hello
-		"76561198111425223", // Basia_Romanovski
-		"76561198255854264", // LOUNGE
-		"76561198180218822", // KIY
-		"76561198166137266", // GGURRU
-		"76561198195208007", // Bullgom
-		"76561198272781942", // Arizen
-		"76561198148895720", // Korose
-		"76561198153942003", // C4
-		"76561198077911760", // 제주샘물
-		"76561198057511052", // PvtCostUK
-		"76561198110624509", // Dawn
-		"76561198296986472", // Felix
-		"76561198098430411", // CukaBurger
-		"76561198318120602", // Big Boss
-		"76561198137420658", // GAST
-		"76561198056369894", // 임씨
-		"76561198138557818", // darkcat
-		"76561198031713380", // KOI
-		"76561198074014359", // slowstar
-		"76561197999778911", // Airborne
-		"76561198107593889", // ddyypp
-		"76561193887351326", // DEUS VULT
-		"76561198299691667", // PLAsawtree
-		"76561198340260506", // haul
-		"76561198327085327", // seduce
-		"76561198801945974" //아코도리
-	];
-	OPFOR_Weapons = [
-		"hgun_Pistol_heavy_01_F",
-		"hgun_ACPC2_F",
-		"hgun_P07_khk_F",
-		"hgun_P07_F",
-		"hgun_Pistol_01_F",
-		"hgun_Rook40_F",
-		"hgun_Pistol_heavy_02_F"
-	];
-	OPFOR_Vest = [
-		"V_PlateCarrierGL_blk",
-		"V_PlateCarrier1_blk",
-		"V_TacVest_brn",
-		"V_TacVest_camo",
-		"V_TacVest_khk",
-		"V_TacVest_blk",
-		"V_HarnessOGL_brn",
-		"V_HarnessOGL_gry",
-		"V_HarnessO_brn"
-	];
-	OPFOR_Backpacks = [];
+OPFOR_Weapons = [
+	"hgun_Pistol_heavy_01_F",
+	"hgun_ACPC2_F",
+	"hgun_P07_khk_F",
+	"hgun_P07_F",
+	"hgun_Pistol_01_F",
+	"hgun_Rook40_F",
+	"hgun_Pistol_heavy_02_F"
+];
+OPFOR_Vest = [
+	"V_PlateCarrierGL_blk",
+	"V_PlateCarrier1_blk",
+	"V_TacVest_brn",
+	"V_TacVest_camo",
+	"V_TacVest_khk",
+	"V_TacVest_blk",
+	"V_HarnessOGL_brn",
+	"V_HarnessOGL_gry",
+	"V_HarnessO_brn"
+];
+OPFOR_Backpacks = [];
 	OPFOR_Sight = [];
 	OPFOR_Helmet = [];
 	OPFOR_Uniform = [];
