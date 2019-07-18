@@ -786,7 +786,7 @@
 						<Russian>ЗОНА ЗАХВАЧЕНА</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECTORCAPTURED_TEXT">
-						<Original>아군이 %1 지역을 성공적으로 점거 하였습니다.</Original>
+						<Original>NATO군이 %1 지역을 성공적으로 점거 하였습니다.</Original>
 						<French>Nos forces ont capturé %1.</French>
 						<German>Unsere Truppen haben %1 eingenommen.</German>
 						<Spanish>Nuestras fuerzas han capturado %1</Spanish>
@@ -800,7 +800,7 @@
 						<Russian>ЗОНА АТАКОВАНА</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECTORATTACKED_TEXT">
-						<Original>적군이 %1 지역으로 이동중 입니다!</Original>
+						<Original>CSAT군이 %1 지역으로 이동중 입니다!</Original>
 						<French>Des forces hostiles attaquent %1!</French>
 						<German>Gegnerische Truppen greifen %1 an!</German>
 						<Spanish>Fuerzas hostiles están atacando %1</Spanish>
@@ -814,7 +814,7 @@
 						<Russian>ЗОНА ПОТЕРЯНА</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECTORLOST_TEXT">
-						<Original>아군이 %1 지역의 통제권을 상실하였습니다!</Original>
+						<Original>NATO군이 %1 지역의 통제권을 상실하였습니다!</Original>
 						<French>Nous avons perdu le contrôle de %1!</French>
 						<German>Wir haben die Kontrolle ueber %1 verloren!</German>
 						<Spanish>Hemos perdido el control sobre %1!</Spanish>
@@ -899,7 +899,7 @@
 						<Korean>%1 님이 %2 지역 근방에 배치되었습니다.</Korean>	
 				</Key>
 				<Key ID="STR_NOTIFICATION_BATTLEGROUP_TITLE">
-						<Original>적군의 병력이 오고있습니다.</Original>
+						<Original>CSAT 병력들이 접근하고 있습니다.</Original>
 						<French>FORCES HOSTILES EN APPROCHE</French>
 						<German>GEGNERISCHE TRUPPEN TREFFEN EIN</German>
 						<Spanish>FUERZAS HOSTILES ACERCÁNDOSE</Spanish>
@@ -920,21 +920,21 @@
 						<Russian>НОВЫЕ РАЗВЕДДАННЫЕ</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_FOB_TEXT">
-						<Original>적군의 FOB 가 %1 지역 근처에서 포착되었습니다.</Original>
+						<Original>CSAT군의 FOB 가 %1 지역 근처에서 포착되었습니다.</Original>
 						<French>FOB hostile près de %1.</French>
 						<German>Gegnerische FOB nahe %1.</German>
 						<Spanish>FOB hostil cerca de %1</Spanish>
 						<Russian>Вражеская FOB рядом %1.</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_PRISONER_TEXT">
-						<Original>아군이 포로를 포박하였습니다.</Original>
+						<Original>NATO군이 포로를 포박하였습니다.</Original>
 						<French>Nous avons interroger un prisonnier.</French>
 						<German>Wir haben einen Gefangenen verhört.</German>
 						<Spanish>Hemos interrogado a un prisionero.</Spanish>
 						<Russian>Мы можем допросить пленного.</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_DOCUMENT_TEXT">
-						<Original>아군이 적의 자료를 획득하였습니다.</Original>
+						<Original>NATO군이 고가치 자료를 획득하였습니다.</Original>
 						<French>Nous avons trouvé des documents secrets</French>
 						<German>Wir haben geheime Dokumente gefunden.</German>
 						<Spanish>Hemos encontrado documentos secretos</Spanish>
@@ -948,21 +948,21 @@
 						<Russian>ДОПОЛНИТЕЛЬНАЯ ЗАДАЧА</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECONDARY_TEXT">
-						<Original>적군의 FOB 가 파괴되었습니다.</Original>
+						<Original>CSAT군의 FOB 가 파괴되었습니다.</Original>
 						<French>FOB hostile détruite.</French>
 						<German>Gegnerische FOB zerstoert.</German>
 						<Spanish>FOB hostil destruída</Spanish>
 						<Russian>Вражеская FOB уничтожена</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_REINFORCEMENTS_TITLE">
-						<Original>적군의 증원병력을 포착하였습니다.</Original>
+						<Original>CSAT군의 증원병력을 포착하였습니다.</Original>
 						<French>RENFORTS HOSTILES</French>
 						<German>GEGNERISCHER NACHSCHUB</German>
 						<Spanish>REFUERZOS HOSTILES</Spanish>
 						<Russian>ВРАЖЕСКОЕ ПОДКРЕПЛЕНИЕ</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_REINFORCEMENTS_TEXT">
-						<Original>적군이 %1 지역으로 증원병력을 파견하였습니다.</Original>
+						<Original>CSAT군이 %1 지역으로 증원병력을 파견하였습니다.</Original>
 						<French>Forces hostiles en renfort à %1.</French>
 						<German>Gegnerische Truppen verstaerken %1.</German>
 						<Spanish>Fuerzas hostiles reforzando %1</Spanish>
@@ -2366,7 +2366,7 @@
 						<Russian>Дополнительная задача уже есть</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_INCOMING_TEXT">
-						<Original>적군이 %1 지역을 향하고 있습니다.</Original>
+						<Original>CSAT군이 %1 지역을 향하고 있습니다.</Original>
 						<French>Les forces hostiles se dirigent vers %1.</French>
 						<German>Feindliche Streitkräfte bewegen sich auf %1 zu.</German>
 						<Russian>Замечена вражеская группа рядом с %1</Russian>
