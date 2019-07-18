@@ -63,9 +63,6 @@ if (!isDedicated && hasInterface) then {
 			if(_bluforcount < 27) then {
 				["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 			};
-			if(!(((getPlayerUID player) in Air_Whitelist) || (call BIS_fnc_admin == 2))) then {
-				["notonwhitelist", false, false,false,false] call BIS_fnc_endMission;
-			};
 		};
 	};
 	waitUntil { alive player };
