@@ -24,6 +24,7 @@ if (!isDedicated && hasInterface) then {
 	};
 	[] execVM "GF_Earplugs\GF_Earplugs.sqf";
 	[] execVM "scripts\autorun.sqf";
+	[] execVM "scripts\SimpleHaloDrop.sqf";
 	[] execVM "scripts\RuleDiary.sqf";
 	[] execVM "scripts\3Dmarkers.sqf";
 	[] execVM "scripts\anounce.sqf";
@@ -34,7 +35,6 @@ if (!isDedicated && hasInterface) then {
 
 	if(side player == GRLIB_side_friendly) then {
 		[] execVM "IgiLoad\IgiLoadInit.sqf";
-		[] execVM "scripts\SimpleHaloDrop.sqf";
 		[] execVM "scripts\BlackFishCargo.sqf";
 		[] execVM "scripts\SHK_Fastrope.sqf";
 		[] execVM "scripts\cratercleaner.sqf";
