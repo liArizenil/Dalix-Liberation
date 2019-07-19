@@ -1,3 +1,5 @@
+private ["_WeaponHolder","_StaticWeapon","_Ruins"];
+
 sleep 120;
 
 fn_checkDistance ={
@@ -41,11 +43,13 @@ while{true} do {
 	//크레이터 클리너(작동 안함)
 	
 	//아이템 클리너
+	_WeaponHolder = allMissionObjects "WeaponHolder";
+	diag_log format["WeaponHolder : %1", _WeaponHolder];
 	{
 		if([600,_playerUnit,_x] call fn_checkDistance) then {
 			deleteVehicle _x;
 		};
-	} forEach (allMissionObjects "WeaponHolder");
+	} forEach _WeaponHolder;
 	
 	//지뢰 클리너
 	{
@@ -54,19 +58,23 @@ while{true} do {
 		};
 	} forEach allMines;
 	
+	_StaticWeapon = allMissionObjects "StaticWeapon";
+	diag_log format["StaticWeapon : %1", _StaticWeapon];
 	//고정 화기 클리너
 	{
 		if([1200,_playerUnit,_x] call fn_checkDistance) then {
 			deleteVehicle _x;
 		};
-	} forEach (allMissionObjects "StaticWeapon");
+	} forEach _StaticWeapon;
 	
+	_Ruins = allMissionObjects "Ruins";
+	diag_log format["Ruins : %1", _Ruins];
 	//폐허 클리너
 	{
 		if([1200,_playerUnit,_x] call fn_checkDistance) then {
 			deleteVehicle _x;
 		};
-	} forEach (allMissionObjects "Ruins");
+	} forEach _Ruins;
 	
 	//트리거 클리너
 	{
@@ -78,7 +86,7 @@ while{true} do {
 	//빈 그룹 클리너
 	{
 		if (count(units(_x)) == 0) then { 
-        	deleteGroup(_x);
+        		deleteGroup(_x);
 		};
 	} forEach allGroups;
 	
