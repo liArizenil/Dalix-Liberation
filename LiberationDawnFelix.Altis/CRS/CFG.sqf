@@ -11,7 +11,7 @@
 //Toggle specific CRS features:	TRUE = enabled / FALSE = disabled
 CRS_BackBlast=FALSE;
 CRS_DisposableAT=FALSE;
-CRS_FlashBang=TRUE;
+CRS_FlashBang=FALSE;
 CRS_Fragmentation=FALSE;
 CRS_GunAnimations=FALSE;
 CRS_Holstering=FALSE;
