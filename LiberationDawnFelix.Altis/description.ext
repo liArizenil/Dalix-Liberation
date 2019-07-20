@@ -30,6 +30,7 @@ disableChannels[] = {
 #include "VAM\VAM_comm_menu.hpp"
 #include "scripts\AdvancedRadio\ui\Radio_interface.hpp"
 #include "scripts\outlw_magRepack\MagRepack_config.hpp"
+#include "CRS\f\SFX.hpp"
 
 class CfgDebriefing
 {
