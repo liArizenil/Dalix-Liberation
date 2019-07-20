@@ -9,7 +9,7 @@
 */
 
 //Toggle specific CRS features:	TRUE = enabled / FALSE = disabled
-CRS_BackBlast=FALSE;
+CRS_BackBlast=TRUE;
 CRS_DisposableAT=FALSE;
 CRS_FlashBang=FALSE;
 CRS_Fragmentation=FALSE;
