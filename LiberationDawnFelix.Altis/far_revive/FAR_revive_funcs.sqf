@@ -8,10 +8,10 @@ FAR_Player_Actions =
 	if (alive player && player isKindOf "Man") then
 	{
 		// addAction args: title, filename, (arguments, priority, showWindow, hideOnUse, shortcut, condition, positionInModel, radius, radiusView, showIn3D, available, textDefault, textToolTip)
-		player addAction ["<t color=""#C90000"">" + "되살리기" + "</t>", "FAR_revive\FAR_handleAction.sqf", ["action_revive"], 10, true, true, "", "call FAR_Check_Revive"];
-		player addAction ["<t color=""#C90000"">" + "안정화" + "</t>", "FAR_revive\FAR_handleAction.sqf", ["action_stabilize"], 10, true, true, "", "call FAR_Check_Stabilize"];
-		player addAction ["<t color=""#C90000"">" + "자살하기" + "</t>", "FAR_revive\FAR_handleAction.sqf", ["action_suicide"], 9, false, true, "", "call FAR_Check_Suicide"];
-		player addAction ["<t color=""#C90000"">" + "끌기" + "</t>", "FAR_revive\FAR_handleAction.sqf", ["action_drag"], 9, false, true, "", "call FAR_Check_Dragging"];
+		player addAction ["<t color=""#C90000"">" + localize "STR_REVIVE" + "</t>", "FAR_revive\FAR_handleAction.sqf", ["action_revive"], 10, true, true, "", "call FAR_Check_Revive"];
+		player addAction ["<t color=""#C90000"">" + localize "STR_STABILIZE" + "</t>", "FAR_revive\FAR_handleAction.sqf", ["action_stabilize"], 10, true, true, "", "call FAR_Check_Stabilize"];
+		player addAction ["<t color=""#C90000"">" + localize "STR_SUICIDE" + "</t>", "FAR_revive\FAR_handleAction.sqf", ["action_suicide"], 9, false, true, "", "call FAR_Check_Suicide"];
+		player addAction ["<t color=""#C90000"">" + localize "STR_DRAG" + "</t>", "FAR_revive\FAR_handleAction.sqf", ["action_drag"], 9, false, true, "", "call FAR_Check_Dragging"];
 	};
 };
 
@@ -284,16 +284,16 @@ FAR_Drag =
 	_target setDir 180;
 	_target setVariable ["FAR_isDragged", 1, true];
 
-	player playMove "AcinPknlMstpSrasWrflDnon";
+	player switchmove "AcinPknlMstpSrasWrflDnon";
 
 	// Rotation fix
 	FAR_isDragging_EH = _target;
 	publicVariable "FAR_isDragging_EH";
 
 	// Add release action and save its id so it can be removed
-	_id = player addAction ["<t color=""#C90000"">" + "놓기" + "</t>", "FAR_revive\FAR_handleAction.sqf", ["action_release"], 10, true, true, "", "true"];
+	_id = player addAction ["<t color=""#C90000"">" + localize "STR_RELEASE" + "</t>", "FAR_revive\FAR_handleAction.sqf", ["action_release"], 10, true, true, "", "true"];
 
-	hint "움직여지지 않을 경우 C 키를 눌르세요.";
+	hint localize "STR_PRESSC";
 
 	// Wait until release action is used
 	waitUntil
@@ -347,15 +347,15 @@ FAR_public_EH =
 		if (isPlayer _killed && isPlayer _killer) then
 		{
 			if(side _killed == side _killer) then {
-				systemChat format["%2님에 의해 %1님이 부상당했습니다.(오인사격)", name _killed, name _killer];
+				systemChat format[localize "STR_FAR_FIRNELDYFIRE", name _killed, name _killer];
 				_killer addrating -100;
 			}
 			else{
 				if(side _killer == GRLIB_side_friendly) then{
-					systemChat format["(청군)%2님에 의해 (대항군)%1님이 부상당했습니다.", name _killed, name _killer];
+					systemChat format[localize "STR_FAR_OPFORKILLED", name _killed, name _killer];
 				};
 				if(side _killer == GRLIB_side_enemy) then {
-					systemChat format["(대항군)%2님에 의해 (청군)%1님이 부상당했습니다.", name _killed, name _killer];
+					systemChat format[localize "STR_FAR_BLUFORKILLED", name _killed, name _killer];
 				};
 			};
 		};
