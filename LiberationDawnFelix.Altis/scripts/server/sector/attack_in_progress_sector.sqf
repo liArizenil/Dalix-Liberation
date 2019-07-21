@@ -67,11 +67,17 @@ if ( GRLIB_endgame == 0 ) then {
 		trigger_server_save = true;
 		[] call recalculate_caps;
 		stats_sectors_lost = stats_sectors_lost + 1;
-		_vehspawn = markerPos _sector;
-		_specialgift = opfor_mrap createVehicle _vehspawn;
-		_specialgift setPosATL (_specialgift modelToWorld[0,0,150]);
-		_para = createVehicle ["B_Parachute_02_F", getpos _specialgift, [], 0, "NONE"];
-		_para attachTo [_specialgift, [0, 0, 1]];
+		[] spawn {
+			_vehspawn = position player;
+        		_specialgift = opfor_mrap createVehicle _vehspawn;
+        		_specialgift setPosATL (_specialgift modelToWorld[0,0,150]);
+        		_para = createVehicle ["B_Parachute_02_F", getpos _specialgift, [], 0, "NONE"];
+        		_para attachTo [_specialgift, [0, 0, 0]];
+        		detach _para;
+        		_specialgift attachTo [_para, [0, 0, 1]];
+        		waituntil { ((getPos _specialgift) select 2) < 5 };
+        		detach _specialgift;
+		};
 	} else {
 		[ [ _sector, 3 , 0 ] , "remote_call_sector" ] call BIS_fnc_MP;
 		{ [_x] spawn prisonner_ai; } foreach ( [ (markerpos _sector) nearEntities [ "Man", GRLIB_capture_size * 0.8 ], { side group _x == GRLIB_side_enemy } ] call BIS_fnc_conditionalSelect );
