@@ -190,6 +190,7 @@ static_vehicles = [
 	["B_GMG_01_high_F",20,0,0],
 	["B_static_AA_F",20,0,0],
 	["B_static_AT_F",20,0,0],
+	["B_Radar_System_01_F",50,0,100],
 	["B_AAA_System_01_F",100,200,100],
 	["B_SAM_System_01_F",100,200,100],
 	["B_Mortar_01_F",20,0,0]
