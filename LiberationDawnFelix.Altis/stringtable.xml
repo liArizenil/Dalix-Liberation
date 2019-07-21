@@ -194,14 +194,30 @@
 				<Original>Revive</Original>
 				<Korean>소생 시키기</Korean>
 			</Key>
+			<Key ID="STR_STABILIZE">
+				<Original>Stabilzie</Original>
+				<Korean>안정화 시키기</Korean>
+			</Key>
 			<Key ID="STR_BLEEDOUT_STABILIZED">
-				<Original>안정시키기</Original>
+				<Original>안정화</Original>
 				<English>Stabilized</English>
 				<French>Stabilisé</French>
 				<German>Stabilisiert</German>
 				<Spanish>Estabilizado</Spanish>
 				<Russian>Стабильно</Russian>
-			</Key>			
+			</Key>
+			<Key ID="STR_DRAG">
+				<Original>Drag</Original>
+				<Korean>끌기</Korean>
+			</Key>
+			<Key ID="STR_SUICIDE">
+				<Original>Suicide</Original>
+				<Korean>자살하기</Korean>
+			</Key>
+			<Key ID="STR_RELEASE">
+				<Original>Release</Original>
+				<Korean>내려놓기</Korean>
+			</Key>
 <!-- Component/구성품 -->
 			<Key ID="STR_VAM_NONE_COMP">
 				<Original>None</Original>
@@ -827,6 +843,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECTORCAPTURED_TITLE">
 						<Original>지역 점거 완료</Original>
+						<English>SECTOR Captured</English>
 						<French>SECTEUR CAPTURE</French>
 						<German>SEKTOR EINGENOMMEN</German>
 						<Spanish>SECTOR CAPTURADO</Spanish>
@@ -834,6 +851,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECTORCAPTURED_TEXT">
 						<Original>NATO군이 %1 지역을 성공적으로 점거 하였습니다.</Original>
+						<English>NATO Forces Captured the %1</English>
 						<French>Nos forces ont capturé %1.</French>
 						<German>Unsere Truppen haben %1 eingenommen.</German>
 						<Spanish>Nuestras fuerzas han capturado %1</Spanish>
@@ -841,6 +859,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECTORATTACKED_TITLE">
 						<Original>점령지가 공격받고 있습니다.</Original>
+						<English>SECTOR is Under Attack.</English>
 						<French>SECTEUR ATTAQUE</French>
 						<German>SEKTOR ANGEGRIFFEN</German>
 						<Spanish>SECTOR ATACADO</Spanish>
@@ -848,6 +867,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECTORATTACKED_TEXT">
 						<Original>CSAT군이 %1 지역으로 이동중 입니다!</Original>
+						<English>CSAT Forces heading to the %1!</English>
 						<French>Des forces hostiles attaquent %1!</French>
 						<German>Gegnerische Truppen greifen %1 an!</German>
 						<Spanish>Fuerzas hostiles están atacando %1</Spanish>
@@ -855,6 +875,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECTORLOST_TITLE">
 						<Original>거점 지역을 상실하였습니다.</Original>
+						<English>SECTOR LOST</English>
 						<French>SECTEUR LOST</French>
 						<German>SEKTOR VERLOREN</German>
 						<Spanish>SECTOR PERDIDO</Spanish>
@@ -862,6 +883,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECTORLOST_TEXT">
 						<Original>NATO군이 %1 지역의 통제권을 상실하였습니다!</Original>
+						<English>NATO Forces has lost the Control of the %1!</English>
 						<French>Nous avons perdu le contrôle de %1!</French>
 						<German>Wir haben die Kontrolle ueber %1 verloren!</German>
 						<Spanish>Hemos perdido el control sobre %1!</Spanish>
@@ -869,6 +891,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECTORSAFE_TITLE">
 						<Original>지역은 안전합니다.</Original>
+						<English>SECTOR SECURED</English>
 						<French>SECTEUR SECURISE</French>
 						<German>SEKTOR SICHER</German>
 						<Spanish>SECTOR SEGURO</Spanish>
@@ -876,6 +899,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECTORSAFE_TEXT">
 						<Original>%1 지역의 방어가 성공적으로 마무리 되었습니다.</Original>
+						<English>%1 defend is successfully  done.</English>
 						<French>%1 n'est plus menacé(e).</French>
 						<German>%1 ist ausser Gefahr.</German>
 						<Spanish>%1 ya no está bajo amenaza.</Spanish>
@@ -890,6 +914,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_FOBBUILT_TEXT">
 						<Original>FOB %1 가 건설되었습니다.</Original>
+						<English>FOB %1 is now Operational</English>
 						<French>La FOB %1 est opérationnelle.</French>
 						<German>FOB %1 nun funktionsfähig.</German>
 						<Spanish>La FOB %1 es operacional</Spanish>
@@ -897,6 +922,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_FOBSAFE_TITLE">
 						<Original>FOB의 안전 확보</Original>
+						<English>FOB SECURED</English>
 						<French>FOB SECURISEE</French>
 						<German>FOB SICHER</German>
 						<Spanish>FOB SEGURA</Spanish>
@@ -904,6 +930,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_FOBSAFE_TEXT">
 						<Original>FOB %1 지역의 방어가 성공적으로 마무리 되었습니다.</Original>
+						<English>FOB %1 defend is successfully  done.</English>
 						<French>La FOB %1 n'est plus menacée.</French>
 						<German>FOB %1 ist ausser Gefahr.</German>
 						<Spanish>FOB %1 ya no está bajo amenaza</Spanish>
@@ -911,6 +938,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_FOBATTACKED_TITLE">
 						<Original>FOB 가 공격받고 있습니다.</Original>
+						<English>FOB is Under Attack</English>
 						<French>FOB ATTAQUEE</French>
 						<German>FOB ANGEGRIFFEN</German>
 						<Spanish>FOB ATACADA</Spanish>
@@ -918,6 +946,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_FOBATTACKED_TEXT">
 						<Original>FOB %1 지역이 공격받고 있습니다!</Original>
+						<English>FOB %1 is Under Attack!</English>
 						<French>La FOB %1 est attaquée !</French>
 						<German>FOB %1 wird angegriffen !</German>
 						<Spanish>FOB %1 está bajo ataque!</Spanish>
@@ -925,6 +954,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_FOBLOST_TITLE">
 						<Original>FOB가 파괴되었습니다.</Original>
+						<English>FOB has been destroyed</English>
 						<French>FOB DETRUITE</French>
 						<German>FOB ZERSTOERT</German>
 						<Spanish>FOB DESTRUIDA</Spanish>
@@ -932,6 +962,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_FOBLOST_TEXT">
 						<Original>FOB %1 지역이 파괴되었습니다!</Original>
+						<English>FOB %` has been destroyed</English>
 						<French>La FOB %1 a été détruite !</French>
 						<German>FOB %1 wurde zerstoert!</German>
 						<Spanish>La FOB %1 ha sido destruida!</Spanish>
@@ -947,13 +978,15 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_BATTLEGROUP_TITLE">
 						<Original>CSAT 병력들이 접근하고 있습니다.</Original>
+						<English>CSAT Forces are approaching</English>
 						<French>FORCES HOSTILES EN APPROCHE</French>
 						<German>GEGNERISCHE TRUPPEN TREFFEN EIN</German>
 						<Spanish>FUERZAS HOSTILES ACERCÁNDOSE</Spanish>
 						<Russian>ПОДХОДЯТ ВРАЖЕСКИЕ СИЛЫ</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_BATTLEGROUP_TEXT">
-						<Original>%1 지역에서 적의 움직임이 포착되었습니다.</Original>
+						<Original>%1 지역에서 CSAT 군의 움직임이 포착되었습니다.</Original>
+						<English>Spotted CSAT Forces movement on %1</English>
 						<French>Forces hostiles repérées près de %1.</French>
 						<German>Gegnerische Truppen nahe %1 gesichtet.</German>
 						<Spanish>Fuerzas hosstiles avistadas cerca de %1</Spanish>
@@ -961,6 +994,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_INTEL_TITLE">
 						<Original>새로운 정보 획득</Original>
+						<English>NEW INTEL</English>
 						<French>NOUVEAUX RENSEIGNEMENTS</French>
 						<German>NEUE INFORMATIONEN</German>
 						<Spanish>NUEVA INTELIGENCIA</Spanish>
@@ -968,6 +1002,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_FOB_TEXT">
 						<Original>CSAT군의 FOB 가 %1 지역 근처에서 포착되었습니다.</Original>
+						<English>Spotted CSAT FOB at the nearby %1</English>
 						<French>FOB hostile près de %1.</French>
 						<German>Gegnerische FOB nahe %1.</German>
 						<Spanish>FOB hostil cerca de %1</Spanish>
@@ -975,6 +1010,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_PRISONER_TEXT">
 						<Original>NATO군이 포로를 포박하였습니다.</Original>
+						<English>NATO Forces Captured the Hostage.</English>
 						<French>Nous avons interroger un prisonnier.</French>
 						<German>Wir haben einen Gefangenen verhört.</German>
 						<Spanish>Hemos interrogado a un prisionero.</Spanish>
@@ -982,6 +1018,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_DOCUMENT_TEXT">
 						<Original>NATO군이 고가치 자료를 획득하였습니다.</Original>
+						<English>NATO Forces Captured the High Value Intel.</English>
 						<French>Nous avons trouvé des documents secrets</French>
 						<German>Wir haben geheime Dokumente gefunden.</German>
 						<Spanish>Hemos encontrado documentos secretos</Spanish>
@@ -989,6 +1026,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECONDARY_TITLE">
 						<Original>후방 교란 작전</Original>
+						<English>Secondary Objective</English>
 						<French>OBJECTIF SECONDAIRE</French>
 						<German>SEKUNDAERZIEL</German>
 						<Spanish>OBJETIVO SECUNDARIO</Spanish>
@@ -996,6 +1034,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_SECONDARY_TEXT">
 						<Original>CSAT군의 FOB 가 파괴되었습니다.</Original>
+						<English>CSAT FOB has been destroyed</English>
 						<French>FOB hostile détruite.</French>
 						<German>Gegnerische FOB zerstoert.</German>
 						<Spanish>FOB hostil destruída</Spanish>
@@ -1003,6 +1042,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_REINFORCEMENTS_TITLE">
 						<Original>CSAT군의 증원병력을 포착하였습니다.</Original>
+						<English>Spotted CSAT Reinforcement Group</English>
 						<French>RENFORTS HOSTILES</French>
 						<German>GEGNERISCHER NACHSCHUB</German>
 						<Spanish>REFUERZOS HOSTILES</Spanish>
@@ -1010,6 +1050,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_REINFORCEMENTS_TEXT">
 						<Original>CSAT군이 %1 지역으로 증원병력을 파견하였습니다.</Original>
+						<English>CSAT Reinforcement Group is now heading to %1.</English>
 						<French>Forces hostiles en renfort à %1.</French>
 						<German>Gegnerische Truppen verstaerken %1.</German>
 						<Spanish>Fuerzas hostiles reforzando %1</Spanish>
@@ -1017,6 +1058,7 @@
 				</Key>
 				<Key ID="STR_VICTORY_TITLE">
 						<Original>아군의 승리</Original>
+						<English>VICTORY OF THE BULFOR</English>
 						<French>VICTOIRE BLUFOR</French>
 						<German>BLUFOR SIEGREICH</German>
 						<Spanish>VICTORIA DE BLUFOR</Spanish>
@@ -1024,6 +1066,7 @@
 				</Key>
 				<Key ID="STR_VICTORY_TEXT">
 						<Original>당신은 CSAT 군을 물리치고 알티스에 민주주의의 깃대를 세웠습니다.</Original>
+						<English>You Defeated the CSAT Forces and Brought the Peace to Altis</English>
 						<French>Vous avez libéré Altis de l'oppression de l'OPFOR.</French>
 						<German>Du hast Altis von der OPFOR Besatzung befreit.</German>
 						<Spanish>Has liberado a Altis de la opresión del OPFOR</Spanish>
@@ -1736,6 +1779,7 @@
 				</Key>
 				<Key ID="STR_RESUPPLY">
 						<Original>재보급</Original>
+						<English>Resupply</English>
 						<French>Réapprovisionner</French>
 						<German>Versorgen</German>
 						<Spanish>Reabastecer</Spanish>
@@ -1750,6 +1794,7 @@
 				</Key>
 				<Key ID="STR_CONFIRM">
 						<Original>확인</Original>
+						<English>Confirm</English>
 						<French>Confirmer</French>
 						<German>Bestätigen</German>
 						<Spanish>Confirmar</Spanish>
@@ -1771,6 +1816,7 @@
 				</Key>
 				<Key ID="STR_PRIMARY_WEAPON">
 						<Original>주무기</Original>
+						<English>Primary Weapon</English>
 						<French>Principale</French>
 						<German>Primär</German>
 						<Spanish>Principal</Spanish>
@@ -1778,6 +1824,7 @@
 				</Key>
 				<Key ID="STR_SECONDARY_WEAPON">
 						<Original>보조무기</Original>
+						<English>Secondary Weapon</English>
 						<French>Secondaire</French>
 						<German>Sekundär</German>
 						<Spanish>Secundaria</Spanish>
@@ -1792,6 +1839,7 @@
 				</Key>
 				<Key ID="STR_DRIVER">
 						<Original>운전수</Original>
+						<English>Driver</English>
 						<French>Conducteur</French>
 						<German>Fahrer</German>
 						<Spanish>Conductor</Spanish>
@@ -1799,6 +1847,7 @@
 				</Key>
 				<Key ID="STR_GUNNER">
 						<Original>사수</Original>
+						<English>Gunner</English>
 						<French>Tireur</French>
 						<German>Schütze</German>
 						<Spanish>Artillero</Spanish>
@@ -1806,6 +1855,7 @@
 				</Key>
 				<Key ID="STR_COMMANDER">
 						<Original>지휘관</Original>
+						<English>Commander</English>
 						<French>Commandant</French>
 						<German>Kommandant</German>
 						<Spanish>Comandante</Spanish>
@@ -1813,6 +1863,7 @@
 				</Key>
 				<Key ID="STR_PASSENGER">
 						<Original>승객</Original>
+						<English>Passenger</English>
 						<French>Passager</French>
 						<German>Passagier</German>
 						<Spanish>Pasajero</Spanish>
@@ -1820,6 +1871,7 @@
 				</Key>
 				<Key ID="STR_SQUAD_DEPLOY">
 						<Original>분대 배치</Original>
+						<English>Squad Deploy</English>
 						<French>Déploiement d'escouade</French>
 						<German>Gruppeneinsatz</German>
 						<Spanish>Despliegue de escuadra</Spanish>
@@ -2016,6 +2068,7 @@
 				</Key>
 				<Key ID="STR_ARSENAL_TITLE">
 						<Original>무기</Original>
+						<English>ARSENAL</English>
 						<French>ARSENAL</French>
 						<German>ARSENAL</German>
 						<Spanish>ARSENAL</Spanish>
@@ -2023,6 +2076,7 @@
 				</Key>
 				<Key ID="STR_EDIT_LOADOUT">
 						<Original>로드아웃 편집</Original>
+						<English>Edit Loadout</English>
 						<French>Modifier équipement</French>
 						<German>Ausrüstung bearbeiten</German>
 						<Spanish>Modificar equipamiento</Spanish>
@@ -2030,6 +2084,7 @@
 				</Key>
 				<Key ID="STR_LOAD_LOADOUT">
 						<Original>로드아웃 가져오기</Original>
+						<English>Load the Loadout</English>
 						<French>Charger l'équipement</French>
 						<German>Ausrüstung laden</German>
 						<Spanish>Coger equipamiento</Spanish>
@@ -2037,6 +2092,7 @@
 				</Key>
 				<Key ID="STR_DEFAULT">
 						<Original>기본 무장</Original>
+						<English>Default Loadout</English>
 						<French>Par défaut</French>
 						<German>Standart</German>
 						<Spanish>Por defecto</Spanish>
@@ -2072,6 +2128,7 @@
 				</Key>
 				<Key ID="STR_HALO_PARAM">
 						<Original>공수 강하</Original>
+						<English>HALO Jump</English>
 						<French>Saut HALO</French>
 						<German>HALO-Sprung</German>
 						<Spanish>Salto HALO</Spanish>
@@ -2121,6 +2178,7 @@
 				</Key>
 				<Key ID="STR_HALO_DENIED_COOLDOWN">
 						<Original>공수 강하를 실행할수 없습니다. %1 분뒤에 사용가능합니다..</Original>
+						<English>Impossible to HALO in now, You can use it again in next %1 minutes</English>
 						<French>Impossible d'effectuer un suat HALO, vous êtes en cooldown pour encore %1 minute(s).</French>
 						<German>HALO Sprung noch nicht möglich. Verbleibende Abklingzeit von %1 Minuten.</German>
 						<Spanish>No puedes saltar en HALO, te quedan %1 minuto(s) de espera.</Spanish>
@@ -2128,6 +2186,7 @@
 				</Key>
 				<Key ID="STR_HALO_ACTION">
 						<Original>-- 공수 강하</Original>
+						<English>-- HALO Jump</English>
 						<French>-- SAUT HALO</French>
 						<German>-- HALO-SPRUNG</German>
 						<Spanish>-- SALTO HALO</Spanish>
@@ -2135,6 +2194,7 @@
 				</Key>
 				<Key ID="STR_HALO_TITLE">
 						<Original>공수 강하</Original>
+						<English>HALO JUMP</English>
 						<French>SAUT HALO</French>
 						<German>HALO-SPRUNG</German>
 						<Spanish>SALTO HALO</Spanish>
@@ -2142,6 +2202,7 @@
 				</Key>
 				<Key ID="STR_DEPLOY_IN_PROGRESS">
 						<Original>배치 진행중...</Original>
+						<English>Processing Deployment</English>
 						<French>Déploiement en cours...</French>
 						<German>Verlegung im Gange</German>
 						<Spanish>Despliegue en curso...</Spanish>
@@ -2162,6 +2223,7 @@
 				</Key>
 				<Key ID="STR_BUILD_ENEMIES_NEARBY">
 						<Original>건설할수 없습니다 : 근처에 적이 존재합니다.</Original>
+						<English>Impossible to Construct : Enemy is nearby</English>
 						<French>Impossible de construire: forces hostiles à proximité.</French>
 						<German>Kann nicht gebaut werden: Feindkräfte in der Nähe</German>
 						<Spanish>No se puede construir: fuerzas hostiles cercanas</Spanish>
@@ -2211,6 +2273,7 @@
 				</Key>
 				<Key ID="STR_MAKE_RESPAWN_LOADOUT">
 						<Original>리스폰 로드아웃 저장</Original>
+						<English>Save as the Respawn Loadut</English>
 						<French>Equipement de respawn</French>
 						<German>Ausrüstung bei Respawn festlegen</German>
 						<Spanish>Guardar el equipamiento para respawn</Spanish>
@@ -2218,6 +2281,7 @@
 				</Key>
 				<Key ID="STR_MAKE_RESPAWN_LOADOUT_HINT">
 						<Original>현재 로드아웃을 매 리스폰마다 불러옵니다.</Original>
+						<English>Will Load this Loadout in every Respawn</English>
 						<French>Votre equipement actuel sera restauré à chaque respawn.</French>
 						<German>Deine Ausrüstung wird bei jedem Respwan wiederhergestellt.</German>
 						<Spanish>Tu actual equipamiento seá mantenido en cada respawn.</Spanish>
@@ -2225,6 +2289,7 @@
 				</Key>
 				<Key ID="STR_LOAD_PLAYER_LOADOUT">
 						<Original>다른 플레이어로부터 불러오기</Original>
+						<English>Copy the Loadout from the other players</English>
 						<French>Charger depuis joueur</French>
 						<German>Von Spieler laden</German>
 						<Spanish>Cargar desde jugador</Spanish>
@@ -2232,6 +2297,7 @@
 				</Key>
 				<Key ID="STR_LOAD_PLAYER_LOADOUT_HINT">
 						<Original>%1 (으)로부터 성공적으로 로드아웃을 불러왔습니다.</Original>
+						<English>Copied Loadout from %1</English>
 						<French>Transfer d'équipement réussi depuis %1.</French>
 						<German>Erfolgreich Ausrüstung von %1 übertragen.</German>
 						<Spanish>Transferencia de equipamiento de %1 terminada.</Spanish>
@@ -2239,6 +2305,7 @@
 				</Key>
 				<Key ID="STR_LOADOUT">
 						<Original>로드아웃:</Original>
+						<English>Loadout</English>
 						<French>Equipement :</French>
 						<German>Ausrüstung:</German>
 						<Spanish>Equipamiento:</Spanish>
@@ -2246,6 +2313,7 @@
 				</Key>
 				<Key ID="STR_SPAWN_POINT">
 						<Original>배치 위치:</Original>
+						<English>Deployment point</English>
 						<French>Lieu de déploiement :</French>
 						<German>Einsatzposition:</German>
 						<Spanish>Lugar para el despliegue:</Spanish>
@@ -2253,6 +2321,7 @@
 				</Key>
 				<Key ID="STR_AGGRESSIVITY_PARAM">
 						<Original>위험도</Original>
+						<English>Aggressivity</English>
 						<French>Aggressivité de l'OPFOR</French>
 						<German>OPFOR Aggressivität</German>
 						<Spanish>Agresividad del OPFOR</Spanish>
@@ -2330,6 +2399,7 @@
 				</Key>
 				<Key ID="STR_REPAIRING">
 						<Original>수리 중</Original>
+						<English>Reparing</English>
 						<French>Réparation</French>
 						<German>Repariert</German>
 						<Spanish>Reparando</Spanish>
@@ -2337,6 +2407,7 @@
 				</Key>
 				<Key ID="STR_REARMING">
 						<Original>재무장 완료까지 %1 초</Original>
+						<English>Rearmed in %1</English>
 						<French>Réarmement dans %1s</French>
 						<German>Aufmunitioniert in %1s</German>
 						<Spanish>Rearmando en %1s</Spanish>
@@ -2344,6 +2415,7 @@
 				</Key>
 				<Key ID="STR_REFUELING">
 						<Original>재보급중</Original>
+						<English>Rearming</English>
 						<French>Ravitaillement</French>
 						<German>Auftanken</German>
 						<Spanish>Repostando</Spanish>
@@ -2351,6 +2423,7 @@
 				</Key>
 				<Key ID="STR_INTEL">
 						<Original>-- 정보 확보</Original>
+						<English>-- Take the Intel</English>
 						<French>-- PRENDRE INTEL</French>
 						<German>-- GEHEIMDIENSTINFORMATIONEN AUFNEHMEN</German>
 						<Spanish>-- COGER INTELIGENCIA</Spanish>
@@ -2358,6 +2431,7 @@
 				</Key>
 				<Key ID="STR_SECONDARY_OBJECTIVES">
 						<Original>-- 후방 교란</Original>
+						<English>-- Secondary Objectives</English>
 						<French>-- OBJECTIFS SECONDAIRES</French>
 						<German>-- SEKUNDÄRE ZIELE</German>
 						<Spanish>-- OBJETIVOS SECUNDARIOS</Spanish>
@@ -2372,6 +2446,7 @@
 				</Key>
 				<Key ID="STR_BOUNTY_MESSAGE">
 						<Original>%3 에 의해 파괴된 %2 에 대해 %1 의 보상이 지급되었습니다.</Original>
+						<Original>%1 bounty for %2 destroyed by %3</Original>
 						<French>Prime de %1 pour un %2 détruit par %3</French>
 						<German>Kopfgeld von %1 für die Zerstörung von %2 durch %3</German>
 						<Spanish>Premio de %1 por un %2 destruido por %3</Spanish>
@@ -2379,6 +2454,7 @@
 				</Key>
 				<Key ID="STR_SECONDARY_OBJECTIVES_TITLE">
 						<Original>후방 교란 작전</Original>
+						<English>Secondary Objectives</English>
 						<French>OBJECTIFS SECONDAIRES</French>
 						<German>SEKUNDÄRE ZIELE</German>
 						<Spanish>OBJETIVOS SECUNDARIOS</Spanish>
@@ -2386,6 +2462,7 @@
 				</Key>
 				<Key ID="STR_SECONDARY_OBJECTIVES_START">
 						<Original>작전 시작</Original>
+						<English>Start the Mission</English>
 						<French>Commencer</French>
 						<German>Beginnen</German>
 						<Spanish>Empezar</Spanish>
@@ -2393,6 +2470,7 @@
 				</Key>
 				<Key ID="STR_SECONDARY_INTEL">
 						<Original>현재 정보 : %1</Original>
+						<English>Current Intels : %1</English>
 						<French>Intel actuelle : %1</French>
 						<German>Aktuelle Geheimdienstinformationen: %1</German>
 						<Spanish>Inteligencia actual: %1</Spanish>
@@ -2400,6 +2478,7 @@
 				</Key>
 				<Key ID="STR_SECONDARY_NOT_ENOUGH_INTEL">
 						<Original>정보가 부족합니다.</Original>
+						<English>Not Enough Intel</English>
 						<French>Points d'intel insuffisants</French>
 						<German>Zu wenig Geheimdienstinformationen</German>
 						<Spanish>Puntos de inteligencia insuficientes</Spanish>
@@ -2407,6 +2486,7 @@
 				</Key>
 				<Key ID="STR_SECONDARY_IN_PROGRESS">
 						<Original>후방 교란 작전을 이미 수행중입니다.</Original>
+						<English>Missions is already Running in now</English>
 						<French>Mission secondaire déjà en cours</French>
 						<German>Sekundäre Mission läuft bereits</German>
 						<Spanish>Misión secundaria ya en curso</Spanish>
@@ -2414,6 +2494,7 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_INCOMING_TEXT">
 						<Original>CSAT군이 %1 지역을 향하고 있습니다.</Original>
+						<English>CSAT Forces heading to the %1 in now</English>
 						<French>Les forces hostiles se dirigent vers %1.</French>
 						<German>Feindliche Streitkräfte bewegen sich auf %1 zu.</German>
 						<Russian>Замечена вражеская группа рядом с %1</Russian>
@@ -2431,19 +2512,22 @@
 						<Russian>Путевая точка</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_CONVOY_DESTROYED_TEXT">
-						<Original>적 보급차량이 무력화 되었습니다.</Original>
+						<Original>CSAT 보급차량이 무력화 되었습니다.</Original>
+						<English>CSAT Convoy has been neutralized</English>
 						<French>Convoi OPFOR neutralisé.</French>
 						<German>OPFOR Konvoi neutralisiert.</German>
 						<Russian>Конвой OPFOR нейтрализован.</Russian>
 				</Key>
 				<Key ID="STR_NOTIFICATION_CONVOY_SPOTTED_TEXT">
-						<Original>적 보급차량이 %1 지역 근처에서 발견되었습니다.</Original>
+						<Original>CSAT 보급차량이 %1 지역 근처에서 발견되었습니다.</Original>
+						<English>CSAT Convoy has been spotted at nearby %1</English>
 						<French>Convoi OPFOR près de %1.</French>
 						<German>OPFOR Konvoi nahe %1.</German>
 						<Russian>Конвой OPFOR рядом с %1.</Russian>
 				</Key>
 				<Key ID="STR_TUTO_GOTIT">
 						<Original>플레이 하러 갑시다!</Original>
+						<English>Got it!</English>
 						<French>J'ai pigé !</French>
 						<German>Verstanden</German>
 						<Spanish>Lo tengo!</Spanish>
@@ -2451,6 +2535,7 @@
 				</Key>
 				<Key ID="STR_TUTO_ACTION">
 						<Original>-- 도움말</Original>
+						<English>-- TUTORIAL</English>
 						<French>-- TUTORIAL</French>
 						<German>-- TUTORIAL</German>
 						<Spanish>-- TUTORIAL</Spanish>
@@ -2458,6 +2543,7 @@
 				</Key>
 				<Key ID="STR_TUTO_TITLE">
 						<Original>도움말</Original>
+						<English>TUTORIAL</English>
 						<French>TUTORIAL</French>
 						<German>TUTORIAL</German>
 						<Spanish>TUTORIAL</Spanish>
@@ -2465,6 +2551,7 @@
 				</Key>
 				<Key ID="STR_TUTO_TITLE1">
 						<Original>1. 게임 소개</Original>
+						<English>1. Introduction</English>
 						<French>1. Introduction</French>
 						<German>1. Einführung</German>
 						<Spanish>1. Introducción</Spanish>
@@ -2481,6 +2568,16 @@
 						귀관은 민주국가의 군인으로서 점령지의 주민들과 관계를 맺어둘 필요가 있습니다. 항상 피아식별을 확실히 하여 민간인을 말려들게 해서는 안될것입니다.&lt;br/&gt; &lt;br/&gt;
 						질문있습니까?&lt;br/&gt; &lt;br/&gt;
 						</Original>
+						<English>
+						&lt;br/&gt;
+						Hello gentlemen, and welcome to Altis.
+						The CSAT forces have surprised us with a brutal and overwhelming offensive. They now control the entire island, but thanks to your efforts, it won't last long.&lt;br/&gt; &lt;br/&gt;
+						Our objective is simple: liberate Altis.&lt;br/&gt; &lt;br/&gt;
+						The road to victory will be long and dangerous. You will have to conquer multiple sectors and acquire the necessary resources to improve the quantity and quality of the BLUFOR forces engaged in this campaign.&lt;br/&gt; &lt;br/&gt;
+						Moreover, CSAT forces will most certainly react to our advance. You will have to engage into secondary operations to weaken a foe that fights with higher numbers and better equipment than you do.&lt;br/&gt; &lt;br/&gt;
+						In your efforts you will need the support of the local population, so always make sure to double-check what you're shooting at.&lt;br/&gt; &lt;br/&gt;
+						Questions?&lt;br/&gt; &lt;br/&gt;
+						</English>
 						<French>
 						&lt;br/&gt;
 						Bonjour messieurs, et bienvenue sur Altis.&lt;br/&gt; &lt;br/&gt;
@@ -2524,6 +2621,7 @@
 				</Key>
 				<Key ID="STR_TUTO_TITLE2">
 						<Original>2. 시나리오의 시작</Original>
+						<English>2. Start the Campagin</English>
 						<French>2. Débuter la campagne</French>
 						<German>2. Starten der Kampagne</German>
 						<Spanish>2. Comenzando la campaña</Spanish>
@@ -2535,8 +2633,16 @@
 						&lt;br/&gt;&lt;br/&gt;
 						귀관은 적이 공격할 수 없는 안전구역에서 시나리오를 시작하게 됩니다. 귀관의 첫번째 선택은 섬의 어느 구역으로 공격해 들어가느냐 입니다. 처음에는 오로지 Base Chimera에서만 배치할수 있지만, 게임이 진행됨에 따라, 더 많은 옵션들이 가능하게될 것입니다(FOB - 전진기지나 Mobile HQ - 이동형 지휘소).&lt;br/&gt; &lt;br/&gt;
 						첫 시작거점에서 귀관의 개인장구류를 완벽하게 갖출수 있습니다. 귀관은 첫 FOB를 건설할수 있는 컨테이너도 찾을수 있고 Spartan-01 휴론과 몇가지 다른 회전익 항공기역시 있습니다.&lt;br/&gt; &lt;br/&gt;
-						귀관은 휴론이나 고스트호크를 이용해 컨테이너를 수송할수 있습니다. 귀관은 첫 FOB를 어디든 배치할수 있기때문에 시나리오를 시작하는 시작거점을 귀관 마음대로 선택할수 있습니다.&lt;br/&gt; &lt;br/&gt;
+						귀관은 EH302나 고스트호크를 이용해 컨테이너를 수송할수 있습니다. 귀관은 첫 FOB를 어디든 배치할수 있기때문에 시나리오를 시작하는 시작거점을 귀관 마음대로 선택할수 있습니다.&lt;br/&gt; &lt;br/&gt;
 						</Original>
+						<English>
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='10'&gt;&lt;img image='res\tuto\fob.jpg'/&gt;&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						You begin the campaign in a safe zone that CSAT won't dare to attack. Your first choice is to choose where you want to deploy. At the beginning you can only deploy at the starting base, but as you progress, more options will become available such as forward operation bases (FOBs) and mobile respawns.&lt;br/&gt; &lt;br/&gt;
+						At your starting location you can choose your equipment from a complete Arsenal. You will also find your first FOB packaged inside a container, the Spartan-01 Huron and a few other transport choppers.&lt;br/&gt; &lt;br/&gt;
+						You will have to ferry that container with either the EH302 or Ghosthawk (unless you have chosen to start with the first FOB already built). You can deploy this first FOB wherever you want, so it's up to you to choose the right place to start your campaign.&lt;br/&gt; &lt;br/&gt;
+						</English>
 						<French>&lt;br/&gt;&lt;br/&gt;
 						&lt;t size='10'&gt;&lt;img image='res\tuto\fob.jpg'/&gt;&lt;/t&gt;
 						&lt;br/&gt;&lt;br/&gt;
@@ -2568,6 +2674,7 @@
 				</Key>
 				<Key ID="STR_TUTO_TITLE3">
 						<Original>3. 작전 목표</Original>
+						<English>3. Objective</English>
 						<French>3. Objectif</French>
 						<German>3. Ziele</German>
 						<Spanish>3. Objetivo</Spanish>
@@ -2583,6 +2690,12 @@
 						L’objectif premier de la campagne est de bouter l'OPFOR hors d'Altis. Pour cela, vous devez libérer les 7 villes principales : Kavala, Athira, Pyrgos, Agios Dionysios, Zaros, Paros et Molos. C’est l’unique condition de victoire de cette campagne.&lt;br/&gt; &lt;br/&gt;
 						Mais ces villes sont bien difficile à attaquer avec des ressources limitées et une OPFOR bien établie. Pour arriver à vos fins, vous devrez donc capturer un grand nombre de secteurs, avec chacun leur propre utilité.&lt;br/&gt; &lt;br/&gt;
 						</French>
+						<English>
+						&lt;br/&gt;
+						The main objective of the campaign is to kick CSAT out of Altis. To achieve this, you will have to liberate the 7 major towns on the island: Kavala, Athira, Pyrgos, Agios Dionysios, Zaros, Paros and Molos. This is the only victory condition for the campaign.&lt;br/&gt; &lt;br/&gt;
+						But those cities are tough nuts to crack with only limited resources and a well established CSAT. &lt;br/&gt; &lt;br/&gt;
+						To succeed, you will have to capture large number of different sectors, each with their own use.&lt;br/&gt; &lt;br/&gt;
+						</English>
 						<German>&lt;br/&gt;
 						Das Primärziel der Operation ist es die OPFOR Streitkräfte aus dem Gebiet zu vertreiben. Um dies zu erreichen werden Sie die folgenden 7 Hauptstädte erobern müssen: Kavala, Athira, Pyrgos, Agios Dionysios, Zaros, Paros und Molos. Dies ist die einzige Bedingung für unseren Sieg in dieser Operation.&lt;br/&gt; &lt;br/&gt;
 						Allerdings sind diese Städte eine wirklich harte Nuss, da es Ihnen an Ressourcen mangeln wird und die OPFOR Streitkräfte genug Zeit hatten sich dort einzugraben.&lt;br/&gt; &lt;br/&gt;
@@ -2601,6 +2714,7 @@
 				</Key>
 				<Key ID="STR_TUTO_TITLE4">
 						<Original>4. 구역</Original>
+						<English>4. Sectors</English>
 						<French>4. Secteurs</French>
 						<German>4. Sektoren</German>
 						<Spanish>4. Sectores</Spanish>
@@ -2615,6 +2729,15 @@
 						- 통신탑: CSAT군이 점령하고 있을경우, 통신탑은 근처 거점이 공격받을때 증원군을 요청하는 수단이됩니다. 증원병력이 투입되는 시간은 통신탑과 공격받는 거점의 거리에 따라 달라집니다. 이들 통신탑이 우군의 수중에 있으면, 우리는 통신감청을 통해 적 병력의 움직임을 보다 효율적으로 파악할수 있습니다.&lt;br/&gt; &lt;br/&gt;
 						- 주요도시: 알티스에는 7개의 주요도시가 있습니다: 카발라, 아티라, 피르고스, 아지오스 디오니소스, 자로스, 파로스, 그리고 몰로스. 이 7개의 도시가 우군의 손에 떨어지면, 귀관은 승리를 쟁취할수 있습니다.&lt;br/&gt; &lt;br/&gt;
 						</Original>
+						<English>
+						&lt;br/&gt;
+						Sectors are split into 5 different types:&lt;br/&gt; &lt;br/&gt;
+						- Points of interest: generally small to medium towns, each point of interest you control will raise your troop recruitment capacity.&lt;br/&gt; &lt;br/&gt;
+						- Military bases: full of CSAT personnel, the bases will also yield large quantities of ammunition that will be useful to upgrade your firepower. However these installations are heavily defended and will require large and well coordinated assaults.&lt;br/&gt; &lt;br/&gt;
+						- Factories: factories will give you the fuel you need to deploy more vehicles.&lt;br/&gt; &lt;br/&gt;
+						- Radio towers: when under CSAT control, radio towers will be used to call in reinforcements when a nearby sector is attacked. The reaction time will depend on the distance between the tower and the sector. When under - NATO control, the towers will give useful information on hostile troop movements in the vicinity by using their radio communications.&lt;br/&gt; &lt;br/&gt;
+						- Major cities: there is  seven of them: Kevala, Athira, Pyrgos, Agios Dionysios, Zaros, Paros and Molos. When all of the cities are under NATO control, you win.&lt;br/&gt; &lt;br/&gt;
+						</English>
 						<French>&lt;br/&gt;
 						Les secteurs se répartissent en 5 types différents :&lt;br/&gt; &lt;br/&gt;
 						- Les points d’interêts : généralement des villes de taille petite à moyenne, chaque point d'intérêt contrôlé augmentera votre capacité à recruter des troupes.&lt;br/&gt; &lt;br/&gt;
@@ -2650,6 +2773,7 @@
 				</Key>
 				<Key ID="STR_TUTO_TITLE5">
 						<Original>5. 물자</Original>
+						<English>5. Resources</English>
 						<French>5. Ressources</French>
 						<German>5. Ressourcen</German>
 						<Spanish>5. Recursos</Spanish>
@@ -2664,6 +2788,15 @@
 						- &lt;t color='#ff0000'&gt;AMMO:&lt;/t&gt; 탄약은 장갑차량, 전차, 그리고 숙련 전투병을 유지하는데 필요합니다. 이것은 필요할때 영구적으로 저장할수 있습니다. 탄약은 군사기지에 있는 컨테이너 박스에서 조달할수 있습니다. 이들 컨테이너를 트럭이나 항공수송을 통해 FOB로 가져온다음 분해하면 탄약을 확보할수 있습니다.&lt;br/&gt; &lt;br/&gt;
 						- &lt;t color='#ffff00'&gt;FUEL:&lt;/t&gt; 연료는 모든 장비에 사용되기때문에, 다른 물자들보다 부족현상이 심할것입니다. 연료를 확보하는 가장 좋은수단은 적의 공장을 얼마나 많이 확보할수 있느냐에 달려있습니다.&lt;br/&gt; &lt;br/&gt;
 						</Original>
+						<English>
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='10'&gt;&lt;img image='res\tuto\ress.jpg'/&gt;&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						In this campaign you have to manage three types of resources:&lt;br/&gt; &lt;br/&gt;
+						- &lt;t color='#00ff00'&gt;MANPOWER:&lt;/t&gt; manpower is linked to the number of points of interest you control. A bigger manpower allows you to raise the quality and quantity of your ground troops. &lt;br/&gt; &lt;br/&gt;
+						- &lt;t color='#ff0000'&gt;AMMO:&lt;/t&gt; ammunition is used to deploy armed vehicles, tanks and elite soldiers. It can be stocked forever and used only when necessary. Ammunition is contained in boxes that can be retrieved from military bases. Those crates have to be moved back to a FOB by truck or sling load, then recycled to increase your ammunition stockpile.&lt;br/&gt; &lt;br/&gt;
+						- &lt;t color='#ffff00'&gt;FUEL:&lt;/t&gt; fuel is used by every vehicle, some being more thirsty than others. The fuel levels depends on how many factories are controlled by NATO forces.&lt;br/&gt; &lt;br/&gt;
+						</English>
 						<French>&lt;br/&gt;&lt;br/&gt;
 						&lt;t size='10'&gt;&lt;img image='res\tuto\ress.jpg'/&gt;&lt;/t&gt;
 						&lt;br/&gt;&lt;br/&gt;
@@ -2688,14 +2821,6 @@
 						- &lt;t color='#ff0000'&gt;MUNICIÓN:&lt;/t&gt; La munición sirve para desplegar vehículos blindados, tanques y tropas de élite. Puede ser almacenada y usarse cuando sea necesario. La munición se encuentra en cajas que pueden ser sacadas de bases militares. Estas cajas deberán llevarse a una FOB mediante camiones o las eslingas del helicóptero. Una vez allí, hay que reciclarla para conseguir la munición. &lt;br/&gt; &lt;br/&gt;
 						- &lt;t color='#ffff00'&gt;COMBUSTIBLE:&lt;/t&gt; El combustible es consumido por todos los vehículos, en diferente cantidad. El nivel de combustible disponible depende de la cantidad de fábricas que se encuentren bajo el control de la OTAN. &lt;br/&gt; &lt;br/&gt;
 						</Spanish>
-						<Original>&lt;br/&gt;&lt;br/&gt;
-						&lt;t size='10'&gt;&lt;img image='res\tuto\ress.jpg'/&gt;&lt;/t&gt;
-						&lt;br/&gt;&lt;br/&gt;
-						이 시나리오에서 귀관은 세 종류의 자원을 운용하게됩니다:&lt;br/&gt; &lt;br/&gt;
-						- &lt;t color='#00ff00'&gt;MANPOWER:&lt;/t&gt; 인력은 귀관이 운용할수있는 군의 총체적인 규모에 직결됩니다. 많은 인력은 지상병력의 양과 질을 향상시킬수 있습니다. &lt;br/&gt; &lt;br/&gt;
-						- &lt;t color='#ff0000'&gt;AMMO:&lt;/t&gt; 탄약은 장갑차량, 전차, 그리고 숙련 전투병을 유지하는데 필요합니다. 이것은 필요할때 영구적으로 저장할수 있습니다. 탄약은 군사기지에 있는 컨테이너 박스에서 조달할수 있습니다. 이들 컨테이너를 트럭이나 항공수송을 통해 FOB로 가져온다음 분해하면 탄약을 확보할수 있습니다.&lt;br/&gt; &lt;br/&gt;
-						- &lt;t color='#ffff00'&gt;FUEL:&lt;/t&gt; 연료는 모든 장비에 사용되기때문에, 다른 물자들보다 부족현상이 심할것입니다. 연료를 확보하는 가장 좋은수단은 적의 공장을 얼마나 많이 확보할수 있느냐에 달려있습니다.&lt;br/&gt; &lt;br/&gt;
-						</Original>
 						<Russian>&lt;br/&gt;
 						&lt;t size='10'&gt;&lt;img image='res\tuto\ress.jpg'/&gt;&lt;/t&gt;
 						&lt;br/&gt;&lt;br/&gt;
@@ -2706,6 +2831,7 @@
 				</Key>
 				<Key ID="STR_TUTO_TITLE6">
 						<Original>6. 위협 수준</Original>
+						<English>6. Alert level</English>
 						<French>6. Niveau d'alerte</French>
 						<German>6. Alarmstatus</German>
 						<Spanish>6. Nivel de alerta</Spanish>
@@ -2716,6 +2842,10 @@
 						적군은 새로운 영토를 빼앗기는것을 손놓고 구경만하지 않을것입니다. 귀관이 처음 게임을 시작할때는 적들이 군사기지 안에서 시큰둥한 반응을 보일지 몰라도, 귀관이 점점 위협적으로 성장하여 영토를 넓혀간다면 그들은 작전행동에 들어갈것입니다.&lt;br/&gt; &lt;br/&gt;
 						적군의 작전수행능력을 저하시키기위해서 귀관은 끊임없이 후방교란을 통해 적들의 보급로를 차단해야합니다. 이것은 승리조건과는 무관하지만 귀관이 적의 위협을 장기간 무시할경우, 큰 출혈을 각오해야할 것입니다.&lt;br/&gt; &lt;br/&gt;
 						</Original>
+						<English>&lt;br/&gt;
+						The CSAT won't let you liberate all of its brand new territory without reacting. When you begin the campaign, hostile forces will only be composed of the garrisons inside military bases. However as you become more threatening by liberating more and more sectors, the CSAT will start calling in more reinforcements, men and equipment to counter you.&lt;br/&gt; &lt;br/&gt;
+						To limit the CSAT's operational capabilities, you will have to fulfill secondary objectives that will consist of destroying their logistics bases. This is not required to win the campaign, but if you ignore the alert level for too long, you're in for quite a lot of trouble.&lt;br/&gt; &lt;br/&gt;
+						</English>
 						<French>&lt;br/&gt;
 						L'OPFOR ne vous laissera pas reprendre son tout nouveau territoire sans réagir. En début de campagne les forces hostiles se limiteront aux garnisons des différentes bases militaires, mais plus vous deviendrez menaçants en libérant de nouveaux secteurs, et plus l' OPFOR fera venir de renforts en hommes et en matériel pour vous contrer. &lt;br/&gt; &lt;br/&gt;
 						Pour limiter la capacité de réaction du OPFOR, vous devrez veiller à effectuer des opérations annexes qui constitueront par exemple à détruire leurs bases de ravitaillement. Ce n'est pas une obligation pour réussir cette campagne, mais si vous ignorez le niveau d'alerte trop longtemps, attendez vous à des ennuis. &lt;br/&gt; &lt;br/&gt;
@@ -2734,6 +2864,7 @@
 				</Key>
 				<Key ID="STR_TUTO_TITLE7">
 						<Original>7. 건설</Original>
+						<Original>7. Construction</Original>
 						<French>7. Construction</French>
 						<German>7. Konstruktion</German>
 						<Spanish>7. Construcción</Spanish>
@@ -2744,6 +2875,10 @@
 						귀관의 작전을 뒷받침하기위해 병력,장비,방어시설등을 한정된 자원을 가지고 효율적으로 운용해야합니다.&lt;br/&gt; &lt;br/&gt;
 						건설메뉴는 전진기지(FOB)로부터 100m 내에서 사용가능합니다. 마우스휠을 굴리면 나타나는 액션메뉴에서 확인가능합니다.(지휘관)&lt;br/&gt; &lt;br/&gt;
 						</Original>
+						<English>&lt;br/&gt;
+						To help you succeed in your endeavors, you have a construction capability that allow you to deploy units, vehicles, defenses, fortifications and so on. Depending on your resources of course.&lt;br/&gt; &lt;br/&gt;
+						The construction system will be available when you are within 100 meters of a FOB headquarters. A contextual option will appear then.&lt;br/&gt; &lt;br/&gt;
+						</English>
 						<French>&lt;br/&gt;
 						Pour mener à bien vos objectifs vous disposez d'une capacité de construction qui vous permet de déployer des unités, des véhicules, des défenses pour vos FOB, des fortifications et autres. En fonction de vos ressources, bien sur. &lt;br/&gt; &lt;br/&gt;
 						Pour utilisez le système de construction de la mission, vous devez vous trouver dans les 100 mètres du QG d'une FOB. Une option de construction apparaîtra alors. &lt;br/&gt; &lt;br/&gt;
@@ -2762,6 +2897,7 @@
 				</Key>
 				<Key ID="STR_TUTO_TITLE8">
 						<Original>8. 전진기지(FOB) 배치</Original>
+						<English>8. Deploying another FOB</English>
 						<French>8. Déployer une autre FOB</French>
 						<German>8. Errichtung einer weiteren FOB</German>
 						<Spanish>8. Desplegar otra FOB</Spanish>
@@ -2772,6 +2908,10 @@
 						새로운 전진기지를 건설하기위해서는, 건설메뉴에서 군수(Logistics)탭을 클릭합니다, 그리고 FOB container 혹은 FOB truck을 생산합니다.&lt;br/&gt; &lt;br/&gt;
 						그리고 양지바른곳을 골라 FOB를 건설하면 됩니다. 하지만 주의하십시오. 전진기지는 각 지역거점 범위 내에는 건설할수 없고, 또한 다른 전진기지로부터 2km 이내에는 건설할수 없습니다.&lt;br/&gt; &lt;br/&gt;
 						</Original>
+						<English>&lt;br/&gt;
+						To build a brand new FOB, go to the construction menu, in the logistics tab, and build a FOB container or a FOB truck (the same thing, only with wheels).&lt;br/&gt; &lt;br/&gt;
+						Then you can move the FOB container where you want to deploy your shiny new FOB. However be aware that you can't build a FOB inside a control sector, or within 2km of any other FOB.&lt;br/&gt; &lt;br/&gt;
+						</English>
 						<French>&lt;br/&gt;
 						Pour déployer une nouvelle FOB, rendez vous dans le menu de construction, onglet logistique, et choisissez de construire un container de FOB ou un camion FOB (la même chose, avec des roues).&lt;br/&gt; &lt;br/&gt;
 						Vous pourrez ensuite déplacer le container où vous voudrez déployer la nouvelle FOB. Attention, vous ne pourrez pas construire votre FOB à l'intérieur d'un secteur contrôlable, ou à moins de 2 kilomètres d'une autre FOB.&lt;br/&gt; &lt;br/&gt;
@@ -2790,6 +2930,7 @@
 				</Key>
 				<Key ID="STR_TUTO_TITLE9">
 						<Original>9. 후방교란(Secondary Obejctives)</Original>
+						<English>9. Secondary objectives</English>
 						<French>9. Missions secondaires</French>
 						<German>9. Sekundäre Ziele</German>
 						<Spanish>9. Objetivos secundarios</Spanish>
@@ -2797,10 +2938,15 @@
 				</Key>
 				<Key ID="STR_TUTO_TEXT9">
 						<Original>&lt;br/&gt;
-						귀관이 지역을 점령하면, 간혹 투항하는 적병을 발견핳수 있습니다. 귀관은 포로를 데리고 근처의 전진기지로 가서 심문할수 있습니다.&lt;br/&gt; &lt;br/&gt;
+						귀관이 지역을 점령하면, 간혹 투항하는 적병을 발견할 수 있습니다. 귀관은 포로를 데리고 근처의 전진기지로 가서 심문할수 있습니다.&lt;br/&gt; &lt;br/&gt;
 						우리는 제네바협약에 따라 포로에게서 얻은 정보로 적 보급기지의 대략적인 위치를 파악할수 있습니다.&lt;br/&gt; &lt;br/&gt;
 						해당 구역에 진입하여 귀관은 목표의 정확한 위치를 파악하고, 모든 차량과 물자들을 파괴해야합니다. 이 작전이 성공하면 적들의 공세가 다소 늦춰질것이고 적의 작전 효율성이 떨어지게됩니다.&lt;br/&gt; &lt;br/&gt;
 						</Original>
+						<English>&lt;br/&gt;
+						When you capture sectors, sometimes the few hostiles forces left will surrender. You can then capture prisoners that have to be taken to a nearby FOB to be interrogated.&lt;br/&gt; &lt;br/&gt;
+						That interrogatory, executed in the utmost respect of the Geneva conventions, will allow you to obtain more or less precise information about the position of a CSAT logistics base.&lt;br/&gt; &lt;br/&gt;
+						After going there you will need to find the exact position of your target, then use any means at your disposal to destroy every vehicle or container that could be useful to refill CSAT forces. Succeeding at this task will reduce the alert level consequently, and with it the efficiency of all hostile forces.&lt;br/&gt; &lt;br/&gt;
+						</English>
 						<French>&lt;br/&gt;
 						Lors de la capture d'un secteur, les dernières forces hostile sur place se rendront. Vous pourrez alors capturer des prisonniers qui devront être emmenés à une FOB pour y être interrogés.&lt;br/&gt; &lt;br/&gt;
 						Cet interrogatoire mené dans le plus grand respect des conventions de Geneviève vous permettra d'obtenir des informations plus ou moins précises sur l'emplacement d'une base de ravitaillement de l'OPFOR.&lt;br/&gt; &lt;br/&gt;
@@ -2823,6 +2969,7 @@
 				</Key>
 				<Key ID="STR_TUTO_TITLE10">
 						<Original>10. 지휘관</Original>
+						<English>10. Commanding</English>
 						<French>10. Commandement</French>
 						<German>10. Oberkommando</German>
 						<Spanish>10. Comandancia</Spanish>
@@ -2835,6 +2982,12 @@
 						더 나아가 지휘관은 추가적인 건설 권한을 부여받게됩니다.&lt;br/&gt; &lt;br/&gt;
 						이 기능은 남용되어서는 안되지만, 소규모 인원으로 플레이를 즐기려는 그룹에게는 강력히 추천하는 기능입니다.&lt;br/&gt; &lt;br/&gt;
 						</Original>
+						<English>&lt;br/&gt;
+						When a player uses the commander slot (the last slot of the list), they get access to a Zeus interface by pressing the corresponding key (U by default).&lt;br/&gt; &lt;br/&gt;
+						This interface allows to command NATO forces in 3d view or map view.&lt;br/&gt; &lt;br/&gt;
+						Moreover the commander gets additional build options that will allow them to obtain crewed vehicles or entire pre-made squads.&lt;br/&gt; &lt;br/&gt;
+						This role is not mandatory, but strongly recommended for smaller groups of players.&lt;br/&gt; &lt;br/&gt;
+						</English>
 						<French>&lt;br/&gt;
 						Lorsqu'un joueur prend le rôle de commandant (en dernière position de la liste des rôles), il a accès à une interface Zeus en appuyant sur la touche correspondante (par défaut U).&lt;br/&gt; &lt;br/&gt;
 						Cette interface permet de commander les troupes de l'OTAN en vue 3d ou en vue carte.&lt;br/&gt; &lt;br/&gt;
@@ -2861,6 +3014,7 @@
 				</Key>
 				<Key ID="STR_SECONDARY_MISSION0">
 						<Original>적 전진기지 급습</Original>
+						<English>FOB Hunting</English>
 						<French>Chasse à la FOB</French>
 						<German>FOB Jagd</German>
 						<Spanish>Caza de FOB</Spanish>
@@ -2882,6 +3036,21 @@
 						&lt;br/&gt;&lt;br/&gt;
 						&lt;t size='10'&gt;&lt;img image='res\secondary\fob_obj.jpg'/&gt;&lt;/t&gt;
 						</Original>
+						<English>
+						&lt;t size='1.3' color='#ffa000'&gt;FOB HUNTING&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='1'&gt;
+						CSAT forces use an array of small logistic bases situated behind the front lines. Destroying those assets would greatly disrupt the CSAT supply lines and impair their capacity to react to our actions.&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='1'&gt;
+						Your mission is to destroy all supply assets (trucks, containers) at the objective by any means at your disposal. Unfortunately our intelligence is not able to provide you with a precise position for the base, you will have to locate the objective in the red zone on your map.&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='1.15' color='#00a0ff'&gt;Cost: 10&lt;img image='\A3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa'/&gt;&lt;/t&gt;
+						&lt;br/&gt;
+						&lt;t size='1.15' color='#ffa000'&gt;Reward: CSAT alert level reduced by 40%&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='10'&gt;&lt;img image='res\secondary\fob_obj.jpg'/&gt;&lt;/t&gt;
+						</English>
 						<French>
 						&lt;t size='1.3' color='#ffa000'&gt;CHASSE A LA FOB&lt;/t&gt;
 						&lt;br/&gt;&lt;br/&gt;
@@ -2940,6 +3109,7 @@
 				</Key>
 				<Key ID="STR_SECONDARY_MISSION1">
 						<Original>보급차량 탈취</Original>
+						<English>Convoy Hijack</English>
 						<French>Interception de convoi</French>
 						<German>Konvoi Hinterhalt</German>
 						<Russian>Налёт на конвой врага</Russian>
@@ -2956,6 +3126,23 @@
 						보너스: 회수한 탄약자원
 						&lt;/t&gt; &lt;br/&gt;&lt;br/&gt; &lt;t size='10'&gt;&lt;img image='res\secondary\convoy_obj.jpg'/&gt;&lt;/t&gt;
 						</Original>
+						<English>
+						&lt;t size='1.3' color='#ffa000'&gt;CONVOY HIJACK&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='1'&gt;
+						CSAT forces use road convoys to resupply their defensive positions. Intercepting one of these convoys would effectively disrupt their supply lines, and we could use the occasion to retrieve an hefty amount of ammunition.&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='1'&gt;
+						Your mission is to stop the CSAT convoy by any means necessary. You can destroy it, or hijack it to retrieve all the ammunition you can grab. The target will be spotted on your map.&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='1.15' color='#00a0ff'&gt;Cost: 10&lt;img image='\A3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa'/&gt;&lt;/t&gt;
+						&lt;br/&gt;
+						&lt;t size='1.15' color='#ffa000'&gt;Reward: CSAT alert level reduced by 15%&lt;/t&gt;
+						&lt;br/&gt;
+						&lt;t size='1.15' color='#ffa000'&gt;Side reward: All the ammunition you can retrieve.&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='10'&gt;&lt;img image='res\secondary\convoy_obj.jpg'/&gt;&lt;/t&gt;
+						</English>
 						<French>
 						&lt;t size='1.3' color='#ffa000'&gt;INTERCEPTION DE CONVOI&lt;/t&gt;
 						&lt;br/&gt;&lt;br/&gt;
@@ -3035,12 +3222,14 @@
 				</Key>
 				<Key ID="STR_HINT_LOADOUT_LOADED">
 						<Original>%1 의 로드아웃을 성공적으로 불러왔습니다.</Original>
+						<English>Loaded %1's Loadout</English>
 						<French>Equipement %1 chargé avec succès.</French>
 						<German>Ausrüstungsset %1 erfolgreich geladen.</German>
 						<Russian>Снаряжение %1 успешно загружено.</Russian>
 				</Key>
 				<Key ID="STR_SECONDARY_MISSION2">
 						<Original>수색, 구출</Original>
+						<English>Search and Rescue</English>
 						<French>Recherche et Sauvetage</French>
 						<German>Suchen und Zerstören</German>
 				</Key>
@@ -3060,6 +3249,23 @@
 						&lt;br/&gt;&lt;br/&gt;
 						&lt;t size='10'&gt;&lt;img image='res\secondary\fob_obj.jpg'/&gt;&lt;/t&gt;
 						</Original>
+						<English>
+						&lt;t size='1.3' color='#ffa000'&gt;SEARCH AND RESCUE&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='1'&gt;
+						We have lost contact with a recon helicopter on mission behind the enemy lines. We believe the chopper was shot down by hostile forces.&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='1'&gt;
+						The helicopter may have crashlanded anywhere in a large zone around its last known position. Your mission is to retrieve the chopper crew and their precious intel. Hostile forces may have found them first, so you must be quick, careful, and ready to engage.&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='1.15' color='#00a0ff'&gt;Cost: 10&lt;img image='\A3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa'/&gt;&lt;/t&gt;
+						&lt;br/&gt;
+						&lt;t size='1.15' color='#ffa000'&gt;Reward: 20 intel points.&lt;/t&gt;
+						&lt;br/&gt;
+						&lt;t size='1.15' color='#ffa000'&gt;Side reward: All the ammunition you can retrieve.&lt;/t&gt;
+						&lt;br/&gt;&lt;br/&gt;
+						&lt;t size='10'&gt;&lt;img image='res\secondary\fob_obj.jpg'/&gt;&lt;/t&gt;
+						</English>
 						<French>
 						&lt;t size='1.3' color='#ffa000'&gt;RECHERCHE ET SAUVETAGE&lt;/t&gt;
 						&lt;br/&gt;&lt;br/&gt;
@@ -3109,14 +3315,17 @@
 				</Key>
 				<Key ID="STR_NOTIFICATION_SAR_STARTED">
 						<Original>%1 인근에 헬리콥터가 추락했습니다.</Original>
+						<English>Helicopter crashed nearby %1.</English>
 						<French>Helicopter crashé près de %1.</French>
 				</Key>
 				<Key ID="STR_NOTIFICATION_SAR_FAILED">
 						<Original>구출 작전에 실패했습니다. 승무원이 모두 사망했습니다.</Original>
+						<English>SAR Mission Failed, All crews are KIA</English>
 						<French>Mission SAR échouée, les deux équipages sont morts.</French>
 				</Key>
 				<Key ID="STR_NOTIFICATION_SAR_SUCCESS">
 						<Original>구출 작전에 성공하였습니다.</Original>
+						<English>SAR Mission Success</English>
 						<French>Mission SAR réussie.</French>
 				</Key>
 		</Package>
