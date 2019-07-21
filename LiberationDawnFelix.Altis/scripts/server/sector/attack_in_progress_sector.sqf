@@ -10,7 +10,7 @@ _squad_type = blufor_squad_inf_light;
 if ( _sector in sectors_military ) then {
 	_squad_type = blufor_squad_inf;
 };
-
+_grpunits = [];
 if ( GRLIB_blufor_defenders ) then {
 	_grp = creategroup GRLIB_side_friendly;
 	{ _x createUnit [ markerpos _sector, _grp,'this addMPEventHandler ["MPKilled", {_this spawn kill_manager}]']; } foreach _squad_type;
@@ -19,8 +19,8 @@ if ( GRLIB_blufor_defenders ) then {
 _isplayer = (count([(playableUnits + switchableUnits),{(_x distance (markerpos _sector)) > GRLIB_capture_size && isPlayer _x}] call BIS_fnc_conditionalSelect) > 0);
 if(_isplayer) then {
  	_grp = [ _sector, [] call F_getAdaptiveSquadComp ] call F_spawnRegularSquad;
-	[ _grp, _sectorpos ] spawn add_defense_waypoints;
-	_grpunits =_grpunits + (units _grp);
+	[ _grp, _sector ] spawn add_defense_waypoints;
+	_grpunits = _grpunits + (units _grp);
 };
 
 sleep 3;
@@ -75,7 +75,7 @@ if ( GRLIB_endgame == 0 ) then {
 
 sleep 60;
 
-if ( GRLIB_blufor_defenders ) then {
+if ( GRLIB_blufor_defenders || _isplayer) then {
 	{
 		if ( alive _x ) then { deleteVehicle _x };
 	} foreach _grpunits;
