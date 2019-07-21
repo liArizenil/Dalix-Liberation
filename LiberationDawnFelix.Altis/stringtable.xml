@@ -189,6 +189,19 @@
 				<Original>Dark Green</Original>
 				<Korean>어두운 녹색</Korean>
 			</Key>
+<!-- FAR REVIVE -->
+			<Key ID="STR_REVIVE">
+				<Original>Revive</Original>
+				<Korean>소생 시키기</Korean>
+			</Key>
+			<Key ID="STR_BLEEDOUT_STABILIZED">
+				<Original>안정시키기</Original>
+				<English>Stabilized</English>
+				<French>Stabilisé</French>
+				<German>Stabilisiert</German>
+				<Spanish>Estabilizado</Spanish>
+				<Russian>Стабильно</Russian>
+			</Key>			
 <!-- Component/구성품 -->
 			<Key ID="STR_VAM_NONE_COMP">
 				<Original>None</Original>
@@ -333,6 +346,7 @@
 				</Key>
 				<Key ID="STR_Deploy_OnPoint">
 						<Original>배치</Original>
+						<English>Deployment</English>
 						<French>Déploiement</French>
 						<German>Bereitstellen</German>
 						<Spanish>Despliegue</Spanish>
@@ -340,6 +354,7 @@
 				</Key>
 				<Key ID="STR_Deploy_InProgress">
 						<Original>배치중 ...</Original>
+						<English>Deploying...</English>
 						<French>Déploiement en cours ...</French>
 						<German>Bereitstellung in Arbeit</German>
 						<Spanish>Despliegue en curso ...</Spanish>
@@ -347,6 +362,7 @@
 				</Key>
 				<Key ID="STR_CLOSE">
 						<Original>닫기</Original>
+						<English>Close</English>
 						<French>Fermer</French>
 						<German>Schliessen</German>
 						<Spanish>Cerca</Spanish>
@@ -354,6 +370,7 @@
 				</Key>
 				<Key ID="STR_FAR_Need_Medic1">
 						<Original>매딕 지원이 필요하다!</Original>
+						<English>I need a Medic on here!</English>
 						<French>J'ai besoin d'un medic!</French>
 						<German>Ich brauche einen Sanitäter!</German>
 						<Spanish>¡Necesito un médico!</Spanish>
@@ -361,6 +378,7 @@
 				</Key>
 				<Key ID="STR_FAR_Need_Medic2">
 						<Original>총에 맞았다! 매딕!</Original>
+						<English>I'm hit! Medic!</English>
 						<French>Je suis touché! Medic!</French>
 						<German>Wurde getroffen! Sanitäter!</German>
 						<Spanish>Herido! Médico!</Spanish>
@@ -368,6 +386,7 @@
 				</Key>
 				<Key ID="STR_FAR_Need_Medic3">
 						<Original>쓰러졌다! 매딕!</Original>
+						<English>I'm Wounded! Medic!</English>
 						<French>Je suis à terre! Medic!</French>
 						<German>Ich bin gefallen! Sanitäter!</German>
 						<Spanish>Estoy abatido! Médico!</Spanish>
@@ -375,6 +394,7 @@
 				</Key>
 				<Key ID="STR_REVIVE_LABEL">
 						<Original>부상당했습니다.</Original>
+						<English>You are Wounded.</English>
 						<French>VOUS ETES BLESSE</French>
 						<German>DU BIST VERWUNDET</German>
 						<Spanish>ESTAS HERIDO</Spanish>
@@ -382,6 +402,7 @@
 				</Key>
 				<Key ID="STR_BUILD_ACTION">
 						<Original>-- 건설 --</Original>
+						<English>Construct</English>
 						<French>-- CONSTRUIRE --</French>
 						<German>-- BAUEN --</German>
 						<Spanish>-- CONSTRUIR --</Spanish>
@@ -389,6 +410,7 @@
 				</Key>
 				<Key ID="STR_BUILD_TITLE">
 						<Original>건설 메뉴</Original>
+						<English>Construct Menu</English>
 						<French>CONSTRUCTION</French>
 						<German>BAUMENUE</German>
 						<Spanish>MENU DE CONSTRUCCIÓN</Spanish>
@@ -396,6 +418,7 @@
 				</Key>
 				<Key ID="STR_BUILD_BUTTON">
 						<Original>건설</Original>
+						<English>Construct</English>
 						<French>Construire</French>
 						<German>Bauen</German>
 						<Spanish>Construir</Spanish>
@@ -407,6 +430,7 @@
 				</Key>
 				<Key ID="STR_MANPOWER">
 						<Original>노동 인력</Original>
+						<English>Man Power</English>
 						<French>Effectifs</French>
 						<German>Besatzung</German>
 						<Spanish>Efectivos</Spanish>
@@ -414,6 +438,7 @@
 				</Key>
 				<Key ID="STR_AMMO">
 						<Original>탄약</Original>
+						<English>Ammunation</English>
 						<French>Munitions</French>
 						<German>Munition</German>
 						<Spanish>Munición</Spanish>
@@ -421,6 +446,7 @@
 				</Key>
 				<Key ID="STR_FUEL">
 						<Original>연료</Original>
+						<English>Fuel</English>
 						<French>Carburant</French>
 						<German>Treibstoff</German>
 						<Spanish>Combustible</Spanish>
@@ -428,20 +454,15 @@
 				</Key>
 				<Key ID="STR_BLEEDOUT_MESSAGE">
 						<Original>사망까지 앞으로 %1 초</Original>
+						<English>Until to Death %1 Seconds.</English>
 						<French>Mort dans %1 secondes</French>
 						<German>Ausbluten in %1 Sekunden</German>
 						<Spanish>Desangrado en %1 segundos</Spanish>
 						<Russian>Вы умрёте через %1 секунд</Russian>
 				</Key>
-				<Key ID="STR_BLEEDOUT_STABILIZED">
-						<Original>안정시키기</Original>
-						<French>Stabilisé</French>
-						<German>Stabilisiert</German>
-						<Spanish>Estabilizado</Spanish>
-						<Russian>Стабильно</Russian>
-				</Key>
 				<Key ID="STR_ROTATION">
 						<Original>-- 돌리기</Original>
+						<English>-- Rotation</English>
 						<French>-- Rotation</French>
 						<German>-- Rotieren</German>
 						<Spanish>-- Rotación</Spanish>
@@ -449,6 +470,7 @@
 				</Key>
 				<Key ID="STR_PLACEMENT">
 						<Original>-- 건설</Original>
+						<English>-- Construct</English>
 						<French>-- Construire</French>
 						<German>-- Bauen</German>
 						<Spanish>-- Construir</Spanish>
@@ -456,6 +478,7 @@
 				</Key>
 				<Key ID="STR_PLACEMENT_BIS">
 						<Original>-- 반복 건설하기</Original>
+						<English>-- Repeat to Contruct</English>
 						<French>-- Construire et Répéter</French>
 						<German>-- Bauen und Wiederholen</German>
 						<Spanish>-- Construir y repetir</Spanish>
@@ -463,6 +486,7 @@
 				</Key>
 				<Key ID="STR_CANCEL">
 						<Original>-- 취소</Original>
+						<English>-- Cancel</English>
 						<French>-- Annuler</French>
 						<German>-- Abbrechen</German>
 						<Spanish>-- Cancelar</Spanish>
@@ -470,6 +494,7 @@
 				</Key>
 				<Key ID="STR_CANCEL_HINT">
 						<Original>건설 취소하기</Original>
+						<English>-- Cancel the Construct</English>
 						<French>Construction annulée.</French>
 						<German>Bauen abgebrochen.</German>
 						<Spanish>Construcción cancelada</Spanish>
@@ -477,6 +502,7 @@
 				</Key>
 				<Key ID="STR_CONFIRM_HINT">
 						<Original>건설 완료</Original>
+						<English>Constructed Confirm</English>
 						<French>Construction confirmée.</French>
 						<German>Bauen bestaetigt.</German>
 						<Spanish>Construcción confirmada.</Spanish>
@@ -484,6 +510,7 @@
 				</Key>
 				<Key ID="STR_PLACEMENT_IMPOSSIBLE">
 						<Original>여기에 건설 불가능 : %1 가(이) %2 M 안에 있습니다.</Original>
+						<English>Impossible to Construct on here : %1 is at the inside of %2 M</English>
 						<French>Impossible de placer ici : il y a %1 objet(s) dans les %2 mètres de la position voulue.</French>
 						<German>Kann hier nicht platziert werden: %1 Objekt(e) innerhalb von %2 Meter der Position</German>
 						<Spanish>Imposible de colocar aqui: hay 1% objeto(s) a %2 metros de la posición del objeto</Spanish>
@@ -491,6 +518,7 @@
 				</Key>
 				<Key ID="STR_PLACEMENT_POSSIBLE">
 						<Original>이 위치는 유효합니다</Original>
+						<English>This Position is available</English>
 						<French>Cette position est valide.</French>
 						<German>Diese Position ist gültig.</German>
 						<Spanish>Esta posición es válida</Spanish>
@@ -498,6 +526,7 @@
 				</Key>
 				<Key ID="STR_ARSENAL_ACTION">
 						<Original>-- 무기고 --</Original>
+						<English>-- ARSENAL</English>
 						<French>-- ARSENAL --</French>
 						<German>-- ARSENAL --</German>
 						<Spanish>-- ARSENAL --</Spanish>
@@ -505,6 +534,7 @@
 				</Key>
 				<Key ID="STR_ACTION_LOAD_BOX">
 						<Original>-- 탄약 박스를 차량에 올리기</Original>
+						<English>-- Load the Ammobox to the Vehicle</English>
 						<French>-- CHARGER MUNITIONS</French>
 						<German>-- MUNITIONSKISTE AUFLADEN</German>
 						<Spanish>-- CARGAR CAJA DE MUNICIÓN</Spanish>
@@ -512,6 +542,7 @@
 				</Key>
 				<Key ID="STR_ACTION_UNLOAD_BOX">
 						<Original>-- 탄약 박스를 차에서 내리기</Original>
+						<English>-- UnLoad the Ammobox from the Vehicle</English>
 						<French>-- DECHARGER MUNITIONS</French>
 						<German>-- MUNITIONSKISTE ABLADEN</German>
 						<Spanish>-- DESCARGAR CAJA DE MUNICIÓN</Spanish>
@@ -519,6 +550,7 @@
 				</Key>
 				<Key ID="STR_BOX_LOADED">
 						<Original>탄약 박스를 성공적으로 수송 차량에 탑재하였습니다.</Original>
+						<English>Ammobox has been loaded into the Vehicle</English>
 						<French>La caisse de munitions a été chargée sur le véhicule de transport.</French>
 						<German>Munitionskiste erfolgreich auf das Transportfahrzeug aufgeladen.</German>
 						<Spanish>Caja de munición cargada correctamente en el vehículo de transporte</Spanish>
@@ -526,6 +558,7 @@
 				</Key>
 				<Key ID="STR_BOX_UNLOADED">
 						<Original>탄약 박스를 성공적으로 수송 차량에서 하역하였습니다.</Original>
+						<English>Ammobox has been unloaded from the Vehicle</English>
 						<French>La caisse de munitions a été déchargée du véhicule de transport.</French>
 						<German>Munitionskiste erfolgreich vom Transportfahrzeug abgeladen.</German>
 						<Spanish>Caja de munición descargada correctamente del vehículo de transporte</Spanish>
@@ -533,6 +566,7 @@
 				</Key>
 				<Key ID="STR_BOX_CANTLOAD">
 						<Original>근처에 수송 차량이 없어서 탄약 박스를 탑재할 수 없습니다.</Original>
+						<English>There is No vehicle at nearby to Load the Ammobox</English>
 						<French>Aucun véhicule à proximité capable de charger la caisse de munitions.</French>
 						<German>Kein Fahrzeug in der Nähe, das die Munitionskiste tragen kann.</German>
 						<Spanish>No hay ningún vehículo cercano capaz de cagar la caja de munición</Spanish>
@@ -540,6 +574,7 @@
 				</Key>
 				<Key ID="STR_FOB_ACTION">
 						<Original>-- FOB 건설 --</Original>
+						<English>-- DEPLOY THE FOB</English>
 						<French>-- DEPLOYER FOB --</French>
 						<German>-- FOB Bereitstellen --</German>
 						<Spanish>-- DESPLEGAR FOB --</Spanish>
@@ -561,6 +596,7 @@
 				</Key>
 				<Key ID="STR_BUILD_ERROR_WATER">
 						<Original>물 위에서는 건설할 수 없습니다.</Original>
+						<English>Impossible to Construct on the surface of water</English>
 						<French>Impossible de construire sur l'eau.</French>
 						<German>Kann nicht auf Wasser gebaut werden.</German>
 						<Spanish>Imposible construir sobre el agua.</Spanish>
@@ -589,6 +625,7 @@
 				</Key>
 				<Key ID="STR_RESPAWN_TRUCK">
 						<Original>이동식 배치차량</Original>
+						<English>Mobile Respawn Vehicle</English>
 						<French>Respawn mobile</French>
 						<German>Mobiler Respawn</German>
 						<Spanish>Respawn móvil</Spanish>
@@ -603,6 +640,7 @@
 				</Key>
 				<Key ID="STR_DEPLOY_TITLE">
 						<Original>전개</Original>
+						<English>DEPLOYMENT</English>
 						<French>DEPLOIEMENT</French>
 						<German>EINSATZ</German>
 						<Spanish>DESPLIEGUE</Spanish>
@@ -610,6 +648,7 @@
 				</Key>
 				<Key ID="STR_DEPLOY_BUTTON">
 						<Original>배치</Original>
+						<English>Deployment</English>
 						<French>Déploiment</French>
 						<German>Einsetzen</German>
 						<Spanish>Desplegar</Spanish>
@@ -617,6 +656,7 @@
 				</Key>
 				<Key ID="STR_DEPLOY_ACTION">
 						<Original>-- 재배치 --</Original>
+						<English>-- REDEPLOYMENT --</English>
 						<French>-- REDEPLOIEMENT --</French>
 						<German>-- NEU EINSETZEN --</German>
 						<Spanish>-- REDESPLEGAR --</Spanish>
@@ -709,6 +749,7 @@
 				</Key>
 				<Key ID="STR_UNFLIP">
 						<Original>-- 뒤집기</Original>
+						<English>-- UNFLIP</English>
 						<French>-- UNFLIP</French>
 						<German>-- UMDREHEN</German>
 						<Spanish>-- RECOLOCAR VEHÍCULO</Spanish>
@@ -716,6 +757,7 @@
 				</Key>
 				<Key ID="STR_GRID">
 						<Original>-- 바둑판 모드</Original>
+						<English>-- Grid Mode</English>
 						<French>-- Mode grille</French>
 						<German>-- Rastermodus</German>
 						<Spanish>-- Modo rejilla</Spanish>
@@ -723,6 +765,7 @@
 				</Key>
 				<Key ID="STR_SECONDARY_CAPTURE">
 						<Original>-- 포박하기</Original>
+						<English>-- CAPTURE</English>
 						<French>-- CAPTURER</French>
 						<German>-- GEFANGENNEHMEN</German>
 						<Spanish>-- CAPTURAR</Spanish>
@@ -744,6 +787,7 @@
 				</Key>
 				<Key ID="STR_RECYCLE">
 						<Original>-- 재활용</Original>
+						<English>-- RECYCLE</English>
 						<French>-- RECYCLER</French>
 						<German>-- WIEDERVERWERTEN</German>
 						<Spanish>-- RECICLAR</Spanish>
@@ -751,6 +795,7 @@
 				</Key>
 				<Key ID="STR_RECYCLING">
 						<Original>재활용</Original>
+						<English>Recycle</English>
 						<French>Recyclage</French>
 						<German>Wiederverwerten</German>
 						<Spanish>Reciclando</Spanish>
@@ -765,6 +810,7 @@
 				</Key>
 				<Key ID="STR_RECYCLING_PROCEED">
 						<Original>재활용</Original>
+						<English>Recycle</English>
 						<French>Recycler</French>
 						<German>Wiederverwerten</German>
 						<Spanish>Reciclar</Spanish>
@@ -773,6 +819,7 @@
 				</Key>
 				<Key ID="STR_RECYCLING_CANCEL">
 						<Original>취소</Original>
+						<English>Cancel</English>
 						<French>Annuler</French>
 						<German>Abbrechen</German>
 						<Spanish>Cancelar</Spanish>
