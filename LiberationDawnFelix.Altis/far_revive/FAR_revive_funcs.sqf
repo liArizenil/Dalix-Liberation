@@ -284,7 +284,7 @@ FAR_Drag =
 	_target setDir 180;
 	_target setVariable ["FAR_isDragged", 1, true];
 
-	player switchmove "AcinPknlMstpSrasWrflDnon";
+	player PlayMove "AcinPknlMstpSrasWrflDnon";
 
 	// Rotation fix
 	FAR_isDragging_EH = _target;
