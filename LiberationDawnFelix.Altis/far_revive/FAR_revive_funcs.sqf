@@ -95,11 +95,10 @@ FAR_Player_Unconscious =
 		};
 		public_medic_message = [_unit,_medic_message]; publicVariable "public_medic_message";
 
+		_unit setUnconscious true;
 		_unit setDamage 0.6;
 		_unit setVelocity [0,0,0];
 		_unit allowDamage false;
-		_unit setCaptive true;
-		_unit playMove "AinjPpneMstpSnonWrflDnon_rolltoback";
 
 		sleep 4;
 
@@ -113,8 +112,8 @@ FAR_Player_Unconscious =
 			_unit setVariable ["ace_sys_wounds_uncon", true];
 		};
 
-		_unit switchMove "AinjPpneMstpSnonWrflDnon";
-		_unit enableSimulation false;
+		_unit setUnconscious true;
+		_unit setVelocity [0,0,0];
 		_unit setVariable ["FAR_isUnconscious", 1, true];
 
 		// Call this code only on players
@@ -166,10 +165,9 @@ FAR_Player_Unconscious =
 				{
 					_unit setVariable ["ace_sys_wounds_uncon", false];
 				};
-
-				_unit enableSimulation true;
+				
+				_unit setUnconscious false;
 				_unit allowDamage true;
-				_unit setCaptive false;
 
 				if ( GRLIB_replace_ai ) then {
 					if ( primaryWeapon player == "" ) then {
@@ -233,15 +231,14 @@ FAR_HandleRevive =
 		_target setVariable ["FAR_isUnconscious", 0, true];
 		_target setVariable ["FAR_isDragged", 0, true];
 
-		sleep 6;
+		sleep 3;
 
 		// [Debugging] Code below is only relevant if revive script is enabled for AI
 		if (!isPlayer _target) then
 		{
-			_target enableSimulation true;
+			_target setUnconscious false;
 			_target allowDamage true;
 			_target setDamage 0.65;
-			_target setCaptive false;
 
 			_target playMove "amovppnemstpsraswrfldnon";
 		};
@@ -287,7 +284,7 @@ FAR_Drag =
 	_target setDir 180;
 	_target setVariable ["FAR_isDragged", 1, true];
 
-	player playMoveNow "AcinPknlMstpSrasWrflDnon";
+	player switchmove "AcinPknlMstpSrasWrflDnon";
 
 	// Rotation fix
 	FAR_isDragging_EH = _target;
@@ -296,7 +293,7 @@ FAR_Drag =
 	// Add release action and save its id so it can be removed
 	_id = player addAction ["<t color=""#C90000"">" + "놓기" + "</t>", "FAR_revive\FAR_handleAction.sqf", ["action_release"], 10, true, true, "", "true"];
 
-	hint "Press 'C' if you can't move.";
+	hint "움직여지지 않을 경우 C 키를 눌르세요.";
 
 	// Wait until release action is used
 	waitUntil
