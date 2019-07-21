@@ -64,10 +64,10 @@ OPFOR_Vest = [
 	"V_HarnessO_brn"
 ];
 OPFOR_Backpacks = [];
-	OPFOR_Sight = [];
-	OPFOR_Helmet = [];
-	OPFOR_Uniform = [];
-	OPFOR_Muzzles = [];
+OPFOR_Sight = [];
+OPFOR_Helmet = [];
+OPFOR_Uniform = [];
+OPFOR_Muzzles = [];
 	if(typeOf player == "O_soldier_M_F") then {
 		OPFOR_Weapons = OPFOR_Weapons + [
 			"srifle_DMR_01_F",
@@ -269,4 +269,3 @@ OPFOR_Backpacks = [];
 			"B_Parachute"
 		];	
 	};
-};
