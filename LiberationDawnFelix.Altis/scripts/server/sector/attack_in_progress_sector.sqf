@@ -1,5 +1,5 @@
 params [ "_sector" ];
-private [ "_attacktime", "_ownership", "_grp", "_squad_type" ,"_isplayer", "_grpunits", "_specialgift", "_para" ];
+private [ "_attacktime", "_ownership", "_grp", "_squad_type" ,"_isplayer", "_grpunits", "_spawnpos","_specialgift", "_para" ];
 
 sleep 5;
 
@@ -67,13 +67,9 @@ if ( GRLIB_endgame == 0 ) then {
 		trigger_server_save = true;
 		[] call recalculate_caps;
 		stats_sectors_lost = stats_sectors_lost + 1;
-		private _spawnpos = zeropos;
-		while { _spawnpos distance zeropos < 1000 } do {
-			_spawnpos = ( [ _sector, random 50, random 360 ] call BIS_fnc_relPos ) findEmptyPosition [5, 100, "B_Quadbike_01_F"];
-			if ( count _spawnpos == 0 ) then { _spawnpos = zeropos; };
-		};
-		_specialgift = opfor_mrap createVehicle _spawnpos;
-		_specialgift setPosATL (_specialgift modelToWorld[0,0,250]);
+		_spawnpos = ( [ _sector, random 50, random 360 ] call BIS_fnc_relPos ) findEmptyPosition [5, 100, "B_Quadbike_01_F"];
+		_specialgift = opfor_mrap createVehicle (_spawnpos select 0);
+		_specialgift setPosATL (_specialgift modelToWorld[0,0,150]);
 		_para = createVehicle ["B_Parachute_02_F", getpos _specialgift, [], 0, "NONE"];
 		_para attachTo [specialgift, [0, 0, 1]];
 	} else {
