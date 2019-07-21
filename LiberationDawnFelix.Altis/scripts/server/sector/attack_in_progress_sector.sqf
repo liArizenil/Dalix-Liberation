@@ -71,7 +71,7 @@ if ( GRLIB_endgame == 0 ) then {
 		_specialgift = opfor_mrap createVehicle _vehspawn;
 		_specialgift setPosATL (_specialgift modelToWorld[0,0,150]);
 		_para = createVehicle ["B_Parachute_02_F", getpos _specialgift, [], 0, "NONE"];
-		_para attachTo [specialgift, [0, 0, 1]];
+		_para attachTo [_specialgift, [0, 0, 1]];
 	} else {
 		[ [ _sector, 3 , 0 ] , "remote_call_sector" ] call BIS_fnc_MP;
 		{ [_x] spawn prisonner_ai; } foreach ( [ (markerpos _sector) nearEntities [ "Man", GRLIB_capture_size * 0.8 ], { side group _x == GRLIB_side_enemy } ] call BIS_fnc_conditionalSelect );
