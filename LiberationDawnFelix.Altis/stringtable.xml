@@ -192,11 +192,11 @@
 <!-- FAR REVIVE -->
 			<Key ID="STR_REVIVE">
 				<Original>Revive</Original>
-				<Korean>소생 시키기</Korean>
+				<Korean>소생시키기</Korean>
 			</Key>
 			<Key ID="STR_STABILIZE">
 				<Original>Stabilzie</Original>
-				<Korean>안정화 시키기</Korean>
+				<Korean>안정화시키기</Korean>
 			</Key>
 			<Key ID="STR_BLEEDOUT_STABILIZED">
 				<Original>안정화</Original>
