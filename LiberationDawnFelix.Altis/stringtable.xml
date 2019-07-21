@@ -218,6 +218,22 @@
 				<Original>Release</Original>
 				<Korean>내려놓기</Korean>
 			</Key>
+			<Key ID="STR_FAR_FIRNELDYFIRE">
+				<Original>%1 has been wounded by %2.(Friendly Fire)</Original>
+				<Korean>%2님에 의해 %1님이 부상당했습니다.(오인사격)</Korean>
+			</Key>
+			<Key ID="STR_FAR_OPFORKILLED">
+				<Original>%1(OPFOR) has been killed by %2(BLUFOR)</Original>
+				<Korean>(청군)%2님에 의해 (대항군)%1님이 부상당했습니다.</Korean>
+			</Key>
+			<Key ID="STR_FAR_BLUFORKILLED">
+				<Original>%1(BLUFOR) has been killed by %2(OPFOR)</Original>
+				<Korean>(대항군)%2님에 의해 (청군)%1님이 부상당했습니다.</Korean>
+			</Key>
+			<Key ID="STR_PRESSC">
+				<Original>Press 'C' If You can't move</Original>
+				<Korean>움직여지지 않을 경우 C 키를 눌르세요.</Korean>
+			</Key>
 <!-- Component/구성품 -->
 			<Key ID="STR_VAM_NONE_COMP">
 				<Original>None</Original>
