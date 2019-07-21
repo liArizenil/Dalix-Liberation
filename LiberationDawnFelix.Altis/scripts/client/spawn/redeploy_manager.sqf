@@ -367,8 +367,10 @@ if(side player == GRLIB_side_enemy) then {
 				_aircraft removeWeaponTurret ["weapon_KAB250Launcher",[-1]];
 				_aircraft removeWeaponTurret ["Laserdesignator_pilotCamera",[-1]];
 				_aircraft addWeaponTurret ["weapon_SDBLauncher",[-1]];
+				_aircraft addWeaponTurret ["CMFlareLauncher",[-1]];
 				_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
 				_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
+				_aircraft addMagazineTurret ["120Rnd_CMFlareMagazine",[-1]];
 				_aircraft addMagazineTurret ["magazine_Fighter02_Gun30mm_AA_x180",[-1]];
 				player moveindriver _aircraft;
 			};
