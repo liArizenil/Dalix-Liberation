@@ -68,7 +68,7 @@ if ( GRLIB_endgame == 0 ) then {
 		[] call recalculate_caps;
 		stats_sectors_lost = stats_sectors_lost + 1;
 		[] spawn {
-			_vehspawn = position player;
+			_vehspawn = markerpos _sector;
         		_specialgift = opfor_mrap createVehicle _vehspawn;
         		_specialgift setPosATL (_specialgift modelToWorld[0,0,150]);
         		_para = createVehicle ["B_Parachute_02_F", getpos _specialgift, [], 0, "NONE"];
