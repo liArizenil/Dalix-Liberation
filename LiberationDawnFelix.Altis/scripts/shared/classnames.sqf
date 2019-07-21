@@ -450,7 +450,7 @@ support_vehicles = [
 	["I_Truck_02_medical_F",40,0,30],
 	["I_Truck_02_box_F",50,0,30],
 	["I_Truck_02_ammo_F",50,0,60],
-	["Box_East_AmmoVeh_F",0,115,0]
+	["Box_East_AmmoVeh_F",0,307,0]
 ];
 if ( isNil "support_vehicles_extension" ) then { support_vehicles_extension = [] };
 if ( isNil "support_vehicles_overwrite" ) then { support_vehicles_overwrite = false };
