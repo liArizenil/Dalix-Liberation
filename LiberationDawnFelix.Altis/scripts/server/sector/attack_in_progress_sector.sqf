@@ -1,5 +1,5 @@
 params [ "_sector" ];
-private [ "_attacktime", "_ownership", "_grp", "_squad_type" ,"_isplayer", "_grpunits", "_specialgift", "_para" ];
+private [ "_attacktime", "_ownership", "_grp", "_squad_type" ,"_isplayer", "_grpunits", "_spawnpos", "_specialgift", "_para" ];
 
 sleep 5;
 
@@ -19,7 +19,7 @@ if ( GRLIB_blufor_defenders ) then {
 _isplayer = (count([(playableUnits + switchableUnits),{(_x distance (markerpos _sector)) > GRLIB_capture_size && isPlayer _x}] call BIS_fnc_conditionalSelect) > 0);
 if(_isplayer) then {
  	_grp = [ _sector, [] call F_getAdaptiveSquadComp ] call F_spawnRegularSquad;
-	[ _grp, _sector ] spawn add_defense_waypoints;
+	//[ _grp, _sector ] spawn add_defense_waypoints;
 	_grpunits = _grpunits + (units _grp);
 };
 
@@ -69,7 +69,7 @@ if ( GRLIB_endgame == 0 ) then {
 		stats_sectors_lost = stats_sectors_lost + 1;
 		_spawnpos = zeropos;
 		while { _spawnpos distance zeropos < 1000 } do {
-			_spawnpos = ( [ _sectorpos, random 50, random 360 ] call BIS_fnc_relPos ) findEmptyPosition [5, 100, "B_Quadbike_01_F"];
+			_spawnpos = ( [ _sector, random 50, random 360 ] call BIS_fnc_relPos ) findEmptyPosition [5, 100, "B_Quadbike_01_F"];
 			if ( count _spawnpos == 0 ) then { _spawnpos = zeropos; };
 		};
 		_specialgift = opfor_mrap createVehicle _spawnpos;
