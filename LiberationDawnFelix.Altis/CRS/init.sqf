@@ -7,4 +7,4 @@ CRS_Flashed=compileFinal preprocessFile"CRS\f\flashed.sqf";
 
 if(isClass(configFile>>"cfgPatches">>"ace_common"))exitWith{};
 sleep 6;
-execVM"CRS\f\CRS.sqf";
+execVM"CRS\f\CRS.sqf"
