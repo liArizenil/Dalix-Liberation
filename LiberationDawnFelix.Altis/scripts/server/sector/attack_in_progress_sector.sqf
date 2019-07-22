@@ -16,7 +16,7 @@ if ( GRLIB_blufor_defenders ) then {
 	{ _x createUnit [ markerpos _sector, _grp,'this addMPEventHandler ["MPKilled", {_this spawn kill_manager}]']; } foreach _squad_type;
 	_grpunits = units _grp;
 };
-_isplayer = (count([(playableUnits + switchableUnits),{(_x distance (markerpos _sector)) > GRLIB_capture_size && isPlayer _x}] call BIS_fnc_conditionalSelect) > 0);
+_isplayer = (count([(playableUnits + switchableUnits),{(_x distance (markerpos _sector)) < GRLIB_capture_size && isPlayer _x}] call BIS_fnc_conditionalSelect) > 0);
 if(_isplayer) then {
  	_grp = [ _sector, [] call F_getAdaptiveSquadComp ] call F_spawnRegularSquad;
 	[ _grp, _sector ] spawn add_defense_waypoints;
