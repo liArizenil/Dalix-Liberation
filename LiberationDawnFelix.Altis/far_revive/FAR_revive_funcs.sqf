@@ -96,6 +96,7 @@ FAR_Player_Unconscious =
 		public_medic_message = [_unit,_medic_message]; publicVariable "public_medic_message";
 
 		_unit setUnconscious true;
+		_unit setCaptive true;
 		_unit setDamage 0.6;
 		_unit setVelocity [0,0,0];
 		_unit allowDamage false;
@@ -113,6 +114,7 @@ FAR_Player_Unconscious =
 		};
 
 		_unit setUnconscious true;
+		_unit setCaptive true;
 		_unit setVelocity [0,0,0];
 		_unit setVariable ["FAR_isUnconscious", 1, true];
 
@@ -167,6 +169,7 @@ FAR_Player_Unconscious =
 				};
 				
 				_unit setUnconscious false;
+				_unit setCaptive false;
 				_unit allowDamage true;
 
 				if ( GRLIB_replace_ai ) then {
@@ -237,6 +240,7 @@ FAR_HandleRevive =
 		if (!isPlayer _target) then
 		{
 			_target setUnconscious false;
+			_unit setCaptive false;
 			_target allowDamage true;
 			_target setDamage 0.65;
 
