@@ -11,5 +11,6 @@ resources_intel = resources_intel - ( GRLIB_secondary_missions_costs select _mis
 if ( _mission_index == 0 ) then { format [ "%1님이 적 전진기지 급습 임무를 시작하였습니다.", name _starter ] remoteExec ["systemChat"]; [] call fob_hunting; };
 if ( _mission_index == 1 ) then { format [ "%1님이 보급차량 탈취 임무를 시작하였습니다.", name _starter ] remoteExec ["systemChat"]; [] call convoy_hijack; };
 if ( _mission_index == 2 ) then { format [ "%1님이 수색, 구출 임무를 시작하였습니다.", name _starter ] remoteExec ["systemChat"]; [] call search_and_rescue; };
+if ( _mission_index == 3 ) then { format [ "%1님이 구축함 파괴 임무를 시작하였습니다.", name _starter ] remoteExec ["systemChat"]; [] call destroy_destroyer; };
 
 GRLIB_secondary_starting = false; publicVariable "GRLIB_secondary_starting";
