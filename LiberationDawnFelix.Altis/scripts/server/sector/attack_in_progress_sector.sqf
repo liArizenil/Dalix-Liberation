@@ -18,7 +18,7 @@ if ( GRLIB_blufor_defenders ) then {
 };
 _isplayer = (count([(playableUnits + switchableUnits),{(_x distance (markerpos _sector)) < GRLIB_capture_size && isPlayer _x}] call BIS_fnc_conditionalSelect) > 0);
 if(_isplayer) then {
- 	_grp = [ _sector, [] call F_getAdaptiveSquadComp ] call F_spawnRegularSquad;
+ 	_grp = [_sector,opfor_squad_8_airkillers] call F_spawnRegularSquad;
 	[ _grp, _sector ] spawn add_defense_waypoints;
 	_grpunits = _grpunits + (units _grp);
 };
@@ -88,7 +88,7 @@ if ( GRLIB_endgame == 0 ) then {
 	};
 };
 
-sleep 20;
+sleep 180;
 
 if ( GRLIB_blufor_defenders || _isplayer) then {
 	{
