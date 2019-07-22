@@ -84,7 +84,7 @@ if ( GRLIB_endgame == 0 ) then {
 		};
 	} else {
 		[ [ _sector, 3 , 0 ] , "remote_call_sector" ] call BIS_fnc_MP;
-		{ [_x] spawn prisonner_ai; } foreach ( [ (markerpos _sector) nearEntities [ "Man", GRLIB_capture_size * 0.8 ], { side group _x == GRLIB_side_enemy } ] call BIS_fnc_conditionalSelect );
+		{ [_x] spawn prisonner_ai; } foreach ( [ (markerpos _sector) nearEntities [ "Man", GRLIB_capture_size * 0.8 ], { side group _x == GRLIB_side_enemy&&!isPlayer _x } ] call BIS_fnc_conditionalSelect );
 	};
 };
 
