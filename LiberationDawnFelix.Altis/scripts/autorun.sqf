@@ -9,6 +9,7 @@ disableSerialization;
 		if (!isNull objectParent player) exitWith {};
 		if (surfaceIsWater (getPos player)) exitWith {};
 		if ((player getVariable "FAR_isUnconscious") == 1) exitWith {};
+		if ((player getVariable "FAR_isDragging") == 1) exitWith {};
 
 		AR_active = true;
 		AR_weapon = currentWeapon player;
