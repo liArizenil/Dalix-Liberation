@@ -2461,8 +2461,8 @@
 						<Russian>Вознаграждение за уничтожение техники ВООРУЖЕНИЕ</Russian>
 				</Key>
 				<Key ID="STR_BOUNTY_MESSAGE">
-						<Original>%3 에 의해 파괴된 %2 에 대해 %1 의 보상이 지급되었습니다.</Original>
 						<Original>%1 bounty for %2 destroyed by %3</Original>
+						<Korean>%3 에 의해 파괴된 %2 에 대해 %1 의 보상이 지급되었습니다.</Korean>
 						<French>Prime de %1 pour un %2 détruit par %3</French>
 						<German>Kopfgeld von %1 für die Zerstörung von %2 durch %3</German>
 						<Spanish>Premio de %1 por un %2 destruido por %3</Spanish>
