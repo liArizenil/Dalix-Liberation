@@ -73,7 +73,7 @@ if ( GRLIB_endgame == 0 ) then {
 					private ["_vehspawn","_specialgift", "_para"];
 					_vehspawn = markerpos _sector;
         				_specialgift = opfor_mrap createVehicle _vehspawn;
-        				_specialgift setPosATL (_specialgift modelToWorld[0,0,150]);
+        				_specialgift setPosATL (_specialgift modelToWorld[0,0,100]);
         				_para = createVehicle ["B_Parachute_02_F", getpos _specialgift, [], 0, "NONE"];
         				_para attachTo [_specialgift, [0, 0, 0]];
         				detach _para;
@@ -88,7 +88,7 @@ if ( GRLIB_endgame == 0 ) then {
 	};
 };
 
-sleep 180;
+sleep 160;
 
 if ( GRLIB_blufor_defenders || _isplayer) then {
 	{
