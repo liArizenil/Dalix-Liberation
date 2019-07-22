@@ -18,7 +18,7 @@ if ( GRLIB_blufor_defenders ) then {
 };
 _isplayer = (count([(playableUnits + switchableUnits),{(_x distance (markerpos _sector)) < GRLIB_capture_size && isPlayer _x}] call BIS_fnc_conditionalSelect) > 0);
 if(_isplayer) then {
- 	_grp = [ _sector, [] call F_getAdaptiveSquadComp ] call F_spawnRegularSquad;
+ 	_grp = [_sector,opfor_squad_8_airkillers] call F_spawnRegularSquad;
 	[ _grp, _sector ] spawn add_defense_waypoints;
 	_grpunits = _grpunits + (units _grp);
 };
@@ -73,7 +73,7 @@ if ( GRLIB_endgame == 0 ) then {
 					private ["_vehspawn","_specialgift", "_para"];
 					_vehspawn = markerpos _sector;
         				_specialgift = opfor_mrap createVehicle _vehspawn;
-        				_specialgift setPosATL (_specialgift modelToWorld[0,0,150]);
+        				_specialgift setPosATL (_specialgift modelToWorld[0,0,100]);
         				_para = createVehicle ["B_Parachute_02_F", getpos _specialgift, [], 0, "NONE"];
         				_para attachTo [_specialgift, [0, 0, 0]];
         				detach _para;
@@ -88,7 +88,7 @@ if ( GRLIB_endgame == 0 ) then {
 	};
 };
 
-sleep 20;
+sleep 160;
 
 if ( GRLIB_blufor_defenders || _isplayer) then {
 	{
