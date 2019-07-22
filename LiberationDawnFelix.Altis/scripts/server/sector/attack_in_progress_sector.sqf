@@ -23,7 +23,7 @@ if(_isplayer) then {
 	_grpunits = _grpunits + (units _grp);
 };
 
-sleep 3;
+sleep 5;
 
 _grp setCombatMode "GREEN";
 _grp setBehaviour "COMBAT";
@@ -68,16 +68,19 @@ if ( GRLIB_endgame == 0 ) then {
 		[] call recalculate_caps;
 		stats_sectors_lost = stats_sectors_lost + 1;
 		if(_isplayer) then {
-			private["_vehspawn","_specialgift", "_para"];
-			_vehspawn = markerpos _sector;
-        		_specialgift = opfor_mrap createVehicle _vehspawn;
-        		_specialgift setPosATL (_specialgift modelToWorld[0,0,150]);
-        		_para = createVehicle ["B_Parachute_02_F", getpos _specialgift, [], 0, "NONE"];
-        		_para attachTo [_specialgift, [0, 0, 0]];
-        		detach _para;
-        		_specialgift attachTo [_para, [0, 0, 1]];
-        		waituntil { ((getPos _specialgift) select 2) < 5 };
-        		detach _specialgift;
+				[_sector] spawn {
+					params ["_sector"];
+					private ["_vehspawn","_specialgift", "_para"];
+					_vehspawn = markerpos _sector;
+        				_specialgift = opfor_mrap createVehicle _vehspawn;
+        				_specialgift setPosATL (_specialgift modelToWorld[0,0,150]);
+        				_para = createVehicle ["B_Parachute_02_F", getpos _specialgift, [], 0, "NONE"];
+        				_para attachTo [_specialgift, [0, 0, 0]];
+        				detach _para;
+        				_specialgift attachTo [_para, [0, 0, 1]];
+        				waituntil { ((getPos _specialgift) select 2) < 5 };
+        				detach _specialgift;
+				};
 		};
 	} else {
 		[ [ _sector, 3 , 0 ] , "remote_call_sector" ] call BIS_fnc_MP;
