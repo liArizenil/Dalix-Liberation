@@ -285,29 +285,33 @@
 <Project name="NRE Earplugs">
 	<Package name="NREEarplugs">
 		<Key ID="STR_NREEP_IN_HINT">
-			<Original>이어 플러그를 착용 하였습니다!</Original>
+			<Original>You have insert the earplugs!</Original>
 			<English>You have insert the earplugs!</English>
+			<Korean>이어 플러그를 착용 하였습니다!</Korean>
 			<Russian>Беруши вставлены!</Russian>
 			<German>Du hast die Ohrstoepsel eingesteckt!</German>
 			<Spanish>¡Te has puesto los tapones!</Spanish>
 		</Key>
 		<Key ID="STR_NREEP_OUT_HINT">
-			<Original>이어 플러그를 착용 해제 하였습니다!</Original>
+			<Original>You have removed the earplugs!</Original>
 			<English>You have removed the earplugs!</English>
+			<Korean>이어 플러그를 착용 해제 하였습니다!</Korean>
 			<Russian>Беруши вытащены!</Russian>
 			<German>Du hast die Ohrstoepsel rausgenommen!</German>
 			<Spanish>¡Te has quitado los tapones!</Spanish>
 		</Key>
 		<Key ID="STR_NREEP_IN_ACTION">
-			<Original>귀마개 장착하기</Original>
+			<Original>Insert earplugs</Original>
 			<English>Insert earplugs</English>
+			<Korean>귀마개 장착하기</Korean>
 			<Russian>Вставить беруши</Russian>
 			<German>Ohrstoepsel einstecken</German>
 			<Spanish>Ponerte los tapones</Spanish>
 		</Key>
 		<Key ID="STR_NREEP_OUT_ACTION">
-			<Original>귀마개 장착해제하기</Original>
+			<Original>Remove earplugs</Original>
 			<English>Remove earplugs</English>
+			<Korean>귀마개 장착해제하기</Korean>
 			<Russian>Вытащить беруши!</Russian>
 			<German>Ohrstoepsel rausnehmen</German>
 			<Spanish>Quitarte los tapones</Spanish>
@@ -325,77 +329,88 @@
 						<Original>v0.924 Edit Md.Faker, Dawn, Felix</Original>
 				</Key>
 				<Key ID="STR_MISSION_DESCRIPTION">
-						<Original>자유와 민주주의의 힘을 통해 CSAT 군 으로부터 알티스를 해방해야 한다.</Original>
+						<Original>With the power of Liberty and Democracy your mission is to liberate Altis from the oppression of OPFOR.</Original>
+						<Korean>자유와 민주주의의 힘을 통해 CSAT 군 으로부터 알티스를 해방해야 한다.</Korean>
 						<French>Avec le pouvoir de la Liberté et de la Démocratie votre mission est de libérer Altis de l'oppression de l'OPFOR.</French>
 						<German>Befreie Altis von der OPFOR-Unterdrückung mit der Kraft von Freiheit und Demokratie</German>
 						<Spanish>Con el poder de la Libertad y la Democracia, debes liberar Altis de la opresión del OPFOR</Spanish>
 						<Russian>С помощью сил "свободы" и "демократии" вы должны освободить Altis от угнетения OPFOR.</Russian>
 				</Key>
 				<Key ID="STR_Deploy_OnPoint">
-						<Original>배치</Original>
+						<Original>Deployment</Original>
+						<Korean>배치</Korean>
 						<French>Déploiement</French>
 						<German>Bereitstellen</German>
 						<Spanish>Despliegue</Spanish>
 						<Russian>Развёртывание</Russian>
 				</Key>
 				<Key ID="STR_Deploy_InProgress">
-						<Original>배치중 ...</Original>
+						<Original>Deployment in progress ...</Original>
+						<Korean>배치 중 ...</Korean>
 						<French>Déploiement en cours ...</French>
 						<German>Bereitstellung in Arbeit</German>
 						<Spanish>Despliegue en curso ...</Spanish>
 						<Russian>Развёртывание в процессе ...</Russian>
 				</Key>
 				<Key ID="STR_CLOSE">
-						<Original>닫기</Original>
+						<Original>Close</Original>
+						<Korean>닫기</Korean>
 						<French>Fermer</French>
 						<German>Schliessen</German>
 						<Spanish>Cerca</Spanish>
 						<Russian>Закрыть</Russian>
 				</Key>
 				<Key ID="STR_FAR_Need_Medic1">
-						<Original>매딕 지원이 필요하다!</Original>
+						<Original>I need a medic!</Original>
+						<Korean>매딕 지원이 필요하다!</Korean>
 						<French>J'ai besoin d'un medic!</French>
 						<German>Ich brauche einen Sanitäter!</German>
 						<Spanish>¡Necesito un médico!</Spanish>
 						<Russian>Мне нужен медик!</Russian>
 				</Key>
 				<Key ID="STR_FAR_Need_Medic2">
-						<Original>총에 맞았다! 매딕!</Original>
+						<Original>I'm hit! Medic!</Original>
+						<Korean>총에 맞았다! 매딕!</Korean>
 						<French>Je suis touché! Medic!</French>
 						<German>Wurde getroffen! Sanitäter!</German>
 						<Spanish>Herido! Médico!</Spanish>
 						<Russian>Меня подстрелили! Медик!</Russian>
 				</Key>
 				<Key ID="STR_FAR_Need_Medic3">
-						<Original>쓰러졌다! 매딕!</Original>
+						<Original>I'm down! Medic!</Original>
+						<Korean>쓰러졌다! 매딕!</Korean>
 						<French>Je suis à terre! Medic!</French>
 						<German>Ich bin gefallen! Sanitäter!</German>
 						<Spanish>Estoy abatido! Médico!</Spanish>
 						<Russian>Я ранен! Медик!</Russian>
 				</Key>
 				<Key ID="STR_REVIVE_LABEL">
-						<Original>부상당했습니다.</Original>
+						<Original>You are injured.</Original>
+						<Korean>부상당했습니다.</Korean>
 						<French>VOUS ETES BLESSE</French>
 						<German>DU BIST VERWUNDET</German>
 						<Spanish>ESTAS HERIDO</Spanish>
 						<Russian>ВЫ БЕЗ СОЗНАНИЯ</Russian>
 				</Key>
 				<Key ID="STR_BUILD_ACTION">
-						<Original>-- 건설 --</Original>
+						<Original>-- CONSTRUCT --</Original>
+						<Korean>-- 건설 --</Korean>
 						<French>-- CONSTRUIRE --</French>
 						<German>-- BAUEN --</German>
 						<Spanish>-- CONSTRUIR --</Spanish>
 						<Russian>-- ОБЕСПЕЧЕНИЕ --</Russian>
 				</Key>
 				<Key ID="STR_BUILD_TITLE">
-						<Original>건설 메뉴</Original>
+						<Original>CONSTRUCTION MEMU</Original>
+						<Korean>건설 메뉴</Korean>
 						<French>CONSTRUCTION</French>
 						<German>BAUMENUE</German>
 						<Spanish>MENU DE CONSTRUCCIÓN</Spanish>
 						<Russian>ОБЕСПЕЧЕНИЕ</Russian>
 				</Key>
 				<Key ID="STR_BUILD_BUTTON">
-						<Original>건설</Original>
+						<Original>Construct</Original>
+						<Korean>건설</Korean>
 						<French>Construire</French>
 						<German>Bauen</German>
 						<Spanish>Construir</Spanish>
@@ -406,133 +421,152 @@
 						<Korean>허가받지 않은 건설은 처벌로 이어질 수도 있습니다.</Korean>	
 				</Key>
 				<Key ID="STR_MANPOWER">
-						<Original>노동 인력</Original>
+						<Original>Manpower</Original>
+						<Korean>노동 인력</Korean>
 						<French>Effectifs</French>
 						<German>Besatzung</German>
 						<Spanish>Efectivos</Spanish>
 						<Russian>Персонал</Russian>
 				</Key>
 				<Key ID="STR_AMMO">
-						<Original>탄약</Original>
+						<Original>Ammo</Original>
+						<Korean>탄약</Korean>
 						<French>Munitions</French>
 						<German>Munition</German>
 						<Spanish>Munición</Spanish>
 						<Russian>Вооружение</Russian>
 				</Key>
 				<Key ID="STR_FUEL">
-						<Original>연료</Original>
+						<Original>Fuel</Original>
+						<Korean>연료</Korean>
 						<French>Carburant</French>
 						<German>Treibstoff</German>
 						<Spanish>Combustible</Spanish>
 						<Russian>Топливо</Russian>
 				</Key>
 				<Key ID="STR_BLEEDOUT_MESSAGE">
-						<Original>사망까지 앞으로 %1 초</Original>
+						<Original>Bleeding in #1 seconds</Original>
+						<Korean>사망까지 앞으로 %1 초</Korean>
 						<French>Mort dans %1 secondes</French>
 						<German>Ausbluten in %1 Sekunden</German>
 						<Spanish>Desangrado en %1 segundos</Spanish>
 						<Russian>Вы умрёте через %1 секунд</Russian>
 				</Key>
 				<Key ID="STR_BLEEDOUT_STABILIZED">
-						<Original>안정시키기</Original>
+						<Original>Stabilized</Original>
+						<Korean>안정시키기</Korean>
 						<French>Stabilisé</French>
 						<German>Stabilisiert</German>
 						<Spanish>Estabilizado</Spanish>
 						<Russian>Стабильно</Russian>
 				</Key>
 				<Key ID="STR_ROTATION">
-						<Original>-- 돌리기</Original>
+						<Original>-- Rotation</Original>
+						<Korean>-- 돌리기</Korean>
 						<French>-- Rotation</French>
 						<German>-- Rotieren</German>
 						<Spanish>-- Rotación</Spanish>
 						<Russian>-- Вращать</Russian>
 				</Key>
 				<Key ID="STR_PLACEMENT">
-						<Original>-- 건설</Original>
+						<Original>-- Construct</Original>
+						<Korean>-- 건설</Korean>
 						<French>-- Construire</French>
 						<German>-- Bauen</German>
 						<Spanish>-- Construir</Spanish>
 						<Russian>-- Поставить</Russian>
 				</Key>
 				<Key ID="STR_PLACEMENT_BIS">
-						<Original>-- 반복 건설하기</Original>
+						<Original>-- Construct and Repeat</Original>
+						<Korean>-- 반복 건설하기</Korean>
 						<French>-- Construire et Répéter</French>
 						<German>-- Bauen und Wiederholen</German>
 						<Spanish>-- Construir y repetir</Spanish>
 						<Russian>-- Поставить и повторить</Russian>
 				</Key>
 				<Key ID="STR_CANCEL">
-						<Original>-- 취소</Original>
+						<Original>-- Cancel</Original>
+						<Korean>-- 취소</Korean>
 						<French>-- Annuler</French>
 						<German>-- Abbrechen</German>
 						<Spanish>-- Cancelar</Spanish>
 						<Russian>-- Отмена</Russian>
 				</Key>
 				<Key ID="STR_CANCEL_HINT">
-						<Original>건설 취소하기</Original>
+						<Original>Construction Cancel</Original>
+						<Korean>건설 취소하기</Korean>
 						<French>Construction annulée.</French>
 						<German>Bauen abgebrochen.</German>
 						<Spanish>Construcción cancelada</Spanish>
 						<Russian>Постройка отменена</Russian>
 				</Key>
 				<Key ID="STR_CONFIRM_HINT">
-						<Original>건설 완료</Original>
+						<Original>Construction confirmed</Original>
+						<Korean>건설 완료</Korean>
 						<French>Construction confirmée.</French>
 						<German>Bauen bestaetigt.</German>
 						<Spanish>Construcción confirmada.</Spanish>
 						<Russian>Постройка подтверждена</Russian>
 				</Key>
 				<Key ID="STR_PLACEMENT_IMPOSSIBLE">
-						<Original>여기에 건설 불가능 : %1 가(이) %2 M 안에 있습니다.</Original>
+						<Original>Impossible to place here: there is %1 object(s) in %2 meters of the object position</Original>
+						<Korean>여기에 건설 불가능 : %1 가(이) %2 M 안에 있습니다.</Korean>
 						<French>Impossible de placer ici : il y a %1 objet(s) dans les %2 mètres de la position voulue.</French>
 						<German>Kann hier nicht platziert werden: %1 Objekt(e) innerhalb von %2 Meter der Position</German>
 						<Spanish>Imposible de colocar aqui: hay 1% objeto(s) a %2 metros de la posición del objeto</Spanish>
 						<Russian>Нельзя разместить здесь:  в %2 метрах есть 1% объект(а).</Russian>
 				</Key>
 				<Key ID="STR_PLACEMENT_POSSIBLE">
-						<Original>이 위치는 유효합니다</Original>
+						<Original>This position is valid.</Original>
+						<Korean>이 위치는 유효합니다.</Korean>
 						<French>Cette position est valide.</French>
 						<German>Diese Position ist gültig.</German>
 						<Spanish>Esta posición es válida</Spanish>
 						<Russian>Это место подходит.</Russian>
 				</Key>
 				<Key ID="STR_ARSENAL_ACTION">
-						<Original>-- 무기고 --</Original>
+						<Original>-- ARSENAL --</Original>
+						<Korean>-- 무기고 --</Korean>
 						<French>-- ARSENAL --</French>
 						<German>-- ARSENAL --</German>
 						<Spanish>-- ARSENAL --</Spanish>
 						<Russian>-- АРСЕНАЛ --</Russian>
 				</Key>
 				<Key ID="STR_ACTION_LOAD_BOX">
-						<Original>-- 탄약 박스를 차량에 올리기</Original>
+						<Original>-- LOAD AMMUNITION BOX</Original>
+						<Korean>-- 탄약 박스를 차량에 올리기</Korean>
 						<French>-- CHARGER MUNITIONS</French>
 						<German>-- MUNITIONSKISTE AUFLADEN</German>
 						<Spanish>-- CARGAR CAJA DE MUNICIÓN</Spanish>
 						<Russian>-- ЗАГРУЗИТЬ ЯЩИК С БОЕПРИПАСАМИ</Russian>
 				</Key>
 				<Key ID="STR_ACTION_UNLOAD_BOX">
-						<Original>-- 탄약 박스를 차에서 내리기</Original>
+						<Original>-- UNLOAD AMMUNITION BOX</Original>
+						<Korean>-- 탄약 박스를 차에서 내리기</Korean>
 						<French>-- DECHARGER MUNITIONS</French>
 						<German>-- MUNITIONSKISTE ABLADEN</German>
 						<Spanish>-- DESCARGAR CAJA DE MUNICIÓN</Spanish>
 						<Russian>-- ВЫГРУЗИТЬ ЯЩИК С БОЕПРИПАСАМИ</Russian>
 				</Key>
 				<Key ID="STR_BOX_LOADED">
-						<Original>탄약 박스를 성공적으로 수송 차량에 탑재하였습니다.</Original>
+						<Original>Ammunition box loaded correctly in the transport vehicle.</Original>
+						<Korean>탄약 박스를 성공적으로 수송 차량에 탑재하였습니다.</Korean>
 						<French>La caisse de munitions a été chargée sur le véhicule de transport.</French>
 						<German>Munitionskiste erfolgreich auf das Transportfahrzeug aufgeladen.</German>
 						<Spanish>Caja de munición cargada correctamente en el vehículo de transporte</Spanish>
 						<Russian>Ящик с боеприпасами загружен в транспортное средство</Russian>
 				</Key>
 				<Key ID="STR_BOX_UNLOADED">
-						<Original>탄약 박스를 성공적으로 수송 차량에서 하역하였습니다.</Original>
+						<Original>Ammunition box unloaded correctly from the transport vehicle.</Original>
+						<Korean>탄약 박스를 성공적으로 수송 차량에서 하역하였습니다.</Korean>
 						<French>La caisse de munitions a été déchargée du véhicule de transport.</French>
 						<German>Munitionskiste erfolgreich vom Transportfahrzeug abgeladen.</German>
 						<Spanish>Caja de munición descargada correctamente del vehículo de transporte</Spanish>
 						<Russian>Ящик с боеприпасами выгружен из транспортного средства</Russian>
 				</Key>
 				<Key ID="STR_BOX_CANTLOAD">
-						<Original>근처에 수송 차량이 없어서 탄약 박스를 탑재할 수 없습니다.</Original>
+						<Original>No transport vehicle nearby, Impossible load the ammunition box.</Original>
+						<Korean>근처에 수송 차량이 없어서 탄약 박스를 탑재할 수 없습니다.</Korean>
 						<French>Aucun véhicule à proximité capable de charger la caisse de munitions.</French>
 						<German>Kein Fahrzeug in der Nähe, das die Munitionskiste tragen kann.</German>
 						<Spanish>No hay ningún vehículo cercano capaz de cagar la caja de munición</Spanish>
@@ -674,6 +708,7 @@
 				</Key>
 				<Key ID="STR_UNITCAP">
 						<Original>Unit cap</Original>
+						<Korean>배치</Korean>
 						<French>Limite</French>
 						<German>Einheitenbegrenzung</German>
 						<Spanish>Límite de unidades</Spanish>
