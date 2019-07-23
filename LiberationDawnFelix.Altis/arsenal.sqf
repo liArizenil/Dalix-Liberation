@@ -266,6 +266,10 @@ OPFOR_Muzzles = [];
 			"optic_Hamr_khk_F"
 		];
 		OPFOR_Backpacks = OPFOR_Backpacks + [
-			"B_Parachute"
+			"B_Parachute",
+			"B_AssaultPack_khk",
+			"B_AssaultPack_cbr",
+			"B_AssaultPack_ocamo",
+			"B_AssaultPack_blk"
 		];	
 	};
