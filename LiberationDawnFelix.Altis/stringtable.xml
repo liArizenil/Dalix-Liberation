@@ -3321,9 +3321,9 @@
 						<German>Strafe für zivile Verluste</German>
 				</Key>
 				<Key ID="STR_CIV_PENALTY_MESSAGE">
-						<Original>%3에 의해 사살된 민간인 %2 에 대해 %1의 패널티가 부여되었습니다.</Original>
-						<French>Penalty de %1 pour avoir tué le civil %2 par %3</French>
-						<German>Strafe von %1 für die Ermordung des Zivilisten %2 durch %3</German>
+						<Original>%2에 의해 민간인 %1 가 사살 당했습니다.</Original>
+						<French>Penalty de %1 pour avoir tué le civil %2 par</French>
+						<German>Strafe von %1 für die Ermordung des Zivilisten %2 durch</German>
 				</Key>
 				<Key ID="STR_PARAM_SQUAD_SIZE">
 						<Original>분대당 AI 생성 제한</Original>
