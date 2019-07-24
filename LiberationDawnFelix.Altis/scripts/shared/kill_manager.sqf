@@ -52,7 +52,7 @@ if ( isServer ) then {
 				stats_civilians_killed_by_players = stats_civilians_killed_by_players + 1;
 				if ( GRLIB_civ_penalties ) then {
 					if(side _killer == GRLIB_side_friendly) then {
-						resources_ammo = resources_ammo - GRLIB_civ_killing_penalty;
+						resources_intel = resources_intel - 10;
 						combat_readiness = combat_readiness + 100;
 						[ [ name _unit, _killer ] , "remote_call_civ_penalty" ] call BIS_fnc_MP;
 					};
