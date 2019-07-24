@@ -76,7 +76,7 @@ class Params
 		title = $STR_PARAMS_CIVILIANS;
 		values[] = {0,0.5,1,2};
 		texts[] = {$STR_PARAMS_CIVILIANS1,$STR_PARAMS_CIVILIANS2,$STR_PARAMS_CIVILIANS3,$STR_PARAMS_CIVILIANS4};
-		default = 0;
+		default = 0.5;
 	};
 	class TeamkillPenalty{
 		title = $STR_PARAM_TEAMKILL_PENALTY;
@@ -100,7 +100,7 @@ class Params
 		title = $STR_CIV_PENALTIES;
 		values[] = {1,0};
 		texts[] = { $STR_PARAMS_ENABLED, $STR_PARAMS_DISABLED };
-		default = 0;
+		default = 1;
 	};
 	class HaloJump{
 		title = $STR_HALO_PARAM;
@@ -124,7 +124,7 @@ class Params
 		title = $STR_PARAM_FOBS_COUNT;
 		values[] = {3,5,7,10,15,20,26};
 		texts[] = {3,5,7,10,15,20,26};
-		default = 5;
+		default = 3;
 	};
 	class MaxSquadSize{
 		title = $STR_PARAM_SQUAD_SIZE;
