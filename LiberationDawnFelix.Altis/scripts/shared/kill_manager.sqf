@@ -50,10 +50,16 @@ if ( isServer ) then {
 			stats_civilians_killed = stats_civilians_killed + 1;
 			if ( isPlayer _killer ) then {
 				stats_civilians_killed_by_players = stats_civilians_killed_by_players + 1;
-
 				if ( GRLIB_civ_penalties ) then {
-					resources_ammo = resources_ammo - GRLIB_civ_killing_penalty;
-					[ [ name _unit, GRLIB_civ_killing_penalty, _killer ] , "remote_call_civ_penalty" ] call BIS_fnc_MP;
+					if(side _killer == GRLIB_side_friendly) then {
+						resources_ammo = resources_ammo - GRLIB_civ_killing_penalty;
+						combat_readiness = combat_readiness + 100;
+						[ [ name _unit, GRLIB_civ_killing_penalty, _killer ] , "remote_call_civ_penalty" ] call BIS_fnc_MP;
+					};
+					if(side _killer == GRLIB_side_enemy) then {
+						combat_readiness = combat_readiness - 100;
+						[ [ name _unit, GRLIB_civ_killing_penalty, _killer ] , "remote_call_civ_penalty" ] call BIS_fnc_MP;
+					};
 				};
 			};
 		};
