@@ -58,14 +58,7 @@ while{true} do {
 		};
 	} forEach allMines;
 	
-	_StaticWeapon = allMissionObjects "StaticWeapon";
-	diag_log format["StaticWeapon : %1", _StaticWeapon];
-	//고정 화기 클리너
-	{
-		if([1200,_playerUnit,_x] call fn_checkDistance) then {
-			deleteVehicle _x;
-		};
-	} forEach _StaticWeapon;
+	//고정화기잠시삭제
 	
 	_Ruins = allMissionObjects "Ruins";
 	diag_log format["Ruins : %1", _Ruins];
