@@ -48,9 +48,6 @@ if (!isDedicated && hasInterface) then {
 		if(_bluforcount < 20) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		};
-		if(_bluforcount < 20 && {side _x == GRLIB_side_enemy} count (allPlayers) > 1) then {
-			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
-		};
 		if(_bluforcount < 23 && {side _x == GRLIB_side_enemy} count (allPlayers) > 2) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		};
