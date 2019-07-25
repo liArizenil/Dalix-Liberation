@@ -89,13 +89,13 @@ if ( isServer ) then {
 				if ( GRLIB_ammo_bounties ) then {
 					private [ "_bounty" ];
 
-					_bounty = 10;
+					_bounty = 5;
 					if ( _unit isKindOf "Air" ) then {
-						_bounty = 40;
+						_bounty = 20;
 					};
 
 					if ( _unit isKindOf "Tank" ) then {
-						_bounty = 20;
+						_bounty = 10;
 					};
 
 					resources_ammo = resources_ammo + _bounty;
