@@ -624,6 +624,10 @@
 						<Spanish>-- DESPLEGAR FOB --</Spanish>
 						<Russian>-- РАЗВЕРНУТЬ FOB --</Russian>
 				</Key>
+				<Key ID="STR_FOB_NEEDMORESECTOR">
+						<Original>Need more than 26 captured sectors for build FOB</Original>
+						<Korean>FOB 를 건설하기 위해서는 26개 이상의 청군 점령지가 필요합니다.</Korean>
+				</Key>
 				<Key ID="STR_FOB_BUILDING_IMPOSSIBLE">
 						<Original>여기에는 새로운 FOB를 건설할 수 없습니다, 적어도 FOB의 간격이 %1 미터는 되어야 합니다. 가장 가까운 FOB는 %2 미터 거리에 있습니다.</Original>
 						<French>Impossible de déployer une nouvelle FOB ici, vous devez être à au moins %1 mètres de toutes les autres FOB. La FOB la plus proche est à %2 mètres d'ici.</French>
