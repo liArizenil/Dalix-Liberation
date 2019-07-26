@@ -75,11 +75,10 @@ while { true } do {
 		};
 	};
 
-	if ( (_fobdistance < _distredeploy || count _neararsenal != 0 || count _nearspawn != 0 || (player distance lhd) < 200 || (player distance whiskey) < 100) && alive player && vehicle player == player ) then {
+	if ( (_fobdistance < _distredeploy || count _neararsenal != 0 || count _nearspawn != 0 || (player distance lhd) < 200) && alive player && vehicle player == player ) then {
 		if (_idact_arsenal == -1) then {
 			_idact_arsenal = player addAction ["<t color='#FFFF00'>" + localize "STR_ARSENAL_ACTION" + "</t> <img size='2' image='res\ui_arsenal.paa'/>","scripts\client\actions\open_arsenal.sqf","",-980,true,true,"","build_confirmed == 0"];
 		};
-	
 	} else {
 		if ( _idact_arsenal != -1 ) then {
 			player removeAction _idact_arsenal;
@@ -142,7 +141,7 @@ while { true } do {
 		};
 	};
 
-	if ( ( GRLIB_endgame == 0 ) && (_fobdistance < _distredeploy || (player distance lhd) < 200 || (player distance whiskey) < 3) && alive player && vehicle player == player && ( ( [ player, 5 ] call F_fetchPermission ) || ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) ) ) then {
+	if ( ( count GRLIB_all_fobs > 0 ) && ( GRLIB_endgame == 0 ) && (_fobdistance < _distredeploy || (player distance lhd) < 200) && alive player && vehicle player == player && ( ( [ player, 5 ] call F_fetchPermission ) || ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) ) ) then {
 		if ( _idact_secondary == -1 ) then {
 			_idact_secondary = player addAction ["<t color='#FFFF00'>" + localize "STR_SECONDARY_OBJECTIVES" + "</t>","scripts\client\ui\secondary_ui.sqf","",-993,false,true,"","build_confirmed == 0"];
 		};
