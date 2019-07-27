@@ -44,6 +44,7 @@ if ( isNil "infantry_units_extension" ) then { infantry_units_extension = [] };
 if ( isNil "infantry_units_overwrite" ) then { infantry_units_overwrite = false };
 if ( infantry_units_overwrite ) then { infantry_units = infantry_units_extension; } else { infantry_units = infantry_units + infantry_units_extension; };
 
+
 light_vehicles = [
 	["B_Quadbike_01_F",10,0,10],
 	["B_G_Quadbike_01_F",10,0,10],
@@ -78,6 +79,8 @@ light_vehicles = [
 	["B_Truck_01_transport_F",25,0,25],
 	["B_Truck_01_covered_F",25,0,25],
 	["B_Truck_01_mover_F",25,0,25],
+	["B_Truck_01_flatbed_F",25,0,25],
+	["B_Truck_01_cargo_F",25,0,25],
 	["C_Truck_02_transport_F",20,0,20],
 	["C_IDAP_Truck_02_water_F",20,0,20],
 	["C_IDAP_Truck_02_F",20,0,20],
@@ -120,6 +123,7 @@ heavy_vehicles = [
 	["B_T_APC_Wheeled_01_cannon_F",70,70,70],
 	["I_APC_Wheeled_03_cannon_F",80,100,80],
 	["I_APC_tracked_03_cannon_F",70,80,70],
+	["I_E_APC_tracked_03_cannon_F",70,80,70],
 	["B_APC_Tracked_01_rcws_F",50,60,50],
 	["B_T_APC_Tracked_01_rcws_F",50,60,50],
 	["B_APC_Tracked_01_AA_F",135,110,150],
@@ -146,6 +150,7 @@ if ( heavy_vehicles_overwrite ) then { heavy_vehicles = heavy_vehicles_extension
 air_vehicles = [
 	["B_Heli_Light_01_F",30,0,50],
 	["I_Heli_light_03_unarmed_F",40,0,60],
+	["I_E_Heli_light_03_unarmed_F",40,0,60],
 	["B_Heli_Transport_01_F",50,40,110],
 	["B_Heli_Transport_01_camo_F",50,40,110],
 	["B_CTRG_Heli_Transport_01_sand_F",50,40,110],
@@ -158,6 +163,7 @@ air_vehicles = [
 	["O_Heli_Transport_04_medevac_black_F",80,0,120],
 	["B_Heli_Light_01_armed_F",70,60,80],
 	["I_Heli_light_03_F",80,60,90],
+	["I_E_Heli_light_03_F",80,60,90],
 	["B_Heli_Attack_01_F",150,320,150],
 	["O_Heli_Attack_02_black_F",200,340,180],
 	["B_UAV_01_F",10,0,15],
@@ -179,6 +185,8 @@ air_vehicles = [
 	["I_Plane_Fighter_03_Cluster_F",110,280,110],
 	["I_Plane_Fighter_04_Cluster_F",150,320,150]
 ];
+
+
 if ( isNil "air_vehicles_extension" ) then { air_vehicles_extension = [] };
 if ( isNil "air_vehicles_overwrite" ) then { air_vehicles_overwrite = false };
 if ( air_vehicles_overwrite ) then { air_vehicles = air_vehicles_extension; } else { air_vehicles = air_vehicles + air_vehicles_extension; };
@@ -758,6 +766,49 @@ if ( isNil "opfor_air_extension" ) then { opfor_air_extension = [] };
 if ( isNil "opfor_air_overwrite" ) then { opfor_air_overwrite = false };
 if ( opfor_air_overwrite ) then { opfor_air = opfor_air_extension; } else { opfor_air = opfor_air + opfor_air_extension; };
 
+captured_vehicles = [
+	["O_APC_Tracked_02_cannon_F",0,70,0],
+	["O_APC_Wheeled_02_rcws_F",0,60,0],
+	["O_G_Offroad_01_AT_F",0,20,0],
+	["O_LSV_02_AT_F",0,20,0],
+	["O_T_LSV_02_AT_F",0,20,0],
+	["O_T_LSV_02_armed_black_F",0,15,0],
+	["O_T_LSV_02_armed_ghex_F",0,15,0],
+	["O_LSV_02_armed_F",0,15,0],
+	["O_T_LSV_02_armed_arid_F",0,15,0],
+	["O_LSV_02_armed_viper_F",0,15,0],
+	["O_T_APC_Tracked_02_cannon_ghex_F",0,70,0],
+	["O_T_APC_Tracked_02_AA_ghex_F",0,110,0],
+	["O_T_APC_Wheeled_02_rcws_ghex_F",0,60,0],
+	["O_T_APC_Wheeled_02_rcws_v2_ghex_F",0,60,0],
+	["O_MBT_02_arty_F",0,300,0],
+	["O_MBT_02_cannon_F",0,135,0],
+	["O_T_MBT_02_arty_ghex_F",0,300,0],
+	["O_T_MBT_02_cannon_ghex_F",0,135,0],
+	["O_APC_Tracked_02_AA_F",0,110,0],
+	["O_T_MRAP_02_hmg_ghex_F",0,15,0],
+	["O_T_MRAP_02_gmg_ghex_F",0,20,0],
+	["O_MRAP_02_gmg_F",0,20,0],
+	["O_MRAP_02_hmg_F",0,15,0],
+	["O_T_MBT_04_command_F",0,150,0],
+	["O_MBT_04_command_F",0,150,0],
+	["O_T_MBT_04_cannon_F",0,135,0],
+	["O_MBT_04_cannon_F",0,135,0],
+	["O_Truck_03_covered_F",0,10,0],
+	["O_Truck_03_transport_F",0,10,0],
+	["O_Truck_02_covered_F",0,10,0],
+	["O_T_Truck_03_transport_ghex_F",0,10,0],
+	["O_T_Truck_03_covered_ghex_F",0,10,0],
+	["O_Heli_Attack_02_F",0,320,0],
+	["O_T_VTOL_02_infantry_F",0,700,0],
+	["O_Heli_Light_02_F",0,60,0],
+	["O_T_VTOL_02_vehicle_F",0,700,0],
+	["O_Plane_CAS_02_F",0,520,0],
+	["O_Plane_Fighter_02_Stealth_F",0,280,0],
+	["O_Plane_Fighter_02_Cluster_F",470,0],
+	["O_Plane_CAS_02_Cluster_F",0,570,0],
+	["O_T_VTOL_02_infantry_hex_F",0,700,0]
+];
 
 civilians = [
 	"C_man_1",
@@ -838,6 +889,28 @@ GRLIB_blacklisted_from_arsenal = [
 	"I_UAV_01_backpack_F",
 	"B_UAV_01_backpack_F",
 	"O_UAV_01_backpack_F",
+	"I_E_UAV_01_backpack_F",
+	"I_E_UGV_02_Demining_backpack_F",
+	"I_UGV_02_Demining_backpack_F",
+	"O_UGV_02_Demining_backpack_F",
+	"B_UGV_02_Demining_backpack_F",
+	"I_UGV_02_Science_backpack_F",
+	"I_E_UGV_02_Science_backpack_F",
+	"O_UGV_02_Science_backpack_F",
+	"B_UGV_02_Science_backpack_F",
+	"C_IDAP_UGV_02_Demining_backpack_F",
+	"I_E_AA_01_weapon_F",
+	"I_E_AT_01_weapon_F",
+	"I_E_HMG_01_high_Weapon_F",
+	"I_E_HMG_01_Weapon_F",
+	"I_E_GMG_01_high_Weapon_F",
+	"I_E_GMG_01_Weapon_F",
+	"I_E_GMG_01_A_Weapon_F",
+	"I_E_HMG_01_A_Weapon_F",
+	"I_E_Mortar_01_support_F",
+	"I_E_HMG_01_support_high_F",
+	"I_E_HMG_01_support_F",
+	"I_E_Mortar_01_Weapon_F",
 	"B_Patrol_Respawn_bag_F"
 ];
 if ( isNil "blacklisted_from_arsenal_extension" ) then { blacklisted_from_arsenal_extension = [] };
