@@ -838,29 +838,7 @@ GRLIB_blacklisted_from_arsenal = [
 	"I_UAV_01_backpack_F",
 	"B_UAV_01_backpack_F",
 	"O_UAV_01_backpack_F",
-	"B_Patrol_Respawn_bag_F",
-	I_UGV_02_Demining_backpack_F",
-	O_UGV_02_Demining_backpack_F",
-	B_UGV_02_Demining_backpack_F",
-	I_E_UGV_02_Demining_backpack_F",
-	"C_IDAP_UGV_02_Demining_backpack_F",
-	"I_UGV_02_Science_backpack_F",
-	"B_UGV_02_Science_backpack_F",
-	"O_UGV_02_Science_backpack_F",
-	"I_E_UGV_02_Science_backpack_F",
-	"I_E_UAV_06_backpack_F",
-	"I_E_UAV_06_medical_backpack_F",
-	"B_W_Static_Designator_01_weapon_F",
-	"I_E_HMG_01_high_Weapon_F",
-	"I_E_HMG_01_Weapon_F",
-	"I_E_GMG_01_high_Weapon_F",
-	"I_E_GMG_01_Weapon_F",
-	"I_E_GMG_01_A_Weapon_F",
-	"I_E_HMG_01_A_Weapon_F",
-	"I_E_Mortar_01_support_F",
-	"I_E_Mortar_01_Weapon_F",
-	"I_E_HMG_01_support_high_F",
-	"I_E_HMG_01_support_F"
+	"B_Patrol_Respawn_bag_F"
 ];
 if ( isNil "blacklisted_from_arsenal_extension" ) then { blacklisted_from_arsenal_extension = [] };
 GRLIB_blacklisted_from_arsenal = [] + blacklisted_from_arsenal_extension + GRLIB_blacklisted_from_arsenal;
