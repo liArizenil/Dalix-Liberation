@@ -608,7 +608,7 @@
 						<Original>Secondary Objectives Commander</Original>
 						<Korean>후방교란 담당 작전사령관</Korean>
 				</Key>
-				<Key ID="STR__ARSENALCOMMANDER">
+				<Key ID="STR_ARSENALCOMMANDER">
 						<Original>Logistics officer</Original>
 						<Korean>무장 및 장비 보급관</Korean>
 				</Key>
