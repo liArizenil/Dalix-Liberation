@@ -353,13 +353,16 @@ FAR_public_EH =
 			if(side _killed == side _killer) then {
 				systemChat format[localize "STR_FAR_FIRNELDYFIRE", name _killed, name _killer];
 				_killer addrating -100;
+				_killer addPlayerScores [-1, 0, 0, 0, 0];
 			}
 			else{
 				if(side _killer == GRLIB_side_friendly) then{
 					systemChat format[localize "STR_FAR_OPFORKILLED", name _killed, name _killer];
+					_killer addPlayerScores [1, 0, 0, 0, 0];
 				};
 				if(side _killer == GRLIB_side_enemy) then {
 					systemChat format[localize "STR_FAR_BLUFORKILLED", name _killed, name _killer];
+					_killer addPlayerScores [1, 0, 0, 0, 0];
 				};
 			};
 		};
