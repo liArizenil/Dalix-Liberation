@@ -75,3 +75,8 @@ if ( GRLIB_revive > 0 ) then {
 [] execVM "scripts\fn_advancedTowingInit.sqf";
 [] execVM "scripts\AdvancedRadio\init.sqf";
 null=[]execVM"CRS\init.sqf";
+
+[[commanderatwhiskey,"LEAN_ON_TABLE","arrow1"], BIS_fnc_ambientAnim ] remoteExec ["call",0,true];
+[[resupplyofficer,"LEAN","arrow4"], BIS_fnc_ambientAnim ] remoteExec ["call",0,true];
+[[engineerdude,"REPAIR_VEH_PRONE","arrow3"], BIS_fnc_ambientAnim ] remoteExec ["call",0,true];
+[[chairdude,"SIT1","arrow2"], BIS_fnc_ambientAnim ] remoteExec ["call",0,true];
