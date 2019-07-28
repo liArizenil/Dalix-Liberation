@@ -18,7 +18,6 @@ spawn_battlegroup = compileFinal preprocessFileLineNumbers "scripts\server\battl
 check_victory_conditions = compileFinal preprocessFileLineNumbers "scripts\server\game\check_victory_conditions.sqf";
 
 // Patrol
-manage_one_civilian_patrol = compileFinal preprocessFileLineNumbers "scripts\server\patrols\manage_one_civilian_patrol.sqf";
 manage_one_patrol = compileFinal preprocessFileLineNumbers "scripts\server\patrols\manage_one_patrol.sqf";
 reinforcements_manager = compileFinal preprocessFileLineNumbers "scripts\server\patrols\reinforcements_manager.sqf";
 send_paratroopers = compileFinal preprocessFileLineNumbers "scripts\server\patrols\send_paratroopers.sqf";
@@ -62,7 +61,6 @@ wait_to_spawn_sector = compileFinal preprocessFileLineNumbers "scripts\server\se
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\offload_calculation.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\offload_manager.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\show_fps.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\patrols\civilian_patrols.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\patrols\manage_patrols.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\patrols\reinforcements_resetter.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\resources\manage_resources.sqf";
