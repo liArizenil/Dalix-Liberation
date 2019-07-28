@@ -85,8 +85,6 @@ waitUntil {
 	{ ( alive _x ) && ( _x distance ( [ getpos _x ] call F_getNearestFob ) > 50 ) } count _pilotUnits == 0
 };
 
-sleep 5;
-
 private _alive_crew_count = { alive _x } count _pilotUnits;
 if ( _alive_crew_count == 0 ) then {
 	[ [ 7 ] , "remote_call_intel" ] call BIS_fnc_MP;
@@ -96,7 +94,7 @@ if ( _alive_crew_count == 0 ) then {
 	{ [_x ] joinSilent _grp; } foreach _pilotUnits;
 	while {(count (waypoints _grp)) != 0} do {deleteWaypoint ((waypoints _grp) select 0);};
 	{_x doFollow (leader _grp)} foreach units _grp;
-	{ [ _x ] spawn { sleep 600; deleteVehicle (_this select 0) } } foreach _pilotUnits;
+	{ [ _x ] spawn { sleep 60; deleteVehicle (_this select 0) } } foreach _pilotUnits;
 };
 
 resources_intel = resources_intel + (10 * _alive_crew_count);
