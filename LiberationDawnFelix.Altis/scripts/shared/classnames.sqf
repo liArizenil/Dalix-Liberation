@@ -123,7 +123,6 @@ heavy_vehicles = [
 	["B_T_APC_Wheeled_01_cannon_F",70,70,70],
 	["I_APC_Wheeled_03_cannon_F",80,100,80],
 	["I_APC_tracked_03_cannon_F",70,80,70],
-	["I_E_APC_tracked_03_cannon_F",70,80,70],
 	["B_APC_Tracked_01_rcws_F",50,60,50],
 	["B_T_APC_Tracked_01_rcws_F",50,60,50],
 	["B_APC_Tracked_01_AA_F",135,110,150],
@@ -150,7 +149,6 @@ if ( heavy_vehicles_overwrite ) then { heavy_vehicles = heavy_vehicles_extension
 air_vehicles = [
 	["B_Heli_Light_01_F",30,0,50],
 	["I_Heli_light_03_unarmed_F",40,0,60],
-	["I_E_Heli_light_03_unarmed_F",40,0,60],
 	["B_Heli_Transport_01_F",50,40,110],
 	["B_Heli_Transport_01_camo_F",50,40,110],
 	["B_CTRG_Heli_Transport_01_sand_F",50,40,110],
@@ -163,7 +161,6 @@ air_vehicles = [
 	["O_Heli_Transport_04_medevac_black_F",80,0,120],
 	["B_Heli_Light_01_armed_F",70,60,80],
 	["I_Heli_light_03_F",80,60,90],
-	["I_E_Heli_light_03_F",80,60,90],
 	["B_Heli_Attack_01_F",150,320,150],
 	["O_Heli_Attack_02_black_F",200,340,180],
 	["B_UAV_01_F",10,0,15],
