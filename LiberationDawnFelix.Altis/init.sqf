@@ -27,7 +27,7 @@ if (!isDedicated && hasInterface) then {
 	[] execVM "scripts\RuleDiary.sqf";
 	[] execVM "scripts\3Dmarkers.sqf";
 	[] execVM "scripts\anounce.sqf";
-	[] execVM "VAM\VAM_init.sqf";
+	[] execVM "VAM_GUI\VAM_GUI_init.sqf";
 	[] execVM "GREUH\scripts\GREUH_activate.sqf";
 	[] execVM "scripts\motd.sqf";
 	[] execVM "scripts\outlw_magRepack\MagRepack_init_sv.sqf";
@@ -74,7 +74,7 @@ if ( GRLIB_revive > 0 ) then {
 [] execVM "scripts\advancedSlingLoadingInit.sqf";
 [] execVM "scripts\fn_advancedTowingInit.sqf";
 [] execVM "scripts\AdvancedRadio\init.sqf";
-null=[]execVM"CRS\init.sqf";
+[] execVM "CRS\init.sqf";
 
 [[commanderatwhiskey,"LEAN_ON_TABLE","arrow1"], BIS_fnc_ambientAnim ] remoteExec ["call",0,true];
 [[resupplyofficer,"LEAN","arrow4"], BIS_fnc_ambientAnim ] remoteExec ["call",0,true];
