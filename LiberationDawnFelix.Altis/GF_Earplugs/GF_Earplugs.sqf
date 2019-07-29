@@ -66,6 +66,7 @@ DIK_TAB             0x0F
 	
 	titleText ["<t color='#FF3333' size='2'font='PuristaBold'>귀마개 미사용</t>", "PLAIN DOWN", -1, true, true];	
 	1 fadeSound (player getVariable ['GF_Earplugs_Volume',1]);
+	player setVariable ['GF_Earplugs_Volume',nil,FALSE];
 	}else{
 			
 	//________________ EARPLUGS IN ________________			
