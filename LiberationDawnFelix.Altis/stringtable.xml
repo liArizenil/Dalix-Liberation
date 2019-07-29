@@ -329,8 +329,8 @@
 						<Korean>무장 및 장비 보급관</Korean>
 				</Key>
 				<Key ID="STR_FOB_NEEDMORESECTOR">
-						<Original>Need more than 26 captured sectors for build FOB</Original>
-						<Korean>FOB 를 건설하기 위해서는 26개 이상의 청군 점령지가 필요합니다.</Korean>
+						<Original>Need more than 10 captured sectors for build FOB</Original>
+						<Korean>FOB 를 건설하기 위해서는 10개 이상의 청군 점령지가 필요합니다.</Korean>
 				</Key>
 				<Key ID="STR_FOB_ACTION">
 						<Original>-- FOB 건설 --</Original>
