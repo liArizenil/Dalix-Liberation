@@ -51,7 +51,6 @@ light_vehicles = [
 	["C_Offroad_01_F",15,0,15],
 	["I_E_Offroad_01_covered_F",15,0,15],
 	["I_E_Offroad_01_comms_F",15,0,15],
-	["B_GEN_Offroad_01_gen_F",15,0,15],
 	["I_G_Offroad_01_AT_F",15,20,15],
 	["I_C_Offroad_02_LMG_F",15,10,15],
 	["I_C_Offroad_02_AT_F",15,20,15],
