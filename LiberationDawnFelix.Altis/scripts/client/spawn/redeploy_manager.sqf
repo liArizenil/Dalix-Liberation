@@ -457,7 +457,7 @@ if(side player == GRLIB_side_enemy) then {
 			lbClear 1500;
 			_opforplayer = [];
 			{
-				if(side _x == GRLIB_side_enemy && _x != player) then {
+				if(side _x == GRLIB_side_enemy && _x != player && vehicle _x == _x) then {
 					lbAdd [ 1500 , name _x];
 					_opforplayer pushback _x;
 				};
@@ -562,7 +562,7 @@ if(side player == GRLIB_side_enemy) then {
 				lbClear 1500;
 				_opforplayer = [];
 				{
-					if(side _x == GRLIB_side_enemy && _x != player) then {
+					if(side _x == GRLIB_side_enemy && _x != player && vehicle _x == _x) then {
 						lbAdd [ 1500 , name _x];
 						_opforplayer pushback _x;
 					};
