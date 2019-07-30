@@ -20,7 +20,7 @@ fn_checkDistance ={
 	};
 	_bool
 };
-private["_playerUnit", "_middleofworld"];
+private["_playerUnit"];
 _middleofworld = [worldSize/2,worldSize/2];
 
 while{true} do {
