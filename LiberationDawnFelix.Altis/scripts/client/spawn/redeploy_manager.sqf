@@ -218,7 +218,7 @@ if(side player == GRLIB_side_enemy) then {
 	};
 
 	if(typeOf player == "O_Pilot_F") then { //---------------------------------- this is pilot -------------------------------------
-		if(count(blufor_sectors) < 15) then {
+		if(count(blufor_sectors) < 20) then {
 			["Needmoresectors", false, false,false,false] call BIS_fnc_endMission;
 		};
 		player addEventHandler ["Killed",{ player setVariable["deploy_timer",GRLIB_Opfor_Air_respawn_timer,false];}];
