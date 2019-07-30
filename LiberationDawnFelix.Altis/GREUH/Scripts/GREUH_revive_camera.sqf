@@ -7,7 +7,7 @@ closeDialog 0;
 sleep 1;
 
 while { true } do {
-	waitUntil { ( player getVariable "GREUH_isUnconscious") == 1 };
+	waitUntil { (player getVariable ["GREUH_isUnconscious",0]) == 1 };
 
 	_camobj = player;
 	_pos = positionCameraToWorld [0,0,-0.2];
