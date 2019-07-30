@@ -48,7 +48,7 @@ while { true } do {
 
 	_cam camCommit 900;
 
-	waitUntil { ((player getVariable "GREUH_isUnconscious") == 0) || ((player getVariable "FAR_isUnconscious") == 1) };
+	waitUntil { ((player getVariable ["GREUH_isUnconscious",0]) == 0) || ((player getVariable ["FAR_isUnconscious",0]) == 1) };
 	closeDialog 0;
 	waitUntil {!dialog};
 	if ((player getVariable "GREUH_isUnconscious") != 0) then {

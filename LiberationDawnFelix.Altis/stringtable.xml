@@ -200,13 +200,50 @@
 						<Spanish>Combustible</Spanish>
 						<Russian>Топливо</Russian>
 				</Key>
+				<!-- FAR REVIVE -->
+				<Key ID="STR_REVIVE">
+					<Original>Revive</Original>
+					<Korean>소생시키기</Korean>
+				</Key>
+				<Key ID="STR_STABILIZE">
+					<Original>Stabilzie</Original>
+					<Korean>안정화시키기</Korean>
+				</Key>
+				<Key ID="STR_BLEEDOUT_STABILIZED">
+					<Original>Stabilized</Original>
+					<Korean>안정화</Korean>
+				</Key>
+				<Key ID="STR_DRAG">
+					<Original>Drag</Original>
+					<Korean>끌기</Korean>
+				</Key>
+				<Key ID="STR_SUICIDE">
+					<Original>Suicide</Original>
+					<Korean>자살하기</Korean>
+				</Key>
+				<Key ID="STR_RELEASE">
+					<Original>Release</Original>
+					<Korean>내려놓기</Korean>
+				</Key>
+				<Key ID="STR_FAR_FIRNELDYFIRE">
+					<Original>%1 has been wounded by %2.(Friendly Fire)</Original>
+					<Korean>%2님에 의해 %1님이 부상당했습니다.(오인사격)</Korean>
+				</Key>
+				<Key ID="STR_FAR_OPFORKILLED">
+					<Original>%1(OPFOR) has been killed by %2(BLUFOR)</Original>
+					<Korean>(청군)%2님에 의해 (대항군)%1님이 부상당했습니다.</Korean>
+				</Key>
+				<Key ID="STR_FAR_BLUFORKILLED">
+					<Original>%1(BLUFOR) has been killed by %2(OPFOR)</Original>
+					<Korean>(대항군)%2님에 의해 (청군)%1님이 부상당했습니다.</Korean>
+				</Key>
+				<Key ID="STR_PRESSC">
+					<Original>Press 'C' If You can't move</Original>
+					<Korean>움직여지지 않을 경우 C 키를 눌르세요.</Korean>
+				</Key>
 				<Key ID="STR_BLEEDOUT_MESSAGE">
-						<Original>사망까지 앞으로 %1 초</Original>
-						<English>Until to Death %1 Seconds.</English>
-						<French>Mort dans %1 secondes</French>
-						<German>Ausbluten in %1 Sekunden</German>
-						<Spanish>Desangrado en %1 segundos</Spanish>
-						<Russian>Вы умрёте через %1 секунд</Russian>
+					<Original>Until to Death %1 Seconds.</Original>
+					<Korean>사망까지 앞으로 %1 초</Korean>
 				</Key>
 				<Key ID="STR_ROTATION">
 						<Original>-- 돌리기</Original>
