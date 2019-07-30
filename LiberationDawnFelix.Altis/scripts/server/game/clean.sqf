@@ -21,7 +21,6 @@ fn_checkDistance ={
 	_bool
 };
 private["_playerUnit"];
-_middleofworld = [worldSize/2,worldSize/2];
 
 while{true} do {
 	_playerUnit = (playableUnits + switchableUnits);
@@ -44,15 +43,15 @@ while{true} do {
 	//크레이터 클리너(작동 안함)
 	
 	//아이템 클리너
-	[] spawn {
-		_WeaponHolder = _middleofworld nearObjects ["WeaponHolder",worldSize];
+	[] spawn compileFinal '
+		_WeaponHolder = allMissionObjects "WeaponHolder";
 		diag_log format["WeaponHolder : %1", _WeaponHolder];
 		{
 			if([600,_playerUnit,_x] call fn_checkDistance) then {
 				deleteVehicle _x;
 			};
 		} forEach _WeaponHolder;
-	};	
+	';	
 	//지뢰 클리너
 	{
 		if([1200,_playerUnit,_x] call fn_checkDistance) then {
@@ -62,8 +61,8 @@ while{true} do {
 	
 	//고정화기잠시삭제
 	
-	[] spawn {
-		_Ruins = _middleofworld nearObjects ["Ruins",worldSize];
+	[] spawn compileFinal '
+		_Ruins = allMissionObjects "Ruins";
 		diag_log format["Ruins : %1", _Ruins];
 		//폐허 클리너
 		{
@@ -71,14 +70,14 @@ while{true} do {
 				deleteVehicle _x;
 			};
 		} forEach _Ruins;
-	};
+	';
 	
 	//트리거 클리너
 	{
 		if ((_x distance [0,0,0]) < 1) then {
 			deleteVehicle _x;
 		};
-	} forEach (_middleofworld nearObjects ["EmptyDetector",worldSize]);
+	} forEach (allMissionObjects "EmptyDetector");
 	
 	//빈 그룹 클리너
 	{
