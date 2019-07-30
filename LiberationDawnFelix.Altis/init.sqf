@@ -39,7 +39,7 @@ if (!isDedicated && hasInterface) then {
 		[] execVM "scripts\SHK_Fastrope.sqf";
 		[] execVM "scripts\cratercleaner.sqf";
 		[] execVM "scripts\VehicleLimit.sqf";
-		null = [] execVM "scripts\irstrobe.sqf"; 
+		[] execVM "scripts\irstrobe.sqf"; 
 	};
 	if(side player == GRLIB_side_enemy) then {
 		private ["_bluforcount"];
@@ -75,8 +75,3 @@ if ( GRLIB_revive > 0 ) then {
 [] execVM "scripts\fn_advancedTowingInit.sqf";
 [] execVM "scripts\AdvancedRadio\init.sqf";
 [] execVM "CRS\init.sqf";
-
-[[commanderatwhiskey,"LEAN_ON_TABLE","arrow1"], BIS_fnc_ambientAnim ] remoteExec ["call",0,false];
-[[resupplyofficer,"LEAN","arrow4"], BIS_fnc_ambientAnim ] remoteExec ["call",0,false];
-[[engineerdude,"REPAIR_VEH_PRONE","arrow3"], BIS_fnc_ambientAnim ] remoteExec ["call",0,false];
-[[chairdude,"SIT1","arrow2"], BIS_fnc_ambientAnim ] remoteExec ["call",0,false];
