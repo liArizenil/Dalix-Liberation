@@ -1,6 +1,6 @@
 private [ "_minfobdist", "_minsectordist", "_distfob", "_clearedtobuildfob", "_distsector", "_clearedtobuildsector", "_idx" ];
 
-if (10 > count (blufor_sectors)) exitwith {
+if (15 > count (blufor_sectors)) exitwith {
 	hint format [ localize "STR_FOB_NEEDMORESECTOR"];
 };
 
