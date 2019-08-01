@@ -11,7 +11,7 @@ while {true} do {
 				"VAM",
 			//Code
 				{0 = createDialog "VAM_GUI"; VAM_targetvehicle = _this select 0;},
-				[], 0, true, true, "", //Misc values
+				[], 0, false, true, "", //Misc values
 			//Action condition
 				"VAM_condition_result && (((_this isEqualTo vehicle _this) && (isNull driver _target)) || (_this isEqualTo driver _target))",
 				10
