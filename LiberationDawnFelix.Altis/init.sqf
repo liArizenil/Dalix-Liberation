@@ -52,7 +52,12 @@ if (!isDedicated && hasInterface) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		};
 		if(typeOf player == "O_Soldier_AT_F") then {
-			if(_bluforcount < 23) then {
+			if(_bluforcount < 24) then {
+		        	["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
+			};
+		};
+		if(typeOf player == "O_Soldier_AA_F") then {
+			if(_bluforcount < 24) then {
 		        	["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 			};
 		};
