@@ -12,6 +12,7 @@ enableSaving [ false, false ];
 if (isServer) then {
 	[] call compileFinal preprocessFileLineNumbers "scripts\server\init_server.sqf";
 	["Initialize"] call BIS_fnc_dynamicGroups;
+	[] execVM "scripts\server\game\clean.sqf";
 };
 
 if (!isDedicated && !hasInterface && isMultiplayer) then {
