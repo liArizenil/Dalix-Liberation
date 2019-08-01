@@ -224,6 +224,74 @@ OPFOR_Muzzles = [];
 			"B_AssaultPack_blk"
 		];
 	};
+	if(typeOf player == "O_soldier_AA_F") then {
+		OPFOR_Weapons = OPFOR_Weapons + [
+		    "SMG_03_camo",
+			"SMG_03_khaki",
+			"SMG_03_hex",
+			"SMG_03_black",
+			"SMG_03_TR_camo",
+			"SMG_03_TR_khaki",
+			"SMG_03_TR_hex",
+			"SMG_03_TR_black",
+			"SMG_03C_camo",
+			"SMG_03C_khaki",
+			"SMG_03C_hex",
+			"SMG_03C_black",
+			"SMG_03C_TR_camo",
+			"SMG_03C_TR_khaki",
+			"SMG_03C_TR_hex",
+			"SMG_03C_TR_black",
+			"hgun_PDW2000_F",
+			"SMG_05_F",
+			"SMG_01_F",
+			"SMG_02_F",
+			"launch_O_Titan_F",
+			"launch_O_Titan_F"
+		];
+		OPFOR_Helmet = OPFOR_Helmet + [
+			"H_HelmetO_oucamo",
+			"H_HelmetO_ocamo",
+			"H_HelmetSpecO_ocamo",
+			"H_HelmetSpecO_blk",
+			"H_HelmetLeaderO_ocamo",
+			"H_HelmetLeaderO_oucamo",
+			"H_HelmetB_camo",
+			"H_HelmetB_grass"
+		];
+		OPFOR_Uniform = OPFOR_Uniform + [
+			"U_O_CombatUniform_oucamo",
+			"U_O_CombatUniform_ocamo",
+			"U_O_V_Soldier_Viper_hex_F"
+		];
+		OPFOR_Sight = OPFOR_Sight + [
+			"optic_ACO_grn_smg",
+			"optic_aco_smg",
+			"optic_ACO_grn",
+			"optic_aco",
+			"optic_Arco",
+			"optic_Arco_ghex_F",
+			"optic_Arco_blk_F",
+			"optic_ERCO_snd_F",
+			"optic_ERCO_khk_F",
+			"optic_ERCO_blk_F",
+			"optic_Holosight",
+			"optic_Holosight_smg",
+			"optic_Holosight_smg_khk_F",
+			"optic_Holosight_smg_blk_F",
+			"optic_Holosight_khk_F",
+			"optic_Holosight_blk_F",
+			"optic_MRCO",
+			"optic_hamr",
+			"optic_Hamr_khk_F"
+		];
+		OPFOR_Backpacks = OPFOR_Backpacks + [
+			"B_FieldPack_khk",
+			"B_FieldPack_cbr",
+			"B_FieldPack_ocamo",
+			"B_FieldPack_blk"
+		];
+	};
 	if(typeOf player == "O_Pilot_F") then {
 		OPFOR_Weapons = OPFOR_Weapons + [
 			"hgun_PDW2000_F",
