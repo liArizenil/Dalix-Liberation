@@ -48,7 +48,7 @@ while{true} do {
 	//크레이터 클리너(작동 안함)
 	
 	//아이템 클리너
-	[_playerUnit] spawn compileFinal '
+	[_playerUnit] spawn compile '
 		params ["_playerUnit"];
 		_WeaponHolder = allMissionObjects "WeaponHolder";
 		diag_log format["WeaponHolder : %1", _WeaponHolder];
@@ -65,7 +65,7 @@ while{true} do {
 		};
 	} forEach allMines;
 	
-	[_playerUnit] spawn compileFinal '
+	[_playerUnit] spawn compile '
 		params ["_playerUnit"];
 		_StaticWeapon = allMissionObjects "StaticWeapon";
 		diag_log format["StaticWeapon : %1", _StaticWeapon];
@@ -76,7 +76,7 @@ while{true} do {
 		} forEach _StaticWeapon;
 	';	
 	
-	[_playerUnit] spawn compileFinal '
+	[_playerUnit] spawn compile '
 		params ["_playerUnit"];
 		_Ruins = allMissionObjects "Ruins";
 		diag_log format["Ruins : %1", _Ruins];
