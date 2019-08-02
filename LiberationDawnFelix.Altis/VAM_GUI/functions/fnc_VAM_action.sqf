@@ -1,6 +1,6 @@
 //VAM Action
 disableSerialization;
-VAM_condition_result = true;
+VAM_cursor_condition = false;
 VAM_condition_result = true;
 VAM_action = compileFinal "
     player addAction
@@ -15,9 +15,7 @@ VAM_action = compileFinal "
         -1
     ];
 ";
-
 [] spawn VAM_action;
-
 player addEventHandler ["Respawn", {[] spawn VAM_action;}];
 
 while {true} do {
