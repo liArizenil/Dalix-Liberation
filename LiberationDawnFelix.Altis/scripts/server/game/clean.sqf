@@ -14,7 +14,7 @@ fn_checkDistance = {
 		_bool = true;
 	};
 	if(count([] call F_getNearestFob) > 0) then {
-		if((_object distance ([] call F_getNearestFob)) < 125) then{
+		if((_object distance ([ getpos _object ] call F_getNearestFob)) < 125) then{
 			_bool = true;
 		};
 	};
