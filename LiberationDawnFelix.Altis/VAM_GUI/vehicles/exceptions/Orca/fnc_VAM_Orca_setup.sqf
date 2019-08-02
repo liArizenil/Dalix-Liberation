@@ -23,15 +23,10 @@ camo_class_names pushBack (localize "STR_VAM_AAF_CAMO");
 camo_display_names pushBack (localize "STR_VAM_AAF_CAMO");
 
 //Get all components(animations)
-private _getvc = [VAM_targetvehicle] call BIS_fnc_getVehicleCustomization;
-private _check_comp = _getvc select 1;
+private _comp_path = configProperties [configfile >> "CfgVehicles" >> _vehicleclass >> "AnimationSources", "!('' isEqualTo getText (_x >> 'DisplayName'))"];
 comp_class_names = [];
-{
-	if (_x isEqualType "STRING") then {
-		comp_class_names pushBack (_check_comp select _forEachIndex);
-	};
-} forEach _check_comp;
 comp_display_names = [];
+{_class = configName _x; comp_class_names pushBack _class;} forEach _comp_path;
 {_name = getText (configfile >> "CfgVehicles" >> _vehicleclass >> "AnimationSources" >> _x >> "DisplayName"); comp_display_names pushBack _name;} forEach comp_class_names;
 {
 	if (_x isEqualTo "") then {

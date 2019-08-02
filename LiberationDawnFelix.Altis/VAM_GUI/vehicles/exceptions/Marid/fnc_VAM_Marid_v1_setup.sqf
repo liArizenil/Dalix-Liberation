@@ -21,8 +21,6 @@ camo_display_names = [];
 } forEach camo_display_names;
 
 //Get all components(animations)
-private _getvc = [VAM_targetvehicle] call BIS_fnc_getVehicleCustomization;
-private _check_comp = _getvc select 1;
 comp_class_names = ["showBags","showCanisters","showTools","showCamonetHull","showSLATHull"];
 comp_display_names = [];
 {_name = getText (configfile >> "CfgVehicles" >> "O_APC_Wheeled_02_rcws_v2_F" >> "AnimationSources" >> _x >> "DisplayName"); comp_display_names pushBack _name;} forEach comp_class_names;

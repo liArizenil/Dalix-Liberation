@@ -40,5 +40,5 @@ while {true} do {
 		} else {
 		VAM_condition_result = false;
 	};
-	sleep 0.5;
+	sleep 1;
 };

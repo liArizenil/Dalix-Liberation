@@ -1,9 +1,7 @@
-﻿Vehicle Appearance Manager (GUI, Alternative version) by UNIT_normal
+﻿Vehicle Appearance Manager (GUI) by UNIT_normal
 This allows you to change camouflage and component via GUI.
 VAM supports most of vanilla vehicles even mod vehicles.
 You can apply custom textures by making exceptions.
-In Alternative version, you will have VAM action when you are looking at target vehicle. (In 10m)
-Also you will have VAM action in driver seat. While you are in driver seat, vehicle cannot be modified by other player.
 
 Known issue
 - Some components are linked each other. It's not VAM's limitation.
@@ -36,10 +34,14 @@ Liberation FOB distance check system is now available
 Hidden texture option added for Hummingbird/Pawnee, Blackfoot, Orca
 1.21
 Bug fixed (Error message when user is trying to scroll down below last component with arrow down key.)
-ALT 1.22
+1.22
 Action method changed. UGV RCWS bug fixed. Introducing fnc_VAM_variable_cleaner
-ALT 1.3
-Add more condition check options
+1.3
+Added more condition check options
+1.31, 1.32
+Minor change
+1.4
+Action mechanism changed
 
 Special Thanks
 DCinside ARMA Minor Gallery for testing
