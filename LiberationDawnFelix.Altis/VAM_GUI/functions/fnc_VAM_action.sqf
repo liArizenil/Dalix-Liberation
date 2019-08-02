@@ -1,21 +1,20 @@
 //VAM Action
 disableSerialization;
 VAM_condition_result = true;
-VAM_cursor_condition = false;
-VAM_action = compileFinal "player addAction 
-[
-	'VAM',
-	{
-		0 = createDialog 'VAM_GUI';
-		if (VAM_cursor_condition) then {
-			VAM_targetvehicle = cursorObject;
-		} else {
-			VAM_targetvehicle = vehicle player;
-		};
-	},
-	[], 0, false, true, '',
-	'VAM_condition_result && (VAM_cursor_condition || (!(player isEqualTo vehicle player) && (player isEqualTo driver vehicle player)))'
-];";
+VAM_condition_result = true;
+VAM_action = compileFinal "
+    player addAction
+    [
+        'VAM',
+        {
+            VAM_targetvehicle = vehicle player;
+            0 = createDialog 'VAM_GUI';
+        },
+        [], 0, false, true, '',
+        'VAM_condition_result && (!(player isEqualTo vehicle player) && (player isEqualTo driver vehicle player))',
+        -1
+    ];
+";
 
 [] spawn VAM_action;
 
