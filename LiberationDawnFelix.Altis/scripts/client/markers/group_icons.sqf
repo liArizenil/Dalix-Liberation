@@ -9,7 +9,7 @@ while { true } do {
 	{
 		if ((_x != group player) && ((side _x == GRLIB_side_friendly))) then {
 			if ( (_x in _iconed_groups) && (
-				(count units _x == 0) ||  (side _x == GRLIB_side_friendly && (((leader _x) distance (getmarkerpos GRLIB_respawn_marker) < 100) || ((leader _x) distance whiskey > 200) || ((leader _x) distance lhd < 500))))) then {
+				(count units _x == 0) ||  (side _x == GRLIB_side_friendly && (((leader _x) distance (getmarkerpos GRLIB_respawn_marker) < 100) || ((leader _x) distance (getMarkerPos whiksey) > 200) || ((leader _x) distance lhd < 500))))) then {
 				clearGroupIcons _x;
 				_iconed_groups = _iconed_groups - [_x];
 			};
