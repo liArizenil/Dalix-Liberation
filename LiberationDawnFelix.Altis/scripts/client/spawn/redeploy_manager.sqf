@@ -352,17 +352,10 @@ if(side player == GRLIB_side_enemy) then {
 			if (dialog && deploy == 1) then {
 				_spawn_point = markerPos(sectors_airspawn call BIS_fnc_selectRandom);
 				_spawn_point = [(((_spawn_point select 0) + 500) - random 1000),(((_spawn_point select 1) + 500) - random 1000),0];
-				_aircraft = createVehicle ["O_Plane_Fighter_02_F", _spawn_point, [], 0, "FLY"];
-				_aircraft setPylonLoadOut["pylons3",""];
-				_aircraft setPylonLoadOut["pylons4",""];
-				_aircraft setPylonLoadOut["pylons5",""];
-				_aircraft setPylonLoadOut["pylons6",""];
-				_aircraft setPylonLoadOut["pylonBayRight1",""];
-				_aircraft setPylonLoadOut["pylonBayLeft1",""];
+				_aircraft = createVehicle ["O_Plane_Fighter_02_Stealth_F", _spawn_point, [], 0, "FLY"];
 				_aircraft setPylonLoadOut["pylonBayRight2",""];
-				_aircraft setPylonLoadOut["pylonBayLeft2",""];
+				_aircraft setPylonLoadOut["pylonBayCenter1",""];
 				_aircraft setPylonLoadOut["pylonBayCenter2",""];
-				_aircraft setPylonLoadOut["pylonBayCenter3",""];
 				_aircraft flyInHeight (120 + (random 180));
 				_aircraft removeWeaponTurret ["weapon_KAB250Launcher",[-1]];
 				_aircraft removeWeaponTurret ["Laserdesignator_pilotCamera",[-1]];
