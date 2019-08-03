@@ -1913,6 +1913,10 @@
 						<Spanish>Salto HALO</Spanish>
 						<Russian>HALO прыжок</Russian>
 				</Key>
+				<Key ID="STR_HALONEED_AMMO">
+						<Original>Need more than 500 ammunations for the HALO drop.</Original>
+						<Korean>공수강하를 위해서는 500 이상의 탄약이 필요합니다.</Korean>
+				</Key>
 				<Key ID="STR_HALO_PARAM1">
 						<Original>Enabled - No cooldown</Original>
 						<French>Activé - Pas de cooldown</French>
