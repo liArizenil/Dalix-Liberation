@@ -1,8 +1,9 @@
 private ["_curPlayerScore"];
+_curPlayerScore = score player;
 
-if(score player > 0) then {
+if(_curPlayerScore > 0) then {
   [player] remoteExec ["exchange_score_remote_call",2];
-  hint localize "STR_AMMO_EXCHANGED";
+  hint format[localize "STR_AMMO_EXCHANGED",_curPlayerScore];
 }
 else{
   hint localize "STR_NOT_ENOUGH_SCORE";
