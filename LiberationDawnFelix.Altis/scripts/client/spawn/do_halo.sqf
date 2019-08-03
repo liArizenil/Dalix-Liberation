@@ -16,6 +16,11 @@ _backpackcontents = [];
 
 "spawn_marker" setMarkerTextLocal (localize "STR_HALO_PARAM");
 
+if (resources_ammo < 500 && dialog) then {
+closeDialog 0;
+hint format [ localize "STR_HALONEED_AMMO"];
+};
+
 waitUntil { dialog };
 while { dialog && alive player && dojump == 0 } do {
 	"spawn_marker" setMarkerPosLocal halo_position;
@@ -38,6 +43,7 @@ if ( dojump > 0 ) then {
 	halo_position = [ halo_position, random 250, random 360 ] call BIS_fnc_relPos;
     halo_position = [ halo_position select 0, halo_position select 1, 1500 + (random 200) ];
 	halojumping = true;
+	resources_ammo = resources_ammo - 5;
 	sleep 0.1;
 	cutRsc ["fasttravel", "PLAIN", 1];
 	playSound "parasound";
