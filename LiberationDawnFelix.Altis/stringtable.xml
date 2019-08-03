@@ -2304,6 +2304,18 @@
 						<German>OPFOR Konvoi nahe %1.</German>
 						<Russian>Конвой OPFOR рядом с %1.</Russian>
 				</Key>
+				<Key ID="STR_AMMO_EXCHANGED">
+						<Original>Your Score has been changed to %1 amount of ammo.</Original>
+						<Korean>%1 만큼의 탄약으로 교환되었습니다.</Korean>
+				</Key>
+				<Key ID="STR_NOT_ENOUGH_SCORE">
+						<Original>You dont have enough score.</Original>
+						<Korean>점수가 부족합니다.</Korean>
+				</Key>
+				<Key ID="STR_EXCHANGE_SCORE">
+						<Original>Exchange Score to Ammo</Original>
+						<Korean>점수를 탄약으로 교환하기</Korean>
+				</Key>
 				<Key ID="STR_TUTO_GOTIT">
 						<Original>플레이 하러 갑시다!</Original>
 						<English>Got it!</English>
