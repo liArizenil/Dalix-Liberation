@@ -24,7 +24,12 @@ hint format [ localize "STR_HALONEED_AMMO"];
 waitUntil { dialog };
 while { dialog && alive player && dojump == 0 } do {
 	"spawn_marker" setMarkerPosLocal halo_position;
-
+	if(([1500,spawn_position] call F_getNearestSector) in blufor_sectors) then {
+		ctrlEnable [202, true];
+	}
+	else{
+		ctrlEnable [202, false];
+	};
 	sleep 0.1;
 };
 
@@ -41,9 +46,8 @@ if ( dialog ) then {
 if ( dojump > 0 ) then {
 	GRLIB_last_halo_jump = time;
 	halo_position = [ halo_position, random 250, random 360 ] call BIS_fnc_relPos;
-    halo_position = [ halo_position select 0, halo_position select 1, 1500 + (random 200) ];
+    	halo_position = [ halo_position select 0, halo_position select 1, 1500 + (random 200) ];
 	halojumping = true;
-	resources_ammo = resources_ammo - 5;
 	sleep 0.1;
 	cutRsc ["fasttravel", "PLAIN", 1];
 	playSound "parasound";
