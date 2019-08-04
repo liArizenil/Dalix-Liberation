@@ -353,6 +353,7 @@ if(side player == GRLIB_side_enemy) then {
 				_spawn_point = markerPos(sectors_airspawn call BIS_fnc_selectRandom);
 				_spawn_point = [(((_spawn_point select 0) + 500) - random 1000),(((_spawn_point select 1) + 500) - random 1000),0];
 				_aircraft = createVehicle ["O_Plane_Fighter_02_Stealth_F", _spawn_point, [], 0, "FLY"];
+				_aircraft addMPEventHandler ['MPKilled', {_this spawn kill_manager}];
 				_aircraft setPylonLoadOut["pylonBayRight2",""];
 				_aircraft setPylonLoadOut["pylonBayCenter1",""];
 				_aircraft setPylonLoadOut["pylonBayCenter2",""];
