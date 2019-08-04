@@ -477,9 +477,10 @@ if(side player == GRLIB_side_enemy) then {
 					ctrlSetText[1600, "Deploy"];
 					if(spawntype > 0) then {
 						if(spawntype == 1) then {
-							if((lhd distance2D spawn_position) > 2500) then {
-								if(count([] call F_getNearestFob)>0) then {
-									if((([] call F_getNearestFob) distance2D spawn_position) < 2500) then {
+							private _nearsector = [1500,spawn_position] call F_getNearestSector;
+							if((lhd distance2D spawn_position) > 2500 && (((spawn_position distance2D (getMarkerPos _nearsector) > 1500) && (_nearsector in blufor_sectors)) || !(_nearsector in blufor_sectors))) then {
+								if( count([] call F_getNearestFob) > 0 ) then {
+									if((spawn_position distance2D ([ spawn_position ] call F_getNearestFob)) < 2500) then{
 										ctrlEnable [1600, false];
 									}
 									else{
