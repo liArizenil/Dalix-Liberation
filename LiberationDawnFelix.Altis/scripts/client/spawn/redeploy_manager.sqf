@@ -212,7 +212,7 @@ if(side player == GRLIB_side_enemy) then {
 	[] spawn {
 		format ["%1 : %2 joined OPFOR", getPlayerUID player, name player] remoteExec ["diag_log"];
 		format [ "%1님이 대항군에 참여하셨습니다.", name player] remoteExec ["systemChat"];
-		sleep 5400;
+		sleep 3600;
 		format [ "%1님의 대항군 플레이 시간이 만료 되었습니다.", name player] remoteExec ["systemChat"];
 		["Timeout", false, false,false,false] call BIS_fnc_endMission;
 	};
