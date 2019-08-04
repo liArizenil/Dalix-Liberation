@@ -79,7 +79,7 @@ if(side player == GRLIB_side_friendly) then {
 		lbSetCurSel [ 203, 0 ];
 
 		while { dialog && alive player && deploy == 0} do {
-			choiceslist = [ [ _basenamestr, getpos lhd ] ];
+			choiceslist = [ [ _basenamestr, getpos lhd ], ["FOB Whiskey", getMarkerPos "whiskey"] ];
 
 			for [{_idx=0},{_idx < count GRLIB_all_fobs},{_idx=_idx+1}] do {
 				choiceslist = choiceslist + [[format [ "FOB %1 - %2", (military_alphabet select _idx),mapGridPosition (GRLIB_all_fobs select _idx) ],GRLIB_all_fobs select _idx]];
