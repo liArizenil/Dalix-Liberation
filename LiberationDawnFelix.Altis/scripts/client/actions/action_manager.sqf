@@ -1,5 +1,7 @@
 
-private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander", "_idact_exchscore" ];
+private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander", "_idact_exchscore", "_whiskey" ];
+
+_whiskey = getMarkerPos "whiskey";
 
 _idact_build = -1;
 _idact_arsenal = -1;
@@ -65,7 +67,7 @@ while { true } do {
 		};
 	};
 
-	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || (player distance lhd) < 200) && alive player && vehicle player == player ) then {
+	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || ( (player distance lhd) < 200 || (player distance _whiskey) < 100) ) && alive player && vehicle player == player ) then {
 		if ( _idact_redeploy == -1 ) then {
 			_idact_redeploy = player addAction ["<t color='#80FF80'>" + localize "STR_DEPLOY_ACTION" + "</t> <img size='2' image='res\ui_redeploy.paa'/>","scripts\client\actions\redeploy.sqf","",-750,false,true,"","build_confirmed == 0"];
 		};
