@@ -2317,8 +2317,8 @@
 						<Korean>점수가 부족합니다.</Korean>
 				</Key>
 				<Key ID="STR_EXCHANGE_SCORE">
-						<Original>Exchange Score to Ammo</Original>
-						<Korean>점수를 탄약으로 교환하기</Korean>
+						<Original>-- Exchange Score to Ammo --</Original>
+						<Korean>-- 점수를 탄약으로 교환 --</Korean>
 				</Key>
 				<Key ID="STR_TUTO_GOTIT">
 						<Original>플레이 하러 갑시다!</Original>
