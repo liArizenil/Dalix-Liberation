@@ -24,7 +24,7 @@ hint format [ localize "STR_HALONEED_AMMO"];
 waitUntil { dialog };
 while { dialog && alive player && dojump == 0 } do {
 	"spawn_marker" setMarkerPosLocal halo_position;
-	if(([1500,spawn_position] call F_getNearestSector) in blufor_sectors) then {
+	if(([1500,halo_position] call F_getNearestSector) in blufor_sectors) then {
 		ctrlEnable [202, true];
 	}
 	else{
