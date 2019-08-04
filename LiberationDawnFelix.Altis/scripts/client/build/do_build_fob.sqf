@@ -1,9 +1,5 @@
 private [ "_minfobdist", "_minsectordist", "_distfob", "_clearedtobuildfob", "_distsector", "_clearedtobuildsector", "_idx" ];
 
-if (15 > count (blufor_sectors)) exitwith {
-	hint format [ localize "STR_FOB_NEEDMORESECTOR"];
-};
-
 if ( count GRLIB_all_fobs >= GRLIB_maximum_fobs ) exitWith {
 	hint format [ localize "STR_HINT_FOBS_EXCEEDED", GRLIB_maximum_fobs ];
 };
