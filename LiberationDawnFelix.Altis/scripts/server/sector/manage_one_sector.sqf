@@ -33,7 +33,7 @@ _opforcount = [] call F_opforCap;
 [ _sector, _opforcount ] call wait_to_spawn_sector;
 
 private _sectorunitcount = ( [ getmarkerpos _sector , [ _opforcount ] call F_getCorrectedSectorRange , GRLIB_side_friendly ] call F_getUnitsCount );
-if(( _sectorunitcount < 5 && _sector in sectors_bigtown ) || (_sectorunitcount < 2 && _sector in sectors_capture )) exitWith {};
+if(( _sectorunitcount < 5 && _sector in sectors_bigtown ) || (_sectorunitcount < 2 && _sector in sectors_capture ) || (_sectorunitcount < 2 && _sector in sectors_military ) || (_sectorunitcount < 2 && _sector in sectors_factory )) exitWith {};
 
 if ( _sector in active_sectors ) exitWith {};
 active_sectors pushback _sector; publicVariable "active_sectors";
