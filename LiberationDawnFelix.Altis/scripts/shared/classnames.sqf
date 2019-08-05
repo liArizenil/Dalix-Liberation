@@ -113,7 +113,7 @@ if ( isNil "heavy_vehicles_overwrite" ) then { heavy_vehicles_overwrite = false 
 if ( heavy_vehicles_overwrite ) then { heavy_vehicles = heavy_vehicles_extension; } else { heavy_vehicles = heavy_vehicles + heavy_vehicles_extension; };
 
 air_vehicles = [
-	["B_Heli_Light_01_F",30,0,50],
+	["B_Heli_Light_01_F",20,0,30],
 	["I_Heli_light_03_unarmed_F",40,0,60],
 	["B_Heli_Transport_01_F",50,40,110],
 	["I_Heli_Transport_02_F",80,0,120],
