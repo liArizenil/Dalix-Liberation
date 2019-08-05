@@ -192,41 +192,7 @@ if(side player == GRLIB_side_friendly) then {
 	};
 };
 if(side player == GRLIB_side_enemy) then {
-	[missionNamespace, "arsenalClosed", {
-		GRLIB_respawn_loadout = [ player, ["repetitive"] ] call F_getLoadout;
-	}] call BIS_fnc_addScriptedEventHandler;
-	player addEventHandler ["Respawn",{
-		if(!isNil "GRLIB_respawn_loadout") then {
-			[ player, GRLIB_respawn_loadout ] call F_setLoadout;
-		};
-	}];
-	player setVariable["deploy_timer",210,false];
-	[] spawn {
-		while { true } do {
-			if(player getVariable "deploy_timer" > 0) then {
-				player setVariable["deploy_timer", ((player getVariable "deploy_timer") - 1), false];
-				sleep 1;
-			};
-		};
-	};
-	[] spawn {
-		format ["%1 : %2 joined OPFOR", getPlayerUID player, name player] remoteExec ["diag_log"];
-		format [ "%1님이 대항군에 참여하셨습니다.", name player] remoteExec ["systemChat"];
-		sleep 3600;
-		format [ "%1님의 대항군 플레이 시간이 만료 되었습니다.", name player] remoteExec ["systemChat"];
-		["Timeout", false, false,false,false] call BIS_fnc_endMission;
-	};
-
-	if(typeOf player == "O_Pilot_F") then { //---------------------------------- this is pilot -------------------------------------
-		if(count(blufor_sectors) < 20) then {
-			["Needmoresectors", false, false,false,false] call BIS_fnc_endMission;
-		};
-		player addEventHandler ["Killed",{ player setVariable["deploy_timer",GRLIB_Opfor_Air_respawn_timer,false];}];
-		while { true } do {		
-			waitUntil {
-				sleep 0.1;
-				isNull (uiNamespace getVariable ["RscDisplayArsenal", displayNull]) && ((player distance (getmarkerpos GRLIB_OPFOR_respawn_marker) < 30) ) && vehicle player == player && alive player && !dialog && howtoplay == 0
-			};
+	DA_fnc_Arsenal = {
 			if({side _x == GRLIB_side_friendly} count (allPlayers) < 20) then {
 				["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 			};
@@ -277,6 +243,43 @@ if(side player == GRLIB_side_enemy) then {
 				player removePrimaryWeaponItem ((primaryWeaponItems player) select 2);
 				hint parseText format ["<t color='#ff0000'>선택하신 조준경은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
+	};
+	[missionNamespace, "arsenalClosed", {
+		GRLIB_respawn_loadout = [ player, ["repetitive"] ] call F_getLoadout;
+	}] call BIS_fnc_addScriptedEventHandler;
+	player addEventHandler ["Respawn",{
+		if(!isNil "GRLIB_respawn_loadout") then {
+			[ player, GRLIB_respawn_loadout ] call F_setLoadout;
+		};
+	}];
+	player setVariable["deploy_timer",210,false];
+	[] spawn {
+		while { true } do {
+			if(player getVariable "deploy_timer" > 0) then {
+				player setVariable["deploy_timer", ((player getVariable "deploy_timer") - 1), false];
+				sleep 1;
+			};
+		};
+	};
+	[] spawn {
+		format ["%1 : %2 joined OPFOR", getPlayerUID player, name player] remoteExec ["diag_log"];
+		format [ "%1님이 대항군에 참여하셨습니다.", name player] remoteExec ["systemChat"];
+		sleep 3600;
+		format [ "%1님의 대항군 플레이 시간이 만료 되었습니다.", name player] remoteExec ["systemChat"];
+		["Timeout", false, false,false,false] call BIS_fnc_endMission;
+	};
+
+	if(typeOf player == "O_Pilot_F") then { //---------------------------------- this is pilot -------------------------------------
+		if(count(blufor_sectors) < 20) then {
+			["Needmoresectors", false, false,false,false] call BIS_fnc_endMission;
+		};
+		player addEventHandler ["Killed",{ player setVariable["deploy_timer",GRLIB_Opfor_Air_respawn_timer,false];}];
+		while { true } do {		
+			waitUntil {
+				sleep 0.1;
+				isNull (uiNamespace getVariable ["RscDisplayArsenal", displayNull]) && ((player distance (getmarkerpos GRLIB_OPFOR_respawn_marker) < 30) ) && vehicle player == player && alive player && !dialog && howtoplay == 0
+			};
+			[] call DA_fnc_Arsenal;
 			if ( !GRLIB_fatigue ) then {
 				player enableStamina false;
 			};
@@ -381,53 +384,7 @@ if(side player == GRLIB_side_enemy) then {
 				sleep 0.1;
 				isNull (uiNamespace getVariable ["RscDisplayArsenal", displayNull]) && ((player distance (getmarkerpos GRLIB_OPFOR_respawn_marker) < 30) ) && vehicle player == player && alive player && !dialog && howtoplay == 0
 			};
-			if(!(primaryWeapon player in OPFOR_Weapons) && primaryWeapon player != "") then {
-				player removeWeapon (primaryWeapon player);
-				hint parseText format ["<t color='#ff0000'>선택하신 주무장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
-			};
-			if(!(secondaryWeapon player in OPFOR_Weapons) && secondaryWeapon player != "") then {
-				player removeWeapon (secondaryWeapon player);
-				hint parseText format ["<t color='#ff0000'>선택하신 보조무장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
-			};
-			if(!(vest player in OPFOR_Vest) && vest player != "") then {
-				removeVest player;
-				hint parseText format ["<t color='#ff0000'>선택하신 조끼는 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
-			};
-			if(!(uniform player in OPFOR_Uniform) && uniform player != "") then {
-				removeUniform player;
-				hint parseText format ["<t color='#ff0000'>선택하신 복장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
-			};
-			if(!(headgear player in OPFOR_Helmet) && headgear player != "") then {
-				removeHeadgear player;
-				hint parseText format ["<t color='#ff0000'>선택하신 헬맷은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
-			};
-			if(!(backpack player in OPFOR_Backpacks && backpack player != "")) then {
-				removeBackpack player;
-				hint parseText format ["<t color='#ff0000'>선택하신 가방은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
-			};
-            		_mags = magazines player;
-			if (!isNil "_mags") then {
-                		{
-                    			if(_x in bannedmines) then {
-                        			player removeMagazines _x;
-						hint parseText format ["<t color='#ff0000'>대인지뢰류는 사용 불가능합니다.</t>"];
-                    			};
-                		}foreach(_mags);
-            		};
-					_hmd = hmd player;
-                    			if(_hmd in bannedgoggles) then {
-                        			player unassignItem _hmd;
-									player removeItem _hmd;
-						hint parseText format ["<t color='#ff0000'>대항군은 열상 탐지 장비 사용이 불가능합니다.</t>"];
-                    			};
-			if(!(((primaryWeaponItems player) select 0) in OPFOR_Muzzles) && ((primaryWeaponItems player) select 0) != "") then {
-				player removePrimaryWeaponItem ((primaryWeaponItems player) select 0);
-				hint parseText format ["<t color='#ff0000'>선택하신 소음기는 사용 불가능한 장비입니다.</t><br/>지정사수만 소음기 장착이 가능합니다."];
-			};
-			if(!(((primaryWeaponItems player) select 2) in OPFOR_Sight) && ((primaryWeaponItems player) select 2) != "") then {
-				player removePrimaryWeaponItem ((primaryWeaponItems player) select 2);
-				hint parseText format ["<t color='#ff0000'>선택하신 조준경은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
-			};
+			[] call DA_fnc_Arsenal;
 			if ( !GRLIB_fatigue ) then {
 				player enableStamina false;
 			};
