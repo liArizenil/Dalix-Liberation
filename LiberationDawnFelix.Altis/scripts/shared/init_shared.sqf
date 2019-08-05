@@ -10,6 +10,7 @@ sector_liberated_remote_call = compileFinal preprocessFileLineNumbers "scripts\s
 intel_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\intel_remote_call.sqf";
 start_secondary_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\start_secondary_remote_call.sqf";
 exchange_score_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\exchange_score_remote_call.sqf";
+kickplayer_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\kickplayer_remote_call.sqf";
 
 remote_call_sector = compileFinal preprocessFileLineNumbers "scripts\client\remotecall\remote_call_sector.sqf";
 remote_call_fob = compileFinal preprocessFileLineNumbers "scripts\client\remotecall\remote_call_fob.sqf";
