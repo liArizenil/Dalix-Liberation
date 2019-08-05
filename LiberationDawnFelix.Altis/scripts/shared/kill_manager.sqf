@@ -55,7 +55,7 @@ if ( isServer ) then {
 						if((resources_ammo - 200) < 0) then {
 							resources_ammo = 0;
 						}else{
-							resources_ammo = resources_ammo - 200;
+							resources_ammo = resources_ammo - 100;
 						};
 						combat_readiness = combat_readiness + 100;
 						[ [ name _unit, _killer ] , "remote_call_civ_penalty" ] call BIS_fnc_MP;
