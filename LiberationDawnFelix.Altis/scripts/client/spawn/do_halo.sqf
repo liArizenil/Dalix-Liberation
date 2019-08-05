@@ -16,11 +16,6 @@ _backpackcontents = [];
 
 "spawn_marker" setMarkerTextLocal (localize "STR_HALO_PARAM");
 
-if (resources_ammo < 500 && dialog) then {
-closeDialog 0;
-hint format [ localize "STR_HALONEED_AMMO"];
-};
-
 waitUntil { dialog };
 while { dialog && alive player && dojump == 0 } do {
 	"spawn_marker" setMarkerPosLocal halo_position;
