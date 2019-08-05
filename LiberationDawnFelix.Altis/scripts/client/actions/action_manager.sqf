@@ -155,7 +155,7 @@ while { true } do {
 		};
 	};
 	
-	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || (((player distance lhd) < 200) || (player distance _whiskey) < 100)) && alive player && vehicle player == player && score player > 0) then {
+	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || (((player distance lhd) < 200) || (player distance _whiskey) < 100)) && alive player && vehicle player == player && ((getPlayerScores player) select 5) > 0) then {
 		if ( _idact_exchscore == -1 ) then {
 			_idact_exchscore = player addAction ["<t color='#80FF80'>" + localize "STR_EXCHANGE_SCORE" + "</t> <img size='2' image='res\ui_recycle.paa'/>","scripts\client\actions\exchange_score.sqf","",-750,false,true,"","build_confirmed == 0"];
 		};
