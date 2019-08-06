@@ -23,6 +23,7 @@ _destroyer_point = getMarkerPos _destroyer_point;
 _destroyer_point = [(_destroyer_point select 0) - 250 + random 500,(_destroyer_point select 1) - 250 + random 500,0 ];
 //Spawn Destroyer
 _destroyer = "Land_Destroyer_01_base_F" createVehicle _destroyer_point;
+_destroyer setPos _destroyer_point;
 _destroyer setDir (random 360);
 _removeObjects pushBack _destroyer;
 
