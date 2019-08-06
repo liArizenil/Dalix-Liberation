@@ -20,7 +20,7 @@ GRLIB_secondary_in_progress = 0; publicVariable "GRLIB_secondary_in_progress";
 //Find Air Spawn point
 _destroyer_point = selectRandom sectors_airspawn;
 _destroyer_point = getMarkerPos _destroyer_point;
-_destroyer_point = [(_destroyer_point select 0) - 250 + random 500,(_destroyer_point select 1) - 250 + random 500,-5 ];
+_destroyer_point = [(_destroyer_point select 0) - 250 + random 500,(_destroyer_point select 1) - 250 + random 500,-2 ];
 //Spawn Destroyer
 _destroyer = createVehicle ["Land_Destroyer_01_base_F", ASLToATL (_destroyer_point), [], 0, "CAN_COLLIDE"];
 _destroyer setPos _destroyer_point;
