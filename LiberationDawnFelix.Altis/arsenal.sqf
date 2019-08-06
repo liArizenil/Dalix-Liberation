@@ -179,7 +179,7 @@ OPFOR_Muzzles = [];
 			"SMG_05_F",
 			"SMG_01_F",
 			"SMG_02_F",
-			"launch_RPG32_F"
+			"launch_RPG42_F"
 		];
 		OPFOR_Helmet = OPFOR_Helmet + [
 			"H_HelmetO_oucamo",
