@@ -38,7 +38,7 @@ _removeObjects pushBack _destroyer;
 	_crew joinsilent _grp;
 	_grp addVehicle _gun;
 	_gun pushBack _removeWeapons;
-} forEach _weapons;
+} forEach _ship_weapons;
 
 //Spawn solider
 
