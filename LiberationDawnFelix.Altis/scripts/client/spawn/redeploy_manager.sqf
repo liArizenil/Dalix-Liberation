@@ -200,7 +200,7 @@ if(side player == GRLIB_side_enemy) then {
 				player removeWeapon (primaryWeapon player);
 				hint parseText format ["<t color='#ff0000'>선택하신 주무장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
-			if(secondaryWeapon player != "") then {
+			if(!(secondaryWeapon player in OPFOR_Weapons) && secondaryWeapon player != "") then {
 				player removeWeapon (secondaryWeapon player);
 				hint parseText format ["<t color='#ff0000'>선택하신 보조무장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
 			};
