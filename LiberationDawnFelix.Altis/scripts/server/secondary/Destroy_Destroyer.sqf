@@ -1,10 +1,17 @@
-private ["_destroyer", "_ship_weapons", "_removeWeapons", "_removeObjects"];
+private ["_destroyer", "_ship_weapons", "_engin", "_engins", "_enginchecks", "_terminal", "_removeWeapons", "_removeObjects"];
 _ship_weapons =
 [["B_Ship_Gun_01_F",[0,-78,14.8321],180],
 ["B_Ship_MRLS_01_F",[0,-62.4,11.9231],180],
 ["B_AAA_System_01_F",[0,-47.9,17.5332],180],
 ["B_AAA_System_01_F",[0,35.9,21.7476],0],
 ["B_SAM_System_01_F",[0,50.6,17.5499],180]];
+_engins = 
+[[0,0,0,0], //x y z dir
+[0,0,0,0],
+[0,0,0,0],
+[0,0,0,0],
+[0,0,0,0]];
+_enginchecks = [];
 _removeWeapons = [];
 _removeObjects = [];
 
@@ -36,11 +43,18 @@ _removeObjects pushBack _destroyer;
 
 //Spawn Destroyable Objective
 
-
+{
+	_x params ["_pos1","_pos2","_pos3","_dir"];
+	private _eng = createVehicle ["Land_Device_assembled_F",[_position_mark select 0, _position_mark select 1, 0], [], 0, "NONE"];
+	_eng setDir (getDir _desstroyer + _dir);
+	_eng setPosWorld (_destroyer modelToWorldWorld _position_rel);
+	_enginchecks pushBack _eng;
+	_removeObjects pushBack _eng;
+} forEach _engins;
 
 //Spawn Intel Objective
 
-_terminalobj = createVehicle ["Land_DataTerminal_01_F",[_position_mark select 0, _position_mark select 1, 0], [], 0, "NONE"];
+_terminal = createVehicle ["Land_DataTerminal_01_F",[_position_mark select 0, _position_mark select 1, 0], [], 0, "NONE"];
 
 //Secondary is Ready
 
@@ -51,11 +65,12 @@ publicVariable "secondary_objective_position_marker";
 //wait until Destroyable Objective has been destroyed
 
 [] spawn {
-  while {} do {
+  while { true } do {
+  	if() exitWuth {};
   };
 };
 
-waitUntil {};
+waitUntil { { alive _x } count _enginchecks < 1 };
 
 //play Explode animation
 
