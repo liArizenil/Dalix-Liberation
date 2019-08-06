@@ -18,7 +18,7 @@ _removeObjects = [];
 GRLIB_secondary_in_progress = 0; publicVariable "GRLIB_secondary_in_progress";
 
 //Find Air Spawn point
-_destroyer_point = sectors_airspawn call BIS_fnc_selectRandom;
+_destroyer_point = selectRandom sectors_airspawn;
 _destroyer_point = getMarkerPos _destroyer_point;
 _destroyer_point = [(_destroyer_point select 0) - 250 + random 500,(_destroyer_point select 1) - 250 + random 500,0 ];
 //Spawn Destroyer
