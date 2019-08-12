@@ -39,7 +39,7 @@ if ( _ownership == GRLIB_side_friendly ) exitWith {
 	};
 };
 
-if(combat_readiness <= 4875) then {
+if(combat_readiness <= 4583) then {
 	_attacktime = round(-1*((6/25)*combat_readiness) + GRLIB_vulnerability_timer);
 }
 else{
