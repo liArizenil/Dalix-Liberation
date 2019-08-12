@@ -62,9 +62,9 @@ class CfgDebriefing
 	};
 	class Opforneedfob
 	{
-		title = "Need a BLUFOR FOB for Play";
-		subtitle = "플레이를 위해서는 청군 FOB 가 필요합니다.";
-		description = "대항군 플레이를 위해서는 최소 1개의 청군 FOB가 존재해야됩니다.";
+		title = "Wait until the blufor fob is running";
+		subtitle = "활성화 된 청군 FOB 가 필요합니다.";
+		description = "청군 FOB 가 배치 되어야만 대항군이 언락 됩니다.";
 		pictureBackground = "";
 	};
 	class Needmoresectors
