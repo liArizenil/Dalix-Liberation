@@ -69,7 +69,7 @@ while { true } do {
 
 	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || ( (player distance lhd) < 200 || (player distance _whiskey) < 100) ) && alive player && vehicle player == player ) then {
 		if ( _idact_redeploy == -1 ) then {
-			_idact_redeploy = player addAction ["<t color='#80FF80'>" + localize "STR_DEPLOY_ACTION" + "</t> <img size='2' image='res\ui_redeploy.paa'/>","scripts\client\actions\redeploy.sqf","",-750,false,true,"","build_confirmed == 0"];
+			_idact_redeploy = player addAction ["<t color='#80FF80'>" + localize "STR_DEPLOY_ACTION" + "</t> <img size='2' image='res\ui_redeploy.paa'/>","GRLIB_force_redeploy = true","",-750,false,true,"","build_confirmed == 0"];
 		};
 	} else {
 		if ( _idact_redeploy != -1 ) then {

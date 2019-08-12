@@ -193,9 +193,13 @@ if(side player == GRLIB_side_friendly) then {
 };
 if(side player == GRLIB_side_enemy) then {
 	DA_fnc_Arsenal = {
+			if (count GRLIB_all_fobs < 1) then {
+				["Opforneedfob", false, false,false,false] call BIS_fnc_endMission;
+			};
 			if({side _x == GRLIB_side_friendly} count (allPlayers) < 20) then {
 				["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 			};
+			
 			if(!(primaryWeapon player in OPFOR_Weapons) && primaryWeapon player != "") then {
 				player removeWeapon (primaryWeapon player);
 				hint parseText format ["<t color='#ff0000'>선택하신 주무장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];

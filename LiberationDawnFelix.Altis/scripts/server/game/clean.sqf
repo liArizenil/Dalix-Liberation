@@ -9,7 +9,7 @@ fn_checkDistance = {
 	_object = _this select 2;
 	_bool = false;
 	
-	_units = [_units,{((_x distance _object) < _limitDistance) && isPlayer _x}] call BIS_fnc_conditionalSelect;
+	_units = _units select {((_x distance _object) < _limitDistance) && isPlayer _x};
 	if(count(_units) == 0) then {
 		_bool = true;
 	};
