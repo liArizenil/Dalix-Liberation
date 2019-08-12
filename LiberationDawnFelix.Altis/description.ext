@@ -67,6 +67,13 @@ class CfgDebriefing
 		description = "Please wait untill we get more blufor";
 		pictureBackground = "";
 	};
+	class Opforneedfob
+	{
+		title = "Need a BLUFOR FOB for Play";
+		subtitle = "플레이를 위해서는 청군 FOB 가 필요합니다.";
+		description = "대항군 플레이를 위해서는 최소 1개의 청군 FOB가 존재해야됩니다.";
+		pictureBackground = "";
+	};
 	class Needmoresectors
 	{
 		title = "Need More BLUFOR Sectors";
