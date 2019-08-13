@@ -360,17 +360,21 @@ if(side player == GRLIB_side_enemy) then {
 				_spawn_point = markerPos(sectors_airspawn call BIS_fnc_selectRandom);
 				_spawn_point = [(((_spawn_point select 0) + 500) - random 1000),(((_spawn_point select 1) + 500) - random 1000),0];
 				_aircraft = createVehicle ["O_Plane_Fighter_02_Stealth_F", _spawn_point, [], 0, "FLY"];
+				_aircraft flyInHeight (120 + (random 180));
 				_aircraft addMPEventHandler ['MPKilled', {_this spawn kill_manager}];
+				_aircraft setPylonLoadOut["pylonBayLeft2",""];
 				_aircraft setPylonLoadOut["pylonBayRight2",""];
 				_aircraft setPylonLoadOut["pylonBayCenter1",""];
 				_aircraft setPylonLoadOut["pylonBayCenter2",""];
-				_aircraft flyInHeight (120 + (random 180));
 				_aircraft removeWeaponTurret ["weapon_KAB250Launcher",[-1]];
 				_aircraft removeWeaponTurret ["Laserdesignator_pilotCamera",[-1]];
+				_aircraft removeWeaponTurret ["weapon_Fighter_Gun_30mm",[-1]];
 				_aircraft addWeaponTurret ["weapon_SDBLauncher",[-1]];
 				_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
 				_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
-				_aircraft addMagazineTurret ["magazine_Fighter02_Gun30mm_AA_x180",[-1]];
+				_aircraft addWeaponTurret ["Twin_Cannon_20mm",[-1]];
+				_aircraft addMagazineTurret ["300Rnd_20mm_shells",[-1]];
+				_aircraft addMagazineTurret ["300Rnd_20mm_shells",[-1]];
 				player moveindriver _aircraft;
 			};
 			
