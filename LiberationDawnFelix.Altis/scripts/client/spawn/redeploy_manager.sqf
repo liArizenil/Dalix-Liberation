@@ -161,7 +161,7 @@ if(side player == GRLIB_side_friendly) then {
 			} else {
 				if (count (choiceslist select _idxchoice) == 3) then {
 					_truck = (choiceslist select _idxchoice) select 2;
-					player setpos ([_truck, 5 + (random 3), random 360] call BIS_fnc_relPos)
+					player setpos (_truck getPos [ 5 + (random 3), random 360]);
 				} else {
 					_destpos = ((choiceslist select _idxchoice) select 1);
 					player setpos [((_destpos select 0) + 5) - (random 10),((_destpos select 1) + 5) - (random 10),0];
@@ -193,12 +193,6 @@ if(side player == GRLIB_side_friendly) then {
 };
 if(side player == GRLIB_side_enemy) then {
 	DA_fnc_Arsenal = {
-			if (count GRLIB_all_fobs < 1) then {
-				["Opforneedfob", false, false,false,false] call BIS_fnc_endMission;
-			};
-			if({side _x == GRLIB_side_friendly} count (allPlayers) < 20) then {
-				["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
-			};
 			
 			if(!(primaryWeapon player in OPFOR_Weapons) && primaryWeapon player != "") then {
 				player removeWeapon (primaryWeapon player);
@@ -264,27 +258,24 @@ if(side player == GRLIB_side_enemy) then {
 	};
 
 	if(typeOf player == "O_Pilot_F") then { //---------------------------------- this is pilot -------------------------------------
-		if(count(blufor_sectors) < 20) then {
-			["Needmoresectors", false, false,false,false] call BIS_fnc_endMission;
-		};
 		GRLIB_deploy_timer = [GRLIB_Opfor_Air_respawn_timer,GRLIB_Opfor_respawn_timer];
 		[] spawn {
 			while { true } do {
 				if((GRLIB_deploy_timer select 0) > 0) then {
-					GRLIB_deploy_timer select 0 = (GRLIB_deploy_timer select 0) - 1;
+					GRLIB_deploy_timer set [0,(GRLIB_deploy_timer select 0) -1 ];
 				};
 				if((GRLIB_deploy_timer select 1) > 0) then {
-					GRLIB_deploy_timer select 1 = (GRLIB_deploy_timer select 1) - 1;
+					GRLIB_deploy_timer set [1,(GRLIB_deploy_timer select 1) -1 ];
 				};
 				sleep 1;
 			};
 		};
 		player addEventHandler ["Killed",{ 
 				if(_OpforAirSelection == 0) then { //shikra
-					GRLIB_deploy_timer select 0 = GRLIB_Opfor_Air_respawn_timer;
+					GRLIB_deploy_timer set [0,GRLIB_Opfor_Air_respawn_timer];
 				}
 				else{ //Orca
-					GRLIB_deploy_timer select 1 = GRLIB_Opfor_respawn_timer;
+					GRLIB_deploy_timer set [1,GRLIB_Opfor_respawn_timer];
 				};
 				_OpforAirSelection = 0;
 			}];
@@ -366,7 +357,7 @@ if(side player == GRLIB_side_enemy) then {
 			};
 
 			if (dialog && deploy == 1) then {
-				_spawn_point = markerPos(sectors_airspawn call BIS_fnc_selectRandom);
+				_spawn_point = markerPos(selectRandom sectors_airspawn);
 				_spawn_point = [(((_spawn_point select 0) + 500) - random 1000),(((_spawn_point select 1) + 500) - random 1000),0];
 				if((lbCurSel 1501) == 0) then {
 					_aircraft = createVehicle ["O_Plane_Fighter_02_Stealth_F", _spawn_point, [], 0, "FLY"];
@@ -546,16 +537,6 @@ if(side player == GRLIB_side_enemy) then {
 						_opforplayer pushback _x;
 					};
 				} forEach allPlayers;
-				//_sectors = [];
-				//{
-				//	if(!([ markerpos _x ] call F_sectorOwnership in blufor_sectors)) then {
-				//		_sectors pushback _x;
-				//	};
-				//} forEach active_sectors;
-				//lbClear 1501;
-				//{
-				//	lbAdd [ 1501 , markerText _x];
-				//} forEach _sectors;
 				uiSleep 0.1;
 			};
 
@@ -565,17 +546,16 @@ if(side player == GRLIB_side_enemy) then {
 				closeDialog 0;
 			};
 			
-
 			if (dialog && deploy == 1) then {
 				[ "spawn_halo_map_event", "onMapSingleClick" ] call BIS_fnc_removeStackedEventHandler;
 				closeDialog 0;
 				if(spawntype == 1) then { //halo drop
 					private ["_backpack", "_backpackcontents" ];
-					spawn_position = [ spawn_position, random 250, random 360 ] call BIS_fnc_relPos;
+					spawn_position =  spawn_position getPos [ random 250, random 360 ];
 					spawn_position = [ spawn_position select 0, spawn_position select 1, 2800 + (random 200) ];
 					halojumping = true;
 					sleep 0.1;
-					[ [ name player, spawn_position ], "remote_call_opfordeployed" ] call bis_fnc_mp;
+					[ name player, spawn_position ] remoteExec [ "remote_call_opfordeployed", -2 ];
 					cutRsc ["fasttravel", "PLAIN", 1];
 					playSound "parasound";
 					sleep 2;
@@ -605,23 +585,6 @@ if(side player == GRLIB_side_enemy) then {
 				};
 				if(spawntype == 2) then { //spawn on player
 					_spawnpos = [(spawn_position select 0) - 5 + random 10, (spawn_position select 1) - 5 + random 10,0];
-					player setpos _spawnpos;
-				};
-				if(spawntype == 3) then { //spawn in sector
-					_sectorpos = [ getMarkerPos (_sectors select (lbCurSel 1501)), random 100, random 360 ] call BIS_fnc_relPos;
-					_near_AIs = [ _sectorpos nearEntities [["Man"], 800], { !(isPlayer _x) && (side _x == side player) && (vehicle _x == _x) && alive _x } ] call BIS_fnc_conditionalSelect;
-					_spawnpos = zeropos;
-					if(count _near_AIs > 0) then {
-						_replaceable_AI = (_near_AIs call BIS_fnc_selectRandom);
-						_spawnpos = getPos _replaceable_AI;
-						deleteVehicle _replaceable_AI;
-					}
-					else{
-						while { _spawnpos distance zeropos < 1000 } do {
-							_spawnpos = ( [ _sectorpos, random 50, random 360 ] call BIS_fnc_relPos ) findEmptyPosition [5, 100, "B_Quadbike_01_F"];
-							if ( count _spawnpos == 0 ) then { _spawnpos = zeropos; };
-						};
-					};
 					player setpos _spawnpos;
 				};
 			};
