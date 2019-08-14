@@ -256,17 +256,7 @@ if(side player == GRLIB_side_enemy) then {
 			[ player, GRLIB_respawn_loadout ] call F_setLoadout;
 		};
 	}];
-	player setVariable["deploy_timer",210,false];
 	[] spawn {
-		while { true } do {
-			if(player getVariable "deploy_timer" > 0) then {
-				player setVariable["deploy_timer", ((player getVariable "deploy_timer") - 1), false];
-				sleep 1;
-			};
-		};
-	};
-	[] spawn {
-		format ["%1 : %2 joined OPFOR", getPlayerUID player, name player] remoteExec ["diag_log"];
 		format [ "%1님이 대항군에 참여하셨습니다.", name player] remoteExec ["systemChat"];
 		sleep 3600;
 		format [ "%1님의 대항군 플레이 시간이 만료 되었습니다.", name player] remoteExec ["systemChat"];
@@ -277,7 +267,27 @@ if(side player == GRLIB_side_enemy) then {
 		if(count(blufor_sectors) < 20) then {
 			["Needmoresectors", false, false,false,false] call BIS_fnc_endMission;
 		};
-		player addEventHandler ["Killed",{ player setVariable["deploy_timer",GRLIB_Opfor_Air_respawn_timer,false];}];
+		GRLIB_deploy_timer = [GRLIB_Opfor_Air_respawn_timer,GRLIB_Opfor_respawn_timer];
+		[] spawn {
+			while { true } do {
+				if((GRLIB_deploy_timer select 0) > 0) then {
+					GRLIB_deploy_timer select 0 = (GRLIB_deploy_timer select 0) - 1;
+				};
+				if((GRLIB_deploy_timer select 1) > 0) then {
+					GRLIB_deploy_timer select 1 = (GRLIB_deploy_timer select 1) - 1;
+				};
+				sleep 1;
+			};
+		};
+		player addEventHandler ["Killed",{ 
+				if(_OpforAirSelection == 0) then { //shikra
+					GRLIB_deploy_timer select 0 = GRLIB_Opfor_Air_respawn_timer;
+				}
+				else{ //Orca
+					GRLIB_deploy_timer select 1 = GRLIB_Opfor_respawn_timer;
+				};
+				_OpforAirSelection = 0;
+			}];
 		while { true } do {		
 			waitUntil {
 				sleep 0.1;
@@ -292,12 +302,9 @@ if(side player == GRLIB_side_enemy) then {
 			
 			_dialog = createDialog "liberation_deploy_opfor";
 
-			_oldPlayerSel = -1;
-			_oldSectorSel = -1;
 			deploy = 0;
 			loadout = 0;
 			spawntype = 0;
-			spawn_position = getpos player;
 
 			waitUntil { dialog };
 
@@ -310,29 +317,36 @@ if(side player == GRLIB_side_enemy) then {
 					_opforplayer pushback _x;
 				};
 			} forEach allPlayers;
+
+			lbAdd [ 1501 , "To-201 Shikra"];
+			lbAdd [ 1501 , "PO-30 Orca"];
+			lbSetCurSel [1501,0];
 			
 			ctrlEnable [ 1600 , false ];
-			ctrlSetText[ 1600 , format["%1",[player getVariable "deploy_timer"] call F_secondsToTimer]];
 			//---------------- Dialog init END -------------------
 
 			while { dialog && alive player && deploy == 0 && loadout == 0 } do {
-				ctrlSetText[1600, format["%1",[player getVariable "deploy_timer"] call F_secondsToTimer]];
-				if(player getVariable "deploy_timer" < 1) then {
-					ctrlSetText[1600, "Deploy"];
-					ctrlEnable [1600, true];
+				if(lbCurSel 1501 == 0) then{
+					if((GRLIB_deploy_timer select 0) < 1) then {
+						ctrlSetText[1600, "Deploy"];
+						ctrlEnable [1600, true];
+					}
+					else{
+						ctrlSetText[1600, format["%1",[GRLIB_deploy_timer select 0] call F_secondsToTimer]];
+						ctrlEnable [1600, false];
+					};
+				}
+				else{
+					if((GRLIB_deploy_timer select 1) < 1) then {
+						ctrlSetText[1600, "Deploy"];
+						ctrlEnable [1600, true];
+					}
+					else{
+						ctrlSetText[1600, format["%1",[GRLIB_deploy_timer select 1] call F_secondsToTimer]];
+						ctrlEnable [1600, false];
+					};
 				};
-
-				if(_oldPlayerSel != lbCurSel 1500) then {
-					lbClear 1501;
-					lbSetCurSel[1501,-1];
-					_oldSectorSel = -1;
-				};
-				if(_oldSectorSel != lbCurSel 1501) then {
-					lbClear 1500;
-					lbSetCurSel[1500,-1];
-					_oldPlayerSel = -1;
-				};
-				ctrlSetText [1003, format["BLUFOR : %1",{side _x == GRLIB_side_friendly} count (allPlayers)]];
+				ctrlSetText [1003, format["BLUFOR : %1",GRLIB_side_friendly countSide allPlayers]];
 
 
 				_opforplayer = [];
@@ -344,11 +358,6 @@ if(side player == GRLIB_side_enemy) then {
 					};
 				} forEach allPlayers;
 
-				//lbClear 1501;
-				//{
-				//	lbAdd [ 1501 , markerText _x];
-				//} forEach active_sectors;
-
 				uiSleep 0.1;
 			};
 
@@ -359,25 +368,35 @@ if(side player == GRLIB_side_enemy) then {
 			if (dialog && deploy == 1) then {
 				_spawn_point = markerPos(sectors_airspawn call BIS_fnc_selectRandom);
 				_spawn_point = [(((_spawn_point select 0) + 500) - random 1000),(((_spawn_point select 1) + 500) - random 1000),0];
-				_aircraft = createVehicle ["O_Plane_Fighter_02_Stealth_F", _spawn_point, [], 0, "FLY"];
-				_aircraft flyInHeight (120 + (random 180));
-				_aircraft addMPEventHandler ['MPKilled', {_this spawn kill_manager}];
-				_aircraft setPylonLoadOut["pylonBayLeft2",""];
-				_aircraft setPylonLoadOut["pylonBayRight2",""];
-				_aircraft setPylonLoadOut["pylonBayCenter1",""];
-				_aircraft setPylonLoadOut["pylonBayCenter2",""];
-				_aircraft removeWeaponTurret ["weapon_KAB250Launcher",[-1]];
-				_aircraft removeWeaponTurret ["Laserdesignator_pilotCamera",[-1]];
-				_aircraft removeWeaponTurret ["weapon_Fighter_Gun_30mm",[-1]];
-				_aircraft addWeaponTurret ["weapon_SDBLauncher",[-1]];
-				_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
-				_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
-				_aircraft addWeaponTurret ["gatling_20mm_VTOL_01",[-1]];
-				_aircraft addMagazineTurret ["300Rnd_20mm_shells",[-1]];
-				_aircraft addMagazineTurret ["300Rnd_20mm_shells",[-1]];
-				_aircraft addWeaponTurret ["CMFlareLauncher",[-1]];
-				_aircraft addMagazineTurret ["120Rnd_CMFlareMagazine",[-1]];
-				player moveindriver _aircraft;
+				if((lbCurSel 1501) == 0) then {
+					_aircraft = createVehicle ["O_Plane_Fighter_02_Stealth_F", _spawn_point, [], 0, "FLY"];
+					_aircraft flyInHeight (120 + (random 180));
+					_aircraft addMPEventHandler ['MPKilled', {_this spawn kill_manager}];
+					_aircraft setPylonLoadOut["pylonBayLeft2",""];
+					_aircraft setPylonLoadOut["pylonBayRight2",""];
+					_aircraft setPylonLoadOut["pylonBayCenter1",""];
+					_aircraft setPylonLoadOut["pylonBayCenter2",""];
+					_aircraft removeWeaponTurret ["weapon_KAB250Launcher",[-1]];
+					_aircraft removeWeaponTurret ["Laserdesignator_pilotCamera",[-1]];
+					_aircraft removeWeaponTurret ["weapon_Fighter_Gun_30mm",[-1]];
+					_aircraft addWeaponTurret ["weapon_SDBLauncher",[-1]];
+					_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
+					_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
+					_aircraft addWeaponTurret ["gatling_20mm_VTOL_01",[-1]];
+					_aircraft addMagazineTurret ["300Rnd_20mm_shells",[-1]];
+					_aircraft addMagazineTurret ["300Rnd_20mm_shells",[-1]];
+					_aircraft addWeaponTurret ["CMFlareLauncher",[-1]];
+					_aircraft addMagazineTurret ["120Rnd_CMFlareMagazine",[-1]];
+					player moveindriver _aircraft;
+					_OpforAirSelection = 0;
+				}
+				else{
+					_aircraft = createVehicle ["O_Heli_Light_02_F", _spawn_point, [], 0, "FLY"];
+					_aircraft flyInHeight (120 + (random 180));
+					_aircraft addMPEventHandler ['MPKilled', {_this spawn kill_manager}];
+					player moveindriver _aircraft;
+					_OpforAirSelection = 1;
+				};
 			};
 			
 			if (dialog) then {
@@ -386,7 +405,16 @@ if(side player == GRLIB_side_enemy) then {
 		};
 	}
 	else{ //----------------------------------- not the pilot -------------------------------------
-		player addEventHandler ["Killed",{ player setVariable["deploy_timer",GRLIB_Opfor_respawn_timer,false];}];
+		GRLIB_deploy_timer =  GRLIB_Opfor_respawn_timer;
+		[] spawn {
+			while { true } do {
+				if(GRLIB_deploy_timer > 0) then {
+					GRLIB_deploy_timer = GRLIB_deploy_timer - 1;
+					sleep 1;
+				};
+			};
+		};
+		player addEventHandler ["Killed",{ GRLIB_deploy_timer =  GRLIB_Opfor_respawn_timer;}];
 		while { true } do {
 			waitUntil {
 				sleep 0.1;
@@ -421,24 +449,12 @@ if(side player == GRLIB_side_enemy) then {
 					_opforplayer pushback _x;
 				};
 			} forEach allPlayers;
-			//_sectors = [];
-			//lbClear 1501;
-			//{
-			//	if(!([ markerpos _x ] call F_sectorOwnership in blufor_sectors)) then {
-			//		_sectors pushback _x;
-			//	};
-			//} forEach active_sectors;
-			//{
-			//	lbAdd [ 1501 , markerText _x];
-			//} forEach _sectors;
 			
 			ctrlEnable [ 1600 , false ];
-			ctrlSetText[ 1600 , format["%1",[player getVariable "deploy_timer"] call F_secondsToTimer]];
 			//---------------- Dialog init END -------------------
 
 			while { dialog && alive player && deploy == 0 && loadout == 0 } do {
-				ctrlSetText[1600, format["%1",[player getVariable "deploy_timer"] call F_secondsToTimer]];
-				if(player getVariable "deploy_timer" < 1) then {
+				if(GRLIB_deploy_timer < 1) then {
 					ctrlSetText[1600, "Deploy"];
 					if(spawntype > 0) then {
 						if(spawntype == 1) then {
@@ -469,6 +485,9 @@ if(side player == GRLIB_side_enemy) then {
 							};
 						};
 					};
+				}
+				else{
+					ctrlSetText[1600, format["%1",[GRLIB_deploy_timer] call F_secondsToTimer]];
 				};
 				if(lbCurSel 1500 > -1) then {
 					if( isNil{ _opforplayer select (lbcursel 1500) } ) then {
