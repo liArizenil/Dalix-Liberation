@@ -193,7 +193,12 @@ if(side player == GRLIB_side_friendly) then {
 };
 if(side player == GRLIB_side_enemy) then {
 	DA_fnc_Arsenal = {
-			
+			if (count GRLIB_all_fobs < 1) then {
+				["Opforneedfob", false, false,false,false] call BIS_fnc_endMission;
+			};
+			if({side _x == GRLIB_side_friendly} count (allPlayers) < 20) then {
+				["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
+			};
 			if(!(primaryWeapon player in OPFOR_Weapons) && primaryWeapon player != "") then {
 				player removeWeapon (primaryWeapon player);
 				hint parseText format ["<t color='#ff0000'>선택하신 주무장은 사용 불가능한 장비입니다.</t><br/> 사용 가능 장비 안내판을 참조해주세요."];
@@ -258,6 +263,9 @@ if(side player == GRLIB_side_enemy) then {
 	};
 
 	if(typeOf player == "O_Pilot_F") then { //---------------------------------- this is pilot -------------------------------------
+		if(count(blufor_sectors) < 20) then {
+			["Needmoresectors", false, false,false,false] call BIS_fnc_endMission;
+		};
 		GRLIB_deploy_timer = [GRLIB_Opfor_Air_respawn_timer,GRLIB_Opfor_respawn_timer];
 		[] spawn {
 			while { true } do {
@@ -271,13 +279,12 @@ if(side player == GRLIB_side_enemy) then {
 			};
 		};
 		player addEventHandler ["Killed",{ 
-				if(_OpforAirSelection == 0) then { //shikra
+				if(OpforAirSelection == 0) then { //shikra
 					GRLIB_deploy_timer set [0,GRLIB_Opfor_Air_respawn_timer];
-				}
-				else{ //Orca
+				};
+				if(OpforAirSelection == 1) then { //Orca
 					GRLIB_deploy_timer set [1,GRLIB_Opfor_respawn_timer];
 				};
-				_OpforAirSelection = 0;
 			}];
 		while { true } do {		
 			waitUntil {
@@ -379,14 +386,14 @@ if(side player == GRLIB_side_enemy) then {
 					_aircraft addWeaponTurret ["CMFlareLauncher",[-1]];
 					_aircraft addMagazineTurret ["120Rnd_CMFlareMagazine",[-1]];
 					player moveindriver _aircraft;
-					_OpforAirSelection = 0;
+					OpforAirSelection = 0;
 				}
 				else{
 					_aircraft = createVehicle ["O_Heli_Light_02_F", _spawn_point, [], 0, "FLY"];
 					_aircraft flyInHeight (120 + (random 180));
 					_aircraft addMPEventHandler ['MPKilled', {_this spawn kill_manager}];
 					player moveindriver _aircraft;
-					_OpforAirSelection = 1;
+					OpforAirSelection = 1;
 				};
 			};
 			
