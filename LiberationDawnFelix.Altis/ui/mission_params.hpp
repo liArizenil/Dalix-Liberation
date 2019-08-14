@@ -208,6 +208,6 @@ class Params
 		title = "OPFOR Respawn Timer : Pilot";
 		values[] = {0,180,300,420,540,600,900};
 		texts[] = {"0 sec","3 min","5 min","7 min","9 min","10 min","15 min"};
-		default = 420;
+		default = 900;
 	};
 };
