@@ -381,8 +381,7 @@ if(side player == GRLIB_side_enemy) then {
 					_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
 					_aircraft addMagazineTurret ["magazine_Bomb_SDB_x1",[-1]];
 					_aircraft addWeaponTurret ["gatling_20mm_VTOL_01",[-1]];
-					_aircraft addMagazineTurret ["300Rnd_20mm_shells",[-1]];
-					_aircraft addMagazineTurret ["300Rnd_20mm_shells",[-1]];
+					_aircraft addMagazineTurret ["1000Rnd_20mm_shells",[-1]];
 					_aircraft addWeaponTurret ["CMFlareLauncher",[-1]];
 					_aircraft addMagazineTurret ["120Rnd_CMFlareMagazine",[-1]];
 					player moveindriver _aircraft;
