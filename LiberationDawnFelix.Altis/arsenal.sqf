@@ -159,7 +159,7 @@ OPFOR_Muzzles = [];
 	};
 	if(typeOf player == "O_soldier_AT_F") then {
 		OPFOR_Weapons = OPFOR_Weapons + [
-		    	"SMG_03_camo",
+		    "SMG_03_camo",
 			"SMG_03_khaki",
 			"SMG_03_hex",
 			"SMG_03_black",
@@ -226,7 +226,7 @@ OPFOR_Muzzles = [];
 	};
 	if(typeOf player == "O_soldier_AA_F") then {
 		OPFOR_Weapons = OPFOR_Weapons + [
-		    	"SMG_03_camo",
+		    "SMG_03_camo",
 			"SMG_03_khaki",
 			"SMG_03_hex",
 			"SMG_03_black",
@@ -298,6 +298,14 @@ OPFOR_Muzzles = [];
 			"SMG_02_F"
 		];
 		OPFOR_Helmet = OPFOR_Helmet + [
+			"H_HelmetO_oucamo",
+			"H_HelmetO_ocamo",
+			"H_HelmetSpecO_ocamo",
+			"H_HelmetSpecO_blk",
+			"H_HelmetLeaderO_ocamo",
+			"H_HelmetLeaderO_oucamo",
+			"H_HelmetB_camo",
+			"H_HelmetB_grass",
 			"H_PilotHelmetFighter_O",
 			"H_PilotHelmetHeli_O"
 		];
