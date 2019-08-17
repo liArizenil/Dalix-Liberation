@@ -5,7 +5,6 @@ disabledAI = true;
 enableDebugConsole = 1;
 allowFunctionsLog = 0;
 
-loadScreen="res\liberation.jpg";
 onLoadMission = $STR_MISSION_TITLE;
 author = "[수정 및 최적화]Dawn, Felix, [번역지원]MD. Faker, [GREUH] Zbug, [GREUH] McKeewa";
 onLoadName = $STR_MISSION_TITLE;
