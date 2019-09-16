@@ -29,6 +29,7 @@ disableChannels[] = {
 #include "ui\mission_params.hpp"
 #include "VAM\VAM_comm_menu.hpp"
 #include "scripts\AdvancedRadio\ui\Radio_interface.hpp"
+#include "scripts\GroupTag\ui\dialog.hpp"
 #include "scripts\outlw_magRepack\MagRepack_config.hpp"
 #include "CRS\f\SFX.hpp"
 
