@@ -21,7 +21,7 @@
         if(((group player)getVariable['GroupType',(Group_Types select 0)]) != "[CAS]") then {
             if(driver (vehicle player) == player) then {
                 moveOut player;
-                hint CAS 분대만 탑승 할 수 있습니다.";
+                hint "CAS 분대만 탑승 할 수 있습니다.";
             };
         };
     };
