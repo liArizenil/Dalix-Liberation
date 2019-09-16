@@ -54,16 +54,16 @@ class CfgDebriefing
 	};
 	class LackPlayer
 	{
-		title = "Need More Blufor";
+		title = "Need More BLUFOR Soldiers";
 		subtitle = "더 많은 청군이 요구됨";
-		description = "Please wait untill we get more blufor";
+		description = "Please wait Until get more BLUFOR soilders";
 		pictureBackground = "";
 	};
 	class Opforneedfob
 	{
-		title = "Wait until the blufor fob is running";
-		subtitle = "활성화 된 청군 FOB 가 필요합니다.";
-		description = "청군 FOB 가 배치 되어야만 대항군이 언락 됩니다.";
+		title = "BLUFOR FOB must be upon running";
+		subtitle = "청군 FOB 가 활성화 되어야합니다.";
+		description = "청군 FOB 가 활성화 되어야만 대항군이 언락 됩니다.";
 		pictureBackground = "";
 	};
 	class Needmoresectors
