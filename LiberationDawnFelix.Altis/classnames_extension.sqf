@@ -254,13 +254,9 @@ elite_vehicles_extension = [
 	"B_Heli_Attack_01_F",
 	"O_Heli_Attack_02_black_F",
 	"B_UAV_05_F",
-	"B_T_UAV_03_F",
 	"B_APC_Tracked_01_AA_F",
-	"B_T_APC_Tracked_01_AA_F",
 	"B_MBT_01_cannon_F",
-	"B_T_MBT_01_cannon_F",
-	"B_MBT_01_TUSK_F",
-	"B_T_MBT_01_TUSK_F"
+	"B_MBT_01_TUSK_F"
 ];
 
 // Blacklisted arsenal items such as deployable weapons  that should be bought instead
