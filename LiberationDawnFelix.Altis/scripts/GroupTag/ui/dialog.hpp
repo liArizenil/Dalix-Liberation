@@ -32,8 +32,7 @@ class GroupTagger
             w = 0.075;
             h = 0.06;
         };
-        class Select_GroupTag: RscCombo
-        {
+        class Select_GroupTag: RscCombo {
             idc = 2100;
 			onLoad = "{
 							(_this select 0) lbAdd _x
@@ -46,7 +45,7 @@ class GroupTagger
 							(_this select 0) lbSetCurSel 0 ;
                             (group player) setVariable ['GroupType',GroupType select 0],true];
 						};";
-			onLBSelChanged = "((group player) setVariable ['GroupType',lbText[ 2100 , (lbCurSel 2100)],true])";
+			onLBSelChanged = "(group player) setVariable ['GroupType',lbText[ 2100 , (lbCurSel 2100)],true]";
 
             x = 0.25;
             y = 0.26;
