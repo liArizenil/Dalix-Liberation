@@ -12,6 +12,7 @@ class liberation_GroupManager
         {
             idc = 1000;
             text = "Group Name Setting"; //--- ToDo: Localize;
+            font = FontM;
             x = 0.29375 * safezoneW + safezoneX;
             y = 0.368 * safezoneH + safezoneY;
             w = 0.12375 * safezoneW;
@@ -41,6 +42,7 @@ class liberation_GroupManager
             onLoad = "{(_this select 0)lbAdd _x}foreach Group_Types;_index=(Group_Types find((group player)getVariable['GroupType',(Group_Types select 0)]));(_this select 0)lbSetCurSel(_index);(group player)setVariable['GroupType',Group_Types select _index,true];";
 			onLBSelChanged = "(group player) setVariable ['GroupType',lbText[ 2100 , (lbCurSel 2100)],true]";
 
+            font = FontM;
             x = 0.298906 * safezoneW + safezoneX;
             y = 0.423 * safezoneH + safezoneY;
             w = 0.113437 * safezoneW;
