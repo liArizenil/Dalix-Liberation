@@ -37,7 +37,7 @@ while { GRLIB_endgame == 0 } do {
 
 				if ( ( { typeof _x == ammobox_b_typename } count vehicles ) <= ( ceil ( ( count _blufor_mil_sectors ) * 1.3 ) ) ) then {
 
-					_spawnsector = ( _blufor_mil_sectors call BIS_fnc_selectRandom );
+					_spawnsector = ( selectRandom _blufor_mil_sectors );
 					_spawnpos = zeropos;
 					while { _spawnpos distance zeropos < 1000 } do {
 						_spawnpos =  ( [ ( markerpos _spawnsector), random 50, random 360 ] call BIS_fnc_relPos ) findEmptyPosition [ 10, 100, 'B_Heli_Transport_01_F' ];

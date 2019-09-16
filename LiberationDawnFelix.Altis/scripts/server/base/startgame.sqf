@@ -22,7 +22,7 @@ if ( count GRLIB_all_fobs == 0 ) then {
 			};
 		} foreach sectors_opfor;
 
-		_spawnplace = _potentialplaces call BIS_fnc_selectRandom;
+		_spawnplace = selectRandom _potentialplaces;
 		[ [ markerPos _spawnplace, true ] , "build_fob_remote_call" ] call BIS_fnc_MP;
 
 	} else {
