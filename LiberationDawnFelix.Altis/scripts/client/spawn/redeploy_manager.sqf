@@ -258,7 +258,7 @@ if(side player == GRLIB_side_enemy) then {
 	[] spawn {
 		format [ "%1님이 대항군에 참여하셨습니다.", name player] remoteExec ["systemChat"];
 		sleep 3600;
-		format [ "%1님의 대항군 플레이 시간이 만료 되었습니다.", name player] remoteExec ["systemChat"];
+		waitUntil {sleep 2; !alive player;};
 		[name player] remoteExec ["kickplayer_remote_call",2];
 	};
 
