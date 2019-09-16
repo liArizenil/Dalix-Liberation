@@ -1,8 +1,6 @@
 
-
 // !! IF YOU WANT TO EDIT THIS FOR MODDING PURPOSES, PLEASE USE CLASSNAMES_EXTENSIONS.SQF INSTEAD !!
 // If you know what you're doing then sure, proceed :)
-
 
 
 
@@ -18,6 +16,8 @@ if ( isNil "opfor_ammobox_transport" ) then { opfor_ammobox_transport = "O_Truck
 if ( isNil "commander_classname" ) then { commander_classname = "B_officer_F"; };
 if ( isNil "crewman_classname" ) then { crewman_classname = "B_crew_F" };
 if ( isNil "pilot_classname" ) then { pilot_classname = "B_Helipilot_F" };
+
+Group_Types = ["[보병]","[기계화]","[기갑]","[포병]","[CAS]","[공격헬기]","[수송]","[비전투]"];
 
 infantry_units = [
 	["B_soldier_F",2,0,0],

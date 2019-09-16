@@ -1,5 +1,3 @@
-Group_Types = ["[보병]","[기계화]","[기갑]","[포병]","[CAS]","[공격헬기]","[수송]","[비전투]"];
-
 fn_SyncGroupClient = {
 	params ["_GroupName", "_GroupType"];
 	[_GroupName,_GroupType,player,group player] remoteExecCall ["fn_SyncGroupServer",2];
