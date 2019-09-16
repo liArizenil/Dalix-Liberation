@@ -384,7 +384,7 @@ FAR_Check_Revive =
 	_target = cursorTarget;
 
 	// Make sure player is alive and target is an injured unit
-	if( !alive player || _isPlayerUnconscious == 1 || FAR_isDragging || isNil "_target" || !alive _target || (!isPlayer _target && !FAR_Debugging) || (_target distance player) > 2 ) exitWith
+	if( !alive player || _isPlayerUnconscious == 1 || FAR_isDragging || isNil "_target" || !alive _target || (!isPlayer _target && !FAR_Debugging) || (_target distance player) > 4 ) exitWith
 	{
 		_return
 	};
