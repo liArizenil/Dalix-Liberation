@@ -1,7 +1,7 @@
 params [ "_veh" ];
 private _smoke = createVehicle ["SmokeShellRed", [0,0,0], [], 0 , ""];
 
-if ( _veh isKindOf "Tank" || _veh isKindOf "Air" || _veh isKindOf "APC" || _veh isKindOf "IFV" ) then {
+if ( _veh isKindOf "Tank" || _veh isKindOf "Air" ) then {
 
 	waitUntil {
 		sleep 10;
