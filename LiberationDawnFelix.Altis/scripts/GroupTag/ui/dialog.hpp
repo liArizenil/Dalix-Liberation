@@ -26,7 +26,7 @@ class GroupTagger
         class Label_Tag: RscText
         {
             idc = 1000;
-            text = "Tag: "; //--- ToDo: Localize;
+            text = "Tag: ";
             x = 0.2;
             y = 0.26;
             w = 0.075;
@@ -37,15 +37,16 @@ class GroupTagger
             idc = 2100;
 			onLoad = "{
 							(_this select 0) lbAdd _x
-						} foreach GroupTypes;	
+						} foreach Group_Types;	
 						if(!isNil{ (group player) getVariable ['GroupType',nil] }) then {
-							_index = GroupTypes find ((group player) getVariable ['GroupType',nil]);
+							_index = Group_Types find ((group player) getVariable ['GroupType',nil]);
 							(_this select 0) lbSetCurSel (_index) ;
 						}
 						else{
 							(_this select 0) lbSetCurSel 0 ;
+                            (group player) setVariable ['GroupType',GroupType select 0],true];
 						};";
-			onLBSelChanged = "(group player) setVariable ['GroupType' , GroupType select (lbCurSel (_this select 0)),true ]; ";
+			onLBSelChanged = "((group player) setVariable ['GroupType',lbText[ 2100 , (lbCurSel 2100)],true])";
 
             x = 0.25;
             y = 0.26;
@@ -55,7 +56,7 @@ class GroupTagger
         class Label_Header: RscText
         {
             idc = 1001;
-            text = "Group Setting"; //--- ToDo: Localize;
+            text = "Group Setting";
             x = 0.2;
             y = 0.2;
             w = 0.2125;
@@ -65,6 +66,13 @@ class GroupTagger
         {
             idc = 1400;
 			maxChars = 20;
+            onLoad = "
+                private _removestring = (group player) getVariable ['GroupType',''] + ' ';
+                private _CurGroupName = groupId (gorup player);
+                private _GroupName = _CurGroupName splitString _removestring;
+                
+                ctrlSetText [1400, _GroupName];
+                ";
             x = 0.425;
             y = 0.26;
             w = 0.375;
@@ -73,7 +81,7 @@ class GroupTagger
         class Text_Explain: RscStructuredText
         {
             idc = 1100;
-            text = "Blank"; //--- ToDo: Localize;
+            text = "Blank";
 
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0,0,0,0.7};
@@ -86,9 +94,9 @@ class GroupTagger
         class btn_confirm: RscButton
         {
             idc = 1600;
-            text = "OK"; //--- ToDo: Localize;
+            text = "OK";
 			action = "closeDialog 0";
-			onButtonClick = "call hs_fnc_sendGroupDataServer; [ctrlText 1401] spawn hs_spawn_var";
+			onButtonClick = "[ctrlText 1400,((group player) getVariable ['GroupType',nil])] call fn_SyncGroupClient;";
 
             x = 0.7;
             y = 0.52;
@@ -98,7 +106,7 @@ class GroupTagger
         class btn_close: RscButton
         {
             idc = 1601;
-            text = "X"; //--- ToDo: Localize;
+            text = "X";
 			action = "closeDialog 0";
             x = 0.7625;
             y = 0.2;
