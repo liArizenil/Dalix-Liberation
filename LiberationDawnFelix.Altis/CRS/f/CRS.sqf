@@ -147,32 +147,3 @@ playSound"dry";titleText["<t size='1.3' color='#ff0000' shadow='2'>Weapon Jammed
 
 //FLASHLIGHT	TO DO: Add spam protection
 //(findDisplay 46)displayAddEventHandler["KeyDown","if(inputAction""Headlights""==0.5)then{if((currentWeapon player==primaryWeapon player)&&{((primaryWeaponItems player)select 1)!=""""})then{playSound ""dry""};};"];
-
-
-//%1 for each enabled feature
-player createDiarySubject["Diary","Combat Realsim Scripts"];
-player createDiaryRecord["Diary",["CRS Info",
-"<font face='PuristaMedium' size='30' shadow='5' color='#808000'>C O M B A T   R E A L I S M<br/>
-         S C R I P T S</font></size><br/>
-Created by Phronk<br/>
-<font face='PuristaMedium' size=12 color='#8E8E8E'>__________________________________</font></size><br/><br/>
-    Combat Realism Scripts is a pack of gameplay enhancing features<br/>
-    coded into the mission, so connecting clients don't need to<br/>
-    download any mods beforehand.<br/><br/>
-
-    The purpose of these scripts is to improve Arma's infantry combat<br/>
-    simulation, through the use of intuitive controls and design.  Below is<br/>
-    a list of features included in this mission through CRS:<br/><br/>
-
-    • Disposable AT: PCML is only usable once<br/><br/>
-    • Backblast: Firing a launcher will knockdown and injure those in your backblast radius<br/><br/>
-    • Flashbang: RGN grenades deal no damage, but blind/stun those near it upon detonation<br/><br/>
-    • Fragmentation Grenade: RGO Hand Grenade spews fragments upon detonation<br/><br/>
-    • Gun Animations: Mounting/dismounting gun attachment animations<br/><br/><br/>
-    • Holster: Holster pistol or sling rifle on your back by pressing H<br/><br/>
-    • STFU CARL: Your character's voice is muted (VON still works)<br/><br/>
-    • Tactical Point: Points by pressing 'TacticalPing' key<br/><br/>
-    • Weapon Jamming: Chance for weapon to jam while firing<br/><br/><br/>
-
-
-More features still to come..."]];

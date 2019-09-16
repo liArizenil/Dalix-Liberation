@@ -76,7 +76,7 @@ class Params
 		title = $STR_PARAMS_CIVILIANS;
 		values[] = {0,0.5,1,2};
 		texts[] = {$STR_PARAMS_CIVILIANS1,$STR_PARAMS_CIVILIANS2,$STR_PARAMS_CIVILIANS3,$STR_PARAMS_CIVILIANS4};
-		default = 0.5;
+		default = 1;
 	};
 	class TeamkillPenalty{
 		title = $STR_PARAM_TEAMKILL_PENALTY;
@@ -208,6 +208,6 @@ class Params
 		title = "OPFOR Respawn Timer : Pilot";
 		values[] = {0,180,300,420,540,600,900};
 		texts[] = {"0 sec","3 min","5 min","7 min","9 min","10 min","15 min"};
-		default = 420;
+		default = 540;
 	};
 };

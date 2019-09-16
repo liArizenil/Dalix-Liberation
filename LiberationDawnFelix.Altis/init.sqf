@@ -27,7 +27,7 @@ if (!isDedicated && hasInterface) then {
 	[] execVM "scripts\RuleDiary.sqf";
 	[] execVM "scripts\3Dmarkers.sqf";
 	[] execVM "scripts\anounce.sqf";
-	[] execVM "VAM\VAM_init.sqf";
+	[] execVM "VAM_GUI\VAM_GUI_init.sqf";
 	[] execVM "GREUH\scripts\GREUH_activate.sqf";
 	[] execVM "scripts\motd.sqf";
 	[] execVM "scripts\outlw_magRepack\MagRepack_init_sv.sqf";
@@ -39,11 +39,11 @@ if (!isDedicated && hasInterface) then {
 		[] execVM "scripts\SHK_Fastrope.sqf";
 		[] execVM "scripts\cratercleaner.sqf";
 		[] execVM "scripts\VehicleLimit.sqf";
-		null = [] execVM "scripts\irstrobe.sqf"; 
+		[] execVM "scripts\irstrobe.sqf"; 
 	};
 	if(side player == GRLIB_side_enemy) then {
 		private ["_bluforcount"];
-		_bluforcount = {side _x == GRLIB_side_friendly} count (allPlayers);
+		_bluforcount = GRLIB_side_friendly countSide (allPlayers);
 		
 		if(_bluforcount < 20) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
@@ -52,7 +52,12 @@ if (!isDedicated && hasInterface) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		};
 		if(typeOf player == "O_Soldier_AT_F") then {
-			if(_bluforcount < 23) then {
+			if(_bluforcount < 24) then {
+		        	["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
+			};
+		};
+		if(typeOf player == "O_Soldier_AA_F") then {
+			if(_bluforcount < 24) then {
 		        	["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 			};
 		};
@@ -74,4 +79,4 @@ if ( GRLIB_revive > 0 ) then {
 [] execVM "scripts\advancedSlingLoadingInit.sqf";
 [] execVM "scripts\fn_advancedTowingInit.sqf";
 [] execVM "scripts\AdvancedRadio\init.sqf";
-null=[]execVM"CRS\init.sqf";
+[] execVM "CRS\init.sqf";

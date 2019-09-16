@@ -7,7 +7,7 @@ closeDialog 0;
 sleep 1;
 
 while { true } do {
-	waitUntil { ( player getVariable "GREUH_isUnconscious") == 1 };
+	waitUntil { (player getVariable ["GREUH_isUnconscious",0]) == 1 };
 
 	_camobj = player;
 	_pos = positionCameraToWorld [0,0,-0.2];
@@ -48,7 +48,7 @@ while { true } do {
 
 	_cam camCommit 900;
 
-	waitUntil { ((player getVariable "GREUH_isUnconscious") == 0) || ((player getVariable "FAR_isUnconscious") == 1) };
+	waitUntil { ((player getVariable ["GREUH_isUnconscious",0]) == 0) || ((player getVariable ["FAR_isUnconscious",0]) == 1) };
 	closeDialog 0;
 	waitUntil {!dialog};
 	if ((player getVariable "GREUH_isUnconscious") != 0) then {

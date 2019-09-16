@@ -6,4 +6,7 @@ if(side player == GRLIB_side_friendly) then {
 		sleep 2;
 		[ player, GRLIB_respawn_loadout ] call F_setLoadout;
 	};
+	if(score player > 0) then {
+		[player,(-1*((getPlayerScores player) select 5))] remoteExec ["addScore",2];
+	};
 };

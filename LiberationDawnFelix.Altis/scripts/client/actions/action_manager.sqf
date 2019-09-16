@@ -1,5 +1,7 @@
 
-private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander" ];
+private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander", "_idact_exchscore", "_whiskey" ];
+
+_whiskey = getMarkerPos "whiskey";
 
 _idact_build = -1;
 _idact_arsenal = -1;
@@ -11,6 +13,7 @@ _idact_commander = -1;
 _idact_repackage = -1;
 _idact_halo = -1;
 _idact_secondary = -1;
+_idact_exchscore = -1;
 _distfob = 100;
 _distarsenal = 5;
 _distbuildfob = 10;
@@ -31,7 +34,7 @@ while { true } do {
 		_fobdistance = player distance _nearfob;
 	};
 
-	_neararsenal = [ ( (getpos player) nearobjects [ Arsenal_typename, _distarsenal ]), { getObjectType _x >= 8 } ] call BIS_fnc_conditionalSelect;
+	_neararsenal = [ ( (getpos player) nearEntities [ [Arsenal_typename, huron_typename] , _distarsenal ]), { getObjectType _x >= 8 } ] call BIS_fnc_conditionalSelect;
 	_nearfobbox = ( (getpos player) nearEntities [ [ FOB_box_typename, FOB_truck_typename ] , _distbuildfob ] );
 	_nearspawn = ( (getpos player) nearEntities [ [ Respawn_truck_typename] , _distspawn ] );
 
@@ -64,9 +67,9 @@ while { true } do {
 		};
 	};
 
-	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || (player distance lhd) < 200) && alive player && vehicle player == player ) then {
+	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || ( (player distance lhd) < 200 || (player distance _whiskey) < 100) ) && alive player && vehicle player == player ) then {
 		if ( _idact_redeploy == -1 ) then {
-			_idact_redeploy = player addAction ["<t color='#80FF80'>" + localize "STR_DEPLOY_ACTION" + "</t> <img size='2' image='res\ui_redeploy.paa'/>","scripts\client\actions\redeploy.sqf","",-750,false,true,"","build_confirmed == 0"];
+			_idact_redeploy = player addAction ["<t color='#80FF80'>" + localize "STR_DEPLOY_ACTION" + "</t> <img size='2' image='res\ui_redeploy.paa'/>","GRLIB_force_redeploy = true","",-750,false,true,"","build_confirmed == 0"];
 		};
 	} else {
 		if ( _idact_redeploy != -1 ) then {
@@ -149,6 +152,17 @@ while { true } do {
 		if ( _idact_secondary != -1 ) then {
 			player removeAction _idact_secondary;
 			_idact_secondary = -1;
+		};
+	};
+	
+	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || (((player distance lhd) < 200) || (player distance _whiskey) < 100)) && alive player && vehicle player == player && ((getPlayerScores player) select 5) > 0) then {
+		if ( _idact_exchscore == -1 ) then {
+			_idact_exchscore = player addAction ["<t color='#80FF80'>" + localize "STR_EXCHANGE_SCORE" + "</t> <img size='2' image='res\ui_recycle.paa'/>","scripts\client\actions\exchange_score.sqf","",-750,false,true,"","build_confirmed == 0"];
+		};
+	} else {
+		if ( _idact_exchscore != -1 ) then {
+			player removeAction _idact_exchscore;
+			_idact_exchscore = -1;
 		};
 	};
 

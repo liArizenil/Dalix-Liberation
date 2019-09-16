@@ -39,11 +39,11 @@ if ( _ownership == GRLIB_side_friendly ) exitWith {
 	};
 };
 
-if(combat_readiness <= 4875) then {
+if(combat_readiness <= 4583) then {
 	_attacktime = round(-1*((6/25)*combat_readiness) + GRLIB_vulnerability_timer);
 }
 else{
-	_attacktime = 30;
+	_attacktime = 90;
 };
 [ [ _sector, 1, _attacktime ] , "remote_call_sector" ] call BIS_fnc_MP;
 

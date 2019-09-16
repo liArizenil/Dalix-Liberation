@@ -46,8 +46,13 @@ while { true } do {
 			_desired_inf = _min_view_distance;
 		};
 		setViewDistance _desired_inf;
-
-		1 fadeSound 1;
+		if(isNil{ player getVariable 'GF_Earplugs_Volume' }) then {
+			1 fadeSound 1;
+		}
+		else{
+			1 fadeSound 0.2;
+		};
+		
 	};
 
 	_desired_obj = (((desiredviewdistance_obj / 100.0) * desiredviewdistance_inf) * GREUH_view_distance_factor);

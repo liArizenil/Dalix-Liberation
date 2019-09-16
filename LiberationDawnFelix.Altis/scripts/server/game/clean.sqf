@@ -2,19 +2,19 @@ private ["_WeaponHolder","_StaticWeapon","_Ruins"];
 
 sleep 120;
 
-fn_checkDistance ={
+fn_checkDistance = {
 	private["_limitDistance","_units","_object","_bool"];
 	_limitDistance = _this select 0;
 	_units = _this select 1;
 	_object = _this select 2;
 	_bool = false;
 	
-	_units = [_units,{((_x distance _object) < _limitDistance) && isPlayer _x}] call BIS_fnc_conditionalSelect;
+	_units = _units select {((_x distance _object) < _limitDistance) && isPlayer _x};
 	if(count(_units) == 0) then {
 		_bool = true;
 	};
 	if(count([] call F_getNearestFob) > 0) then {
-		if((_object distance ([] call F_getNearestFob)) < 125) then{
+		if((_object distance ([ getpos _object ] call F_getNearestFob)) < 125) then{
 			_bool = true;
 		};
 	};
@@ -26,14 +26,19 @@ while{true} do {
 	_playerUnit = (playableUnits + switchableUnits);
 
 	if ((count(_playerUnit)) >= 20) then {
-		sleep 100;
+		sleep 70;
 	} else {
 		sleep 240;
 	};
 	//시체 클리너
 	{
 		deleteVehicle _x;
-	} forEach allDead;
+	} forEach allDeadMen;
+	{
+		private _veh = _x;
+		{_veh deleteVehicleCrew _x} forEach crew _veh;
+		deleteVehicle _x;
+	} forEach (allDead-allDeadMen) ;
 	//AI 클리너(수중에 있는 AI 삭제)
 	{
 		if(!(isPlayer _x) && (surfaceIsWater position _x) && ((position _x) select 2) < 1) then {
@@ -43,14 +48,16 @@ while{true} do {
 	//크레이터 클리너(작동 안함)
 	
 	//아이템 클리너
-	_WeaponHolder = allMissionObjects "WeaponHolder";
-	diag_log format["WeaponHolder : %1", _WeaponHolder];
-	{
-		if([600,_playerUnit,_x] call fn_checkDistance) then {
-			deleteVehicle _x;
-		};
-	} forEach _WeaponHolder;
-	
+	[_playerUnit] spawn compile '
+		params ["_playerUnit"];
+		_WeaponHolder = allMissionObjects "WeaponHolder";
+		diag_log format["WeaponHolder : %1", _WeaponHolder];
+		{
+			if([600,_playerUnit,_x] call fn_checkDistance) then {
+				deleteVehicle _x;
+			};
+		} forEach _WeaponHolder;
+	';	
 	//지뢰 클리너
 	{
 		if([1200,_playerUnit,_x] call fn_checkDistance) then {
@@ -58,16 +65,28 @@ while{true} do {
 		};
 	} forEach allMines;
 	
-	//고정화기잠시삭제
+	[_playerUnit] spawn compile '
+		params ["_playerUnit"];
+		_StaticWeapon = allMissionObjects "StaticWeapon";
+		diag_log format["StaticWeapon : %1", _StaticWeapon];
+		{
+			if(!(alive _x)) then {
+				deleteVehicle _x;
+			};
+		} forEach _StaticWeapon;
+	';	
 	
-	_Ruins = allMissionObjects "Ruins";
-	diag_log format["Ruins : %1", _Ruins];
-	//폐허 클리너
-	{
-		if([1200,_playerUnit,_x] call fn_checkDistance) then {
-			deleteVehicle _x;
-		};
-	} forEach _Ruins;
+	[_playerUnit] spawn compile '
+		params ["_playerUnit"];
+		_Ruins = allMissionObjects "Ruins";
+		diag_log format["Ruins : %1", _Ruins];
+		//폐허 클리너
+		{
+			if([1200,_playerUnit,_x] call fn_checkDistance) then {
+				deleteVehicle _x;
+			};
+		} forEach _Ruins;
+	';
 	
 	//트리거 클리너
 	{

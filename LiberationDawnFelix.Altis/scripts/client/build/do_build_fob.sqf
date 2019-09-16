@@ -1,15 +1,9 @@
 private [ "_minfobdist", "_minsectordist", "_distfob", "_clearedtobuildfob", "_distsector", "_clearedtobuildsector", "_idx" ];
 
-if (25 > count (blufor_sectors)) exitwith {
-	hint format [ localize "STR_FOB_NEEDMORESECTOR"];
-};
-
 if ( count GRLIB_all_fobs >= GRLIB_maximum_fobs ) exitWith {
 	hint format [ localize "STR_HINT_FOBS_EXCEEDED", GRLIB_maximum_fobs ];
 };
-
 _minfobdist = 1000;
-_minsectordist = GRLIB_capture_size + GRLIB_fob_range;
 _distfob = 1;
 _clearedtobuildfob = true;
 _distsector = 1;
@@ -26,13 +20,18 @@ while { (_idx < (count GRLIB_all_fobs)) && _clearedtobuildfob } do {
 
 _idx = 0;
 if(_clearedtobuildfob) then {
-	while { (_idx < (count sectors_allSectors)) && _clearedtobuildsector } do {
-		if ( player distance (getmarkerpos (sectors_allSectors select _idx)) < _minsectordist ) then {
-			_clearedtobuildsector = false;
-			_distsector = player distance (getmarkerpos (sectors_allSectors select _idx));
+	 {
+		if(_x in blufor_sectors) then {
+			_minsectordist = GRLIB_capture_size + GRLIB_fob_range + 100;
+		}
+		else{
+			_minsectordist = GRLIB_capture_size + GRLIB_fob_range + 700;
 		};
-		_idx = _idx + 1;
-	};
+		if ( player distance (getmarkerpos _x) < _minsectordist ) exitWith {
+			_clearedtobuildsector = false;
+			_distsector = player distance (getmarkerpos _x);
+		};
+	} forEach sectors_allSectors;
 };
 
 if (!_clearedtobuildfob) then {

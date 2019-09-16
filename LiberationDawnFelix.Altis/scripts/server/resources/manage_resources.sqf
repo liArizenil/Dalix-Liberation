@@ -30,7 +30,7 @@ while { GRLIB_endgame == 0 } do {
 
 			if ( GRLIB_passive_income ) then {
 
-				_ammo_increase = round ( 50 + (random 25));
+				_ammo_increase = round (50 + (random 25));
 				resources_ammo = resources_ammo + _ammo_increase;
 
 			} else {
@@ -59,6 +59,4 @@ while { GRLIB_endgame == 0 } do {
 			};
 		};
 	};
-
-	sleep 300;
 };

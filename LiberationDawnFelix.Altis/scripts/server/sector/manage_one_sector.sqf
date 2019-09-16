@@ -28,15 +28,15 @@ _popfactor = 1;
 if ( GRLIB_unitcap < 1 ) then { _popfactor = GRLIB_unitcap; };
 
 if ( isNil "active_sectors" ) then { active_sectors = [] };
-if ( _sector in active_sectors ) exitWith {};
-active_sectors pushback _sector; publicVariable "active_sectors";
-
-//diag_log format [ "Sector %2 checkpoint B at %1", time, _sector ];
 
 _opforcount = [] call F_opforCap;
 [ _sector, _opforcount ] call wait_to_spawn_sector;
 
-//diag_log format [ "Sector %2 checkpoint C at %1", time, _sector ];
+private _sectorunitcount = ( [ getmarkerpos _sector , [ _opforcount ] call F_getCorrectedSectorRange , GRLIB_side_friendly ] call F_getUnitsCount );
+if(( _sectorunitcount < 5 && _sector in sectors_bigtown ) || (_sectorunitcount < 2 && _sector in sectors_capture ) || (_sectorunitcount < 2 && _sector in sectors_military ) || (_sectorunitcount < 2 && _sector in sectors_factory )) exitWith {};
+
+if ( _sector in active_sectors ) exitWith {};
+active_sectors pushback _sector; publicVariable "active_sectors";
 
 if ( (!(_sector in blufor_sectors)) &&  ( ( [ getmarkerpos _sector , [ _opforcount ] call F_getCorrectedSectorRange , GRLIB_side_friendly ] call F_getUnitsCount ) > 0 ) ) then {
 

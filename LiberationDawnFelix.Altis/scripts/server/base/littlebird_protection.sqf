@@ -15,4 +15,4 @@ if ( isServer ) then {
 		_littlebird setdamage 0;
 		_littlebird allowdamage true;
 	};
-};
+}; 

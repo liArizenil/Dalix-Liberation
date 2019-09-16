@@ -269,7 +269,6 @@ while { true } do {
 				_vehicle allowDamage true;
 				_vehicle setDamage 0;
 				sleep 0.2;
-				[_vehicle] execVM "scripts\client\remotecall\remote_call_id.sqf";
 				sleep 0.2;
 				if(buildtype == 99) then {
 					_vehicle addEventHandler ["HandleDamage", { 0 }];

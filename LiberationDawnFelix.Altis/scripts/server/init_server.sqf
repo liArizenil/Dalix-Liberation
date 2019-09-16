@@ -49,7 +49,6 @@ wait_to_spawn_sector = compileFinal preprocessFileLineNumbers "scripts\server\se
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\apply_default_permissions.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\apply_saved_scores.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\capture_vehicles.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\clean.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\cleanup_vehicles.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\fucking_set_fog.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\manage_time.sqf";
@@ -57,9 +56,9 @@ wait_to_spawn_sector = compileFinal preprocessFileLineNumbers "scripts\server\se
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\periodic_save.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\playtime.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\save_manager.sqf";
+[] spawn compileFinal preprocessFileLineNumbers  "scripts\server\game\clean.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\spawn_radio_towers.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\synchronise_vars.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\zeus_synchro.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\offload_calculation.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\offload_manager.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\show_fps.sqf";
