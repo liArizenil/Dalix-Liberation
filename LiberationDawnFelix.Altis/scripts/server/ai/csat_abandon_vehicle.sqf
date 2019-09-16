@@ -9,7 +9,7 @@ if ( _veh isKindOf "Tank" || _veh isKindOf "Air" || _veh isKindOf "APC" || _veh 
 	};
 
 	if ( random 100 < 80 ) then {
-		_smoke attachTo [_veh, [0,0,0]];
+		_smoke attachTo [_veh, [0,-3,0]];
 		sleep 7;
 		if ( (alive _veh) && ( { alive _x } count (crew _veh) == 0) ) then {
 			_veh setdamage 1;
