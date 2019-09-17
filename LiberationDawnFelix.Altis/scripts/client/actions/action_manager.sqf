@@ -187,7 +187,7 @@ while { true } do {
 		};
 	};
 
-	if(!["IsGroupRegistered", [(group player)]] call BIS_fnc_dynamicGroups) then {
+	if(!(["IsGroupRegistered", [(group player)]] call BIS_fnc_dynamicGroups)) then {
 		[parseText format ["<t color='#ff0000' size = '.9'>%1</t><br />%2</t>", localize "STR_URUNASSIGNED", localize "STR_RECOMMENDJOIN"],-1,0.1,3,1,0,789] spawn BIS_fnc_dynamicText;
 	} else {
 		if (isNil{ ((group player)getVariable['GroupType',nil]) } && leader group player == player) then {
