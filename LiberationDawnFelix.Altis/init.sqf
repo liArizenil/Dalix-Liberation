@@ -29,14 +29,14 @@ if (!isDedicated && hasInterface) then {
 	[] execVM "scripts\anounce.sqf";
 	[] execVM "VAM_GUI\VAM_GUI_init.sqf";
 	[] execVM "GREUH\scripts\GREUH_activate.sqf";
+	[] execVM "scripts\SimpleHaloDrop.sqf";
+	[] execVM "scripts\BlackFishCargo.sqf";
+	[] execVM "scripts\SHK_Fastrope.sqf";
 	[] execVM "scripts\motd.sqf";
 	[] execVM "scripts\outlw_magRepack\MagRepack_init_sv.sqf";
 
 	if(side player == GRLIB_side_friendly) then {
 		[] execVM "IgiLoad\IgiLoadInit.sqf";
-		[] execVM "scripts\SimpleHaloDrop.sqf";
-		[] execVM "scripts\BlackFishCargo.sqf";
-		[] execVM "scripts\SHK_Fastrope.sqf";
 		[] execVM "scripts\cratercleaner.sqf";
 		[] execVM "scripts\VehicleLimit.sqf";
 		[] execVM "scripts\irstrobe.sqf"; 
