@@ -169,6 +169,7 @@ while { true } do {
 	if(_fobdistance < _distfob && alive player && vehicle player == player && [getPos player , 1700 , GRLIB_side_enemy ] call F_getUnitsCount < 1) then {
 		if (_ideh_shooting == -1) then{
 			_ideh_shooting = player addEventHandler ["Fired", { 
+				deleteVehicle (_this select 6);
 				hintC localize "STR_DO_NOT_FIRE";
 				hintC_EH = findDisplay 57 displayAddEventHandler ["unload", {
 					0 = _this spawn {
@@ -183,6 +184,14 @@ while { true } do {
 		if( _ideh_shooting != -1) then {
 			player removeEventHandler ["Fired", _ideh_shooting];
 			_ideh_shooting = -1;
+		};
+	};
+
+	if(!["IsGroupRegistered", [(group player)]] call BIS_fnc_dynamicGroups) then {
+		[parseText format ["<t color='#ff0000' size = '.9'>%1</t><br />%2</t>", localize "STR_URUNASSIGNED", localize "STR_RECOMMENDJOIN"],-1,0.1,3,1,0,789] spawn BIS_fnc_dynamicText;
+	} else {
+		if (isNil{ ((group player)getVariable['GroupType',nil]) } && leader group player == player) then {
+			["<t color='#ff0000' size = '.9'>분대 태그를 지정하십시오.</t><br />적절한 분대 태그를 설정해 주시기 바랍니다.</t>",-1,0.1,3,1,0,789] spawn BIS_fnc_dynamicText;
 		};
 	};
 
