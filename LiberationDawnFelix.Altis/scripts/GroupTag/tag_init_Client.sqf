@@ -1,5 +1,6 @@
 fn_SyncGroupClient = {
 	params ["_GroupName", "_GroupType"];
+	(group player) setVariable ['GroupType',_GroupType,true];
 	[_GroupName,_GroupType,player,group player] remoteExecCall ["fn_SyncGroupServer",2];
 };
 

@@ -39,8 +39,7 @@ class liberation_GroupManager
         class Select_GroupTag: RscCombo
         {
             idc = 2100;
-            onLoad = "{(_this select 0)lbAdd _x}foreach Group_Types;_index=(Group_Types find((group player)getVariable['GroupType',(Group_Types select 0)]));(_this select 0)lbSetCurSel(_index);(group player)setVariable['GroupType',Group_Types select _index,true];";
-			onLBSelChanged = "(group player) setVariable ['GroupType',lbText[ 2100 , (lbCurSel 2100)],true]";
+            onLoad = "{(_this select 0)lbAdd _x}foreach Group_Types;_index=(Group_Types find((group player)getVariable['GroupType',(Group_Types select 0)]));(_this select 0)lbSetCurSel(_index);";
 
             font = FontM;
             x = 0.298906 * safezoneW + safezoneX;
@@ -63,7 +62,7 @@ class liberation_GroupManager
             idc = 1600;
             text = "OK";
             action = "closeDialog 0";
-			onButtonClick = "[ctrlText 1400,((group player) getVariable ['GroupType',nil])] call fn_SyncGroupClient;";
+			onButtonClick = "[ctrlText 1400,lbText[ 2100 , (lbCurSel 2100)]] call fn_SyncGroupClient;";
 
             x = 0.659844 * safezoneW + safezoneX;
             y = 0.478 * safezoneH + safezoneY;
