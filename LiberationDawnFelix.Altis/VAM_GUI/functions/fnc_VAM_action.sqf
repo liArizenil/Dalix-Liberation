@@ -5,7 +5,7 @@ VAM_condition_result = true;
 VAM_action = compileFinal "
     player addAction
     [
-        'VAM',
+        '차량 형성 관리자',
         {
             VAM_targetvehicle = vehicle player;
             0 = createDialog 'VAM_GUI';
