@@ -88,13 +88,13 @@ calc_threat = {
 	// value positions correspond to list_weapons return array
 	_wep_threat = [
 		// 0: cannons
-		[400, 425, 450, 500, 600],
+		[430, 450, 530, 550, 600],
 		// 1: autocannons
 		[0, 200, 250, 470, 600],
 		// 2: light MGs
 		[0, 0, 0, 0, 0],
 		// 3: AT rockets
-		[0, 400, 450, 500, 570],
+		[0, 450, 470, 530, 570],
 		// 4: HE rocket
 		[0, 300, 350, 400, 470],
 		// 5: GMG
