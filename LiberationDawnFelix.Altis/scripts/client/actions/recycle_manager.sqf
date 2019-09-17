@@ -23,7 +23,7 @@ while { true } do {
 
 	if (  [ player, 4 ] call F_fetchPermission ) then {
 
-		_detected_vehicles = 	[ (getpos player) nearObjects veh_action_distance ,
+		_detected_vehicles = (getpos player) nearObjects veh_action_distance select
 							{
 								(((typeof _x in _recycleable_classnames ) &&
 								((count crew _x) == 0 || (typeof _x) in uavs) &&
@@ -31,8 +31,7 @@ while { true } do {
 								(alive _x) &&
 								(_x distance lhd > 1000) &&
 								(_x distance ( [] call F_getNearestFob) < GRLIB_fob_range ) &&
-								( getObjectType _x >= 8 ) } ]
-							call BIS_fnc_conditionalSelect;
+								( getObjectType _x >= 8 ) };
 
 		{
 			_next_vehicle = _x;

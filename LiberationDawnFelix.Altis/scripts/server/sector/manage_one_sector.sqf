@@ -141,7 +141,7 @@ if ( (!(_sector in blufor_sectors)) &&  ( ( [ getmarkerpos _sector , [ _opforcou
 	//diag_log format [ "Sector %2 checkpoint G at %1", time, _sector ];
 
 	if ( _building_ai_max > 0 ) then {
-		_allbuildings = [ nearestObjects [_sectorpos, ["House"], _building_range ], { alive _x } ] call BIS_fnc_conditionalSelect;
+		_allbuildings = nearestObjects [_sectorpos, ["House"], _building_range ] select { alive _x };
 		_buildingpositions = [];
 		{
 			_buildingpositions = _buildingpositions + ( [_x] call BIS_fnc_buildingPositions );

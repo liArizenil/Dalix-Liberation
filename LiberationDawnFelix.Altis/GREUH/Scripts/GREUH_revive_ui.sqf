@@ -35,7 +35,7 @@ while { dialog && alive player } do {
 	};
 	_tick = _tick + 1;
 
-	_nearby_ais = [ units group player, { !(isPlayer _x) && (_x distance player < 100) } ] call BIS_fnc_conditionalSelect;
+	_nearby_ais = units group player select { !(isPlayer _x) && (_x distance player < 100) };
 	if ( count _nearby_ais > 0 ) then {
 		_nearby_ai = ( [ _nearby_ais , [] , { _x distance player } , 'ASCEND' ] call BIS_fnc_sortBy ) select 0;
 		((findDisplay 5566) displayCtrl 678) ctrlEnable true;

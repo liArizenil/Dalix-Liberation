@@ -5,7 +5,7 @@ private [ "_spawned_units_local", "_allposts", "_grp2", "_building_positions", "
 
 _spawned_units_local = [];
 
-_allposts = [ nearestObjects [ _squadpos, [ 'Land_Cargo_Patrol_V1_F','Land_Cargo_Patrol_V2_F','Land_Cargo_Patrol_V3_F' ], GRLIB_capture_size ] , { alive _x } ] call BIS_fnc_conditionalSelect;
+_allposts = (nearestObjects [ _squadpos, [ 'Land_Cargo_Patrol_V1_F','Land_Cargo_Patrol_V2_F','Land_Cargo_Patrol_V3_F' ], GRLIB_capture_size ]) select { alive _x };
 if ( count _allposts > 0 ) then {
 	_grp2 = createGroup GRLIB_side_enemy;
 

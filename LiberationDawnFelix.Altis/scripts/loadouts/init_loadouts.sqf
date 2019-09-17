@@ -1,7 +1,7 @@
 _is_rhs = false;
 _rhs_classnames = [ "rhs_weap_ak74m_camo_folded","rhs_weap_ak74m_camo_npz","rhs_weap_pkm","rhs_weap_akms","rhs_weap_ak74m_camo_npz","rhs_weap_svdp_wd_npz","rhs_weap_akm","rhs_weap_rpg7" ];
 
-if ( count ( [ _rhs_classnames, { isClass ( configFile / "cfgWeapons" / _x ) } ] call BIS_fnc_conditionalSelect ) == ( count _rhs_classnames ) ) then { _is_rhs = true };
+if ( count ( _rhs_classnames select { isClass ( configFile / "cfgWeapons" / _x ) } ) == ( count _rhs_classnames ) ) then { _is_rhs = true };
 
 _loadouts_folder = "scripts\loadouts\vanilla\";
 if ( _is_rhs ) then { _loadouts_folder = "scripts\loadouts\rhs\"; };

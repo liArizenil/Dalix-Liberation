@@ -61,14 +61,14 @@ if ( !( _sector in GRLIB_military_sectors_already_activated )) then {
 		};
 	};
 
-	_nearbuildings = [ nearestObjects [ markerpos _sector , _compatible_classnames, _intel_range ], { alive _x } ] call BIS_fnc_conditionalSelect;
+	_nearbuildings = (nearestObjects [ markerpos _sector , _compatible_classnames, _intel_range ]) select { alive _x };
 
 	if ( count _nearbuildings > 0 ) then {
 		_building_positions = [];
 
 		{ _building_positions = _building_positions + ( [_x] call BIS_fnc_buildingPositions ); } foreach _nearbuildings;
 
-		_building_positions = [ _building_positions, { _x select 2 < 2 } ] call BIS_fnc_conditionalSelect;
+		_building_positions = _building_positions select { _x select 2 < 2 };
 
 		if ( count _building_positions >= (_nbintel * 4) ) then {
 

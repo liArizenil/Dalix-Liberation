@@ -1,7 +1,7 @@
 params [ "_vehtorecycle" ];
 private [ "_objectinfo", "_cfg", "_dialog" ];
 
-_objectinfo = ( [ (light_vehicles + heavy_vehicles + air_vehicles + static_vehicles + support_vehicles + buildings + captured_vehicles), { typeof _vehtorecycle == _x select 0 } ] call BIS_fnc_conditionalSelect ) select 0;
+_objectinfo = ((light_vehicles + heavy_vehicles + air_vehicles + static_vehicles + support_vehicles + buildings + captured_vehicles) select { typeof _vehtorecycle == _x select 0 }) select 0;
 dorecycle = 0;
 
 _cfg = configFile >> "cfgVehicles";

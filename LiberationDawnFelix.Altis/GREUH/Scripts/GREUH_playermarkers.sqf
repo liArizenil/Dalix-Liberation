@@ -28,7 +28,7 @@ while { true } do {
 
 			private _playableunits = [];
 			if ( count (playableUnits  + allUnitsUAV) > 0 ) then {
-				_playableunits = [ playableUnits + allUnitsUAV, { (side (group _x)) == (side (group player)) } ] call BIS_fnc_conditionalSelect;
+				_playableunits = (playableUnits + allUnitsUAV) select { (side (group _x)) == (side (group player)) };
 			} else {
 				_playableunits = [ player ];
 			};

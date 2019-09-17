@@ -43,7 +43,7 @@ while { cinematic_camera_started } do {
 			};
 
 			if ( GRLIB_endgame == 0 ) then {
-				 _activeplayers = ( [ allPlayers , { alive _x && ( _x distance ( getmarkerpos GRLIB_respawn_marker ) ) > 100 } ] call BIS_fnc_conditionalSelect );
+				 _activeplayers = ( allPlayers select { alive _x && ( _x distance ( getmarkerpos GRLIB_respawn_marker ) ) > 100 } );
 				 if ( count _activeplayers > 0 ) then {
 				 	for [ {_idx=0},{_idx < 3},{_idx=_idx+1} ] do {
 						_positions pushback (getpos (selectRandom _activeplayers));
@@ -64,11 +64,11 @@ while { cinematic_camera_started } do {
 				_camtarget = chimeraofficer;
 			};
 		} else {
-			if ( count ( [ _nearentities , { alive _x && isPlayer _x } ] call BIS_fnc_conditionalSelect ) != 0 ) then {
-				_camtarget = selectRandom ( [ _nearentities , { alive _x && isPlayer _x } ] call BIS_fnc_conditionalSelect );
+			if ( count ( _nearentities select { alive _x && isPlayer _x } ) != 0 ) then {
+				_camtarget = selectRandom ( _nearentities select { alive _x && isPlayer _x } );
 			} else {
-				if ( count ( [ _nearentities , { alive _x } ] call BIS_fnc_conditionalSelect ) != 0 ) then {
-					_camtarget = selectRandom ( [ _nearentities , { alive _x } ] call BIS_fnc_conditionalSelect );
+				if ( count ( _nearentities select { alive _x } ) != 0 ) then {
+					_camtarget = selectRandom ( _nearentities select { alive _x } );
 				};
 			};
 		};
@@ -266,7 +266,7 @@ while { cinematic_camera_started } do {
 					if ( _nearest_sector != "" ) then {
 						_nearest_sector = markertext _nearest_sector;
 					} else {
-						_nearfobs = [ GRLIB_all_fobs, { _x distance _position < 300 } ] call BIS_fnc_conditionalSelect;
+						_nearfobs = GRLIB_all_fobs select { _x distance _position < 300 };
 						if ( count _nearfobs > 0 ) then {
 							_nearest_sector = format [ "FOB %1", military_alphabet select ( GRLIB_all_fobs find ( _nearfobs select 0 ) ) ];
 						};
