@@ -19,6 +19,8 @@ if ( isNil "pilot_classname" ) then { pilot_classname = "B_Helipilot_F" };
 
 Group_Types = ["[보병]","[기계화]","[기갑]","[포병]","[CAS]","[공격헬기]","[수송]","[비전투]"];
 
+intromusic = selectrandom ["LeadTrack01_F_Jets","LeadTrack01_F_Malden","MainTheme_F_Tank","LeadTrck01_F","LeadTrack01_F_Bootcamp","LeadTrack01_F_Heli"];
+
 infantry_units = [
 	["B_soldier_F",2,0,0],
 	["B_soldier_GL_F",3,0,0],
