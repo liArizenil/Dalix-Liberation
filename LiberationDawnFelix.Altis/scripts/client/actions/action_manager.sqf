@@ -1,5 +1,5 @@
 
-private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander", "_idact_exchscore", "_whiskey" ];
+private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander", "_idact_exchscore", "_whiskey","_ideh_shooting" ];
 
 _whiskey = getMarkerPos "whiskey";
 
@@ -14,6 +14,7 @@ _idact_repackage = -1;
 _idact_halo = -1;
 _idact_secondary = -1;
 _idact_exchscore = -1;
+_ideh_shooting = -1;
 _distfob = 100;
 _distarsenal = 5;
 _distbuildfob = 10;
@@ -163,6 +164,26 @@ while { true } do {
 		if ( _idact_exchscore != -1 ) then {
 			player removeAction _idact_exchscore;
 			_idact_exchscore = -1;
+		};
+	};
+
+	if(_fobdistance < _distfob && alive player && vehicle player == player && [_nearfob, 1750 , GRLIB_side_enemy ] call F_getUnitsCount < 1) then {
+		if (_ideh_shooting == -1) then{
+			_ideh_shooting = player addEventHandler ["Fired", { 
+				titleText [ localize "STR_DO_NOT_FIRE", "BLACK FADED"];
+				hintC localize "STR_DO_NOT_FIRE";
+				hintC_EH = findDisplay 57 displayAddEventHandler ["unload", {
+					0 = _this spawn {
+						_this select 0 displayRemoveEventHandler ["unload", hintC_EH];
+						hintSilent "";
+					};
+				}];
+			 }];
+		};
+	} else {
+		if( _ideh_shooting != -1) then {
+			player removeEventHandler ["Fired", _ideh_shooting];
+			_ideh_shooting = -1;
 		};
 	};
 

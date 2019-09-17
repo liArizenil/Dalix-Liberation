@@ -457,6 +457,10 @@
 						<Spanish>-- REDESPLEGAR --</Spanish>
 						<Russian>-- ПЕРЕМЕСТИТЬСЯ --</Russian>
 				</Key>
+				<Key ID="STR_DO_NOT_FIRE">
+					<Original>DO NOT FIRE IN BASE</Original>
+					<Korean>베이스내 사격 금지</Korean>
+				</Key>
 				<Key ID="STR_BUILD_CREW">
 						<Original>건설 (Crew)</Original>
 						<French>Construire (Equipage)</French>
