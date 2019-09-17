@@ -466,8 +466,8 @@
 						<Russian>-- ПЕРЕМЕСТИТЬСЯ --</Russian>
 				</Key>
 				<Key ID="STR_DO_NOT_FIRE">
-					<Original>DO NOT FIRE IN BASE</Original>
-					<Korean>베이스내 사격 금지</Korean>
+					<Original>DO NOT FIRE IN BASE, Your screen is black out for 10 seconds.</Original>
+					<Korean>베이스내 사격 금지, 당신의 화면은 10초간 블랙아웃 됐습니다.</Korean>
 				</Key>
 				<Key ID="STR_BUILD_CREW">
 						<Original>건설 (Crew)</Original>
