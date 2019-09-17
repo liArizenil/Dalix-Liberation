@@ -28,7 +28,6 @@ waitUntil { !isNil "one_synchro_done" };
 waitUntil { one_synchro_done };
 
 while { true } do {
-
 	_nearfob = [] call F_getNearestFob;
 	_fobdistance = 9999;
 	if ( count _nearfob == 3 ) then {
@@ -167,7 +166,7 @@ while { true } do {
 		};
 	};
 
-	if(_fobdistance < _distfob && alive player && vehicle player == player && [_nearfob, 1750 , GRLIB_side_enemy ] call F_getUnitsCount < 1) then {
+	if(_fobdistance < _distfob && alive player && vehicle player == player && [getPos player , 1700 , GRLIB_side_enemy ] call F_getUnitsCount < 1) then {
 		if (_ideh_shooting == -1) then{
 			_ideh_shooting = player addEventHandler ["Fired", { 
 				titleText [ localize "STR_DO_NOT_FIRE", "BLACK FADED"];

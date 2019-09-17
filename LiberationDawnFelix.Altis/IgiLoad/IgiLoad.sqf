@@ -1886,7 +1886,7 @@ if (_obj_main_type in IL_Supported_Vehicles_CHINOOK) then
 		"<t color=""#007f0e"">Get in Chinook</t>",
 		{
 			(_this select 1) setDir (getDir (_this select 0));
-			_pos = ([(_this select 0) getPos [ 4.5, (getDir (_this select 0))]);
+			_pos = ((_this select 0) getPos [ 4.5, (getDir (_this select 0))]);
 			_pos = [_pos select 0, _pos select 1, ((getPosATL (_this select 0)) select 2) + 1];
 			(_this select 1) setPosATL _pos;
 		},[],IL_Action_LU_Priority,false,true,"",
