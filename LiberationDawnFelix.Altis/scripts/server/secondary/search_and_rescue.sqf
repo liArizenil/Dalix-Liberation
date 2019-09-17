@@ -3,8 +3,12 @@ private _spawn_marker = [ 3000, 999999, false ] call F_findOpforSpawnPoint;
 if ( _spawn_marker == "" ) exitWith { diag_log "Could not find position for search and rescue mission"; };
 used_positions pushbackUnique _spawn_marker;
 
+private _objective = [];
+
 private _helopos = [ getmarkerpos _spawn_marker, random 200, random 360 ] call BIS_fnc_relPos;
 private _helowreck = GRLIB_sar_wreck createVehicle _helopos;
+_objective pushBack _helowreck;
+
 _helowreck allowDamage false;
 _helowreck setPos _helopos;
 _helowreck setPos _helopos;
@@ -12,6 +16,7 @@ private _helowreckDir = (random 360);
 _helowreck setDir _helowreckDir;
 
 private _helofire = GRLIB_sar_fire createVehicle (getpos _helowreck);
+_objective pushBack _helofire;
 _helofire setpos (getpos _helowreck);
 _helofire setpos (getpos _helowreck);
 
@@ -101,6 +106,7 @@ if ( _alive_crew_count == 0 ) then {
 
 resources_intel = resources_intel + (10 * _alive_crew_count);
 stats_secondary_objectives = stats_secondary_objectives + 1;
+{ deleteVehicle _x; } forEach _objective;
 
 GRLIB_secondary_in_progress = -1; publicVariable "GRLIB_secondary_in_progress";
 sleep 1;
