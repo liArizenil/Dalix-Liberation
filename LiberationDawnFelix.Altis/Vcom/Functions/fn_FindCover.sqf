@@ -25,7 +25,7 @@ if (_WPos isEqualTo [0,0,0]) then
 	_Dir = _NearestEnemy;
 };
 
-private _MovePosition = [_leader,_MoveDist,([_leader, _Dir] call BIS_fnc_dirTo)] call BIS_fnc_relPos;
+private _MovePosition = _leader getPos [_MoveDist,(_leader getDir _Dir)];
 if (VCM_Debug) then
 {
 	private _arrow = "Sign_Arrow_Green_F" createVehicle [0,0,0];
@@ -106,7 +106,7 @@ if (_TypeListFinal isEqualTo [] && _WeakListFinal isEqualTo []) exitWith
 				_Unit doSuppressiveFire _FNearestEnemy;
 				sleep (5 + (random 10));
 				
-				private _FPos = [_NearestEnemy, (_PosCON distance _NearestEnemy) + 2, ([_NearestEnemy, _PosCON] call BIS_fnc_dirTo)] call BIS_fnc_relPos;
+				private _FPos = _NearestEnemy getPos [ (_PosCON distance _NearestEnemy) + 2, (_NearestEnemy getDir _PosCON) ];
 				private _DistW = 2;
 				if (_PosCON iskindof "AllVehicles") then {_DistW = 5;};
 				if (VCM_Debug) then

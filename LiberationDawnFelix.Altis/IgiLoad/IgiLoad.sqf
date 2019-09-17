@@ -1538,7 +1538,7 @@ if (isnil "IL_Procedures") then
 		if !(_para) then
 		{
 			_player setDir ((getDir _v) + 180);
-			_pos = ([_v, _dist_out, ((getDir _v) + 180 + _x_offset)] call BIS_fnc_relPos);
+			_pos = _v getPos [ _dist_out, ((getDir _v) + 180 + _x_offset)];
 			_pos = [_pos select 0, _pos select 1, ((getPosATL _v) select 2)];
 			_player setPosATL _pos;
 		}
@@ -1550,7 +1550,7 @@ if (isnil "IL_Procedures") then
 				// _backpack AttachTo [_player, [0,0.15,0.15], "Pelvis"];
 				// [_backpack, _player, 180] call IL_Rotate;
 			// };
-			_pos = ([_v, _dist_out_para, ((getDir _v) + 180 + _x_offset)] call BIS_fnc_relPos);
+			_pos = _v getPos [_dist_out_para, ((getDir _v) + 180 + _x_offset)];
 			_pos = [_pos select 0, _pos select 1, ((getPosATL _v) select 2)];
 			_player setPosATL _pos;
 			_dist = _v distance _player;
@@ -1788,7 +1788,7 @@ if (_obj_main_type in IL_Supported_Vehicles_CHINOOK) then
 		"<t color=""#007f0e"">Get in Chinook</t>",
 		{
 			(_this select 1) setDir (getDir (_this select 0));
-			_pos = ([(_this select 0), 4.5, (getDir (_this select 0))] call BIS_fnc_relPos);
+			_pos = ((_this select 0) getPos [ 4.5, (getDir (_this select 0))]);
 			_pos = [_pos select 0, _pos select 1, ((getPosATL (_this select 0)) select 2) + 1];
 			(_this select 1) setPosATL _pos;
 		},[],IL_Action_LU_Priority,false,true,"",
@@ -1886,7 +1886,7 @@ if (_obj_main_type in IL_Supported_Vehicles_CHINOOK) then
 		"<t color=""#007f0e"">Get in Chinook</t>",
 		{
 			(_this select 1) setDir (getDir (_this select 0));
-			_pos = ([(_this select 0), 4.5, (getDir (_this select 0))] call BIS_fnc_relPos);
+			_pos = ([(_this select 0) getPos [ 4.5, (getDir (_this select 0))]);
 			_pos = [_pos select 0, _pos select 1, ((getPosATL (_this select 0)) select 2) + 1];
 			(_this select 1) setPosATL _pos;
 		},[],IL_Action_LU_Priority,false,true,"",
@@ -1982,7 +1982,7 @@ if (_obj_main_type in IL_Supported_Vehicles_CHINOOK) then
 		"<t color=""#007f0e"">Get in Chinook</t>",
 		{
 			(_this select 1) setDir (getDir (_this select 0));
-			_pos = ([(_this select 0), 4.5, (getDir (_this select 0))] call BIS_fnc_relPos);
+			_pos = ((_this select 0) getPos [ 4.5, (getDir (_this select 0))]);
 			_pos = [_pos select 0, _pos select 1, ((getPosATL (_this select 0)) select 2) + 1];
 			(_this select 1) setPosATL _pos;
 		},[],IL_Action_LU_Priority,false,true,"",

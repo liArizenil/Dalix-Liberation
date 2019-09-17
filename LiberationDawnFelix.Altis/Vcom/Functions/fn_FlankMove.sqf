@@ -77,7 +77,7 @@ _waypoint0 setWaypointSpeed "FULL";
 		}; 
     case "Retreat": 
 		{
-			private _MovePosition = [_NearestEnemy,(_NearestEnemy distance2D _leader),([_NearestEnemy, _leader] call BIS_fnc_dirTo)] call BIS_fnc_relPos;
+			private _MovePosition = _NearestEnemy getPos [(_NearestEnemy distance2D _leader),(_NearestEnemy getDir _leader)];
 			private _FinalP = [[[_MovePosition, 50]],["water"]] call BIS_fnc_randomPos;
 			_FinalP set [2,0];
 			private _waypoint0 = _group addwaypoint [_FinalP,0];

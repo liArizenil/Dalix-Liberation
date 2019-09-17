@@ -18,7 +18,7 @@ if (_WPos isEqualTo [0,0,0]) then
 	_Dir = _NearestEnemy;
 };
 
-private _MovePosition = [_leader,_MoveDist,([_leader, _Dir] call BIS_fnc_dirTo)] call BIS_fnc_relPos;
+private _MovePosition = _leader getPos [_MoveDist,(_leader getDir _Dir)];
 
 {
 	if (isNull objectParent _x) then

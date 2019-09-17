@@ -13,9 +13,9 @@ private _convoy_destinations = [];
 private _spawnpos = _convoy_destinations select 0;
 [ [ 4, _spawnpos ] , "remote_call_intel" ] call BIS_fnc_MP;
 
-private _scout_vehicle = [ [ _spawnpos, 30, 0 ] call BIS_fnc_relPos, opfor_mrap, true, false, false ] call F_libSpawnVehicle;
-private _escort_vehicle = [ [ _spawnpos, 10, 0 ] call BIS_fnc_relPos, selectRandom opfor_vehicles_low_intensity, true, false, false ] call F_libSpawnVehicle;
-private _transport_vehicle = [ [ _spawnpos, 10, 180 ] call BIS_fnc_relPos, opfor_ammobox_transport, true, true, false ] call F_libSpawnVehicle;
+private _scout_vehicle = [ _spawnpos getPos [ 30, 0 ], opfor_mrap, true, false, false ] call F_libSpawnVehicle;
+private _escort_vehicle = [ _spawnpos getPos [ 10, 0 ], selectRandom opfor_vehicles_low_intensity, true, false, false ] call F_libSpawnVehicle;
+private _transport_vehicle = [ _spawnpos getPos [ 10, 180 ], opfor_ammobox_transport, true, true, false ] call F_libSpawnVehicle;
 
 private _boxes_amount = 0;
 {
@@ -31,7 +31,7 @@ private _boxes_loaded = 0;
 while { _boxes_loaded < _boxes_amount } do {
 	_boxes_loaded = _boxes_loaded + 1;
 	sleep 0.5;
-	private _next_box = ammobox_o_typename createVehicle ([ _spawnpos, 15, 135 ] call BIS_fnc_relPos);
+	private _next_box = ammobox_o_typename createVehicle (_spawnpos getPos [ 15, 135 ]);
 	sleep 0.5;
 	[ _next_box, 50 ] call _load_box_fnc;
 	_next_box addMPEventHandler ['MPKilled', {_this spawn kill_manager}];
@@ -39,7 +39,7 @@ while { _boxes_loaded < _boxes_amount } do {
 
 sleep 0.5;
 
-private _troop_vehicle = [ [ _spawnpos, 30, 180 ] call BIS_fnc_relPos, opfor_transport_truck, true, true, false ] call F_libSpawnVehicle;
+private _troop_vehicle = [ _spawnpos getpos [ 30, 180 ], opfor_transport_truck, true, true, false ] call F_libSpawnVehicle;
 
 sleep 0.5;
 

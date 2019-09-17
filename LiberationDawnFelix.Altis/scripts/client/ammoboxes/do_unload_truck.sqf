@@ -16,7 +16,7 @@ if ( _truck_to_unload getVariable ["GRLIB_ammo_truck_load", 0] > 0 ) then {
 		[ [ _next_box, false ], "F_objectProtection" ] call bis_fnc_mp;
 		sleep 0.5;
 		detach _next_box;
-		_next_box setpos ( [ getpos _truck_to_unload, _offset, getdir _truck_to_unload] call BIS_fnc_relPos );
+		_next_box setpos (getpos _truck_to_unload getPos [offset, getdir _truck_to_unload]);
 		_next_box setdir (getdir _truck_to_unload);
 		_next_box setVelocity [ 0,0,0 ];
 		_next_box setDamage 0;

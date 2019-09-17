@@ -24,7 +24,7 @@ while {alive player && {Vcm_ActivateAI}} do
 				private _ChunkN = 0;
 				while {_Chunks > _ChunkN} do
 				{
-					_StartPos = [_StartPos,100,_DirPlayer] call BIS_fnc_relPos;
+					_StartPos = _StartPos getPos [100,_DirPlayer];
 					private _NE = [_Enemies,_StartPos,true,"IR"] call VCM_fnc_ClstObj;
 					if (_NE distance2D _Startpos < 65) exitWith 
 					{				

@@ -129,7 +129,7 @@ while { true } do {
 
 				_sphere_idx = 0;
 				{
-					_x setpos ( [ _truepos, _dist, _sphere_idx * 10 ] call BIS_fnc_relPos );
+					_x setpos (_truepos getPos [_dist, _sphere_idx * 10 ]);
 					_sphere_idx = _sphere_idx + 1;
 				} foreach GRLIB_preview_spheres;
 

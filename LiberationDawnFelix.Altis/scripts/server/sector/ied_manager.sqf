@@ -17,7 +17,7 @@ if ( random 100 < 12 ) then {
 _vehicle_trigger = 1;
 _ied_type = selectRandom [ "IEDLandBig_F","IEDLandSmall_F","IEDUrbanBig_F","IEDUrbanSmall_F" ];
 _ied_obj = objNull;
-_roadobj = [ [  getmarkerpos (_sector), random(_radius), random(360)  ] call BIS_fnc_relPos, _radius, [] ] call BIS_fnc_nearestRoad;
+_roadobj = [ (getmarkerpos (_sector)) getPos [ random(_radius), random(360) ] , _radius, [] ] call BIS_fnc_nearestRoad;
 _goes_boom = false;
 
 
@@ -28,7 +28,7 @@ if (_number > 0) then {
 if ( !(isnull _roadobj) ) then {
 
 	_roadpos = getpos _roadobj;
-	_ied_obj = createMine [ _ied_type, [ _roadpos, _spread, random(360) ] call BIS_fnc_relPos, [], 0];
+	_ied_obj = createMine [ _ied_type, _roadpos getPos [ _spread, random(360) ], [], 0];
 	_ied_obj setdir (random 360);
 
 	while { _sector in active_sectors && mineActive _ied_obj && !_goes_boom } do {
