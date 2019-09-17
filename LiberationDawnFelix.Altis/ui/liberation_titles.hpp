@@ -1,10 +1,16 @@
 class CfgSounds
 {
 	sounds[] = {};
-	class parasound
+	class v44para
 	{
 		name = "parasound";
-		sound[] = {"res\c130.ogg", 1.0, 1};
+		sound[] = {"res\v44.ogg", 1.0, 1};
+		titles[] = {};
+	};
+	class xianpara
+	{
+		name = "parasound";
+		sound[] = {"res\xian.ogg", 1.0, 1};
 		titles[] = {};
 	};
 };
