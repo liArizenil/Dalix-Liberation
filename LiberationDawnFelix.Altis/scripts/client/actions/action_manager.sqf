@@ -1,5 +1,5 @@
 
-private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander", "_idact_exchscore", "_whiskey","_ideh_shooting" ];
+private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander", "_idact_exchscore", "_whiskey","_ideh_shooting", "_GroupJoined" ];
 
 _whiskey = getMarkerPos "whiskey";
 
@@ -34,6 +34,8 @@ while { true } do {
 		_fobdistance = player distance _nearfob;
 	};
 
+	_GroupJoined = ["IsGroupRegistered", [(group player)]] call BIS_fnc_dynamicGroups;
+
 	_neararsenal = ( (getpos player) nearEntities [ [Arsenal_typename, huron_typename] , _distarsenal ]) select { getObjectType _x >= 8 };
 	_nearfobbox = ( (getpos player) nearEntities [ [ FOB_box_typename, FOB_truck_typename ] , _distbuildfob ] );
 	_nearspawn = ( (getpos player) nearEntities [ [ Respawn_truck_typename] , _distspawn ] );
@@ -56,7 +58,7 @@ while { true } do {
 		};
 	};
 */
-	if ( (_fobdistance < _distredeploy || (player distance lhd) < 200) && alive player && vehicle player == player && GRLIB_halo_param > 0 ) then {
+	if ( (_fobdistance < _distredeploy || (player distance lhd) < 200) && alive player && vehicle player == player && GRLIB_halo_param > 0 && _GroupJoined) then {
 		if ( _idact_halo == -1 ) then {
 			_idact_halo = player addAction ["<t color='#80FF80'>" + localize "STR_HALO_ACTION" + "</t> <img size='2' image='res\ui_redeploy.paa'/>","scripts\client\spawn\do_halo.sqf","",-749,false,true,"","build_confirmed == 0"];
 		};
@@ -89,7 +91,7 @@ while { true } do {
 		};
 	};
 
-	if ( _fobdistance < _distfob && alive player && vehicle player == player && ( (  [ player, 3 ] call F_fetchPermission ) || ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) ) ) then {
+	if ( _fobdistance < _distfob && alive player && _GroupJoined && vehicle player == player && ( (  [ player, 3 ] call F_fetchPermission ) || ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) ) ) then {
 		if ( _idact_build == -1 ) then {
 			_idact_build = player addAction ["<t color='#FFFF00'>" + localize "STR_BUILD_ACTION" + "</t> <img size='2' image='res\ui_build.paa'/>","scripts\client\build\open_build_menu.sqf","",-985,false,true,"","build_confirmed == 0"];
 		};
@@ -166,7 +168,7 @@ while { true } do {
 		};
 	};
 
-	if(_fobdistance < _distfob && alive player && vehicle player == player && [getPos player , 1700 , GRLIB_side_enemy ] call F_getUnitsCount < 1) then {
+	if((_fobdistance < _distfob || (player distance _whiskey) < 100) && alive player && vehicle player == player && [getPos player , 1700 , GRLIB_side_enemy ] call F_getUnitsCount < 1) then {
 		if (_ideh_shooting == -1) then{
 			_ideh_shooting = player addEventHandler ["Fired", { 
 				deleteVehicle (_this select 6);
@@ -187,7 +189,7 @@ while { true } do {
 		};
 	};
 
-	if(!(["IsGroupRegistered", [(group player)]] call BIS_fnc_dynamicGroups)) then {
+	if(!_GroupJoined) then {
 		[parseText format ["<t color='#ff0000' size = '.9'>%1</t><br />%2</t>", localize "STR_URUNASSIGNED", localize "STR_RECOMMENDJOIN"],-1,0.1,3,0,0,789] spawn BIS_fnc_dynamicText;
 	} else {
 		if (isNil{ ((group player)getVariable['GroupType',nil]) } && leader group player == player) then {
