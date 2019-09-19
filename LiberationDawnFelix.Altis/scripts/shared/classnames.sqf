@@ -421,6 +421,34 @@ if ( isNil "support_vehicles_extension" ) then { support_vehicles_extension = []
 if ( isNil "support_vehicles_overwrite" ) then { support_vehicles_overwrite = false };
 if ( support_vehicles_overwrite ) then { support_vehicles = support_vehicles_extension; } else { support_vehicles = support_vehicles + support_vehicles_extension; };
 
+Build_opfor_Ground_Vehicles = [
+	["O_MRAP_02_F", 500],
+	["O_MRAP_02_hmg_F", 750],
+	["O_T_LSV_02_unarmed_F", 350],
+	["O_T_LSV_02_armed_F", 500],
+	["O_G_Offroad_01_F", 300],
+	["O_G_Offroad_01_armed_F", 450],
+	["O_G_Offroad_01_AT_F", 700],
+	["O_APC_Tracked_02_cannon_F", 1300],
+	["O_APC_Wheeled_02_rcws_F", 1000]
+];
+Build_opfor_Heli = [
+	["O_Heli_Light_02_unarmed_F", 700],
+	["O_Heli_Light_02_F", 100],
+	["O_Heli_Attack_02_F", 1400]
+];
+Build_opfor_Air = [
+	["O_T_VTOL_02_infantry_F",1700],
+	["O_Plane_CAS_02_F",2100],
+	["O_Plane_Fighter_02_Stealth_F",2300]
+];
+Build_opfor_support = [
+	["STR_Call_TROUP",-1],
+	["STR_SPAWN_UGV",-1],
+	["STR_SPAWN_UAV",-1],
+	["STR_CALL_MORTAL",-1]
+];
+
 if ( isNil "blufor_squad_inf_light" ) then { blufor_squad_inf_light = [] };
 if ( count blufor_squad_inf_light == 0 ) then { blufor_squad_inf_light = [ "B_Soldier_SL_F","B_Soldier_TL_F","B_Soldier_GL_F","B_soldier_AR_F","B_Soldier_GL_F","B_medic_F","B_Soldier_LAT_F","B_Soldier_F","B_Soldier_F" ]; };
 if ( isNil "blufor_squad_inf" ) then { blufor_squad_inf = [] };
