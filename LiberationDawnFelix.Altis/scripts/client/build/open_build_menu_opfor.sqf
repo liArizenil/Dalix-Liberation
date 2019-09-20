@@ -13,11 +13,19 @@ _dialog = createDialog "liberation_build";
 
 waitUntil { dialog };
 
+private _isPilot = (typeOf player == "O_Pilot_F");
+
 ctrlShow [ 102, false ];
 ctrlShow [ 1025, false ];
 
 ctrlShow [ 103, false ];
-ctrlShow [ 1035, false ];
+ctrlShow [ 1035, false ];//type 2
+
+ctrlShow [ 105, _isPilot ];
+ctrlShow [ 1055, _isPilot ];
+
+ctrlShow [ 106, _isPilot ];
+ctrlShow [ 1065, _isPilot ];
 
 ctrlShow [ 109, false ];
 ctrlShow [ 1095, false ];

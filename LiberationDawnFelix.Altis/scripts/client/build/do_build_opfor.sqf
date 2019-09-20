@@ -22,7 +22,7 @@ while { true } do {
 
 	_classname = ((build_lists select buildtype) select buildindex) select 0;
 	_price = ((build_lists select buildtype) select buildindex) select 1;
-	//[ [ _price, _classname, buildtype ] , "build_remote_call" ] call BIS_fnc_MP;
+	[ ((build_lists select buildtype) select buildindex) select 1 ] remoteExec ["opfor_build_remote_call", 2];
 
 
 	if(buildtype == 5) then {
@@ -175,7 +175,7 @@ while { true } do {
 
 			if ( !alive player || build_confirmed == 3 ) then {
 				deleteVehicle _vehicle;
-				//[ [ ((build_lists select buildtype) select buildindex) select 2 ] , "cancel_build_remote_call" ] call BIS_fnc_MP;
+				[ ((build_lists select buildtype) select buildindex) select 1  ] remoteExec ["cancel_opfor_build_remote_call",2];
 			};
 
 			if ( build_confirmed == 2 ) then {

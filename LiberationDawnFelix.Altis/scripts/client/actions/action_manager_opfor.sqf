@@ -21,7 +21,7 @@ while { true } do {
 	};
 	if ( (player distance (getMarkerpos "respawn_east")) < 50 && alive player && vehicle player == player && GRLIB_halo_param > 0) then {
 		if ( _idact_halo == -1 ) then {
-			_idact_halo = player addAction ["<t color='#80FF80'>" + localize "STR_HALO_ACTION" + "</t> <img size='2' image='res\ui_redeploy.paa'/>","scripts\client\spawn\do_halo.sqf","",-749,false,true,"","build_confirmed == 0"];
+			_idact_halo = player addAction ["<t color='#80FF80'>" + localize "STR_HALO_ACTION" + "</t> <img size='2' image='res\ui_redeploy.paa'/>","scripts\client\spawn\do_halo_opfor.sqf","",-749,false,true,"","build_confirmed == 0"];
 		};
 	} else {
 		if ( _idact_halo != -1 ) then {
@@ -29,6 +29,5 @@ while { true } do {
 			_idact_halo = -1;
 		};
 	};
-
 	sleep 1;
 };

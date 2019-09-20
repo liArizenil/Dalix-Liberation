@@ -434,7 +434,7 @@ Build_opfor_Ground_Vehicles = [
 ];
 Build_opfor_Heli = [
 	["O_Heli_Light_02_unarmed_F", 700],
-	["O_Heli_Light_02_F", 100],
+	["O_Heli_Light_02_F", 1000],
 	["O_Heli_Attack_02_F", 1400]
 ];
 Build_opfor_Air = [

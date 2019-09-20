@@ -1,11 +1,5 @@
 private [ "_dialog", "_backpack", "_backpackcontents" ];
 
-if ( isNil "GRLIB_last_halo_jump" ) then { GRLIB_last_halo_jump = -6000; };
-
-if ( GRLIB_halo_param > 1 && ( GRLIB_last_halo_jump + ( GRLIB_halo_param * 60 ) ) >= time ) exitWith {
-	hint format [ localize "STR_HALO_DENIED_COOLDOWN", ceil ( ( ( GRLIB_last_halo_jump + ( GRLIB_halo_param * 60 ) ) - time ) / 60 ) ];
-};
-
 _dialog = createDialog "liberation_halo";
 dojump = 0;
 halo_position = getpos player;
@@ -19,8 +13,19 @@ _backpackcontents = [];
 waitUntil { dialog };
 while { dialog && alive player && dojump == 0 } do {
 	"spawn_marker" setMarkerPosLocal halo_position;
-	if(([1500,halo_position] call F_getNearestSector) in blufor_sectors) then {
-		ctrlEnable [202, true];
+	private _nearsector = [1500,halo_position] call F_getNearestSector;
+	if((lhd distance2D halo_position) > 2500 && (((halo_position distance2D (getMarkerPos _nearsector) > 1500) && (_nearsector in blufor_sectors)) || !(_nearsector in blufor_sectors))) then {
+		if( count([] call F_getNearestFob) > 0 ) then {
+			if((halo_position distance2D ([ halo_position ] call F_getNearestFob)) < 2500) then{
+				ctrlEnable [202, false];
+			}
+			else{
+				ctrlEnable [202, true];
+			};
+		}
+		else{
+			ctrlEnable [202, true];
+		};
 	}
 	else{
 		ctrlEnable [202, false];
@@ -44,8 +49,9 @@ if ( dojump > 0 ) then {
     	halo_position = [ halo_position select 0, halo_position select 1, 1500 + (random 200) ];
 	halojumping = true;
 	sleep 0.1;
+	[ name player, spawn_position ] remoteExec [ "remote_call_opfordeployed", -2 ];
 	cutRsc ["fasttravel", "PLAIN", 1];
-	playSound "v44para";
+	playSound "xianpara";
 	sleep 4;
 	_backpack = backpack player;
 	if ( _backpack != "" && _backpack != "B_Parachute" ) then {
@@ -59,7 +65,8 @@ if ( dojump > 0 ) then {
 
 	sleep 4;
 	halojumping = false;
-	waitUntil { !alive player || ((getPosATL player) select 2) < 120 };
+	waitUntil { !alive player || ((getPosATL player) select 2) < 150 };
+	vehicle player setVelocity [0,0,0];
 	player action ["openParachute"];
 	waitUntil { !alive player || isTouchingGround player };
 	if ( _backpack != "" && _backpack != "B_Parachute" ) then {
