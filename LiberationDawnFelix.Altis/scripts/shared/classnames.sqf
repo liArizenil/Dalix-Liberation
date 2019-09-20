@@ -922,7 +922,15 @@ air_vehicles = [ air_vehicles ] call F_filterMods;
 support_vehicles = [ support_vehicles ] call F_filterMods;
 static_vehicles = [ static_vehicles ] call F_filterMods;
 buildings = [ buildings ] call F_filterMods;
-build_lists = [[],infantry_units,light_vehicles,heavy_vehicles,air_vehicles,static_vehicles,buildings,support_vehicles,squads];
+
+if(side player == GRLIB_side_enemy) then {
+	build_lists = [[],[],[],Build_opfor_Ground_Vehicles,Build_opfor_Heli,Build_opfor_Air,[],Build_opfor_support,[]];
+}
+else{
+	build_lists = [[],infantry_units,light_vehicles,heavy_vehicles,air_vehicles,static_vehicles,buildings,support_vehicles,squads];
+};
+
+
 militia_squad = militia_squad select { [ _x ] call F_checkClass };
 militia_vehicles = militia_vehicles select { [ _x ] call F_checkClass };
 opfor_vehicles = opfor_vehicles select { [ _x ] call F_checkClass };

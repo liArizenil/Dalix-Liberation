@@ -8,16 +8,6 @@ class liberation_GroupManager
 
     class controls
 	{
-        class Label_Header: RscText
-        {
-            idc = 1000;
-            text = "Group Name Setting"; //--- ToDo: Localize;
-            font = FontM;
-            x = 0.29375 * safezoneW + safezoneX;
-            y = 0.368 * safezoneH + safezoneY;
-            w = 0.12375 * safezoneW;
-            h = 0.044 * safezoneH;
-        };
         class BG_Header: RscPicture
         {
             idc = 1200;
@@ -35,6 +25,16 @@ class liberation_GroupManager
             y = 0.412 * safezoneH + safezoneY;
             w = 0.4125 * safezoneW;
             h = 0.11 * safezoneH;
+        };
+        class Label_Header: RscText
+        {
+            idc = 1000;
+            text = "Group Name Setting"; //--- ToDo: Localize;
+            font = FontM;
+            x = 0.29375 * safezoneW + safezoneX;
+            y = 0.368 * safezoneH + safezoneY;
+            w = 0.12375 * safezoneW;
+            h = 0.044 * safezoneH;
         };
         class Select_GroupTag: RscCombo
         {
