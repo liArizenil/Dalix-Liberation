@@ -17,7 +17,7 @@ while { true } do {
 			};
 
 			if ( !(_x in _iconed_groups) && (
-				(count units _x > 0) &&  (side _x == GRLIB_side_friendly && (((leader _x) distance (getmarkerpos GRLIB_respawn_marker) > 100) && ((leader _x) distance _whiskey > 200) && ((leader _x) distance lhd > 500))))) then {
+				(count units _x > 0) &&  (side _x == GRLIB_side_friendly && (((leader _x) distance (getmarkerpos GRLIB_respawn_marker) > 100) && ((leader _x) distance (getmarkerpos GRLIB_OPFOR_respawn_marker) > 100) && ((leader _x) distance _whiskey > 200) && ((leader _x) distance lhd > 500))))) then {
 				clearGroupIcons _x;
 				_localgroup = _x;
 				_grouptype = [_localgroup] call F_getGroupType;
