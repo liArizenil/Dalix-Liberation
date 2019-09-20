@@ -194,10 +194,6 @@ while { true } do {
 
 				_vehicle setVectorUp surfaceNormal position _vehicle;
 
-				if ( (_classname in uavs) || manned ) then {
-					[ _vehicle ] call F_forceBluforCrew;
-				};
-
 				sleep 0.3;
 				_vehicle allowDamage true;
 				_vehicle setDamage 0;

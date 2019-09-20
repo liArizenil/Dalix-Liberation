@@ -1,7 +1,7 @@
 private [ "_oldbuildtype", "_cfg", "_initindex", "_dialog", "_iscommandant", "_squadname", "_buildpages", "_build_list", "_classnamevar", "_entrytext", "_icon", "_affordable", "_affordable_crew", "_selected_item", "_linked", "_linked_unlocked", "_base_link", "_link_color", "_link_str" ];
 
 
-if ( isNil "buildtype" ) then { buildtype = 1 };
+if ( isNil "buildtype" ) then { buildtype = 3 };
 if ( isNil "buildindex" ) then { buildindex = -1 };
 
 dobuild = 0;
@@ -89,12 +89,12 @@ while { dialog && alive player && (dobuild == 0 || buildtype == 1)} do {
 
 	if (dobuild == 0 && _selected_item != -1 && (_selected_item < (count _build_list))) then {
 		_build_item = _build_list select _selected_item;
-		_affordable = ((_build_item select 1 > 0) && (_build_item select 1) < combat_readiness));
+		_affordable = ((_build_item select 1 > 0) && (_build_item select 1) < combat_readiness);
 	};
 
 	ctrlEnable [ 120, _affordable];
 
-	ctrlSetText [131, format [ "%1 : %2/%3" , localize "STR_MANPOWER" , (floor resources_infantry), infantry_cap]] ;
+	ctrlSetText [131, format [ "%1 : %2/%3" , localize "STR_MANPOWER" , (floor resources_infantry), infantry_cap]];
 	ctrlSetText [132, format [ "%1 : %2" , localize "STR_AMMO" , (floor resources_ammo)] ];
 	ctrlSetText [133, format [ "%1 : %2/%3" , localize "STR_FUEL" , (floor resources_fuel), fuel_cap] ];
 	ctrlSetText [134, format [ "%1 : %2/%3" , localize "STR_UNITCAP" , unitcap, ([] call F_localCap)] ];
