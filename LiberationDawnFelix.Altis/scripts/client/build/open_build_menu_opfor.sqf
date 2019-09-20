@@ -24,8 +24,8 @@ ctrlShow [ 1035, false ];//type 2
 ctrlShow [ 105, _isPilot ];
 ctrlShow [ 1055, _isPilot ];
 
-ctrlShow [ 106, _isPilot ];
-ctrlShow [ 1065, _isPilot ];
+ctrlShow [ 1106, _isPilot ];
+ctrlShow [ 11065, _isPilot ];
 
 ctrlShow [ 109, false ];
 ctrlShow [ 1095, false ];

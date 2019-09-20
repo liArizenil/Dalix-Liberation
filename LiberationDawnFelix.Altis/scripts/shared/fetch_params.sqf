@@ -28,8 +28,7 @@ if ( isMultiplayer ) then {
 	GRLIB_autodanger = [ "Autodanger",0] call bis_fnc_getParamValue;
 	GRLIB_maximum_fobs = [ "MaximumFobs",26] call bis_fnc_getParamValue;
 	GRLIB_max_squad_size = ["MaxSquadSize",100] call bis_fnc_getParamValue;
-	GRLIB_Opfor_respawn_timer = ["OPFORInfRespawnTimer",120] call bis_fnc_getParamValue;
-	GRLIB_Opfor_Air_respawn_timer = ["OPFORAirRespawnTimer",180] call bis_fnc_getParamValue;
+	GRLIB_Opfor_respawn_timer = ["OPFORDeployTimer",120] call bis_fnc_getParamValue;
 } else {
 	GRLIB_difficulty_modifier = 1;
 	GRLIB_time_factor = 12;
@@ -61,7 +60,6 @@ if ( isMultiplayer ) then {
 	GRLIB_maximum_fobs = 26;
 	GRLIB_max_squad_size = 100;
 	GRLIB_Opfor_respawn_timer = 120;
-	GRLIB_Opfor_Air_respawn_timer = 180;
 };
 
 if ( GRLIB_fatigue < 0.1 ) then { GRLIB_fatigue = false } else { GRLIB_fatigue = true };

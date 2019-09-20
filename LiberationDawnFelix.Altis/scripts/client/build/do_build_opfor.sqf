@@ -22,7 +22,7 @@ while { true } do {
 
 	_classname = ((build_lists select buildtype) select buildindex) select 0;
 	_price = ((build_lists select buildtype) select buildindex) select 1;
-	[ ((build_lists select buildtype) select buildindex) select 1 ] remoteExec ["opfor_build_remote_call", 2];
+	[ _price ] remoteExec ["opfor_build_remote_call", 2];
 
 
 	if(buildtype == 5) then {
@@ -175,7 +175,7 @@ while { true } do {
 
 			if ( !alive player || build_confirmed == 3 ) then {
 				deleteVehicle _vehicle;
-				[ ((build_lists select buildtype) select buildindex) select 1  ] remoteExec ["cancel_opfor_build_remote_call",2];
+				[ _price ] remoteExec ["cancel_opfor_build_remote_call",2];
 			};
 
 			if ( build_confirmed == 2 ) then {
@@ -207,8 +207,8 @@ while { true } do {
 			player removeAction _idactrotate;
 			player removeAction _idactplace;
 
-			build_confirmed = 0;
 		};
 	};
 	dobuild = 0;
+	build_confirmed = 0;
 };
