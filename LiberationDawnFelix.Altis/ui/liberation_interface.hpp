@@ -4,7 +4,6 @@
 #include "liberation_recycle.hpp"
 #include "liberation_build.hpp"
 #include "liberation_deploy.hpp"
-#include "liberation_deploy_opfor.hpp"
 #include "liberation_menu.hpp"
 #include "liberation_endscreen.hpp"
 #include "liberation_deathscreen.hpp"
