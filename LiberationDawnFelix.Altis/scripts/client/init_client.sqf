@@ -15,6 +15,7 @@ if ( typeOf player == "VirtualSpectator_F" ) exitWith {
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\synchronise_vars.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\ui_manager.sqf";
 };
+
 if(side player == GRLIB_side_friendly) then {
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\action_manager.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\intel_manager.sqf";
@@ -23,7 +24,6 @@ if(side player == GRLIB_side_friendly) then {
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\empty_vehicles_marker.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\fob_markers.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\group_icons.sqf";
-	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\build\build_overlay.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\build\do_build.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\offload_diag.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\permissions_warning.sqf";
@@ -36,15 +36,21 @@ if(side player == GRLIB_side_friendly) then {
 	[ player ] joinSilent (createGroup GRLIB_side_friendly);
 };
 if(side player == GRLIB_side_enemy) then {
+	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\action_manager_opfor.sqf";
+	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\build\do_build_opfor.sqf";
+
 	[ player ] joinSilent (createGroup GRLIB_side_enemy);
 };
+
 ["Preload"] call BIS_fnc_arsenal;
+
 respawn_lhd = compileFinal preprocessFileLineNumbers "scripts\client\spawn\respawn_lhd.sqf";
 spawn_camera = compileFinal preprocessFileLineNumbers "scripts\client\spawn\spawn_camera.sqf";
 cinematic_camera = compileFinal preprocessFileLineNumbers "scripts\client\ui\cinematic_camera.sqf";
 write_credit_line = compileFinal preprocessFileLineNumbers "scripts\client\ui\write_credit_line.sqf";
 do_load_box = compileFinal preprocessFileLineNumbers "scripts\client\ammoboxes\do_load_box.sqf";
 
+[] spawn compileFinal preprocessFileLineNumbers "scripts\client\build\build_overlay.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\hostile_groups.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\unflip_manager.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\spawn\redeploy_manager.sqf";

@@ -443,7 +443,7 @@ Build_opfor_Air = [
 	["O_Plane_Fighter_02_Stealth_F",2300]
 ];
 Build_opfor_support = [
-	["STR_Call_TROUP",-1],
+	["STR_CALL_TROUP",-1],
 	["STR_SPAWN_UGV",-1],
 	["STR_SPAWN_UAV",-1],
 	["STR_CALL_MORTAL",-1]
