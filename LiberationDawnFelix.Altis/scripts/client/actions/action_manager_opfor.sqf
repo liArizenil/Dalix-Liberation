@@ -3,6 +3,14 @@ private [ "_idact_build", "_idact_halo", "_nearsector"];
 _idact_build = -1;
 _idact_halo = -1;
 
+waitUntil { !isNil "build_confirmed" };
+waitUntil { !isNil "one_synchro_done" };
+waitUntil { one_synchro_done };
+
+GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer;
+
+player addEventHandler ["Killed",{ GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer; }];
+
 [] spawn {
 	format [ "%1님이 대항군에 참여하셨습니다.", name player] remoteExec ["systemChat"];
 	sleep 3600;
@@ -17,14 +25,6 @@ _idact_halo = -1;
 		sleep 1;
 	};
 };
-
-player addEventHandler ["Killed",{ GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer; }];
-
-waitUntil { !isNil "build_confirmed" };
-waitUntil { !isNil "one_synchro_done" };
-waitUntil { one_synchro_done };
-
-GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer;
 
 while { true } do {
 	_nearsector = [1500,getPos player] call F_getNearestSector;
