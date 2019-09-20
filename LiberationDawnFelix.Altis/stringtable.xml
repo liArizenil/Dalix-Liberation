@@ -363,9 +363,9 @@
 						<Spanish>No hay ningún vehículo cercano capaz de cagar la caja de munición</Spanish>
 						<Russian>Рядом нет техники способной перевозить ящики с боеприпасами.</Russian>
 				</Key>
-				<Key ID="STR_SECONDARYCOMMANDER">
-						<Original>Secondary Objectives Commander</Original>
-						<Korean>후방교란 담당 작전사령관</Korean>
+				<Key ID="STR_WHISKEYOFFICER">
+						<Original>Whiskey Operations Officer</Original>
+						<Korean>위스키 작전 장교</Korean>
 				</Key>
 				<Key ID="STR_ARSENALCOMMANDER">
 						<Original>Logistics officer</Original>
