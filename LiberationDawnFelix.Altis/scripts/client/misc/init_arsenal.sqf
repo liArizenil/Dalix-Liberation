@@ -1,4 +1,4 @@
-if ( side player == blufor ) then {
+if ( side player == GRLIB_side_friendly ) then {
 	if ( isNil "GRLIB_arsenal_weapons" ) then { GRLIB_arsenal_weapons = [] };
 	if ( count GRLIB_arsenal_weapons == 0 ) then {
 		[ missionNamespace, true, false ] call BIS_fnc_addVirtualWeaponCargo;
@@ -31,10 +31,10 @@ if ( side player == blufor ) then {
 	};
 };
 
-if ( side player == opfor ) then {
+if ( side player == GRLIB_side_enemy ) then {
 	["AmmoboxInit", [opforammobox]] spawn BIS_fnc_arsenal;
     [opforammobox, OPFOR_Weapons, false, true ] call BIS_fnc_addVirtualWeaponCargo;
 	[opforammobox, OPFOR_Mines, false, true ] call BIS_fnc_addVirtualMagazineCargo;
 	[opforammobox, OPFOR_Backpacks, false, true ] call BIS_fnc_addVirtualBackpackCargo;
-	[opforammobox, ["OPFOR_Uniform", "OPFOR_Vest", "OPFOR_Helmet", "OPFOR_Sight", "OPFOR_Muzzles", "OPFOR_Goggles"], false, true ] call BIS_fnc_addVirtualItemCargo;
+	[opforammobox, (OPFOR_Uniform + OPFOR_Vest + OPFOR_Helmet + OPFOR_Sight + OPFOR_Muzzles + OPFOR_Goggles), false, true ] call BIS_fnc_addVirtualItemCargo;
 };
