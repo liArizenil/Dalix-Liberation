@@ -29,6 +29,21 @@ bannedbackpack = [
 	"C_UAV_06_backpack_F",
 	"C_UAV_06_medical_backpack_F"
 ];
+OPFOR_Items = [
+	"O_UavTerminal",
+	"ItemMap",
+	"ItemCompass",
+	"ItemWatch",
+	"ItemRadio",
+	"ItemGPS",
+	"Binocular",
+	"Rangefinder",
+	"Laserdesignator",
+	"G_Balaclava_TI_tna_F",
+	"G_Balaclava_TI_blk_F",
+	"G_Balaclava_TI_G_tna_F",
+	"G_Balaclava_TI_G_blk_F"
+];	
 OPFOR_Mines = [
 	"IEDUrbanBig_Remote_Mag",
 	"ATMine_Range_Mag",
