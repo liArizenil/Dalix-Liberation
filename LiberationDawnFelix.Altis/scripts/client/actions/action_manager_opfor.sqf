@@ -9,24 +9,20 @@ waitUntil { !isNil "GRLIB_all_fobs" };
 waitUntil { one_synchro_done };
 
 GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer;
+[missionNamespace, "arsenalClosed", {
+    GRLIB_respawn_loadout = [ player, ["repetitive"] ] call F_getLoadout;
+}] call BIS_fnc_addScriptedEventHandler;
 
 player addEventHandler ["Killed",{ GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer; }];
-
-while { true } do
-{
-	if ( side player == GRLIB_side_enemy ) then {
-		if (!isNull findDisplay 602)then {closeDialog 602};
-		sleep 0.01;
-	};
-};
 
 if ( count GRLIB_all_fobs < 1 ) then {
 	["Opforneedfob", false, false,false,false] call BIS_fnc_endMission;
 };
+
 [] spawn {
 	format [ "%1님이 대항군에 참여하셨습니다.", name player] remoteExec ["systemChat"];
 	sleep 3600;
-	waitUntil {sleep 2; !alive player;};
+	waitUntil {sleep 1; !alive player;};
 	[name player] remoteExec ["kickplayer_remote_call",2];
 };
 [] spawn {
