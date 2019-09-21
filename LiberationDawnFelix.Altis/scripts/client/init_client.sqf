@@ -17,6 +17,11 @@ if ( typeOf player == "VirtualSpectator_F" ) exitWith {
 };
 
 if(side player == GRLIB_side_friendly) then {
+	player addEventHandler ["Respawn", {
+		if(score player > 0) then {
+			[player,(-1*((getPlayerScores player) select 5))] remoteExec ["addScore",2];
+		};
+	}];
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\action_manager.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\intel_manager.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\recycle_manager.sqf";
@@ -30,8 +35,6 @@ if(side player == GRLIB_side_friendly) then {
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\resupply_manager.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\vehicle_permissions.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\GroupTag\tag_init_Client.sqf";
-	
-	[] execVM "onPlayerRespawn.sqf";
 
 	[ player ] joinSilent (createGroup GRLIB_side_friendly);
 };
@@ -41,6 +44,12 @@ if(side player == GRLIB_side_enemy) then {
 
 	[ player ] joinSilent (createGroup GRLIB_side_enemy);
 };
+
+player addEventHandler ["Respawn", {
+	if ( !isNil "GRLIB_respawn_loadout" ) then {
+		[ player, GRLIB_respawn_loadout ] call F_setLoadout;
+	};
+}];
 
 ["Preload"] call BIS_fnc_arsenal;
 
