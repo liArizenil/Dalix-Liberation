@@ -71,7 +71,12 @@ uavs = [
 	"B_UAV_05_F",
 	"B_T_UAV_03_F",
 	"B_UAV_06_F",
-	"B_UAV_06_medical_F"
+	"B_UAV_06_medical_F",
+	"B_Radar_System_01_F",
+	"B_AAA_System_01_F",
+	"B_SAM_System_01_F",
+	"B_UGV_01_F",
+	"B_UGV_01_rcws_F"
 ];
 
 // Pre-made squads for the commander build menu. These shouldn't exceed 10 members.
