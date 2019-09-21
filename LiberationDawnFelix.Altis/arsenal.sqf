@@ -29,19 +29,17 @@ bannedbackpack = [
 	"C_UAV_06_backpack_F",
 	"C_UAV_06_medical_backpack_F"
 ];
-bannedmines = [
-	"APERSBoundingMine_Range_Mag",
-	"APERSMine_Range_Mag",
-	"SLAMDirectionalMine_Wire_Mag",
-	"APERSTripMine_Wire_Mag",
-	"ClaymoreDirectionalMine_Remote_Mag",
-	"APERSMineDispenser_Mag",
-	"TrainingMine_Mag"	
+OPFOR_Mines = [
+	"IEDUrbanBig_Remote_Mag",
+	"ATMine_Range_Mag",
+	"IEDLandBig_Remote_Mag",
+	"IEDUrbanSmall_Remote_Mag",
+	"IEDLandSmall_Remote_Mag",
+	"SatchelCharge_Remote_Mag",
+	"DemoCharge_Remote_Mag"
 ];
-bannedgoggles = [
-	"NVGogglesB_grn_F",
-	"NVGogglesB_gry_F",
-	"NVGogglesB_blk_F"
+OPFOR_Goggles = [
+	"NVGoggles_OPFOR"
 ];
 OPFOR_Weapons = [
 	"hgun_Pistol_heavy_01_F",
