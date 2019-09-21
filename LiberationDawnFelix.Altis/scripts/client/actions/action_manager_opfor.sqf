@@ -11,7 +11,7 @@ waitUntil { one_synchro_done };
 GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer;
 
 player addEventHandler ["Killed",{ GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer; }];
-player addEventHandler ["InventoryOpened", { closeDialog 0; }];
+player addEventHandler ["InventoryOpened", { sleep 0.5; closeDialog 0; }];
 
 if ( count GRLIB_all_fobs < 1 ) then {
 	["Opforneedfob", false, false,false,false] call BIS_fnc_endMission;
