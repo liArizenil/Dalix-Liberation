@@ -35,17 +35,41 @@ while { true } do {
 
 		_aircraft flyInHeight (120 + (random 180));
 
-		if(_classname == "O_T_VTOL_02_infantry_F") then { //XIAN
-			_aircraft setPylonLoadOut["PylonRight1",""];
-			_aircraft setPylonLoadOut["PylonRight2",""];
-			_aircraft setPylonLoadOut["PylonLeft1",""];
-			_aircraft setPylonLoadOut["PylonLeft2",""];
+		if(_classname == "O_T_VTOL_02_infantry_dynamicLoadout_F") then { //XIAN
+			_aircraft setPylonLoadout ["PylonRight1",""];
+			_aircraft setPylonLoadout ["PylonRight2",""];
+			_aircraft setPylonLoadout ["PylonLeft2",""];
+			_aircraft setPylonLoadout ["PylonLeft1",""];
+			_aircraft removeWeaponTurret ["missiles_SCALPEL",[0]];
+			_aircraft removeWeaponTurret ["rockets_Skyfire",[0]];
 		};
-		if(_classname == "O_Plane_CAS_02_F") then { //NEO
-
+		if(_classname == "O_Plane_CAS_02_dynamicLoadout_F") then { //NEO
+			_aircraft setPylonLoadout ["Pylons1",""];
+			_aircraft setPylonLoadout ["Pylons2",""];
+			_aircraft setPylonLoadout ["Pylons3",""];
+			_aircraft setPylonLoadout ["Pylons4",""];
+			_aircraft setPylonLoadout ["Pylons5",""];
+			_aircraft setPylonLoadout ["Pylons6",""];
+			_aircraft setPylonLoadout ["Pylons7",""];
+			_aircraft setPylonLoadout ["Pylons9",""];
+			_aircraft setPylonLoadout ["Pylons10",""];
+			_aircraft removeWeaponTurret ["Missile_AA_03_Plane_CAS_02_F",[-1]];
+			_aircraft removeWeaponTurret ["Missile_AGM_01_Plane_CAS_02_F",[-1]];
+			_aircraft removeWeaponTurret ["Rocket_03_HE_Plane_CAS_02_F",[-1]];
+			_aircraft removeWeaponTurret ["Bomb_03_Plane_CAS_02_F",[-1]];
+			_aircraft removeWeaponTurret ["Laserdesignator_pilotCamera",[-1]];
+			_aircraft addWeaponTurret ["weapon_SDBLauncher",[-1]];
+			_aircraft addMagazineTurret ["PylonRack_Bomb_SDB_x4",[-1]];
+			_aircraft addMagazineTurret ["PylonRack_Bomb_SDB_x4",[-1]];
+			_aircraft addMagazineTurret ["120Rnd_CMFlareMagazine",[-1]];
 		};
 		if(_classname == "O_Plane_Fighter_02_Stealth_F") then { //SHIKRA
-
+			_aircraft setPylonLoadout ["pylonBayCenter1",""];
+			_aircraft setPylonLoadout ["pylonBayCenter2",""];
+			_aircraft setPylonLoadout ["pylonBayCenter3",""];
+			_aircraft removeWeaponTurret ["weapon_KAB250Launcher",[-1]];
+			_aircraft removeWeaponTurret ["Laserdesignator_pilotCamera",[-1]];
+			_aircraft addMagazineTurret ["240Rnd_CMFlareMagazine",[-1]];
 		};
 	} else {
 		if(buildtype == 7 ) then {

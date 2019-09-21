@@ -438,8 +438,8 @@ Build_opfor_Heli = [
 	["O_Heli_Attack_02_F", 1400]
 ];
 Build_opfor_Air = [
-	["O_T_VTOL_02_infantry_F",1700],
-	["O_Plane_CAS_02_F",2100],
+	["O_T_VTOL_02_infantry_dynamicLoadout_F",1700],
+	["O_Plane_CAS_02_dynamicLoadout_F",2100],
 	["O_Plane_Fighter_02_Stealth_F",2300]
 ];
 Build_opfor_support = [
