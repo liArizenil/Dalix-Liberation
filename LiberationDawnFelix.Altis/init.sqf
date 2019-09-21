@@ -56,12 +56,12 @@ if (!isDedicated && hasInterface) then {
 		};
 		if(typeOf player == "O_Soldier_AT_F") then {
 			if(_bluforcount < 24) then {
-		        	["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
+		        ["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 			};
 		};
 		if(typeOf player == "O_Soldier_AA_F") then {
 			if(_bluforcount < 24) then {
-		        	["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
+		        ["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 			};
 		};
 		if(typeOf player == "O_Pilot_F") then {
