@@ -35,6 +35,14 @@ ctrlShow [ 1085, false ];
 
 ctrlShow [ 121, false ];
 
+ctrlShow [ 3000, false ];
+ctrlShow [ 30005, false ];
+ctrlShow [ 3001, false ];
+ctrlShow [ 30015, false ];
+
+ctrlSetText [ 3002 , "\A3\ui_f\data\map\markers\handdrawn\warning_CA.paa"];
+ctrlSetText [ 30025 , "\A3\ui_f\data\map\markers\handdrawn\warning_CA.paa"];
+
 _buildpages = [
 "", //type 1
 "", //type 2
