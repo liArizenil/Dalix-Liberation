@@ -187,7 +187,7 @@ while { true } do {
 						GRLIB_ui_notif = localize "STR_BUILD_ERROR_WATER";
 					};
 					if(!(([1500,getPos player] call F_getNearestSector) in blufor_sectors)) then {
-						GRLIB_ui_notif = "You can't Build here. It's not OPFOR's Area";
+						GRLIB_ui_notif = localize "STR_PLACEMENT_IMPOSSIBLE_OPFOR";
 					};
 				};
 				sleep 0.05;
