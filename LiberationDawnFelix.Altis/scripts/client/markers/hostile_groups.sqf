@@ -29,7 +29,7 @@ while { true } do {
 		_marker setMarkerColorLocal GRLIB_color_enemy_bright;
 		_marker setMarkerTypeLocal "mil_warning";
 		_marker setMarkerSizeLocal [ 0.65, 0.65 ];
-		_marker setMarkerPosLocal (getpos ((leader _x) getPos [ random 50, random 360 ]));
+		_marker setMarkerPosLocal ((leader _x) getPos [ random 50, random 360 ]);
 		_hostile_markers pushback _marker;
 	} foreach _hostile_groups;
 
