@@ -12,6 +12,15 @@ GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer;
 [missionNamespace, "arsenalClosed", {
     GRLIB_respawn_loadout = [ player, ["repetitive"] ] call F_getLoadout;
 }] call BIS_fnc_addScriptedEventHandler;
+[ missionNamespace, "arsenalOpened", {
+    disableSerialization;
+    _display = _this select 0;
+    {
+        ( _display displayCtrl _x ) ctrlSetText "Disabled";
+        ( _display displayCtrl _x ) ctrlSetTextColor [ 1, 0, 0, 0.5 ];
+        ( _display displayCtrl _x ) ctrlRemoveAllEventHandlers "buttonclick";
+    }forEach [ 44146, 44147 ];
+} ] call BIS_fnc_addScriptedEventHandler;
 
 player addEventHandler ["Killed",{ GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer; }];
 
@@ -33,6 +42,8 @@ if ( count GRLIB_all_fobs < 1 ) then {
 		sleep 1;
 	};
 };
+
+GRLIB_respawn_loadout = [ player, ["repetitive"] ] call F_getLoadout;
 
 while { true } do {
 	_nearsector = [1500,getPos player] call F_getNearestSector;
