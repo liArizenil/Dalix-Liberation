@@ -299,6 +299,10 @@
 						<Spanish>Construcción confirmada.</Spanish>
 						<Russian>Постройка подтверждена</Russian>
 				</Key>
+				<Key ID="STR_PLACEMENT_IMPOSSIBLE_OPFOR">
+						<Original>You Can't Build here, It's not the OPFOR Area or There is obstacle. </Original>
+						<Korean>여기에 건설 할 수 없습니다, 대항군 지역이 아니거나 장애물이 존재합니다.</Korean>
+				</Key>
 				<Key ID="STR_PLACEMENT_IMPOSSIBLE">
 						<Original>여기에 건설 불가능 : %1 가(이) %2 M 안에 있습니다.</Original>
 						<English>Impossible to Construct on here : %1 is at the inside of %2 M</English>
