@@ -15,8 +15,6 @@ player addEventHandler ["Killed",{ GRLIB_deploy_timer = GRLIB_Opfor_respawn_time
 if ( count GRLIB_all_fobs < 1 ) then {
 	["Opforneedfob", false, false,false,false] call BIS_fnc_endMission;
 };
-
-else {
 [] spawn {
 	format [ "%1님이 대항군에 참여하셨습니다.", name player] remoteExec ["systemChat"];
 	sleep 3600;
