@@ -13,8 +13,8 @@ enableSaving [ false, false ];
 "respawn_east" setMarkerPosLocal [markerPos "respawn_East" select 0, markerPos "respawn_East" select 1, 193];
 
 if (isServer) then {
-	[] call compileFinal preprocessFileLineNumbers "scripts\server\init_server.sqf";
 	["Initialize"] call BIS_fnc_dynamicGroups;
+	[] call compileFinal preprocessFileLineNumbers "scripts\server\init_server.sqf";
 };
 
 if (!isDedicated && !hasInterface && isMultiplayer) then {
@@ -22,55 +22,7 @@ if (!isDedicated && !hasInterface && isMultiplayer) then {
 };
 
 if (!isDedicated && hasInterface) then {
-	if(isClass ( configFile >> "CfgVehicles" >> "gm_gc_army_brdm2" )) then {
-		["DLCDec", false, false,false,false] call BIS_fnc_endMission;
-	};
-	[] execVM "GF_Earplugs\GF_Earplugs.sqf";
-	[] execVM "scripts\autorun.sqf";
-	[] execVM "scripts\RuleDiary.sqf";
-	[] execVM "scripts\3Dmarkers.sqf";
-	[] execVM "scripts\anounce.sqf";
-	[] execVM "VAM_GUI\VAM_GUI_init.sqf";
-	[] execVM "GREUH\scripts\GREUH_activate.sqf";
-	[] execVM "scripts\SimpleHaloDrop.sqf";
-	[] execVM "scripts\BlackFishCargo.sqf";
-	[] execVM "scripts\SHK_Fastrope.sqf";
-	[] execVM "scripts\motd.sqf";
-	[] execVM "scripts\outlw_magRepack\MagRepack_init_sv.sqf";
-
-	if(side player == GRLIB_side_friendly) then {
-		[] execVM "IgiLoad\IgiLoadInit.sqf";
-		[] execVM "scripts\cratercleaner.sqf";
-		[] execVM "scripts\VehicleLimit.sqf";
-		[] execVM "scripts\irstrobe.sqf"; 
-	};
-	if(side player == GRLIB_side_enemy) then {
-		private ["_bluforcount"];
-		_bluforcount = GRLIB_side_friendly countSide (allPlayers);
-		
-		if(_bluforcount < 20) then {
-			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
-		};
-		if(_bluforcount < 23 && {side _x == GRLIB_side_enemy} count (allPlayers) > 2) then {
-			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
-		};
-		if(typeOf player == "O_Soldier_AT_F") then {
-			if(_bluforcount < 24) then {
-		      	  ["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
-			};
-		};
-		if(typeOf player == "O_Soldier_AA_F") then {
-			if(_bluforcount < 24) then {
-		      	  ["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
-			};
-		};
-		if(typeOf player == "O_Pilot_F") then {
-			if(_bluforcount < 27) then {
-				["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
-			};
-		};
-	};
-	waitUntil { alive player };
+	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 	[] call compileFinal preprocessFileLineNumbers "scripts\client\init_client.sqf";
 } else {
 	setViewDistance 1600;

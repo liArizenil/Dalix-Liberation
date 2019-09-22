@@ -1,8 +1,9 @@
+if(isClass ( configFile >> "CfgVehicles" >> "gm_gc_army_brdm2" )) then { ["DLCDec", false, false,false,false] call BIS_fnc_endMission; };
+
 0 enableChannel [true, false];
 1 enableChannel [true, false];
 
 [] call compileFinal preprocessFileLineNumbers "scripts\client\misc\init_markers.sqf";
-[] call compileFinal preprocessFileLineNumbers "arsenal.sqf";
 
 if ( typeOf player == "VirtualSpectator_F" ) exitWith {
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\empty_vehicles_marker.sqf";
@@ -16,12 +17,16 @@ if ( typeOf player == "VirtualSpectator_F" ) exitWith {
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\ui_manager.sqf";
 };
 
+[] call compileFinal preprocessFileLineNumbers "arsenal.sqf";
+
 if(side player == GRLIB_side_friendly) then {
-	player addEventHandler ["Respawn", {
-		if(score player > 0) then {
-			[player,(-1*((getPlayerScores player) select 5))] remoteExec ["addScore",2];
-		};
-	}];
+	player addEventHandler ["Respawn", { if(score player > 0) then { [player,(-1*((getPlayerScores player) select 5))] remoteExec ["addScore",2]; }; }];
+
+	[] execVM "IgiLoad\IgiLoadInit.sqf";
+	[] execVM "scripts\cratercleaner.sqf";
+	[] execVM "scripts\VehicleLimit.sqf";
+	[] execVM "scripts\irstrobe.sqf"; 
+
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\action_manager.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\intel_manager.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\recycle_manager.sqf";
@@ -39,17 +44,47 @@ if(side player == GRLIB_side_friendly) then {
 	[ player ] joinSilent (createGroup GRLIB_side_friendly);
 };
 if(side player == GRLIB_side_enemy) then {
+	private ["_bluforcount"];
+	_bluforcount = GRLIB_side_friendly countSide (allPlayers);
+		
+	if(_bluforcount < 20) then {
+		["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
+	};
+	if(_bluforcount < 23 && {side _x == GRLIB_side_enemy} count (allPlayers) > 2) then {
+		["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
+	};
+	if(typeOf player == "O_Soldier_AT_F") then {
+		if(_bluforcount < 24) then {
+			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
+		};
+	};
+	if(typeOf player == "O_Soldier_AA_F") then {
+		if(_bluforcount < 24) then {
+	      	  ["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
+		};
+	};
+	if(typeOf player == "O_Pilot_F") then {
+		if(_bluforcount < 27) then {
+			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
+		};
+	};
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\action_manager_opfor.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\build\do_build_opfor.sqf";
 
 	[ player ] joinSilent (createGroup GRLIB_side_enemy);
 };
 
-player addEventHandler ["Respawn", {
-	if ( !isNil "GRLIB_respawn_loadout" ) then {
-		[ player, GRLIB_respawn_loadout ] call F_setLoadout;
-	};
-}];
+[] execVM "GF_Earplugs\GF_Earplugs.sqf";
+[] execVM "scripts\autorun.sqf";
+[] execVM "scripts\RuleDiary.sqf";
+[] execVM "scripts\3Dmarkers.sqf";
+[] execVM "scripts\anounce.sqf";
+[] execVM "VAM_GUI\VAM_GUI_init.sqf";
+[] execVM "GREUH\scripts\GREUH_activate.sqf";
+[] execVM "scripts\SimpleHaloDrop.sqf";
+[] execVM "scripts\BlackFishCargo.sqf";
+[] execVM "scripts\SHK_Fastrope.sqf";
+[] execVM "scripts\outlw_magRepack\MagRepack_init_sv.sqf";
 
 ["Preload"] call BIS_fnc_arsenal;
 
@@ -78,9 +113,13 @@ do_load_box = compileFinal preprocessFileLineNumbers "scripts\client\ammoboxes\d
 //[] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\tutorial_manager.sqf";
 
 player addMPEventHandler ["MPKilled", {_this spawn kill_manager}];
+player addEventHandler ["Respawn", { if ( !isNil "GRLIB_respawn_loadout" ) then { [ player, GRLIB_respawn_loadout ] call F_setLoadout; }; }];
 
 {
 	[_x] call BIS_fnc_drawCuratorLocations;
 } foreach allCurators;
 
+waitUntil { !alive player };
+
+[] execVM "scripts\motd.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\intro.sqf";
