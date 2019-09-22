@@ -1,7 +1,6 @@
 if(isClass ( configFile >> "CfgVehicles" >> "gm_gc_army_brdm2" )) then { ["DLCDec", false, false,false,false] call BIS_fnc_endMission; };
 
 0 enableChannel [true, false];
-1 enableChannel [true, false];
 
 [] call compileFinal preprocessFileLineNumbers "scripts\client\misc\init_markers.sqf";
 
@@ -21,6 +20,8 @@ if ( typeOf player == "VirtualSpectator_F" ) exitWith {
 
 if(side player == GRLIB_side_friendly) then {
 	player addEventHandler ["Respawn", { if(score player > 0) then { [player,(-1*((getPlayerScores player) select 5))] remoteExec ["addScore",2]; }; }];
+
+	1 enableChannel [true, false];
 
 	[] execVM "IgiLoad\IgiLoadInit.sqf";
 	[] execVM "scripts\cratercleaner.sqf";
@@ -67,6 +68,8 @@ if(side player == GRLIB_side_enemy) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		};
 	};
+	2 enableChannel [false, false];
+	3 enableChannel [false, false];
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\action_manager_opfor.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\build\do_build_opfor.sqf";
 
