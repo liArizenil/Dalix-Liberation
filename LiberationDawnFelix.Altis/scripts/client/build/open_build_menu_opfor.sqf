@@ -26,6 +26,9 @@ ctrlShow [ 1055, _isPilot ];
 
 ctrlShow [ 1106, _isPilot ];
 ctrlShow [ 11065, _isPilot ];
+if(_isPilot) then {
+	ctrlSetText [ 11065 , "\A3\ui_f\data\map\vehicleicons\iconPlane_ca.paa"];
+};
 
 ctrlShow [ 109, false ];
 ctrlShow [ 1095, false ];
