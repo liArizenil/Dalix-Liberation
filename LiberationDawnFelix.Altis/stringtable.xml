@@ -1231,21 +1231,7 @@
 						<English>2. Start the Campagin</English>
 				</Key>
 				<Key ID="STR_TUTO_TEXT2">
-						<Original>&lt;br/&gt;&lt;br/&gt;
-						&lt;t size='10'&gt;&lt;img image='res\tuto\fob.jpg'/&gt;&lt;/t&gt;
-						&lt;br/&gt;&lt;br/&gt;
-						귀관은 적이 공격할 수 없는 안전구역에서 시나리오를 시작하게 됩니다. 귀관의 첫번째 선택은 섬의 어느 구역으로 공격해 들어가느냐 입니다. 처음에는 오로지 Base Chimera에서만 배치할수 있지만, 게임이 진행됨에 따라, 더 많은 옵션들이 가능하게될 것입니다(FOB - 전진기지나 Mobile HQ - 이동형 지휘소).&lt;br/&gt; &lt;br/&gt;
-						첫 시작거점에서 귀관의 개인장구류를 완벽하게 갖출수 있습니다. 귀관은 첫 FOB를 건설할수 있는 컨테이너도 찾을수 있고 Spartan-01 휴론과 몇가지 다른 회전익 항공기역시 있습니다.&lt;br/&gt; &lt;br/&gt;
-						귀관은 EH302나 고스트호크를 이용해 컨테이너를 수송할수 있습니다. 귀관은 첫 FOB를 어디든 배치할수 있기때문에 시나리오를 시작하는 시작거점을 귀관 마음대로 선택할수 있습니다.&lt;br/&gt; &lt;br/&gt;
-						</Original>
-						<English>
-						&lt;br/&gt;&lt;br/&gt;
-						&lt;t size='10'&gt;&lt;img image='res\tuto\fob.jpg'/&gt;&lt;/t&gt;
-						&lt;br/&gt;&lt;br/&gt;
-						You begin the campaign in a safe zone that CSAT won't dare to attack. Your first choice is to choose where you want to deploy. At the beginning you can only deploy at the starting base, but as you progress, more options will become available such as forward operation bases (FOBs) and mobile respawns.&lt;br/&gt; &lt;br/&gt;
-						At your starting location you can choose your equipment from a complete Arsenal. You will also find your first FOB packaged inside a container, the Spartan-01 Huron and a few other transport choppers.&lt;br/&gt; &lt;br/&gt;
-						You will have to ferry that container with either the EH302 or Ghosthawk (unless you have chosen to start with the first FOB already built). You can deploy this first FOB wherever you want, so it's up to you to choose the right place to start your campaign.&lt;br/&gt; &lt;br/&gt;
-						</English>
+						<Original>튜토리얼이 지정되어있지 않음</Original>
 				</Key>
 				<Key ID="STR_TUTO_TITLE3">
 						<Original>3. 작전 목표</Original>
@@ -1296,23 +1282,7 @@
 						<English>5. Resources</English>
 				</Key>
 				<Key ID="STR_TUTO_TEXT5">
-						<Original>&lt;br/&gt;&lt;br/&gt;
-						&lt;t size='10'&gt;&lt;img image='res\tuto\ress.jpg'/&gt;&lt;/t&gt;
-						&lt;br/&gt;&lt;br/&gt;
-						이 시나리오에서 귀관은 세 종류의 자원을 운용하게됩니다:&lt;br/&gt; &lt;br/&gt;
-						- &lt;t color='#00ff00'&gt;MANPOWER:&lt;/t&gt; 인력은 귀관이 운용할수있는 군의 총체적인 규모에 직결됩니다. 많은 인력은 지상병력의 양과 질을 향상시킬수 있습니다. &lt;br/&gt; &lt;br/&gt;
-						- &lt;t color='#ff0000'&gt;AMMO:&lt;/t&gt; 탄약은 장갑차량, 전차, 그리고 숙련 전투병을 유지하는데 필요합니다. 이것은 필요할때 영구적으로 저장할수 있습니다. 탄약은 군사기지에 있는 컨테이너 박스에서 조달할수 있습니다. 이들 컨테이너를 트럭이나 항공수송을 통해 FOB로 가져온다음 분해하면 탄약을 확보할수 있습니다.&lt;br/&gt; &lt;br/&gt;
-						- &lt;t color='#ffff00'&gt;FUEL:&lt;/t&gt; 연료는 모든 장비에 사용되기때문에, 다른 물자들보다 부족현상이 심할것입니다. 연료를 확보하는 가장 좋은수단은 적의 공장을 얼마나 많이 확보할수 있느냐에 달려있습니다.&lt;br/&gt; &lt;br/&gt;
-						</Original>
-						<English>
-						&lt;br/&gt;&lt;br/&gt;
-						&lt;t size='10'&gt;&lt;img image='res\tuto\ress.jpg'/&gt;&lt;/t&gt;
-						&lt;br/&gt;&lt;br/&gt;
-						In this campaign you have to manage three types of resources:&lt;br/&gt; &lt;br/&gt;
-						- &lt;t color='#00ff00'&gt;MANPOWER:&lt;/t&gt; manpower is linked to the number of points of interest you control. A bigger manpower allows you to raise the quality and quantity of your ground troops. &lt;br/&gt; &lt;br/&gt;
-						- &lt;t color='#ff0000'&gt;AMMO:&lt;/t&gt; ammunition is used to deploy armed vehicles, tanks and elite soldiers. It can be stocked forever and used only when necessary. Ammunition is contained in boxes that can be retrieved from military bases. Those crates have to be moved back to a FOB by truck or sling load, then recycled to increase your ammunition stockpile.&lt;br/&gt; &lt;br/&gt;
-						- &lt;t color='#ffff00'&gt;FUEL:&lt;/t&gt; fuel is used by every vehicle, some being more thirsty than others. The fuel levels depends on how many factories are controlled by NATO forces.&lt;br/&gt; &lt;br/&gt;
-						</English>
+						<Original>튜토리얼이 지정 되어있지 않음</Original>
 				</Key>
 				<Key ID="STR_TUTO_TITLE6">
 						<Original>6. 위협 수준</Original>
