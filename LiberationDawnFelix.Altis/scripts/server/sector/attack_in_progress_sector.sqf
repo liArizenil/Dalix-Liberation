@@ -68,19 +68,7 @@ if ( GRLIB_endgame == 0 ) then {
 		[] call recalculate_caps;
 		stats_sectors_lost = stats_sectors_lost + 1;
 		if(_isplayer) then {
-				[_sector] spawn {
-					params ["_sector"];
-					private ["_vehspawn","_specialgift", "_para"];
-					_vehspawn = markerpos _sector;
-        				_specialgift = opfor_mrap createVehicle _vehspawn;
-        				_specialgift setPosATL (_specialgift modelToWorld[0,0,100]);
-        				_para = createVehicle ["B_Parachute_02_F", getpos _specialgift, [], 0, "NONE"];
-        				_para attachTo [_specialgift, [0, 0, 0]];
-        				detach _para;
-        				_specialgift attachTo [_para, [0, 0, 1]];
-        				waituntil { ((getPos _specialgift) select 2) < 5 };
-        				detach _specialgift;
-				};
+				combat_readiness = combat_readiness + 100;
 		};
 	} else {
 		[ _sector, 3 , 0 ] remoteExec ["remote_call_sector",-2];
