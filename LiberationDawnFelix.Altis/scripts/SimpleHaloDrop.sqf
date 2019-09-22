@@ -9,7 +9,8 @@ HALO_DROP_Vehicle = [
 	["C_IDAP_Heli_Transport_02_F","CargoRamp_Open"],//EH302
 	["O_Heli_Transport_04_covered_F","Door_6_source"],//타루
 	["O_T_VTOL_02_infantry_F","Door_1_source"],
-	["O_T_VTOL_02_infantry_hex_F","Door_1_source"]
+	["O_T_VTOL_02_infantry_hex_F","Door_1_source"],
+	["O_T_VTOL_02_infantry_dynamicLoadout_F","Door_1_source"]
 ];
 
 HALO_DROP_AddAction = {
