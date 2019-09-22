@@ -42,7 +42,10 @@ OPFOR_Items = [
 	"G_Balaclava_TI_tna_F",
 	"G_Balaclava_TI_blk_F",
 	"G_Balaclava_TI_G_tna_F",
-	"G_Balaclava_TI_G_blk_F"
+	"G_Balaclava_TI_G_blk_F",
+	"Medikit",
+	"ToolKit",
+	"FirstAidKit"
 ];	
 OPFOR_Mines = [
 	"IEDUrbanBig_Remote_Mag",
