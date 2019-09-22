@@ -118,7 +118,7 @@ player addEventHandler ["Respawn", { if ( !isNil "GRLIB_respawn_loadout" ) then 
 	[_x] call BIS_fnc_drawCuratorLocations;
 } foreach allCurators;
 
-waitUntil { !alive player };
+waitUntil { alive player };
 
 [] execVM "scripts\motd.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\intro.sqf";
