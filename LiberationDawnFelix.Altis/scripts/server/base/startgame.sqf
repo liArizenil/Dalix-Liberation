@@ -23,8 +23,8 @@ if ( count GRLIB_all_fobs == 0 ) then {
 		} foreach sectors_opfor;
 
 		_spawnplace = selectRandom _potentialplaces;
-		[ [ markerPos _spawnplace, true ] , "build_fob_remote_call" ] call BIS_fnc_MP;
-
+		[ markerPos _spawnplace, true ] remoteExec ["build_fob_remote_call", 2];
+ 
 	} else {
 		while { count GRLIB_all_fobs == 0 } do {
 
@@ -44,7 +44,7 @@ if ( count GRLIB_all_fobs == 0 ) then {
 				_fobbox setdir 215;
 			};
 
-			[ [_fobbox, 3000 ] , "F_setMass" ] call BIS_fnc_MP;
+			[_fobbox, 3000 ] remoteExec ["F_setMass"];
 
 			sleep 3;
 

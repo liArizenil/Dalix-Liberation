@@ -45,7 +45,7 @@ if(combat_readiness <= 4583) then {
 else{
 	_attacktime = 90;
 };
-[ [ _sector, 1, _attacktime ] , "remote_call_sector" ] call BIS_fnc_MP;
+[ _sector, 1, _attacktime ] remoteExec ["remote_call_sector",-2];
 
 while { _attacktime > 0 && ( _ownership == GRLIB_side_enemy || _ownership == GRLIB_side_resistance ) } do {
 	_ownership = [markerpos _sector] call F_sectorOwnership;
@@ -62,7 +62,7 @@ if ( GRLIB_endgame == 0 ) then {
 	if ( _attacktime <= 1 && ( [markerpos _sector] call F_sectorOwnership == GRLIB_side_enemy ) ) then {
 		blufor_sectors = blufor_sectors - [ _sector ];
 		publicVariable "blufor_sectors";
-		[ [ _sector, 2 , 0 ] , "remote_call_sector" ] call BIS_fnc_MP;
+		[ _sector, 2 , 0 ] remoteExec ["remote_call_sector",-2];
 		reset_battlegroups_ai = true;
 		trigger_server_save = true;
 		[] call recalculate_caps;
@@ -83,7 +83,7 @@ if ( GRLIB_endgame == 0 ) then {
 				};
 		};
 	} else {
-		[ [ _sector, 3 , 0 ] , "remote_call_sector" ] call BIS_fnc_MP;
+		[ _sector, 3 , 0 ] remoteExec ["remote_call_sector",-2];
 		{ [_x] spawn prisonner_ai; } foreach ( ((markerpos _sector) nearEntities [ "Man", GRLIB_capture_size * 0.8 ]) select { side group _x == GRLIB_side_enemy&&!isPlayer _x } );
 	};
 };

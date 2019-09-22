@@ -58,7 +58,6 @@ if ( isServer ) then {
 							resources_ammo = resources_ammo - 100;
 						};
 						combat_readiness = combat_readiness + 100;
-						[ [ name _unit, _killer ] , "remote_call_civ_penalty" ] call BIS_fnc_MP;
 					};
 					if(side _killer == GRLIB_side_enemy) then {
 						if((combat_readiness - 500) < 0) then {
@@ -67,8 +66,8 @@ if ( isServer ) then {
 						else{
 							combat_readiness = combat_readiness - 500;
 						};
-						[ [ name _unit,  _killer ] , "remote_call_civ_penalty" ] call BIS_fnc_MP;
 					};
+					[ name _unit,  _killer ] remoteExec ["remote_call_civ_penalty",-2];
 				};
 			};
 		};
@@ -108,7 +107,7 @@ if ( isServer ) then {
 					};
 
 					resources_ammo = resources_ammo + _bounty;
-					[ [ typeOf _unit, _bounty, _killer ] , "remote_call_ammo_bounty" ] call BIS_fnc_MP;
+					[ typeOf _unit, _bounty, _killer ] remoteExec ["remote_call_ammo_bounty",-2];
 				};
 			};
 		} else {

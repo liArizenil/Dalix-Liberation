@@ -21,5 +21,5 @@ if ( dialog ) then { closeDialog 0 };
 
 if ( dorecycle == 1 && !(isnull _vehtorecycle) && alive _vehtorecycle) then {
 	format [ "%1님이 FOB %2 근처에서 %3을(를) 재활용 하였습니다.", name player, [[] call F_getNearestFob] call F_getFobName , getText ( _cfg >> (_objectinfo select 0) >> "displayName" ) ] remoteExec ["systemChat"];
-	[ [ _vehtorecycle,  round ((_objectinfo select 2) * GRLIB_recycling_percentage) ] , "recycle_remote_call" ] call BIS_fnc_MP;
+	[ _vehtorecycle,  round ((_objectinfo select 2) * GRLIB_recycling_percentage) ] remoteExec ["recycle_remote_call",2];
 };

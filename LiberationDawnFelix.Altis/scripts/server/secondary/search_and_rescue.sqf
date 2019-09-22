@@ -83,7 +83,7 @@ secondary_objective_position_marker = secondary_objective_position getPos [ 800,
 publicVariable "secondary_objective_position_marker";
 sleep 1;
 GRLIB_secondary_in_progress = 2; publicVariable "GRLIB_secondary_in_progress";
-[ [ 6 ] , "remote_call_intel" ] call BIS_fnc_MP;
+[ 6 ] remoteExec ["remote_call_intel" , -2];
 
 waitUntil {
 	sleep 5;
@@ -94,9 +94,9 @@ sleep 5;
 
 private _alive_crew_count = { alive _x } count _pilotUnits;
 if ( _alive_crew_count == 0 ) then {
-	[ [ 7 ] , "remote_call_intel" ] call BIS_fnc_MP;
+	[ 7 ] remoteExec ["remote_call_intel" , -2];
 } else {
-	[ [ 8 ] , "remote_call_intel" ] call BIS_fnc_MP;
+	[ 8 ] remoteExec ["remote_call_intel" , -2];
 	private _grp = createGroup GRLIB_side_friendly;
 	{ [_x ] joinSilent _grp; } foreach _pilotUnits;
 	while {(count (waypoints _grp)) != 0} do {deleteWaypoint ((waypoints _grp) select 0);};

@@ -37,7 +37,6 @@ if(side player == GRLIB_side_friendly) then {
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\build\do_build.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\offload_diag.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\permissions_warning.sqf";
-	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\resupply_manager.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\vehicle_permissions.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\GroupTag\tag_init_Client.sqf";
 
