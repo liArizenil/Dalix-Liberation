@@ -2,6 +2,16 @@ private [ "_dialog", "_backpack", "_backpackcontents" ];
 
 if ( isNil "GRLIB_last_halo_jump" ) then { GRLIB_last_halo_jump = -6000; };
 
+if (["IsGroupRegistered", [(group player)]] call BIS_fnc_dynamicGroups) exitWith { 
+	//대충 분대 가입하라는 경고창
+
+
+};
+if(isNil{ ((group player)getVariable['GroupType',nil])}) exitWith {
+	//대충 분대 태그 지정하라는 경고창
+
+};
+
 if ( GRLIB_halo_param > 1 && ( GRLIB_last_halo_jump + ( GRLIB_halo_param * 60 ) ) >= time ) exitWith {
 	hint format [ localize "STR_HALO_DENIED_COOLDOWN", ceil ( ( ( GRLIB_last_halo_jump + ( GRLIB_halo_param * 60 ) ) - time ) / 60 ) ];
 };
