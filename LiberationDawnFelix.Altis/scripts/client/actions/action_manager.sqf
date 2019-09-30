@@ -34,8 +34,6 @@ while { true } do {
 		_fobdistance = player distance _nearfob;
 	};
 
-	_GroupJoined = ["IsGroupRegistered", [(group player)]] call BIS_fnc_dynamicGroups;
-
 	_neararsenal = ( (getpos player) nearEntities [ [Arsenal_typename, huron_typename] , _distarsenal ]) select { getObjectType _x >= 8 };
 	_nearfobbox = ( (getpos player) nearEntities [ [ FOB_box_typename, FOB_truck_typename ] , _distbuildfob ] );
 	_nearspawn = ( (getpos player) nearEntities [ [ Respawn_truck_typename] , _distspawn ] );
@@ -188,4 +186,5 @@ while { true } do {
 			_ideh_shooting = -1;
 		};
 	};
+	sleep 1;
 };
