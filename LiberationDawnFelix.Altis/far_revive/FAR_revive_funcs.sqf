@@ -21,10 +21,14 @@ FAR_Player_Actions =
 FAR_HandleDamage_EH =
 {
 
-	params [ "_unit", "_selectionName", "_amountOfDamage", "_killer", "_projectile", "_hitPartIndex" ];
+	params [ "_unit", "_selectionName", "_amountOfDamage", "_killer", "_projectile", "_hitPartIndex","_instigator" ];
 	private [ "_isUnconscious", "_olddamage", "_damageincrease", "_vestarmor", "_vest_passthrough", "_vestobject", "_helmetarmor",  "_helmet_passthrough", "_helmetobject" ];
 
 	_isUnconscious = _unit getVariable "FAR_isUnconscious";
+
+	if(!isNull _instigator) then {
+		_killer =  _instigator;
+	};
 
 	if (alive _unit && _amountOfDamage >= 1.0 && _isUnconscious == 0 && (_selectionName in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"] )) then
 	{
