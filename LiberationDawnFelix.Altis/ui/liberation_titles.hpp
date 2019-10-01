@@ -668,7 +668,7 @@ class RscTitles
 			{
 				idc = 1004;
 				font = FontM;
-				sizeEx = 0.026;
+				sizeEx = 0.025;
 				style = ST_CENTER;
 				colorText[] = { 0,0,0,1 };
 
@@ -806,7 +806,7 @@ class RscTitles
 				text = "HOME"; //--- ToDo: Localize;
 
 				font = FontM;
-				sizeEx = 0.026;
+				sizeEx = 0.025;
 				style = ST_CENTER;
 				colorText[] = { 0,0,0,1 };
 
@@ -848,7 +848,7 @@ class RscTitles
 				text = "%1 초"; //--- ToDo: Localize;
 
 				font = FontM;
-				
+
 				x = 0.958906 * safezoneW + safezoneX;
 				y = 0.137 * safezoneH + safezoneY;
 				w = 0.0309375 * safezoneW;
