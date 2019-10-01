@@ -17,4 +17,7 @@ while {true} do
 
     [west, "Base"] sideChat "=+ 버튼으로 무장을 해제할 수 있습니다 !";
     sleep _sltime;
+
+    [west, "Base"] sideChat "현재 관리자 모집이 진행중입니다. 자세한 사항은 디스코드 채널을 참고하세요!";
+    sleep _sltime;
 };
