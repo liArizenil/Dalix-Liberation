@@ -422,25 +422,25 @@ if ( isNil "support_vehicles_overwrite" ) then { support_vehicles_overwrite = fa
 if ( support_vehicles_overwrite ) then { support_vehicles = support_vehicles_extension; } else { support_vehicles = support_vehicles + support_vehicles_extension; };
 
 Build_opfor_Ground_Vehicles = [
-	["O_MRAP_02_F", 500],
-	["O_MRAP_02_hmg_F", 750],
-	["O_T_LSV_02_unarmed_F", 350],
-	["O_T_LSV_02_armed_F", 500],
-	["O_G_Offroad_01_F", 300],
-	["O_G_Offroad_01_armed_F", 450],
-	["O_G_Offroad_01_AT_F", 700],
-	["O_APC_Tracked_02_cannon_F", 1300],
-	["O_APC_Wheeled_02_rcws_F", 1000]
+	["O_MRAP_02_F", 300],
+	["O_MRAP_02_hmg_F", 350],
+	["O_T_LSV_02_unarmed_F", 150],
+	["O_T_LSV_02_armed_F", 300],
+	["O_G_Offroad_01_F", 200],
+	["O_G_Offroad_01_armed_F", 300],
+	["O_G_Offroad_01_AT_F", 400],
+	["O_APC_Tracked_02_cannon_F", 700],
+	["O_APC_Wheeled_02_rcws_F", 500]
 ];
 Build_opfor_Heli = [
-	["O_Heli_Light_02_unarmed_F", 700],
-	["O_Heli_Light_02_F", 1000],
-	["O_Heli_Attack_02_F", 1400]
+	["O_Heli_Light_02_unarmed_F", 400],
+	["O_Heli_Light_02_F", 500],
+	["O_Heli_Attack_02_F", 700]
 ];
 Build_opfor_Air = [
-	["O_T_VTOL_02_infantry_dynamicLoadout_F",1700],
-	["O_Plane_CAS_02_dynamicLoadout_F",2100],
-	["O_Plane_Fighter_02_Stealth_F",2300]
+	["O_T_VTOL_02_infantry_dynamicLoadout_F",1400],
+	["O_Plane_CAS_02_dynamicLoadout_F",1100],
+	["O_Plane_Fighter_02_Stealth_F",1200]
 ];
 Build_opfor_support = [
 	["STR_CALL_TROUP",-1],
