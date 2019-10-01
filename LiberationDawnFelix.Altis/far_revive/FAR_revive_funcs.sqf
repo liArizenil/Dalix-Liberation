@@ -26,7 +26,7 @@ FAR_HandleDamage_EH =
 
 	_isUnconscious = _unit getVariable "FAR_isUnconscious";
 
-	if(!isNull _instigator) then {
+	if(!isNull _instigator && isPlayer _instigator) then {
 		_killer =  _instigator;
 	};
 
@@ -97,7 +97,7 @@ FAR_Player_Unconscious =
 			case 1 : { _medic_message = localize "STR_FAR_Need_Medic2"; };
 			case 2 : { _medic_message = localize "STR_FAR_Need_Medic3"; };
 		};
-		public_medic_message = [_unit,_medic_message]; publicVariable "public_medic_message";
+		[_unit, _medic_message] remoteExec ["sideChat",-2];
 
 		_unit setUnconscious true;
 		_unit setCaptive true;
@@ -357,7 +357,6 @@ FAR_public_EH =
 			if(side _killed == side _killer) then {
 				systemChat format[localize "STR_FAR_FIRNELDYFIRE", name _killed, name _killer];
 				_killer addrating -100;
-				_killer addPlayerScores [-1, 0, 0, 0, 0];
 			}
 			else{
 				if(side _killer == GRLIB_side_friendly) then{

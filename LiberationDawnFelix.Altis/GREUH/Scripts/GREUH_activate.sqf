@@ -6,7 +6,7 @@ desiredviewdistance_inf = viewDistance;
 desiredviewdistance_veh = viewDistance;
 desiredviewdistance_obj = 75;
 desired_fps = 0;
-show_teammates = false;
+show_teammates = true;
 show_nametags = false;
 show_platoon = false;
 desired_vehvolume = 100;
@@ -42,7 +42,6 @@ if ( !isNil "greuh_options_profile" ) then {
 [] call compile preprocessFileLineNumbers "GREUH\scripts\GREUH_version.sqf";
 [] spawn compile preprocessFileLineNumbers "GREUH\scripts\GREUH_actionmanager.sqf";
 [] spawn compile preprocessFileLineNumbers "GREUH\scripts\GREUH_revive_camera.sqf";
-[] spawn compile preprocessFileLineNumbers "GREUH\scripts\GREUH_medic_listener.sqf";
 if ( GREUH_allow_mapmarkers ) then { [] spawn compile preprocessFileLineNumbers "GREUH\scripts\GREUH_playermarkers.sqf"; };
 if ( GREUH_allow_platoonview ) then { [] spawn compile preprocessFileLineNumbers "GREUH\scripts\GREUH_platoonoverlay.sqf"; };
 if ( GREUH_allow_platoonview ) then { [] spawn compile preprocessFileLineNumbers "GREUH\scripts\GREUH_cache_units.sqf"; };
