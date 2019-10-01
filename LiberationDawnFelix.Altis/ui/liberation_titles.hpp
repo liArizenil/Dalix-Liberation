@@ -449,7 +449,7 @@ class RscTitles
 	class dojoingroup
 	{
 		name = "dojoingroup";
-		duration = 15;
+		duration = 10;
 		idd = 5321;
 		movingEnable = false;
 		controlsBackground[] = {};
@@ -458,6 +458,15 @@ class RscTitles
 
 		class controls
 		{
+			class Background: RscPicture
+			{
+				idc = 1200;
+				text = "#(argb,8,8,3)color(1,0,0,1)";
+				x = 0.314375 * safezoneW + safezoneX;
+				y = 0.192 * safezoneH + safezoneY;
+				w = 0.37125 * safezoneW;
+				h = 0.055 * safezoneH;
+			};
 			class Text: RscText
 			{
 				idc = 1000;
@@ -470,6 +479,20 @@ class RscTitles
 				w = 0.37125 * safezoneW;
 				h = 0.055 * safezoneH;
 			};
+		};
+	};
+	class dosetyourtag
+	{
+		name = "dosetyourtag";
+		duration = 10;
+		idd = 5321;
+		movingEnable = false;
+		controlsBackground[] = {};
+
+		objects[] = {};
+
+		class controls
+		{
 			class Background: RscPicture
 			{
 				idc = 1200;
@@ -479,20 +502,6 @@ class RscTitles
 				w = 0.37125 * safezoneW;
 				h = 0.055 * safezoneH;
 			};
-		};
-	};
-	class dosetyourtag
-	{
-		name = "dosetyourtag";
-		duration = 15;
-		idd = 5321;
-		movingEnable = false;
-		controlsBackground[] = {};
-
-		objects[] = {};
-
-		class controls
-		{
 			class Text: RscText
 			{
 				idc = 1000;
@@ -505,21 +514,12 @@ class RscTitles
 				w = 0.37125 * safezoneW;
 				h = 0.055 * safezoneH;
 			};
-			class Background: RscPicture
-			{
-				idc = 1200;
-				text = "#(argb,8,8,3)color(1,0,0,1)";
-				x = 0.314375 * safezoneW + safezoneX;
-				y = 0.192 * safezoneH + safezoneY;
-				w = 0.37125 * safezoneW;
-				h = 0.055 * safezoneH;
-			};
 		};
 	};
 	class teamkillactivated
 	{
 		name = "teamkillactivated";
-		duration = 15;
+		duration = 10;
 		idd = 5321;
 		movingEnable = false;
 		controlsBackground[] = {};
@@ -528,6 +528,15 @@ class RscTitles
 
 		class controls
 		{
+			class Background: RscPicture
+			{
+				idc = 1200;
+				text = "#(argb,8,8,3)color(1,0,0,1)";
+				x = 0.314375 * safezoneW + safezoneX;
+				y = 0.192 * safezoneH + safezoneY;
+				w = 0.37125 * safezoneW;
+				h = 0.055 * safezoneH;
+			};
 			class Text: RscText
 			{
 				idc = 1000;
@@ -535,15 +544,6 @@ class RscTitles
 
 				font = FontM;
 
-				x = 0.314375 * safezoneW + safezoneX;
-				y = 0.192 * safezoneH + safezoneY;
-				w = 0.37125 * safezoneW;
-				h = 0.055 * safezoneH;
-			};
-			class Background: RscPicture
-			{
-				idc = 1200;
-				text = "#(argb,8,8,3)color(1,0,0,1)";
 				x = 0.314375 * safezoneW + safezoneX;
 				y = 0.192 * safezoneH + safezoneY;
 				w = 0.37125 * safezoneW;
