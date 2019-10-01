@@ -64,7 +64,7 @@ if ( dojump > 0 ) then {
 
 	player setpos halo_position;
 
-	_acpara = player addAction ["<t color='#80FF80'> -- 낙하산 전개 -- </t>",{ player action ["openParachute"]; },"",90,true,true,"","vehicle player == player"];
+	_acpara = player addAction [format["<t color='#80FF80' size=2> -- [%1] 키를 눌러 낙하산 전개 -- </t>",keyName (actionKeys "Action" select 0)],{ player action ["openParachute"]; },"",90,true,true,"","vehicle player == player"];
 	sleep 4;
 	halojumping = false;
 	waitUntil { !alive player || isTouchingGround player };
