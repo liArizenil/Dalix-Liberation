@@ -22,6 +22,7 @@ class RscTitles
 		duration = 1000000000;
 		fadein = 0;
 		fadeout = 0;
+
 		class controls { 
 			class Rsc_GF_Earplugs_Control { 
 				idc = -1; 
@@ -51,14 +52,14 @@ class RscTitles
 	};
    class intro1
    {
-      name = "intro1";
-      duration = 4;
-      idd = -1;
-      movingEnable = false;
-      controls[]=
-      {
-         GenericLabelShadow, GenericLabel2
-      };
+    name = "intro1";
+    duration = 4;
+    idd = -1;
+    movingEnable = false;
+    controls[]=
+    {
+    	GenericLabelShadow, GenericLabel2
+	};
 	  class GenericLabel2 {
 		idc = -1;
 		type =  CT_STATIC ;
@@ -461,7 +462,7 @@ class RscTitles
 			class Background: RscPicture
 			{
 				idc = 1200;
-				text = "#(argb,8,8,3)color(1,0,0,1)";
+				text = "#(argb,8,8,3)color(0,0,1,1)";
 				x = 0.314375 * safezoneW + safezoneX;
 				y = 0.192 * safezoneH + safezoneY;
 				w = 0.37125 * safezoneW;
@@ -470,9 +471,11 @@ class RscTitles
 			class Text: RscText
 			{
 				idc = 1000;
-				text = "PRESS [ U ] KEY TO JOIN GROUP"; //--- ToDo: Localize;
+				text = "PRESS [ U ] KEY TO JOIN GROUP";
 
 				font = FontM;
+				style = ST_CENTER;
+				sizeEx = 0.05;
 
 				x = 0.314375 * safezoneW + safezoneX;
 				y = 0.192 * safezoneH + safezoneY;
@@ -496,7 +499,7 @@ class RscTitles
 			class Background: RscPicture
 			{
 				idc = 1200;
-				text = "#(argb,8,8,3)color(1,0,0,1)";
+				text = "#(argb,8,8,3)color(0,0,1,1)";
 				x = 0.314375 * safezoneW + safezoneX;
 				y = 0.192 * safezoneH + safezoneY;
 				w = 0.37125 * safezoneW;
@@ -508,6 +511,8 @@ class RscTitles
 				text = "PLEASE SET YOUR GROUP TAG"; //--- ToDo: Localize;
 
 				font = FontM;
+				style = ST_CENTER;
+				sizeEx = 0.05;
 
 				x = 0.314375 * safezoneW + safezoneX;
 				y = 0.192 * safezoneH + safezoneY;
@@ -543,6 +548,8 @@ class RscTitles
 				text = "TEAM KILL Damage Reflection Activated"; //--- ToDo: Localize;
 
 				font = FontM;
+				style = ST_CENTER;
+				sizeEx = 0.05;
 
 				x = 0.314375 * safezoneW + safezoneX;
 				y = 0.192 * safezoneH + safezoneY;
