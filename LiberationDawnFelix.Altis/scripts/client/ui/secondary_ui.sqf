@@ -1,7 +1,7 @@
 if ( isNil "GRLIB_secondary_starting" ) then { GRLIB_secondary_starting = false; };
 if ( isNil "GRLIB_secondary_in_progress" ) then { GRLIB_secondary_in_progress = -1; };
 
-if (["IsGroupRegistered", [(group player)]] call BIS_fnc_dynamicGroups) exitWith { 
+if (!["IsGroupRegistered", [(group player)]] call BIS_fnc_dynamicGroups) exitWith { 
 	1 cutRsc ["dojoingroup","PLAIN",0];
 };
 if(isNil{ ((group player)getVariable['GroupType',nil])}) exitWith {
