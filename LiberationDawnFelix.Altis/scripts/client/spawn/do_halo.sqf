@@ -1,4 +1,4 @@
-private [ "_dialog", "_backpack", "_backpackcontents" ];
+private [ "_dialog", "_backpack", "_backpackcontents","_acpara" ];
 
 if ( isNil "GRLIB_last_halo_jump" ) then { GRLIB_last_halo_jump = -6000; };
 
@@ -67,11 +67,11 @@ if ( dojump > 0 ) then {
 
 	player setpos halo_position;
 
+	_acpara = player addAction ["<t color='#80FF80'> -- 낙하산 전개 -- </t>",{ player action ["openParachute"]; },"",90,true,true,"","vehicle player == player"];
 	sleep 4;
 	halojumping = false;
-	waitUntil { !alive player || ((getPosATL player) select 2) < 120 };
-	player action ["openParachute"];
 	waitUntil { !alive player || isTouchingGround player };
+	player removeAction _acpara;
 	if ( _backpack != "" && _backpack != "B_Parachute" ) then {
 		sleep 2;
 		player addBackpack _backpack;
