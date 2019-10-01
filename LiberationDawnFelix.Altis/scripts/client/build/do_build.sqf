@@ -41,7 +41,7 @@ while { true } do {
 			_grp = createGroup GRLIB_side_friendly;
 		};
 		_classname createUnit [_pos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn kill_manager}]", 0.5, "private"];
-		//format [ "%1님이 FOB %2 근처에서 AI를 생성 하였습니다.", name player, [[] call F_getNearestFob] call F_getFobName , getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" ) ] remoteExec ["systemChat"];
+		
 		build_confirmed = 0;
 	} else {
 		if ( buildtype == 8 ) then {
@@ -247,10 +247,6 @@ while { true } do {
 				clearMagazineCargoGlobal _vehicle;
 				clearItemCargoGlobal _vehicle;
 				clearBackpackCargoGlobal _vehicle;
-
-				_fobname = [[] call F_getNearestFob] call F_getFobName;
-
-				//format [ "%1님이 FOB %2 근처에서 %3을(를) 건설 하였습니다.", name player, _fobname , getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" ) ] remoteExec ["systemChat"];
  
 				if ( buildtype == 6 || buildtype == 99 ) then {
 					_vehicle setVectorUp [0,0,1];
