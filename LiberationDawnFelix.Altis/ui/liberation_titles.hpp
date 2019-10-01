@@ -471,7 +471,7 @@ class RscTitles
 			class Text: RscText
 			{
 				idc = 1000;
-				text = "PRESS [ U ] KEY TO JOIN GROUP";
+				text = "$STR_JOINGROUP";
 
 				font = FontM;
 				style = ST_CENTER;
@@ -508,7 +508,7 @@ class RscTitles
 			class Text: RscText
 			{
 				idc = 1000;
-				text = "PLEASE SET YOUR GROUP TAG"; //--- ToDo: Localize;
+				text = "$STR_TAGGROUP"; //--- ToDo: Localize;
 
 				font = FontM;
 				style = ST_CENTER;
