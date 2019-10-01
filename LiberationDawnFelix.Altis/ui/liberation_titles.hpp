@@ -17,39 +17,38 @@ class CfgSounds
 
 class RscTitles
 {
-
-class Rsc_GF_Earplugs { 
-idd = -1; 
-duration = 1000000000;
-fadein = 0;
-fadeout = 0;
-	class controls { 
-		class Rsc_GF_Earplugs_Control { 
-			idc = -1; 
-			type = 0; 
-			style = 48;
-			tileH = 1;
-			tileW = 1;
-	
-			//	Axis
-			x = 0.93 * safezoneW + safezoneX;	//	horizontal
-			y = 0.17  * safezoneH + safezoneY;	//	vertical
-			
-			//	Size
-			w = 0.05 * safezoneW;	
-			h = 0.05 * safezoneH;
-	
-			font = FontM; 
-			sizeEx = 1; 
-			colorBackground[] = {0,0,0,0}; 
-			colorText[] = {1,1,1,1};
-			
-			//	Image
-			text = "GF_Earplugs\images\Earmuffs_3.paa"; 
-			lineSpacing = 0; 
+	class Rsc_GF_Earplugs {
+		idd = -1; 
+		duration = 1000000000;
+		fadein = 0;
+		fadeout = 0;
+		class controls { 
+			class Rsc_GF_Earplugs_Control { 
+				idc = -1; 
+				type = 0; 
+				style = 48;
+				tileH = 1;
+				tileW = 1;
+		
+				//	Axis
+				x = 0.93 * safezoneW + safezoneX;	//	horizontal
+				y = 0.17  * safezoneH + safezoneY;	//	vertical
+				
+				//	Size
+				w = 0.05 * safezoneW;	
+				h = 0.05 * safezoneH;
+		
+				font = FontM; 
+				sizeEx = 1; 
+				colorBackground[] = {0,0,0,0}; 
+				colorText[] = {1,1,1,1};
+				
+				//	Image
+				text = "GF_Earplugs\images\Earmuffs_3.paa"; 
+				lineSpacing = 0; 
+			}; 
 		}; 
-	}; 
-};
+	};
    class intro1
    {
       name = "intro1";
@@ -447,5 +446,240 @@ fadeout = 0;
 		colorText[] = {0.85, 0, 0, 1};
 	  };
 	};
+	class dojoingroup
+	{
+		name = "dojoingroup";
+		duration = 15;
+		idd = 5321;
+		movingEnable = false;
+		controlsBackground[] = {};
 
+		objects[] = {};
+
+		class controls
+		{
+			class Text: RscText
+			{
+				idc = 1000;
+				text = "PRESS [ U ] KEY TO JOIN GROUP"; //--- ToDo: Localize;
+
+				font = FontM;
+
+				x = 0.314375 * safezoneW + safezoneX;
+				y = 0.192 * safezoneH + safezoneY;
+				w = 0.37125 * safezoneW;
+				h = 0.055 * safezoneH;
+			};
+			class Background: RscPicture
+			{
+				idc = 1200;
+				text = "#(argb,8,8,3)color(1,0,0,1)";
+				x = 0.314375 * safezoneW + safezoneX;
+				y = 0.192 * safezoneH + safezoneY;
+				w = 0.37125 * safezoneW;
+				h = 0.055 * safezoneH;
+			};
+		};
+	};
+	class dosetyourtag
+	{
+		name = "dosetyourtag";
+		duration = 15;
+		idd = 5321;
+		movingEnable = false;
+		controlsBackground[] = {};
+
+		objects[] = {};
+
+		class controls
+		{
+			class Text: RscText
+			{
+				idc = 1000;
+				text = "PLEASE SET YOUR GROUP TAG"; //--- ToDo: Localize;
+
+				font = FontM;
+
+				x = 0.314375 * safezoneW + safezoneX;
+				y = 0.192 * safezoneH + safezoneY;
+				w = 0.37125 * safezoneW;
+				h = 0.055 * safezoneH;
+			};
+			class Background: RscPicture
+			{
+				idc = 1200;
+				text = "#(argb,8,8,3)color(1,0,0,1)";
+				x = 0.314375 * safezoneW + safezoneX;
+				y = 0.192 * safezoneH + safezoneY;
+				w = 0.37125 * safezoneW;
+				h = 0.055 * safezoneH;
+			};
+		};
+	};
+	class teamkillactivated
+	{
+		name = "teamkillactivated";
+		duration = 15;
+		idd = 5321;
+		movingEnable = false;
+		controlsBackground[] = {};
+
+		objects[] = {};
+
+		class controls
+		{
+			class Text: RscText
+			{
+				idc = 1000;
+				text = "TEAM KILL Damage Reflection Activated"; //--- ToDo: Localize;
+
+				font = FontM;
+
+				x = 0.314375 * safezoneW + safezoneX;
+				y = 0.192 * safezoneH + safezoneY;
+				w = 0.37125 * safezoneW;
+				h = 0.055 * safezoneH;
+			};
+			class Background: RscPicture
+			{
+				idc = 1200;
+				text = "#(argb,8,8,3)color(1,0,0,1)";
+				x = 0.314375 * safezoneW + safezoneX;
+				y = 0.192 * safezoneH + safezoneY;
+				w = 0.37125 * safezoneW;
+				h = 0.055 * safezoneH;
+			};
+		};
+	};
+	class askteamkill
+	{
+		name = "askteamkill";
+		duration = 15;
+		idd = 5627;
+		movingEnable = false;
+		controlsBackground[] = {};
+
+		objects[] = {};
+
+		class controls
+		{
+			class Background: RscPicture
+			{
+				idc = 1200;
+				text = "#(argb,8,8,3)color(0,0,0,0.8)";
+				x = 0.840313 * safezoneW + safezoneX;
+				y = 0.016 * safezoneH + safezoneY;
+				w = 0.149531 * safezoneW;
+				h = 0.077 * safezoneH;
+			};
+			class Title_Background: RscPicture
+			{
+				idc = 1201;
+				text = "#(argb,8,8,3)color(0.3,0.3,0.3,0.9)";
+				x = 0.840312 * safezoneW + safezoneX;
+				y = 0.016 * safezoneH + safezoneY;
+				w = 0.118601 * safezoneW;
+				h = 0.0264 * safezoneH;
+			};
+			class Timer_Background: RscPicture
+			{
+				idc = 1202;
+				text = "#(argb,8,8,3)color(0.15,0.15,0.15,1)";
+				x = 0.958906 * safezoneW + safezoneX;
+				y = 0.016 * safezoneH + safezoneY;
+				w = 0.0309375 * safezoneW;
+				h = 0.0264 * safezoneH;
+			};
+			class Title: RscText
+			{
+				idc = 1000;
+				text = "Punish %1"; //--- ToDo: Localize;
+
+				font = FontM;
+
+				x = 0.840312 * safezoneW + safezoneX;
+				y = 0.016 * safezoneH + safezoneY;
+				w = 0.117558 * safezoneW;
+				h = 0.0264 * safezoneH;
+			};
+			class Timer: RscText
+			{
+				idc = 1001;
+				text = "%1 s"; //--- ToDo: Localize;
+
+				font = FontM;
+
+				x = 0.958906 * safezoneW + safezoneX;
+				y = 0.016 * safezoneH + safezoneY;
+				w = 0.0309377 * safezoneW;
+				h = 0.0264 * safezoneH;
+			};
+			class label_OK: RscText
+			{
+				idc = 1002;
+				text = "Agree"; //--- ToDo: Localize;
+
+				font = FontM;
+
+				x = 0.873312 * safezoneW + safezoneX;
+				y = 0.0446 * safezoneH + safezoneY;
+				w = 0.0319688 * safezoneW;
+				h = 0.044 * safezoneH;
+			};
+			class label_NO: RscText
+			{
+				idc = 1003;
+				text = "DisAgree"; //--- ToDo: Localize;
+
+				font = FontM;
+
+				x = 0.939311 * safezoneW + safezoneX;
+				y = 0.0446 * safezoneH + safezoneY;
+				w = 0.04125 * safezoneW;
+				h = 0.044 * safezoneH;
+			};
+			class Key_OK: RscPicture
+			{
+				idc = 1203;
+				text = "#(argb,8,8,3)color(0.9,0.9,0.9,0.8)";
+				x = 0.845469 * safezoneW + safezoneX;
+				y = 0.0512 * safezoneH + safezoneY;
+				w = 0.0257812 * safezoneW;
+				h = 0.033 * safezoneH;
+			};
+			class Key_NO: RscPicture
+			{
+				idc = 1204;
+				text = "#(argb,8,8,3)color(0.9,0.9,0.9,0.8)";
+				x = 0.907354 * safezoneW + safezoneX;
+				y = 0.0512 * safezoneH + safezoneY;
+				w = 0.0268129 * safezoneW;
+				h = 0.033 * safezoneH;
+			};
+			class label_KEYOK: RscText
+			{
+				idc = 1004;
+				text = "HOME"; //--- ToDo: Localize;
+
+				font = FontM;
+
+				x = 0.844438 * safezoneW + safezoneX;
+				y = 0.0534 * safezoneH + safezoneY;
+				w = 0.022688 * safezoneW;
+				h = 0.0286 * safezoneH;
+			};
+			class label_KEYNO: RscText
+			{
+				idc = 1005;
+				text = "END"; //--- ToDo: Localize;
+
+				font = FontM;
+
+				x = 0.909416 * safezoneW + safezoneX;
+				y = 0.0534 * safezoneH + safezoneY;
+				w = 0.0247505 * safezoneW;
+				h = 0.0286 * safezoneH;
+			};
+		};
+	};
 };
