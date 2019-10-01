@@ -2,13 +2,10 @@ if ( isNil "GRLIB_secondary_starting" ) then { GRLIB_secondary_starting = false;
 if ( isNil "GRLIB_secondary_in_progress" ) then { GRLIB_secondary_in_progress = -1; };
 
 if (["IsGroupRegistered", [(group player)]] call BIS_fnc_dynamicGroups) exitWith { 
-	//대충 분대 가입하라는 경고창
-
-
+	1 cutRsc ["dojoingroup","PLAIN",0];
 };
 if(isNil{ ((group player)getVariable['GroupType',nil])}) exitWith {
-	//대충 분대 태그 지정하라는 경고창
-
+	1 cutRsc ["dosetyourtag","PLAIN",0];
 };
 
 _dialog = createDialog "liberation_secondary";
