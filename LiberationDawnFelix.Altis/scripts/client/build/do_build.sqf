@@ -107,7 +107,36 @@ while { true } do {
 
 			{ _x setObjectTexture [0, "#(rgb,8,8,3)color(0,1,0,1)"]; } foreach GRLIB_preview_spheres;
 
+
+			// VOTING SYSTEM ==============================================================================
+
+			private _allgroups = ["GetAllGroupsOfSide",[GRLIB_side_friendly]] call BIS_fnc_dynamicGroups;
+			player setVariable["VoteBuild",[count _allgroups,0,0],true]; //[총 요청한 사람수,동의받은 수, 거절 받은 수]
+			{
+				[player, getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" )] remoteExec ["remote_call_asking_build",leader _x];
+			} forEach (_allgroups);
+			private _vote_in_progress = true; //투표가 진행중인가? false 시 통과
+			private _vote_approved = true; //false시 건설 거부
+			private _timercalc = [] spawn {
+				sleep 20;
+			};
+
 			while { build_confirmed == 1 && alive player } do {
+				//calculate vote
+				private _get = player getVariable ["VoteBuild",nil];
+				if((((_get select 1) + (_get select 2)) / count _allgroups) > 0.49) then {
+					if(((_get select 1)/((_get select 1) + (_get select 2)))> 0.34) then { //전체 투표가 이루어진 양 중에서 찬성이 33% 이상일때
+						_vote_in_progress = false;
+					};
+					if(((_get select 2)/((_get select 1) + (_get select 2)))> 0.67) then { //전체 투표가 이루어진 양 중에서 반대가 67% 이상일때
+						_vote_approved = false;
+					};
+				}
+				else{
+					if(scriptDone _timercalc) then {
+						_vote_approved = false;
+					};
+				};
 				_truedir = 90 - (getdir player);
 				_truepos = [((getpos player) select 0) + (_dist * (cos _truedir)), ((getpos player) select 1) + (_dist * (sin _truedir)),0];
 				_actualdir = ((getdir player) + build_rotation);
@@ -181,7 +210,7 @@ while { true } do {
 					GRLIB_conflicting_objects = [];
 				};
 
-				if (count _near_objects == 0 && ((_truepos distance _posfob) < _maxdist) && (  ((!surfaceIsWater _truepos) && (!surfaceIsWater getpos player)) || (_classname in boats_names) ) ) then {
+				if (!_vote_in_progress && _vote_approved && count _near_objects == 0 && ((_truepos distance _posfob) < _maxdist) && (  ((!surfaceIsWater _truepos) && (!surfaceIsWater getpos player)) || (_classname in boats_names) ) ) then {
 
 					if ( ((buildtype == 6) || (buildtype == 99)) && ((gridmode % 2) == 1) ) then {
 						_vehicle setpos [round (_truepos select 0),round (_truepos select 1), _truepos select 2];
@@ -220,10 +249,21 @@ while { true } do {
 					if((_truepos distance _posfob) > _maxdist) then {
 						GRLIB_ui_notif = format [localize "STR_BUILD_ERROR_DISTANCE",_maxdist];
 					};
+					if(_vote_in_progress) then {
+						GRLIB_ui_notif = "투표가 진행중입니다.";
+					};
+					if(!_vote_approved) then {
+						build_confirmed = 3;
+						GRLIB_ui_notif = "";
+						systemChat format["참여율 %0, 찬성 %1, 반대 %2 로 건설이 거부되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups),_get select 1,_get select 2];
+						hint localize "STR_CANCEL_HINT";
+					};
 
 				};
 				sleep 0.05;
 			};
+
+			player setVariable ["VoteBuild", nil,true];
 
 			GRLIB_ui_notif = "";
 

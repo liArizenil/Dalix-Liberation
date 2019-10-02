@@ -563,6 +563,7 @@ class RscTitles
 		name = "askteamkill";
 		duration = 15;
 		idd = 5627;
+		onLoad = "uiNamespace setVariable ['GUI_VOTE', _this select 0];";
 		movingEnable = false;
 		controlsBackground[] = {};
 
@@ -698,8 +699,9 @@ class RscTitles
 	class askbuild
 	{
 		name = "askbuild";
-		duration = 15;
+		duration = 30;
 		idd = 5677;
+		onLoad = "uiNamespace setVariable ['GUI_VOTE', _this select 0];";
 		movingEnable = false;
 		controlsBackground[] = {};
 
