@@ -36,7 +36,7 @@ while { !isNil{ _requestPlayer getVariable["VoteBuild",nil]; } && !GRLIB_VOTED &
 	(uiNamespace getVariable 'GUI_VOTE') ctrlSetText [1000,format["찬성 %1/%2",_get select 1,_get select 0] ];
 	(uiNamespace getVariable 'GUI_VOTE') ctrlSetText [1001,format["반대 %1/%2",_get select 2,_get select 0] ];
 };
-if(!isNil{ _requestPlayer getVariable["VoteBuild",nil] } && !GRLIB_VOTED) then {
+if(!isNil{ _requestPlayer getVariable["VoteBuild",nil]; } && !GRLIB_VOTED) then {
 	_get = _requestPlayer getVariable["VoteBuild",nil];
 	_requestPlayer setVariable["VoteBuild",(_get select 1)+1,true];
 };
