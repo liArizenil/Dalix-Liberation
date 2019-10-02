@@ -31,7 +31,7 @@ private _keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 		sleep 1;
 	};
 }
-while { !isNil{ _requestPlayer getVariable["VoteBuild",nil] } && !GRLIB_VOTED && GRLIB_voting_timer > 0} do {
+while { !isNil{ _requestPlayer getVariable["VoteBuild",nil]; } && !GRLIB_VOTED && GRLIB_voting_timer > 0} do {
 	_get = _requestPlayer getVariable["VoteBuild",nil];
 	(uiNamespace getVariable 'GUI_VOTE') ctrlSetText [1000,format["찬성 %1/%2",_get select 1,_get select 0] ];
 	(uiNamespace getVariable 'GUI_VOTE') ctrlSetText [1001,format["반대 %1/%2",_get select 2,_get select 0] ];
