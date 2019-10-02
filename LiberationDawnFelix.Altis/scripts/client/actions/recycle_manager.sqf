@@ -31,7 +31,8 @@ while { true } do {
 								(alive _x) &&
 								(_x distance lhd > 1000) &&
 								(_x distance ( [] call F_getNearestFob) < GRLIB_fob_range ) &&
-								( getObjectType _x >= 8 ) };
+								( getObjectType _x >= 8 ) &&
+								!(isUAVConnected _x) };
 
 		{
 			_next_vehicle = _x;
