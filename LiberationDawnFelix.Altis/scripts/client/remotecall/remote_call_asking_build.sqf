@@ -11,7 +11,7 @@ waitUntil { isNil{(uiNamespace getVariable 'GUI_VOTE')} || isNil {_get} };
 
 if(isNil "_get") exitWith {};
 "GUI_VOTE" cutRsc ["askbuild","PLAIN"];
-(uiNamespace getVariable 'GUI_VOTE') ctrlSetText [1006,format["%2 : %3 건설 요청",name _requestPlayer,_requestclass]];
+((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1006)) ctrlSetText format["%2 : %3 건설 요청",name _requestPlayer,_requestclass];
 private _keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 	if(_this select 1 == 0xC7) then { //HOME key
 		_get = _requestPlayer getVariable["VoteBuild",nil];
@@ -27,14 +27,14 @@ private _keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 [] spawn {
 	while { GRLIB_voting_timer > 0 } do {
 		GRLIB_voting_timer = GRLIB_voting_timer - 1;
-		(uiNamespace getVariable 'GUI_VOTE') ctrlSetText [1007,format["%1 초",GRLIB_voting_timer]];
+		((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1007)) ctrlSetText format["%1 초",GRLIB_voting_timer];
 		sleep 1;
 	};
 };
 while { !isNil{ _requestPlayer getVariable["VoteBuild",nil]; } && !GRLIB_VOTED && GRLIB_voting_timer > 0} do {
 	_get = _requestPlayer getVariable["VoteBuild",nil];
-	(uiNamespace getVariable 'GUI_VOTE') ctrlSetText [1000,format["찬성 %1/%2",_get select 1,_get select 0] ];
-	(uiNamespace getVariable 'GUI_VOTE') ctrlSetText [1001,format["반대 %1/%2",_get select 2,_get select 0] ];
+	((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1000)) ctrlSetText format["찬성 %1/%2",_get select 1,_get select 0];
+	((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1001)) ctrlSetText format["반대 %1/%2",_get select 2,_get select 0];
 	sleep 0.25;
 };
 if(!isNil{ _requestPlayer getVariable["VoteBuild",nil]; } && !GRLIB_VOTED) then {
