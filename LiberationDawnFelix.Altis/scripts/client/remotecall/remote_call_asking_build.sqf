@@ -15,12 +15,12 @@ if(isNil "_get") exitWith {};
 private _keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 	if(_this select 1 == 0xC7) then { //HOME key
 		_get = _requestPlayer getVariable["VoteBuild",nil];
-		_requestPlayer setVariable["VoteBuild",_(get select 1)+1,true];
+		_requestPlayer setVariable["VoteBuild",(_get select 1)+1,true];
 		GRLIB_VOTED = true;
 	};
 	if(_this select 1 == 0xCF) then { //END key
 		_get = _requestPlayer getVariable["VoteBuild",nil];
-		_requestPlayer setVariable["VoteBuild",_(get select 2)+1,true];
+		_requestPlayer setVariable["VoteBuild",(_get select 2)+1,true];
 		GRLIB_VOTED = true;
 	};
 }];
@@ -38,7 +38,7 @@ while { !isNil{ _requestPlayer getVariable["VoteBuild",nil] } && !GRLIB_VOTED &&
 };
 if(!isNil{ _requestPlayer getVariable["VoteBuild",nil] } && !GRLIB_VOTED) then {
 	_get = _requestPlayer getVariable["VoteBuild",nil];
-	_requestPlayer setVariable["VoteBuild",_(get select 1)+1,true];
+	_requestPlayer setVariable["VoteBuild",(_get select 1)+1,true];
 };
 GRLIB_VOTED = nil;
 GRLIB_voting_timer = 0;
