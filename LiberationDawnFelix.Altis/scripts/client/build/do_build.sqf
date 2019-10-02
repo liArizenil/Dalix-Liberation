@@ -98,18 +98,24 @@ while { true } do {
 
 			{ _x setObjectTexture [0, "#(rgb,8,8,3)color(0,1,0,1)"]; } foreach GRLIB_preview_spheres;
 
-
+			private ["_allgroups", "_vote_in_progress", "_vote_approved", "_timercalc"];
 			// VOTING SYSTEM ==============================================================================
+			if (!(buildtype == 6 || buildtype == 99)) then {
+				_allgroups = ["GetAllGroupsOfSide",[GRLIB_side_friendly]] call BIS_fnc_dynamicGroups;
+				player setVariable["VoteBuild",[count _allgroups,0,0],true]; //[총 요청한 사람수,동의받은 수, 거절 받은 수]
+				{
+					[player, getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" )] remoteExec ["remote_call_asking_build",leader _x];
+				} forEach (_allgroups);
+				_vote_in_progress = true; //투표가 진행중인가? false 시 통과
+				_vote_approved = true; //false시 건설 거부
+				_timercalc = [] spawn {
+					sleep 20;
+				};
+			}
+			else{
+				_vote_in_progress = false;
+				_vote_approved = true;
 
-			private _allgroups = ["GetAllGroupsOfSide",[GRLIB_side_friendly]] call BIS_fnc_dynamicGroups;
-			player setVariable["VoteBuild",[count _allgroups,0,0],true]; //[총 요청한 사람수,동의받은 수, 거절 받은 수]
-			{
-				[player, getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" )] remoteExec ["remote_call_asking_build",leader _x];
-			} forEach (_allgroups);
-			private _vote_in_progress = true; //투표가 진행중인가? false 시 통과
-			private _vote_approved = true; //false시 건설 거부
-			private _timercalc = [] spawn {
-				sleep 20;
 			};
 
 			while { build_confirmed == 1 && alive player } do {
