@@ -116,12 +116,12 @@ while { true } do {
 				//calculate vote
 				if(_vote_in_progress) then {
 					_get = player getVariable ["VoteBuild",nil];
-					if((((_get select 1) + (_get select 2)) / count _allgroups) > 0.49) then {
-						if(((_get select 1)/((_get select 1) + (_get select 2)))> 0.34) then { //전체 투표가 이루어진 양 중에서 찬성이 33% 이상일때
+					if((((_get select 1) + (_get select 2)) / count _allgroups) > 0.50) then {
+						if(((_get select 1)/((_get select 1) + (_get select 2)))> 0.33) then { //전체 투표가 이루어진 양 중에서 찬성이 33% 이상일때
 							_vote_in_progress = false;
 							player setVariable ["VoteBuild", nil,true];
 						};
-						if(((_get select 2)/((_get select 1) + (_get select 2)))> 0.67) then { //전체 투표가 이루어진 양 중에서 반대가 67% 이상일때
+						if(((_get select 2)/((_get select 1) + (_get select 2)))> 0.66) then { //전체 투표가 이루어진 양 중에서 반대가 67% 이상일때
 							_vote_approved = false;
 							_vote_in_progress = false;
 							player setVariable ["VoteBuild", nil,true];
