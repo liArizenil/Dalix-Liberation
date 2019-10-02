@@ -9,7 +9,7 @@
 			</Key>
 			<Key ID="STR_TAGGROUP">
 				<Original>PLEASE SET TAG OF YOUR GROUP</Original>
-				<Korean>분대의 태그를 지정해 주십시요</Korean>
+				<Korean>분대의 태그를 지정해주세요.</Korean>
 			</Key>
 			<Key ID="STR_VAM_INITIALIZED">
 				<Original>Vehicle Appearance Manager initialized</Original>
