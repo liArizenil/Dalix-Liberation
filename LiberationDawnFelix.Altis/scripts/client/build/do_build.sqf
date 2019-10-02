@@ -246,7 +246,7 @@ while { true } do {
 						GRLIB_ui_notif = format [localize "STR_BUILD_ERROR_DISTANCE",_maxdist];
 					};
 					if(_vote_in_progress) then {
-						GRLIB_ui_notif = "투표가 진행중입니다.";
+						GRLIB_ui_notif = localize "STR_BUILD_VOTEPROGRESS";
 					};
 					if(!_vote_approved) then {
 						build_confirmed = 3;
