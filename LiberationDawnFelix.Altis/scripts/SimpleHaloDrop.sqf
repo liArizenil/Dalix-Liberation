@@ -37,7 +37,7 @@ HALO_DROP_Can_Halo = {
 };
 
 HALO_DROP_DO_HALO = {
-	private [ "_backpack", "_backpackcontents" ];
+	private [ "_backpack", "_backpackcontents", "_acpara" ];
 	_backpack = backpack player;
 	if ( _backpack != "" && _backpack != "B_Parachute" ) then {
 		_backpackcontents = backpackItems player;
@@ -47,10 +47,10 @@ HALO_DROP_DO_HALO = {
 	player addBackpack "B_Parachute";
 
 	player action ["Eject",vehicle player];
-
+	_acpara = player addAction [format["<t color='#80FF80' size=2> -- [%1] 키를 눌러 낙하산 전개 -- </t>",keyName (actionKeys "Action" select 0)],{ player action ["openParachute"]; },"",90,true,true,"","vehicle player == player"];
 	sleep 1;
-
 	waitUntil { !alive player || isTouchingGround player };
+	player removeAction _acpara;
 	if ( _backpack != "" && _backpack != "B_Parachute" ) then {
 		sleep 2;
 		player addBackpack _backpack;
