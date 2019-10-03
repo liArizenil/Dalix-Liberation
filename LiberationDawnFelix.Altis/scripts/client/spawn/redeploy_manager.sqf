@@ -28,13 +28,15 @@ if(side player == GRLIB_side_friendly) then {
 	while { true } do {
 		waitUntil {
 			sleep 0.1;
-			( GRLIB_force_redeploy || (player distance (getmarkerpos GRLIB_respawn_marker) < 50) ) && vehicle player == player && alive player && !dialog && howtoplay == 0
+			( GRLIB_force_redeploy || (player distance (getmarkerpos GRLIB_respawn_marker) < 50) ) && (vehicle player == player || (driver (vehicle player) == player && GRLIB_force_redeploy && (vehicle player) isKindOf "Tank")) && alive player && !dialog && howtoplay == 0
 		};
 
 		fullmap = 0;
 		_old_fullmap = 0;
 
 		GRLIB_force_redeploy = false;
+
+		_IsVehicle_redeploy = (driver (vehicle player) == player && ((vehicle player) isKindOf "Tank"));
 
 		if ( !GRLIB_fatigue ) then {
 			player enableStamina false;
@@ -79,17 +81,25 @@ if(side player == GRLIB_side_friendly) then {
 		lbSetCurSel [ 203, 0 ];
 
 		while { dialog && alive player && deploy == 0} do {
-			choiceslist = [ [ _basenamestr, getpos lhd ], ["LZ WHISKEY", getMarkerPos "whiskey"] ];
+			if(_IsVehicle_redeploy) then {
+				choiceslist = [ ["LZ WHISKEY", getMarkerPos "whiskey"] ];
+			}
+			else{
+				choiceslist = [ [ _basenamestr, getpos lhd ], ["LZ WHISKEY", getMarkerPos "whiskey"] ];
+			};
 
 			for [{_idx=0},{_idx < count GRLIB_all_fobs},{_idx=_idx+1}] do {
 				choiceslist = choiceslist + [[format [ "FOB %1 - %2", (military_alphabet select _idx),mapGridPosition (GRLIB_all_fobs select _idx) ],GRLIB_all_fobs select _idx]];
 			};
 
-			_respawn_trucks = call F_getMobileRespawns;
+			if(!_IsVehicle_redeploy) then {
+				_respawn_trucks = call F_getMobileRespawns;
 
-			for [ {_idx=0},{_idx < count _respawn_trucks},{_idx=_idx+1} ] do {
-				choiceslist = choiceslist + [[format [ "%1 - %2", localize "STR_RESPAWN_TRUCK",mapGridPosition (getpos (_respawn_trucks select _idx)) ],getpos (_respawn_trucks select _idx),(_respawn_trucks select _idx)]];
+				for [ {_idx=0},{_idx < count _respawn_trucks},{_idx=_idx+1} ] do {
+					choiceslist = choiceslist + [[format [ "%1 - %2", localize "STR_RESPAWN_TRUCK",mapGridPosition (getpos (_respawn_trucks select _idx)) ],getpos (_respawn_trucks select _idx),(_respawn_trucks select _idx)]];
+				};
 			};
+
 
 			lbClear 201;
 			{
@@ -164,7 +174,20 @@ if(side player == GRLIB_side_friendly) then {
 					player setpos (_truck getPos [ 5 + (random 3), random 360]);
 				} else {
 					_destpos = ((choiceslist select _idxchoice) select 1);
-					player setpos [((_destpos select 0) + 5) - (random 10),((_destpos select 1) + 5) - (random 10),0];
+					if(_IsVehicle_redeploy) then {
+						_desposempty = _destpos findEmptyPosition [0,40,typeOf (vehicle player)];
+						if(count _desposempty > 2) then {
+							(vehicle player) setpos _desposempty;
+						}
+						else{
+							systemChat "Unable to move your vehicle";
+						};
+						
+					}
+					else{
+						player setpos [((_destpos select 0) + 5) - (random 10),((_destpos select 1) + 5) - (random 10),0];
+					};
+					
 				};
 			};
 
