@@ -8,6 +8,7 @@ if(_prevkarma+_KARMA < 6) then {
 }
 else{
 	player setVariable ["Karma",6,false];
+	player setVariable ["PUNISHED",true,true];
 	if(!GRTLIB_reflection_is_progress) then {
 		GRTLIB_reflection_is_progress = true;
 		1 cutRsc ["teamkillactivated","PLAIN",0];
@@ -24,7 +25,7 @@ else{
 		};
 
 		while { true } do {
-			_ehplayer = allPlayers select { !(_x getVariable ["reflectAttached",false,false]) && _x != player };
+			_ehplayer = allPlayers select { !(_x getVariable ["reflectAttached",false]) && _x != player };
 			{
 				_x addEventHandler ["Respawn",{[(_this select 0)] call fnc_ehdmg;}];
 				[_x] call fnc_ehdmg;

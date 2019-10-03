@@ -15,6 +15,44 @@ FAR_Player_Actions =
 	};
 };
 
+ASKING_PUNISH = 
+{
+	params [ "_punishplayer" ];
+
+	GRLIB_voting_timer = 15;
+	GRLIB_VOTED = 0;
+
+	waitUntil { isNil{(uiNamespace getVariable 'GUI_VOTE')} };
+	"GUI_VOTE" cutRsc ["askbuild","PLAIN"];
+	((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1000)) ctrlSetText format["%1 처벌",name _punishplayer];
+	sleep 0.1;
+	private _keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
+		if(_this select 1 == 0xC7) then { //HOME key
+			GRLIB_VOTED = 1;
+		};
+		if(_this select 1 == 0xCF) then { //END key
+			GRLIB_VOTED = -1;
+		};
+	}];
+	while {GRLIB_VOTED == 0 && GRLIB_voting_timer > 0} do {
+		GRLIB_voting_timer = GRLIB_voting_timer - 1;
+		((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1001)) ctrlSetText format["%1 초",GRLIB_voting_timer];
+		sleep 1;
+	};
+	if(GRLIB_VOTED == 0) then {
+		[1] remoteExec ["remote_call_reflection",_punishplayer];
+	};
+	if(GRLIB_VOTED == 1) then {
+		[6] remoteExec ["remote_call_reflection",_punishplayer];
+	};
+
+	GRLIB_VOTED = nil;
+	GRLIB_voting_timer = 0;
+	(findDisplay 46) displayRemoveEventHandler ['KeyDown',_keyeh];
+	uiNamespace setVariable ['GUI_VOTE', nil];
+	"GUI_VOTE" cutFadeOut 0;
+};
+
 ////////////////////////////////////////////////
 // Handle Death
 ////////////////////////////////////////////////
@@ -30,7 +68,7 @@ FAR_HandleDamage_EH =
 		_killer =  _instigator;
 	};
 
-	if (alive _unit && _amountOfDamage >= 1.0 && _isUnconscious == 0 && (_selectionName in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"] )) then
+	if (!(_killer getVariable ["PUNISHED",false]) && alive _unit && _amountOfDamage >= 1.0 && _isUnconscious == 0 && (_selectionName in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"] )) then
 	{
 		_unit setDamage 0.6;
 		_unit allowDamage false;
@@ -355,6 +393,9 @@ FAR_public_EH =
 		if (isPlayer _killed && isPlayer _killer) then
 		{
 			if(side _killed == side _killer) then {
+				if(local _killed && !(_killer getVariable ["PUNISHED",false])) then {
+					[_killer] spawn ASKING_PUNISH;
+				};
 				systemChat format[localize "STR_FAR_FIRNELDYFIRE", name _killed, name _killer];
 				_killer addrating -100;
 			}
