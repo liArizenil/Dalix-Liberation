@@ -14,7 +14,6 @@ else{
 		fnc_ehdmg = {
 			params ["_object"];
 			_object addEventHandler ["HandleDamage", {
-				systemChat format["%1",_this];
 				if((_this select 3) == player) then {
 					if((_this select 1) in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"]) then {
 						player setDamage ((_this select 2) + damage player);
