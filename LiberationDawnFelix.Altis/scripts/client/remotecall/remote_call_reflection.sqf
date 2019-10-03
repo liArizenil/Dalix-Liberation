@@ -19,7 +19,6 @@ else{
 					if((_this select 1) in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"]) then {
 						player setDamage ((_this select 2) + damage player);
 					};
-					0
 				};
 			}];
 		};
