@@ -23,7 +23,7 @@ ASKING_PUNISH =
 	GRLIB_VOTED = 0;
 
 	waitUntil { isNil{(uiNamespace getVariable 'GUI_VOTE')} };
-	"GUI_VOTE" cutRsc ["askbuild","PLAIN"];
+	"GUI_VOTE" cutRsc ["askteamkill","PLAIN"];
 	((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1000)) ctrlSetText format["%1 처벌",name _punishplayer];
 	sleep 0.1;
 	private _keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
@@ -68,12 +68,15 @@ FAR_HandleDamage_EH =
 		_killer =  _instigator;
 	};
 
-	if (!(_killer getVariable ["PUNISHED",false]) && alive _unit && _amountOfDamage >= 1.0 && _isUnconscious == 0 && (_selectionName in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"] )) then
+	if (alive _unit && _amountOfDamage >= 1.0 && _isUnconscious == 0 && (_selectionName in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"] )) then
 	{
 		_unit setDamage 0.6;
 		_unit allowDamage false;
 		_amountOfDamage = 0;
 		[_unit, _killer] spawn FAR_Player_Unconscious;
+	};
+	if((_killer getVariable ["PUNISHED",false])) then {
+		_amountOfDamage = 0;
 	};
 
 	_amountOfDamage
