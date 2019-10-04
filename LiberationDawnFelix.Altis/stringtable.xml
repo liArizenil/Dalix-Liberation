@@ -150,6 +150,10 @@
 						<Original>연료</Original>
 						<English>Fuel</English>
 				</Key>
+				<Key ID="STR_ANTI_TEAM_KILL_ACTIVATED">
+						<Original>DAMAGE REFLECTION ACTIVATED</Original>
+						<Korean>아군 데미지 반사 활성화 됨</Korean>
+				</Key>
 <!-- FAR REVIVE -->
 				<Key ID="STR_REVIVE">
 					<Original>Revive</Original>

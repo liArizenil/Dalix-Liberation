@@ -545,7 +545,7 @@ class RscTitles
 			class Text : RscText
 			{
 				idc = 1000;
-				text = "TEAM KILL Damage Reflection Activated"; //--- ToDo: Localize;
+				text = "$STR_ANTI_TEAM_KILL_ACTIVATED"; //--- ToDo: Localize;
 
 				font = FontM;
 				style = ST_CENTER;
