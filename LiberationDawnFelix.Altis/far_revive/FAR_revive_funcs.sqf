@@ -21,9 +21,12 @@ ASKING_PUNISH =
 
 	waitUntil { isNil{(uiNamespace getVariable 'GUI_VOTE')} };
 	"GUI_VOTE" cutRsc ["askteamkill","PLAIN"];
+	((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1000)) ctrlSetText format["%1 처벌",name _punishplayer];
+
 	GRLIB_voting_timer = 15;
 	GRLIB_VOTED = 0;
-	((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1000)) ctrlSetText format["%1 처벌",name _punishplayer];
+	
+	playSound "beep_target";
 	sleep 0.1;
 	private _keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 		if(_this select 1 == 0xC7) then { //HOME key

@@ -12,6 +12,8 @@ if(isNil "_get") exitWith {};
 GRLIB_VOTED = 0;
 GRLIB_voting_timer = 15;
 
+playSound "beep_target";
+
 sleep 0.1;
 private _keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 	if(_this select 1 == 0xC7) then { //HOME key
