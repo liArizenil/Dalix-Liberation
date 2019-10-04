@@ -61,6 +61,15 @@ if (isDedicated) exitWith {};
 			[] spawn FAR_Player_Init;
 		}
 	];
+
+	[] spawn {
+		while { !(player getVariable ["PUNISHED",false]) } do {
+			if((player getVariable ["Karma",0]) > 0) then {
+				player setVariable ["Karma",(player getVariable ["Karma",0])-1, false];
+			};
+			sleep 300;
+		};
+	};
 };
 
 FAR_Player_Init =

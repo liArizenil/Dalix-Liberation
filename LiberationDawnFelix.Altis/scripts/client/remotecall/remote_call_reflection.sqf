@@ -8,6 +8,8 @@ if(_prevkarma+_KARMA < 6) then {
 }
 else{
 	player setVariable ["Karma",6,false];
-	player setVariable ["PUNISHED",true,true];
-	1 cutRsc ["teamkillactivated","PLAIN",0];
+	if(!(player getVariable ["PUNISHED",false])) then {
+		player setVariable ["PUNISHED",true,true];
+		1 cutRsc ["teamkillactivated","PLAIN",0];
+	};
 };

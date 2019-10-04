@@ -19,11 +19,10 @@ ASKING_PUNISH =
 {
 	params [ "_punishplayer" ];
 
-	GRLIB_voting_timer = 15;
-	GRLIB_VOTED = 0;
-
 	waitUntil { isNil{(uiNamespace getVariable 'GUI_VOTE')} };
 	"GUI_VOTE" cutRsc ["askteamkill","PLAIN"];
+	GRLIB_voting_timer = 15;
+	GRLIB_VOTED = 0;
 	((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1000)) ctrlSetText format["%1 처벌",name _punishplayer];
 	sleep 0.1;
 	private _keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
@@ -43,7 +42,7 @@ ASKING_PUNISH =
 		[1] remoteExec ["remote_call_reflection",_punishplayer];
 	};
 	if(GRLIB_VOTED == 1) then {
-		[6] remoteExec ["remote_call_reflection",_punishplayer];
+		[5] remoteExec ["remote_call_reflection",_punishplayer];
 	};
 
 	GRLIB_VOTED = nil;
@@ -64,14 +63,14 @@ FAR_HandleDamage_EH =
 
 	_isUnconscious = _unit getVariable "FAR_isUnconscious";
 
-	if(!isNull _instigator && isPlayer _instigator) then {
+	if(isPlayer _instigator) then {
 		_killer =  _instigator;
 	};
 
 	_killerPunished = (_killer getVariable ["PUNISHED",false]);
 	
-	if(_killerPunished) then {
-		_killer setDamage (_amountOfDamage + damage _killer);
+	if(_killerPunished && _killer != player) then {
+		_killer setDamage (damage _killer + 0.5);
 		_amountOfDamage = 0;
 	};
 	if (alive _unit && _amountOfDamage >= 1.0 && _isUnconscious == 0 && (_selectionName in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"] )) then
