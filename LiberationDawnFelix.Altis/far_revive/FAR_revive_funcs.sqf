@@ -74,7 +74,7 @@ FAR_HandleDamage_EH =
 		_killer setDamage (_amountOfDamage + damage _killer);
 		_amountOfDamage = 0;
 	};
-	if (!_killerPunished && alive _unit && _amountOfDamage >= 1.0 && _isUnconscious == 0 && (_selectionName in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"] )) then
+	if (alive _unit && _amountOfDamage >= 1.0 && _isUnconscious == 0 && (_selectionName in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"] )) then
 	{
 		_unit setDamage 0.6;
 		_unit allowDamage false;
