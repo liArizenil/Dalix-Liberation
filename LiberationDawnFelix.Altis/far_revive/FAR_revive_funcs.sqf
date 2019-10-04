@@ -60,7 +60,7 @@ FAR_HandleDamage_EH =
 {
 
 	params [ "_unit", "_selectionName", "_amountOfDamage", "_killer", "_projectile", "_hitPartIndex","_instigator" ];
-	private [ "_isUnconscious", "_olddamage", "_damageincrease", "_vestarmor", "_vest_passthrough", "_vestobject", "_helmetarmor",  "_helmet_passthrough", "_helmetobject" ];
+	private [ "_isUnconscious", "_killerPunished"];
 
 	_isUnconscious = _unit getVariable "FAR_isUnconscious";
 
@@ -68,17 +68,19 @@ FAR_HandleDamage_EH =
 		_killer =  _instigator;
 	};
 
-	if (alive _unit && _amountOfDamage >= 1.0 && _isUnconscious == 0 && (_selectionName in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"] )) then
+	_killerPunished = (_killer getVariable ["PUNISHED",false]);
+	
+	if(_killerPunished) then {
+		_killer setDamage (_amountOfDamage + damage _killer);
+		_amountOfDamage = 0;
+	};
+	if (!_killerPunished && alive _unit && _amountOfDamage >= 1.0 && _isUnconscious == 0 && (_selectionName in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"] )) then
 	{
 		_unit setDamage 0.6;
 		_unit allowDamage false;
 		_amountOfDamage = 0;
 		[_unit, _killer] spawn FAR_Player_Unconscious;
 	};
-	if((_killer getVariable ["PUNISHED",false])) then {
-		_amountOfDamage = 0;
-	};
-
 	_amountOfDamage
 };
 

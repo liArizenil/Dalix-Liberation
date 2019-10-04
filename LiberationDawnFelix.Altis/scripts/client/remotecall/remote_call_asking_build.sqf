@@ -2,15 +2,16 @@ if ( isDedicated ) exitWith {};
 
 params [ "_requestPlayer", "_requestclass" ];
 
-GRLIB_voting_timer = 15;
 private _get = _requestPlayer getVariable["VoteBuild",nil];
-
-GRLIB_VOTED = 0;
 
 waitUntil { isNil{(uiNamespace getVariable 'GUI_VOTE')} || isNil {_get} };
 if(isNil "_get") exitWith {};
 "GUI_VOTE" cutRsc ["askbuild","PLAIN"];
 ((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1006)) ctrlSetText format["%1 : %2 건설 요청",name _requestPlayer,_requestclass];
+
+GRLIB_VOTED = 0;
+GRLIB_voting_timer = 15;
+
 sleep 0.1;
 private _keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 	if(_this select 1 == 0xC7) then { //HOME key
@@ -50,5 +51,5 @@ GRLIB_VOTED = nil;
 GRLIB_voting_timer = 0;
 terminate _timer;
 (findDisplay 46) displayRemoveEventHandler ['KeyDown',_keyeh];
-uiNamespace setVariable ['GUI_VOTE', nil];
 "GUI_VOTE" cutFadeOut 0;
+uiNamespace setVariable ['GUI_VOTE', nil];

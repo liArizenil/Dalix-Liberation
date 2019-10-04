@@ -1,7 +1,7 @@
 fn_SyncGroupClient = {
 	params ["_GroupName", "_GroupType"];
 	_GroupName = format ["%1 %2",_GroupType , _GroupName ];
-	if(({side _x == GRLIB_side_friendly && groupId _x == _GroupName} count allGroups) > 0) exitWith { hint "이미 존재하는 그룹명 입니다."; };
+	if(({groupId _x == _GroupName} count (["GetAllGroupsOfSide",[GRLIB_side_friendly]] call BIS_fnc_dynamicGroups)) > 0) exitWith { hint "이미 존재하는 그룹명 입니다."; };
 	(group player) setVariable ['GroupType',_GroupType,true];
 	[_GroupName,player,group player] remoteExecCall ["fn_SyncGroupServer",2];
 };
