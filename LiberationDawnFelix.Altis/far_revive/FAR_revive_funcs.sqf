@@ -73,7 +73,7 @@ FAR_HandleDamage_EH =
 	_killerPunished = (_killer getVariable ["PUNISHED",false]);
 	
 	if(_killerPunished && _killer != player) then {
-		_killer setDamage (damage _killer + 0.5);
+		_killer setDamage (damage _killer + 0.5 + _amountOfDamage);
 		_amountOfDamage = 0;
 	};
 	if (alive _unit && _amountOfDamage >= 1.0 && _isUnconscious == 0 && (_selectionName in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"] )) then
