@@ -98,14 +98,16 @@ while { true } do {
 
 			{ _x setObjectTexture [0, "#(rgb,8,8,3)color(0,1,0,1)"]; } foreach GRLIB_preview_spheres;
 
-			private ["_allgroups", "_vote_in_progress", "_vote_approved", "_timercalc"];
+			private ["_allgroups", "_vote_in_progress", "_vote_approved", "_timercalc","_classnamecfg"];
 			// VOTING SYSTEM ==============================================================================
 			if (!(buildtype == 6 || buildtype == 99)) then {
 				_allgroups = ["GetAllGroupsOfSide",[GRLIB_side_friendly]] call BIS_fnc_dynamicGroups;
+				_classnamecfg = getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" );
 				player setVariable["VoteBuild",[count _allgroups,0,0],true]; //[총 요청한 사람수,동의받은 수, 거절 받은 수]
 				{
-					[player, getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" )] remoteExec ["remote_call_asking_build",leader _x];
+					[player, _classnamecfg] remoteExec ["remote_call_asking_build",leader _x];
 				} forEach (_allgroups);
+				[[GRLIB_side_friendly,"Base"],format["%1님이 %2 근처에서 %3 건설을 요청하였습니다.",name player, [[] call F_getNearestFob] call F_getFobName ,_classnamecfg]] remoteExec ["sideChat",west];
 				_vote_in_progress = true; //투표가 진행중인가? false 시 통과
 				_vote_approved = true; //false시 건설 거부
 				_timercalc = [] spawn {
@@ -115,7 +117,6 @@ while { true } do {
 			else{
 				_vote_in_progress = false;
 				_vote_approved = true;
-
 			};
 
 			while { build_confirmed == 1 && alive player } do {
@@ -126,7 +127,7 @@ while { true } do {
 						if(((_get select 1)/((_get select 1) + (_get select 2)))> 0.33) then { //전체 투표가 이루어진 양 중에서 찬성이 33% 이상일때
 							_vote_in_progress = false;
 							player setVariable ["VoteBuild", nil,true];
-							systemChat format["참여율 %1%2, 찬성 %3, 반대 %4 로 건설이 동의되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2];
+							[[GRLIB_side_friendly,"Base"],format["%1의 참여율 %1%2, 찬성 %3, 반대 %4 로 %5의 %6에 대한 건설이 동의되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2,name player,_classnamecfg]] remoteExec ["SideChat",GRLIB_side_friendly];
 						};
 						if(((_get select 2)/((_get select 1) + (_get select 2)))> 0.66) then { //전체 투표가 이루어진 양 중에서 반대가 67% 이상일때
 							_vote_approved = false;
@@ -258,7 +259,7 @@ while { true } do {
 					if(!_vote_approved) then {
 						build_confirmed = 3;
 						GRLIB_ui_notif = "";
-						systemChat format["참여율 %1%2, 찬성 %3, 반대 %4 로 건설이 거부되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2];
+						[[GRLIB_side_friendly,"Base"], format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5의 %6에 대한 건설이 거부되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2,name player, _classnamecfg]] remoteExec ["sideChat",GRLIB_side_friendly];
 						hint localize "STR_CANCEL_HINT";
 					};
 				};

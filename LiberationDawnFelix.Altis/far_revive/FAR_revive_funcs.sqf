@@ -73,8 +73,17 @@ FAR_HandleDamage_EH =
 	_killerPunished = (_killer getVariable ["PUNISHED",false]);
 	
 	if(_killerPunished && _killer != player) then {
-		_killer setDamage (damage _killer + 0.5 + _amountOfDamage);
-		_amountOfDamage = 0;
+		_oldDamage = 0;
+		switch(_selectionName)do{  
+			case("head") :{_oldDamage = _unit getHitPointDamage "HitHead";};  
+			case("body") :{_oldDamage = _unit getHitPointDamage "HitBody";};  
+			case("hands") :{_oldDamage = _unit getHitPointDamage "HitHands";};  
+			case("legs") :{_oldDamage = _unit getHitPointDamage "HitLegs";};  
+			case("")  :{_oldDamage = damage _unit;};  
+			default{};  
+		};
+		_killer setDamage (damage _killer + (_amountOfDamage - _oldDamage));
+		_amountOfDamage = _oldDamage;
 	};
 	if (alive _unit && _amountOfDamage >= 1.0 && _isUnconscious == 0 && (_selectionName in ["","head","face_hub","neck","spine1","spine2","spine3","pelvis","body"] )) then
 	{
