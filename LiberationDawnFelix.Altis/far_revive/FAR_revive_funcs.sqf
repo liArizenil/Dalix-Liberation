@@ -69,6 +69,9 @@ FAR_HandleDamage_EH =
 	if(isPlayer _instigator) then {
 		_killer =  _instigator;
 	};
+	if(isUAVConnected _killer) then {
+		_killer = (UAVControl _killer) select 0;
+	};
 
 	_killerPunished = (_killer getVariable ["PUNISHED",false]);
 	
