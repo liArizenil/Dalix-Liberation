@@ -175,7 +175,7 @@ if(side player == GRLIB_side_friendly) then {
 				} else {
 					_destpos = ((choiceslist select _idxchoice) select 1);
 					if(_IsVehicle_redeploy) then {
-						_desposempty = _destpos findEmptyPosition [0,40,typeOf (vehicle player)];
+						_desposempty = _destpos findEmptyPosition [0,100,"B_Heli_Transport_03_unarmed_F"];
 						if(count _desposempty > 2) then {
 							(vehicle player) setpos _desposempty;
 						}
