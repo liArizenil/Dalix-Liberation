@@ -22,7 +22,6 @@ if (!isDedicated && !hasInterface && isMultiplayer) then {
 };
 
 if (!isDedicated && hasInterface) then {
-	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 	[] call compileFinal preprocessFileLineNumbers "scripts\client\init_client.sqf";
 } else {
 	setViewDistance 1600;

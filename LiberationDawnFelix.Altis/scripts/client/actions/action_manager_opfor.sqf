@@ -9,16 +9,19 @@ waitUntil { !isNil "GRLIB_all_fobs" };
 waitUntil { one_synchro_done };
 
 GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer;
-[missionNamespace, "arsenalClosed", {
-    GRLIB_respawn_loadout = [ player, ["repetitive"] ] call F_getLoadout;
-}] call BIS_fnc_addScriptedEventHandler;
+
 [ missionNamespace, "arsenalOpened", {
     disableSerialization;
     _display = _this select 0;
     {
-        ctrlDelete ( _display displayCtrl _x );
+		( _display displayCtrl _x ) ctrlShow false;
+		ctrlDelete ( _display displayCtrl _x );
     }forEach [ 44146, 44147 ];
 } ] call BIS_fnc_addScriptedEventHandler;
+
+[missionNamespace, "arsenalClosed", {
+    GRLIB_respawn_loadout = [ player, ["repetitive"] ] call F_getLoadout;
+}] call BIS_fnc_addScriptedEventHandler;
 
 player addEventHandler ["Killed",{ GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer; }];
 

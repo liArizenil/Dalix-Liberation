@@ -19,6 +19,7 @@ if ( typeOf player == "VirtualSpectator_F" ) exitWith {
 [] call compileFinal preprocessFileLineNumbers "arsenal.sqf";
 
 if(side player == GRLIB_side_friendly) then {
+	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 	player addEventHandler ["Respawn", { if(score player > 0) then { [player,(-1*((getPlayerScores player) select 5))] remoteExec ["addScore",2]; }; }];
 
 	GRTLIB_reflection_is_progress = false;
@@ -70,8 +71,6 @@ if(side player == GRLIB_side_enemy) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		};
 	};
-	2 enableChannel [false, false];
-	3 enableChannel [false, false];
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\action_manager_opfor.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\build\do_build_opfor.sqf";
 
