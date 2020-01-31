@@ -12,11 +12,11 @@ GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer;
 
 [ missionNamespace, "arsenalOpened", {
     disableSerialization;
-    _display = _this select 0;
+    params ["_display"];
     {
 		( _display displayCtrl _x ) ctrlShow false;
-		ctrlDelete ( _display displayCtrl _x );
-    }forEach [ 44146, 44147 ];
+		_display displayAddEventHandler ["keydown", "_this select 3"];
+    } forEach [44151, 44150, 44146, 44147, 44148, 44149, 44346];
 } ] call BIS_fnc_addScriptedEventHandler;
 
 [missionNamespace, "arsenalClosed", {
