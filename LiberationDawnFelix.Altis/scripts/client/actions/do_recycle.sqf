@@ -21,4 +21,5 @@ if ( dialog ) then { closeDialog 0 };
 
 if ( dorecycle == 1 && !(isnull _vehtorecycle) && alive _vehtorecycle) then {
 	[ _vehtorecycle,  round ((_objectinfo select 2) * GRLIB_recycling_percentage) ] remoteExec ["recycle_remote_call",2];
+	[gamelogic, format["%1 님에 의해 FOB %2 의 %3가 재활용되었습니다", name player, [[] call F_getNearestFob] call F_getFobName, getText (_cfg >> (_objectinfo select 0) >> "displayName" ) ]] remoteExec ["sideChat",[WEST,civilian]];
 };
