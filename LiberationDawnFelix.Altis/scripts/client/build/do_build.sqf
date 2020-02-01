@@ -41,7 +41,7 @@ while { true } do {
 			_grp = createGroup GRLIB_side_friendly;
 		};
 		_classname createUnit [_pos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn kill_manager}]", 0.5, "private"];
-		[gamelogic, format["%1 님이 FOB %2 에서 AI를 소환했습니다", name player, [[] call F_getNearestFob] call F_getFobName]] remoteExec ["globalChat",[WEST,civilian]];
+		[gamelogic, format["%1님이 FOB %2 에서 AI를 소환했습니다", name player, [[] call F_getNearestFob] call F_getFobName]] remoteExec ["globalChat",[WEST,civilian]];
 		
 		build_confirmed = 0;
 	} else {
@@ -128,7 +128,7 @@ while { true } do {
 						if(((_get select 1)/((_get select 1) + (_get select 2)))> 0.33) then { //전체 투표가 이루어진 양 중에서 찬성이 33% 이상일때
 							_vote_in_progress = false;
 							player setVariable ["VoteBuild", nil,true];
-							[[GRLIB_side_friendly,"Base"],format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5의 %6에 대한 건설이 동의되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2,name player,_classnamecfg]] remoteExec ["SideChat",GRLIB_side_friendly];
+							[[GRLIB_side_friendly,"Base"],format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5님의 %6에 대한 건설이 동의되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2,name player,_classnamecfg]] remoteExec ["SideChat",GRLIB_side_friendly];
 						};
 						if(((_get select 2)/((_get select 1) + (_get select 2)))> 0.66) then { //전체 투표가 이루어진 양 중에서 반대가 67% 이상일때
 							_vote_approved = false;
@@ -260,7 +260,7 @@ while { true } do {
 					if(!_vote_approved) then {
 						build_confirmed = 3;
 						GRLIB_ui_notif = "";
-						[[GRLIB_side_friendly,"Base"], format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5 %6의 %7에 대한 건설이 거부되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2, groupid (group player) ,name player, _classnamecfg]] remoteExec ["sideChat",GRLIB_side_friendly];
+						[[GRLIB_side_friendly,"Base"], format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5 %6님의 %7에 대한 건설이 거부되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2, groupid (group player) ,name player, _classnamecfg]] remoteExec ["sideChat",GRLIB_side_friendly];
 						hint localize "STR_CANCEL_HINT";
 					};
 				};
@@ -294,7 +294,12 @@ while { true } do {
  
 				if ( buildtype == 6 || buildtype == 99 ) then {
 					_vehicle setVectorUp [0,0,1];
-					[gamelogic, format["%1 님에 의해 FOB %2 에서 %3가 건설되었습니다", name player, [[] call F_getNearestFob] call F_getFobName, getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" ) ]] remoteExec ["globalChat",[WEST,civilian]];
+					if(buildtype == 6) then {
+						[gamelogic, format["%1님에 의해 FOB %2 에서 %3가 건설되었습니다", name player, [[] call F_getNearestFob] call F_getFobName, getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" ) ]] remoteExec ["globalChat",[WEST,civilian]];
+					}
+					else{
+						[gamelogic, format["%1님에 의해 새로운 FOB가 건설되었습니다.", name player]] remoteExec ["globalChat",[WEST,civilian]];
+					};
 				} else {
 					_vehicle setVectorUp surfaceNormal position _vehicle;
 				};

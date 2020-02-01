@@ -1,3 +1,4 @@
+//============ UI Controller =====================
 Mainlabel = [801,802,803,804,805,806];
 Sublabel = [811,812,813,814,815,816];
 GetChlistener = {
@@ -17,35 +18,26 @@ GetChlistener = {
 };
 ChangeMainChannel = {
 	params["_channel","_prevChannel"];
-	_channel radioChannelAdd [player];
-	setCurrentChannel (_channel + 5);
-	_prevChannel radioChannelRemove [player];
+	[_channel, _prevChannel] call Ari_fnc_ChangeMainCh;
 	ctrlShow [Mainlabel select (_prevChannel - 1), false];
 	ctrlShow [Mainlabel select (_channel - 1), true];
-	player setVariable ["MainCh",_channel,true];
-	(group player) setVariable ["MainCh",_channel,true];
 };
 ChangeSubChannel = {
 	params["_channel","_prevChannel"];
-
 	[_prevChannel] call DisconnectfromSubChannel;
 	[_channel] call ConnectToSubChannel;
 };
 ConnectToSubChannel = {
 	params["_channel"];
-	_channel radioChannelAdd [player];
-	setCurrentChannel (_channel + 5);
+	[_channel] call Ari_fnc_ConnectToSubCh;
 	ctrlShow [Sublabel select (_channel - 1), true];
-	player setVariable ["SubCh",_channel,true];
-	(group player) setVariable ["SubCh",_channel,true];
 };
 DisconnectfromSubChannel = {
 	params["_channel"];
-	_channel radioChannelRemove [player];
+	[_channel] call Ari_fnc_DisconnectFromSubCh;
 	ctrlShow [Sublabel select (_channel - 1), false];
-	player setVariable ["SubCh",nil,true];
-	(group player) setVariable ["SubCh",nil,true];
 };
+
 _dialog = createDialog "Radio_Menu";
 waitUntil { dialog };
 {
