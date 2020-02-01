@@ -294,7 +294,7 @@ while { true } do {
  
 				if ( buildtype == 6 || buildtype == 99 ) then {
 					_vehicle setVectorUp [0,0,1];
-					[gamelogic, format["%1 님에 의해 FOB %2 에서 %3가 건설되었습니다", name player, [[] call F_getNearestFob] call F_getFobName, _classnamecfg ]] remoteExec ["globalChat",[WEST,civilian]];
+					[gamelogic, format["%1 님에 의해 FOB %2 에서 %3가 건설되었습니다", name player, [[] call F_getNearestFob] call F_getFobName, getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" ) ]] remoteExec ["globalChat",[WEST,civilian]];
 				} else {
 					_vehicle setVectorUp surfaceNormal position _vehicle;
 				};
