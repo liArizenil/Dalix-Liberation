@@ -33,4 +33,3 @@ if ( GRLIB_revive > 0 ) then {
 [] execVM "scripts\advancedSlingLoadingInit.sqf";
 [] execVM "scripts\fn_advancedTowingInit.sqf";
 [] execVM "scripts\AdvancedRadio\init.sqf";
-[] execVM "CRS\init.sqf";

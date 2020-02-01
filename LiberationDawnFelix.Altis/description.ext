@@ -34,8 +34,6 @@ disableChannels[] = {
 #include "scripts\GroupTag\ui\dialog.hpp"
 #include "scripts\outlw_magRepack\MagRepack_config.hpp"
 
-#include "CRS\f\SFX.hpp"
-
 class CfgDebriefing
 {
 	class End1
