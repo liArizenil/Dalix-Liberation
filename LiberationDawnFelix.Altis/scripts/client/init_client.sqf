@@ -21,7 +21,6 @@ if ( typeOf player == "VirtualSpectator_F" ) exitWith {
 if(side player == GRLIB_side_friendly) then {
 	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 	player addEventHandler ["Respawn", { if(score player > 0) then { [player,(-1*((getPlayerScores player) select 5))] remoteExec ["addScore",2]; }; }];
-
 	GRTLIB_reflection_is_progress = false;
 
 	1 enableChannel [true, false];
