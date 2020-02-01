@@ -70,6 +70,9 @@ if(side player == GRLIB_side_enemy) then {
 			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
 		};
 	};
+
+	build_lists = [[],[],[],Build_opfor_Ground_Vehicles,Build_opfor_Heli,Build_opfor_Air,[],Build_opfor_support,[]];
+	
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\action_manager_opfor.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\build\do_build_opfor.sqf";
 
