@@ -41,6 +41,7 @@ while { true } do {
 			_grp = createGroup GRLIB_side_friendly;
 		};
 		_classname createUnit [_pos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn kill_manager}]", 0.5, "private"];
+		[gamelogic, format["%1 님d이 FOB %2 에서 AI를 소환했습니다", name player, [[] call F_getNearestFob] call F_getFobName]] remoteExec ["globalChat",[WEST,civilian]];
 		
 		build_confirmed = 0;
 	} else {
@@ -293,7 +294,7 @@ while { true } do {
  
 				if ( buildtype == 6 || buildtype == 99 ) then {
 					_vehicle setVectorUp [0,0,1];
-					[gamelogic, format["%1 님에 의해 FOB %2 에서 %3가 건설되었습니다", name player, [[] call F_getNearestFob] call F_getFobName, getText (_cfg >> (_objectinfo select 0) >> "displayName" ) ]] remoteExec ["sideChat",[WEST,civilian]];
+					[gamelogic, format["%1 님에 의해 FOB %2 에서 %3가 건설되었습니다", name player, [[] call F_getNearestFob] call F_getFobName, _classnamecfg ]] remoteExec ["globalChat",[WEST,civilian]];
 				} else {
 					_vehicle setVectorUp surfaceNormal position _vehicle;
 				};
