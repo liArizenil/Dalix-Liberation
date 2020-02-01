@@ -55,9 +55,9 @@ if ( isServer ) then {
 						if((resources_ammo - 200) < 0) then {
 							resources_ammo = 0;
 						}else{
-							resources_ammo = resources_ammo - 100;
+							resources_ammo = resources_ammo - 200;
 						};
-						combat_readiness = combat_readiness + 100;
+						combat_readiness = combat_readiness + 400;
 					};
 					if(side _killer == GRLIB_side_enemy) then {
 						if((combat_readiness - 500) < 0) then {
