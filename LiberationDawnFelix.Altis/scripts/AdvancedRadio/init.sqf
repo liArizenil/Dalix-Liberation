@@ -26,4 +26,9 @@ if (hasInterface && side player == GRLIB_side_friendly) then {
 	call RadioAddAction;
 	player addEventHandler ["Respawn",{call RadioAddAction;}];
 	player addEventHandler ["Respawn",{call Reconnect;}];
+	(findDisplay 46) displayAddEventHandler ["KeyDown", {
+		if((_this select 1) == 0x19 && (_this select 3)) then { //press ctrl + p
+			[] spawn compileFinal preprocessFileLineNumbers "scripts\AdvancedRadio\ui_manage.sqf";
+		};
+	}];
 };
