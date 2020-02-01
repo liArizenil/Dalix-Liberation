@@ -107,7 +107,7 @@ while { true } do {
 				{
 					[player, _classnamecfg] remoteExec ["remote_call_asking_build",leader _x];
 				} forEach (_allgroups);
-				[[GRLIB_side_friendly,"Base"],format["%1님이 %2 근처에서 %3 건설을 요청하였습니다.",name player, [[] call F_getNearestFob] call F_getFobName ,_classnamecfg]] remoteExec ["sideChat",west];
+				[[GRLIB_side_friendly,"Base"],format["%1 %2님이 %3 근처에서 %4 건설을 요청하였습니다.",groupId (group player),name player, [[] call F_getNearestFob] call F_getFobName ,_classnamecfg]] remoteExec ["sideChat",west];
 				_vote_in_progress = true; //투표가 진행중인가? false 시 통과
 				_vote_approved = true; //false시 건설 거부
 				_timercalc = [] spawn {
@@ -259,7 +259,7 @@ while { true } do {
 					if(!_vote_approved) then {
 						build_confirmed = 3;
 						GRLIB_ui_notif = "";
-						[[GRLIB_side_friendly,"Base"], format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5의 %6에 대한 건설이 거부되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2,name player, _classnamecfg]] remoteExec ["sideChat",GRLIB_side_friendly];
+						[[GRLIB_side_friendly,"Base"], format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5 %6의 %7에 대한 건설이 거부되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2, groupid (group player) ,name player, _classnamecfg]] remoteExec ["sideChat",GRLIB_side_friendly];
 						hint localize "STR_CANCEL_HINT";
 					};
 				};
