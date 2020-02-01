@@ -41,7 +41,7 @@ while { true } do {
 			_grp = createGroup GRLIB_side_friendly;
 		};
 		_classname createUnit [_pos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn kill_manager}]", 0.5, "private"];
-		[gamelogic, format["%1 님d이 FOB %2 에서 AI를 소환했습니다", name player, [[] call F_getNearestFob] call F_getFobName]] remoteExec ["globalChat",[WEST,civilian]];
+		[gamelogic, format["%1 님이 FOB %2 에서 AI를 소환했습니다", name player, [[] call F_getNearestFob] call F_getFobName]] remoteExec ["globalChat",[WEST,civilian]];
 		
 		build_confirmed = 0;
 	} else {

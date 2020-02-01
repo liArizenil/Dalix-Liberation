@@ -21,7 +21,6 @@ if (hasInterface && side player == GRLIB_side_friendly) then {
 	0 enableChannel [true, false];
 	1 enableChannel [true, false];
 	(findDisplay 46) displayAddEventHandler ["KeyDown", {
-		systemChat format["%1 %2",_this select 1, _this select 3];
 		if((_this select 1) == 0x19 && (_this select 3)) then { //press ctrl + p
 			if(!isnull(findDisplay 5568)) then {
 				(findDisplay 5568) closeDisplay 0;
