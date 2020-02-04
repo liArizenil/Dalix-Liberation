@@ -45,7 +45,13 @@ else{
 		_requestPlayer setVariable["VoteBuild",[_get select 0,(_get select 1)+1,_get select 2],true];
 	};
 	if(GRLIB_VOTED == -1) then {
-		_requestPlayer setVariable["VoteBuild",[_get select 0,_get select 1,(_get select 2)+1],true];
+		if(leader _requestPlayer == player) then {
+			_requestPlayer setVariable["VoteBuild",[_get select 0,_get select 1,_get select 0,true];
+		}
+		else{
+			_requestPlayer setVariable["VoteBuild",[_get select 0,_get select 1,(_get select 2)+1],true];
+		};
+		
 	};
 };
 

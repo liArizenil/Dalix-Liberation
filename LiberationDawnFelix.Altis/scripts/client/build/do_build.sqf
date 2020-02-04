@@ -108,7 +108,7 @@ while { true } do {
 				{
 					[player, _classnamecfg] remoteExec ["remote_call_asking_build",leader _x];
 				} forEach (_allgroups);
-				[[GRLIB_side_friendly,"Base"],format["%1 %2님이 %3 근처에서 %4 건설을 요청하였습니다.",groupId (group player),name player, [[] call F_getNearestFob] call F_getFobName ,_classnamecfg]] remoteExec ["sideChat",west];
+				[[GRLIB_side_friendly,"Base"],format["%1 %2님이 FOB %3 근처에서 %4 건설을 요청하였습니다.",groupId (group player),name player, [[] call F_getNearestFob] call F_getFobName ,_classnamecfg]] remoteExec ["sideChat",west];
 				_vote_in_progress = true; //투표가 진행중인가? false 시 통과
 				_vote_approved = true; //false시 건설 거부
 				_timercalc = [] spawn {
@@ -295,7 +295,7 @@ while { true } do {
 				if ( buildtype == 6 || buildtype == 99 ) then {
 					_vehicle setVectorUp [0,0,1];
 					if(buildtype == 6) then {
-						[gamelogic, format["%1님에 의해 FOB %2 에서 %3가 건설되었습니다", name player, [[] call F_getNearestFob] call F_getFobName, getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" ) ]] remoteExec ["globalChat",[WEST,civilian]];
+						[gamelogic, format["%1님에 의해 FOB %2 에서 %3이(가) 건설되었습니다", name player, [[] call F_getNearestFob] call F_getFobName, getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" ) ]] remoteExec ["globalChat",[WEST,civilian]];
 					}
 					else{
 						[gamelogic, format["%1님에 의해 새로운 FOB가 건설되었습니다.", name player]] remoteExec ["globalChat",[WEST,civilian]];
