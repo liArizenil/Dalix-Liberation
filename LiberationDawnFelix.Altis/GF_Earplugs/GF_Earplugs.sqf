@@ -48,7 +48,7 @@ DIK_TAB             0x0F
 	[]	spawn {
 		
 	(findDisplay 46) displayAddEventHandler ["KeyDown", {
-	if(_this select 1 == 0x07) // key 6		DIK_6 
+	if(_this select 1 == 0x07 && !(_this select 3) && !(_this select 4)) // key 6		DIK_6 
 	then {
 	_Earplugs_ctrl = (_this select 0) displayCtrl 9001;
 	if(isNull(_Earplugs_ctrl)) then {
@@ -85,4 +85,4 @@ DIK_TAB             0x0F
 };
 
 
-systemchat "6을 눌러 귀마개를 사용할 수 있습니다. 차량에 탑승하신 후에는 다시 사용해주세요 :)";
+systemchat "6을 눌러 귀마개를 사용할 수 있습니다.";

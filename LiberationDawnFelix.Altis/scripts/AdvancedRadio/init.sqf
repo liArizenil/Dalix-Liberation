@@ -63,7 +63,7 @@ if (hasInterface && side player == GRLIB_side_friendly) then {
 	player addEventHandler ["Respawn",{call Ari_fnc_RadioAddAction;}];
 	player addEventHandler ["Respawn",{call Ari_fnc_Reconnect;}];
 
-	waitUntil {alive player };
+	waitUntil {!isNull(findDisplay 46)};
 
 	(findDisplay 46) displayAddEventHandler ["KeyDown", {
 		if(leader player == player) then {
@@ -78,11 +78,12 @@ if (hasInterface && side player == GRLIB_side_friendly) then {
 				};
 				if(_inputKey > 0x01 && _inputKey < 0x08) then{
 					_inputKey = _inputKey - 1;
+					systemChat format["%1", _inputKey ];
 					if(player getVariable "MainCh" != _inputKey) then {
 						if(player getVariable "SubCh" == _inputKey) then {
 							[player getVariable "SubCh"] call Ari_fnc_DisconnectFromSubCh;
 						};
-						[player getVariable "MainCh",_inputKey] call Ari_fnc_ChangeMainCh;
+						[_inputKey, player getVariable "MainCh"] call Ari_fnc_ChangeMainCh;
 					}
 					else{
 						setCurrentChannel (_inputKey + 5);
@@ -92,6 +93,7 @@ if (hasInterface && side player == GRLIB_side_friendly) then {
 			if(_this select 4) then { //press Alt (Sub Key)
 				if(_inputKey > 0x01 && _inputKey < 0x08) then{
 					_inputKey = _inputKey - 1;
+					systemChat format["%1", _inputKey ];
 					if(player getVariable "MainCh" != _inputKey) then {
 						if(isNil {player getVariable "SubCh"}) then {
 							[_inputKey] call Ari_fnc_ConnectToSubCh;
@@ -101,7 +103,7 @@ if (hasInterface && side player == GRLIB_side_friendly) then {
 								[player getVariable "SubCh"] call Ari_fnc_DisconnectFromSubCh;
 							}
 							else{
-								[player getVariable "SubCh",_inputKey] call Ari_fnc_ChangeSubCh;
+								[_inputKey, player getVariable "SubCh"] call Ari_fnc_ChangeSubCh;
 							};
 						};
 					}
