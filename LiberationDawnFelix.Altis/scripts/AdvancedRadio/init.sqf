@@ -78,7 +78,6 @@ if (hasInterface && side player == GRLIB_side_friendly) then {
 				};
 				if(_inputKey > 0x01 && _inputKey < 0x08) then{
 					_inputKey = _inputKey - 1;
-					systemChat format["%1", _inputKey ];
 					if(player getVariable "MainCh" != _inputKey) then {
 						if(player getVariable "SubCh" == _inputKey) then {
 							[player getVariable "SubCh"] call Ari_fnc_DisconnectFromSubCh;
@@ -93,7 +92,6 @@ if (hasInterface && side player == GRLIB_side_friendly) then {
 			if(_this select 4) then { //press Alt (Sub Key)
 				if(_inputKey > 0x01 && _inputKey < 0x08) then{
 					_inputKey = _inputKey - 1;
-					systemChat format["%1", _inputKey ];
 					if(player getVariable "MainCh" != _inputKey) then {
 						if(isNil {player getVariable "SubCh"}) then {
 							[_inputKey] call Ari_fnc_ConnectToSubCh;
