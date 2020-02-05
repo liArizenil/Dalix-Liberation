@@ -465,16 +465,12 @@
 						<Korean>%1 님이 %2 지역 근방에 배치되었습니다.</Korean>	
 				</Key>
 				<Key ID="STR_NOTIFICATION_BATTLEGROUP_TITLE">
-						<Original>CSAT 병력들이 접근하고 있습니다.</Original>
-						<English>CSAT Forces are approaching</English>
-						<French>FORCES HOSTILES EN APPROCHE</French>
-						<German>GEGNERISCHE TRUPPEN TREFFEN EIN</German>
-						<Spanish>FUERZAS HOSTILES ACERCÁNDOSE</Spanish>
-						<Russian>ПОДХОДЯТ ВРАЖЕСКИЕ СИЛЫ</Russian>
+					<Original>CSAT Forces are approaching</Original>
+					<Korean>CSAT 병력들이 접근하고 있습니다.</Korean>
 				</Key>
 				<Key ID="STR_NOTIFICATION_BATTLEGROUP_TEXT">
-						<Original>%1 지역에서 CSAT 군의 움직임이 포착되었습니다.</Original>
-						<English>Spotted CSAT Forces movement on %1</English>
+					<Original>%1 지역에서 CSAT 군의 움직임이 포착되었습니다.</Original>
+					<English>Spotted CSAT Forces movement on %1</English>
 				</Key>
 				<Key ID="STR_NOTIFICATION_INTEL_TITLE">
 						<Original>새로운 정보 획득</Original>
@@ -799,6 +795,18 @@
 				</Key>
 				<Key ID="STR_BUILD8">
 						<Original>보병 분대</Original>
+				</Key>
+				<Key ID="STR_CALL_TROUP">
+						<Original>지원분대 공수 요청</Original>
+				</Key>
+				<Key ID="STR_SPAWN_UGV">
+						<Original>UGB 생성</Original>
+				</Key>
+				<Key ID="STR_SPAWN_UAV">
+						<Original>UAV 생성</Original>
+				</Key>
+				<Key ID="STR_CALL_MORTAL">
+						<Original>82mm 박격포 지워 요청</Original>
 				</Key>
 				<Key ID="STR_ACTIVE_SECTORS">
 						<Original>활성화 지역:</Original>
