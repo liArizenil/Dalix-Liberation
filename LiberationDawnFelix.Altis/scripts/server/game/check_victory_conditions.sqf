@@ -44,4 +44,7 @@ if ( count _blufor_bigtowns == count sectors_bigtown ) then {
 
 	{ if ( !(isPlayer _x)) then { deleteVehicle _x } } foreach allUnits;
 
+	"서버가 3분 후에 리스타트 됩니다." remoteExec ["systemChat"];
+	sleep 180;
+	(profileNamespace getVariable ["SERVER_COMMAND_PASSWORD",""]) serverCommand "#restart";
 };
