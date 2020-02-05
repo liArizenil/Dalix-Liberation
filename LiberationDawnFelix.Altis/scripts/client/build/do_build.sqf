@@ -124,13 +124,13 @@ while { true } do {
 				//calculate vote
 				if(_vote_in_progress) then {
 					_get = player getVariable ["VoteBuild",nil];
-					if((((_get select 1) + (_get select 2)) / count _allgroups) > 0.50) then {
-						if(((_get select 1)/((_get select 1) + (_get select 2)))> 0.33) then { //전체 투표가 이루어진 양 중에서 찬성이 33% 이상일때
+					if((((_get select 1) + (_get select 2)) / count _allgroups) > 0.80) then { //투표율이 80%를 초과함
+						if(((_get select 1)/((_get select 1) + (_get select 2)))> 0.60) then { //전체 투표가 이루어진 양 중에서 찬성이 60% 초과일때
 							_vote_in_progress = false;
 							player setVariable ["VoteBuild", nil,true];
 							[[GRLIB_side_friendly,"Base"],format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5님의 %6에 대한 건설이 동의되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2,name player,_classnamecfg]] remoteExec ["SideChat",GRLIB_side_friendly];
 						};
-						if(((_get select 2)/((_get select 1) + (_get select 2)))> 0.66) then { //전체 투표가 이루어진 양 중에서 반대가 67% 이상일때
+						if(((_get select 2)/((_get select 1) + (_get select 2)))> 0.39) then { //전체 투표가 이루어진 양 중에서 반대가 40% 이상일때 건설 거부
 							_vote_approved = false;
 							_vote_in_progress = false;
 							player setVariable ["VoteBuild", nil,true];

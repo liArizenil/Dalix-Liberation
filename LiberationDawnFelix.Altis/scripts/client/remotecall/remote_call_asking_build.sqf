@@ -10,7 +10,7 @@ if(isNil "_get") exitWith {};
 ((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1006)) ctrlSetText format["%1 : %2 건설 요청",name _requestPlayer,_requestclass];
 
 GRLIB_VOTED = 0;
-GRLIB_voting_timer = 15;
+GRLIB_voting_timer = 10;
 
 playSound "beep_target";
 
@@ -38,7 +38,7 @@ while { !isNil{ _requestPlayer getVariable["VoteBuild",nil]; } && GRLIB_VOTED ==
 };
 if(!isNil{ _requestPlayer getVariable["VoteBuild",nil]; } && GRLIB_VOTED == 0) then { //타이머가 끝났고, 투표가 아직 끝나지 않았을 때
 	_get = _requestPlayer getVariable["VoteBuild",nil];
-	_requestPlayer setVariable["VoteBuild",[_get select 0,(_get select 1)+1,_get select 2],true];
+	_requestPlayer setVariable["VoteBuild",[_get select 0,_get select 1,(_get select 2) + 1],true];
 }
 else{
 	if(GRLIB_VOTED == 1) then {
