@@ -2,6 +2,7 @@ fn_SyncGroupClient = {
 	params ["_GroupName", "_GroupType"];
 	_GroupName = format ["%1 %2",_GroupType , _GroupName ];
 	if(({groupId _x == _GroupName} count (["GetAllGroupsOfSide",[GRLIB_side_friendly]] call BIS_fnc_dynamicGroups)) > 0) exitWith { hint "이미 존재하는 그룹명 입니다."; };
+	if(_GroupType in ["[기갑]","[포병]","[CAS]","[공격헬기]","[수송]"] && ({ _GroupType == (_x getVariable['GroupType',(Group_Types select 0)]) } count (["GetAllGroupsOfSide",[GRLIB_side_friendly]] call BIS_fnc_dynamicGroups)) > 0) exitWith { hint "동일한 종류의 지원분대는 2개 이상 창설 할 수 없습니다."; };
 	(group player) setVariable ['GroupType',_GroupType,true];
 	[_GroupName,player,group player] remoteExecCall ["fn_SyncGroupServer",2];
 };
