@@ -40,11 +40,6 @@ while{true} do {
 		deleteVehicle _x;
 	} forEach (allDead-allDeadMen) ;
 	//AI 클리너(수중에 있는 AI 삭제)
-	{
-		if(!(isPlayer _x) && (surfaceIsWater position _x) && ((position _x) select 2) < 1) then {
-			deleteVehicle _x;
-		};
-	} forEach allUnits;
 	//크레이터 클리너(작동 안함)
 	
 	//아이템 클리너
