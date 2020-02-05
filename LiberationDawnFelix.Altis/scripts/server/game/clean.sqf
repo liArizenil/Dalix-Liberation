@@ -41,7 +41,7 @@ while{true} do {
 	} forEach (allDead-allDeadMen) ;
 	//AI 클리너(수중에 있는 AI 삭제)
 	{
-		if(!(isPlayer _x) && (surfaceIsWater position _x) && ((position _x) select 2) < 1) then {
+		if(!(isPlayer _x) && (surfaceIsWater position _x) && ((position _x) select 2) < 0) then {
 			deleteVehicle _x;
 		};
 	} forEach allUnits;
