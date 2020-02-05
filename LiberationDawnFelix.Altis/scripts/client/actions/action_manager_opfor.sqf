@@ -31,7 +31,7 @@ if ( count GRLIB_all_fobs < 1 ) then {
 
 [] spawn {
 	format [ "%1님이 대항군에 참여하셨습니다.", name player] remoteExec ["systemChat"];
-	sleep 3600;
+	sleep 1800;
 	waitUntil {sleep 1; !alive player;};
 	[name player] remoteExec ["kickplayer_remote_call",2];
 };
