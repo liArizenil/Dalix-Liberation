@@ -10,7 +10,7 @@ if(isNil "_get") exitWith {};
 ((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1006)) ctrlSetText format["%1 : %2 건설 요청",name _requestPlayer,_requestclass];
 
 GRLIB_VOTED = 0;
-GRLIB_voting_timer = 10;
+GRLIB_voting_timer = 15;
 
 playSound "beep_target";
 
@@ -42,9 +42,11 @@ if(!isNil{ _requestPlayer getVariable["VoteBuild",nil]; } && GRLIB_VOTED == 0) t
 }
 else{
 	if(GRLIB_VOTED == 1) then {
+		_get = _requestPlayer getVariable["VoteBuild",nil];
 		_requestPlayer setVariable["VoteBuild",[_get select 0,(_get select 1)+1,_get select 2],true];
 	};
 	if(GRLIB_VOTED == -1) then {
+		_get = _requestPlayer getVariable["VoteBuild",nil];
 		if(leader (group _requestPlayer) == player) then {
 			_requestPlayer setVariable["VoteBuild",[_get select 0,_get select 1,_get select 0,true]];
 		}
