@@ -16,10 +16,10 @@ playSound "beep_target";
 
 sleep 0.1;
 private _keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
-	if(_this select 1 == 0xC7) then { //HOME key
+	if(_this select 1 == 0x3F) then { //F5 Key
 		GRLIB_VOTED = 1;
 	};
-	if(_this select 1 == 0xCF) then { //END key
+	if(_this select 1 == 0x40) then { //F6 Key
 		GRLIB_VOTED = -1;
 	};
 }];
