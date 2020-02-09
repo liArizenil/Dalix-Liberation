@@ -2,7 +2,7 @@ if ( isMultiplayer ) then {
 	GRLIB_difficulty_modifier = ["Difficulty",1] call bis_fnc_getParamValue;
 	GRLIB_time_factor = ["DayDuration",12] call bis_fnc_getParamValue;
 	GRLIB_resources_multiplier = ["ResourcesMultiplier",1] call bis_fnc_getParamValue;
-	GRLIB_fatigue = ["Fatigue",1] call bis_fnc_getParamValue;
+	GRLIB_fatigue = ["Fatigue",0] call bis_fnc_getParamValue;
 	GRLIB_revive = ["Revive",3] call bis_fnc_getParamValue;
 	GRLIB_introduction = ["Introduction",1] call bis_fnc_getParamValue;
 	GRLIB_deployment_cinematic = ["DeploymentCinematic",1] call bis_fnc_getParamValue;
@@ -33,7 +33,7 @@ if ( isMultiplayer ) then {
 	GRLIB_difficulty_modifier = 1;
 	GRLIB_time_factor = 12;
 	GRLIB_resources_multiplier = 1;
-	GRLIB_fatigue = 1;
+	GRLIB_fatigue = 0;
 	GRLIB_revive = 3;
 	GRLIB_introduction = 0;
 	GRLIB_deployment_cinematic = 0;
