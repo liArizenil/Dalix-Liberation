@@ -2,7 +2,7 @@ if ( isMultiplayer ) then {
 	GRLIB_difficulty_modifier = ["Difficulty",1] call bis_fnc_getParamValue;
 	GRLIB_time_factor = ["DayDuration",12] call bis_fnc_getParamValue;
 	GRLIB_resources_multiplier = ["ResourcesMultiplier",1] call bis_fnc_getParamValue;
-	GRLIB_fatigue = ["Fatigue",1] call bis_fnc_getParamValue;
+	GRLIB_fatigue = ["Fatigue",0] call bis_fnc_getParamValue;
 	GRLIB_revive = ["Revive",3] call bis_fnc_getParamValue;
 	GRLIB_introduction = ["Introduction",1] call bis_fnc_getParamValue;
 	GRLIB_deployment_cinematic = ["DeploymentCinematic",1] call bis_fnc_getParamValue;
@@ -28,13 +28,12 @@ if ( isMultiplayer ) then {
 	GRLIB_autodanger = [ "Autodanger",0] call bis_fnc_getParamValue;
 	GRLIB_maximum_fobs = [ "MaximumFobs",26] call bis_fnc_getParamValue;
 	GRLIB_max_squad_size = ["MaxSquadSize",100] call bis_fnc_getParamValue;
-	GRLIB_Opfor_respawn_timer = ["OPFORInfRespawnTimer",120] call bis_fnc_getParamValue;
-	GRLIB_Opfor_Air_respawn_timer = ["OPFORAirRespawnTimer",180] call bis_fnc_getParamValue;
+	GRLIB_Opfor_respawn_timer = ["OPFORDeployTimer",120] call bis_fnc_getParamValue;
 } else {
 	GRLIB_difficulty_modifier = 1;
 	GRLIB_time_factor = 12;
 	GRLIB_resources_multiplier = 1;
-	GRLIB_fatigue = 1;
+	GRLIB_fatigue = 0;
 	GRLIB_revive = 3;
 	GRLIB_introduction = 0;
 	GRLIB_deployment_cinematic = 0;
@@ -61,7 +60,6 @@ if ( isMultiplayer ) then {
 	GRLIB_maximum_fobs = 26;
 	GRLIB_max_squad_size = 100;
 	GRLIB_Opfor_respawn_timer = 120;
-	GRLIB_Opfor_Air_respawn_timer = 180;
 };
 
 if ( GRLIB_fatigue < 0.1 ) then { GRLIB_fatigue = false } else { GRLIB_fatigue = true };
