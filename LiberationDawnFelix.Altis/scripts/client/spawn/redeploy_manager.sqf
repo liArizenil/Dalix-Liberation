@@ -17,6 +17,11 @@ waitUntil { introDone };
 waitUntil { !isNil "cinematic_camera_stop" };
 waitUntil { cinematic_camera_stop };
 
+if(side player == GRLIB_side_enemy) then {
+   if ( !GRLIB_fatigue ) then {
+            player enableStamina false;
+        };
+};
 
 if(side player == GRLIB_side_friendly) then {
 	_basenamestr = "";
