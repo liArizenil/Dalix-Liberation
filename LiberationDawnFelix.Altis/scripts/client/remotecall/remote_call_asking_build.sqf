@@ -38,8 +38,8 @@ while { !isNil{ _requestPlayer getVariable["VoteBuild",nil]; } && GRLIB_VOTED ==
 };
 if(!isNil{ _requestPlayer getVariable["VoteBuild",nil]; } && GRLIB_VOTED == 0) then { //타이머가 끝났고, 투표가 아직 끝나지 않았을 때
 	_get = _requestPlayer getVariable["VoteBuild",nil];
-	_requestPlayer setVariable["VoteBuild",[_get select 0,(_get select 1)+1,_get select 2],true];
-	[[GRLIB_side_friendly,"Base"],format["%1님이 투표에 참여하지 않았습니다",name player]] remoteExec ["sideChat",_requestPlayer];
+	_requestPlayer setVariable["VoteBuild",[_get select 0,_get select 1,(_get select 2)+1],true];
+	[[GRLIB_side_friendly,"Base"],format["%1님이 투표에 참여하지 않아 반대처리 되었습니다",name player]] remoteExec ["sideChat",_requestPlayer];
 }
 else{
 	if(GRLIB_VOTED == 1) then {
