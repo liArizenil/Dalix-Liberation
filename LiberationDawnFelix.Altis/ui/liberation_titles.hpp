@@ -673,7 +673,7 @@ class RscTitles
 				style = ST_CENTER;
 				colorText[] = { 0,0,0,1 };
 
-				text = "HOME"; //--- ToDo: Localize;
+				text = "F5"; //--- ToDo: Localize;
 				x = 0.845469 * safezoneW + safezoneX;
 				y = 0.049 * safezoneH + safezoneY;
 				w = 0.0154689 * safezoneW;
@@ -687,7 +687,7 @@ class RscTitles
 				style = ST_CENTER;
 				colorText[] = { 0,0,0,1 };
 
-				text = "END"; //--- ToDo: Localize;
+				text = "F6"; //--- ToDo: Localize;
 				x = 0.902187 * safezoneW + safezoneX;
 				y = 0.049 * safezoneH + safezoneY;
 				w = 0.0154689 * safezoneW;
