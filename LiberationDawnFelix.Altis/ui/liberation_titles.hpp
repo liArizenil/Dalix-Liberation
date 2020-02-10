@@ -805,7 +805,7 @@ class RscTitles
 			class label_key_OK: RscText
 			{
 				idc = 1004;
-				text = "HOME"; //--- ToDo: Localize;
+				text = "F5"; //--- ToDo: Localize;
 
 				font = FontM;
 				sizeEx = 0.025;
@@ -820,7 +820,7 @@ class RscTitles
 			class label_key_NO: RscText
 			{
 				idc = 1005;
-				text = "END"; //--- ToDo: Localize;
+				text = "F6"; //--- ToDo: Localize;
 
 				font = FontM;
 				sizeEx = 0.026;
