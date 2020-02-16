@@ -695,7 +695,43 @@ class RscTitles
 			};
 		};
 	};
+	class buildreason
+	{
+		name = "buildreason";
+		duration = 10;
+		idd = 5321;
+		movingEnable = false;
+		controlsBackground[] = {};
 
+		objects[] = {};
+
+		class controls
+		{
+			class Background : RscPicture
+			{
+				idc = 1200;
+				text = "#(argb,8,8,3)color(0,0,1,1)";
+				x = 0.314375 * safezoneW + safezoneX;
+				y = 0.192 * safezoneH + safezoneY;
+				w = 0.37125 * safezoneW;
+				h = 0.055 * safezoneH;
+			};
+			class Text : RscText
+			{
+				idc = 1000;
+				text = "$STR_BUILDREASON";
+
+				font = FontM;
+				style = ST_CENTER;
+				sizeEx = 0.05;
+
+				x = 0.314375 * safezoneW + safezoneX;
+				y = 0.192 * safezoneH + safezoneY;
+				w = 0.37125 * safezoneW;
+				h = 0.055 * safezoneH;
+			};
+		};
+	};
 	class askbuild
 	{
 		name = "askbuild";
