@@ -20,4 +20,7 @@ while {true} do
 
     [west, "Base"] sideChat "U키를 눌러 분대에 가입하신 뒤 활동해주시길 바랍니다!";
     sleep _sltime;
+    
+    [west, "Base"] sideChat "건설 요청시 건설 사유를 설명해주시기를 바랍니다.";
+    sleep _sltime;
 };
