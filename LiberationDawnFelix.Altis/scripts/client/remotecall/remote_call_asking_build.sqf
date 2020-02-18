@@ -23,6 +23,11 @@ private _keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 		GRLIB_VOTED = -1;
 	};
 }];
+
+if (player == _requestplayer) then {
+	1 cutRsc ["BUILDREASON","PLAIN",0];
+};
+
 private _timer = [] spawn {
 	while { GRLIB_voting_timer > 0 } do {
 		GRLIB_voting_timer = GRLIB_voting_timer - 1;
