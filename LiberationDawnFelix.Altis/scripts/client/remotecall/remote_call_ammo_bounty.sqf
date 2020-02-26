@@ -10,4 +10,8 @@ if(count (squadParams _killer) != 0) then {
 };
 _playername = _playername + name _killer;
 
+if(isUAVConnected _killer) then {
+	_killer = (UAVControl _killer) select 0;
+};
+
 gamelogic globalChat (format [ localize "STR_BOUNTY_MESSAGE",  _bounty, _vehiclename, _playername ] );
