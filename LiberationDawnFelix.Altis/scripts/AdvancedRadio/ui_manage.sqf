@@ -57,6 +57,7 @@ if((!isNil "_tempsub")) then {
 ctrlShow [561, false];
 _tempsub = nil;
 while{dialog && alive player && player == leader player} do {
+	
 	if(!isNil "listview") then {
 		if(isNil "preview") then {
 			((findDisplay 5568) displayCtrl 561) ctrlSetStructuredText ([listview] call GetChlistener);

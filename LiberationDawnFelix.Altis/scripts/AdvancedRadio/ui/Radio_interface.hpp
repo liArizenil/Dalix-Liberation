@@ -183,6 +183,7 @@ class Radio_Menu {
 		idc = 6677;
 		action = "closeDialog 0";
 		text = "X"; //--- ToDo: Localize;
+		toolTip = "Ctrl + p to open Radio";
 		x = 0.335 * safezoneW + safezoneX;
 		w = 0.015 * safezoneW;  h = 0.02 * safezoneH;
 		y = ((BASE_Y + 0.015) * safezoneH) + safezoneY;
@@ -264,6 +265,7 @@ class Radio_Menu {
 		action = "curMain = 1";
 
 		text = "메인"; //--- ToDo: Localize;
+		toolTip = "Ctrl + 1";
 		x = 0.283437 * safezoneW + safezoneX;
 		y = 0.192 * safezoneH + safezoneY;
 		w = 0.025 * safezoneW;
@@ -275,6 +277,7 @@ class Radio_Menu {
 		action = "curSub = 1";
 
 		text = "보조"; //--- ToDo: Localize;
+		toolTip = "Alt + 1";
 		x = 0.309219 * safezoneW + safezoneX;
 		y = 0.192 * safezoneH + safezoneY;
 		w = 0.025 * safezoneW;
@@ -297,6 +300,7 @@ class Radio_Menu {
 		action = "curMain = 2";
 
 		text = "메인"; //--- ToDo: Localize;
+		toolTip = "Ctrl + 2";
 		x = 0.283437 * safezoneW + safezoneX;
 		y = 0.225 * safezoneH + safezoneY;
 		w = 0.025 * safezoneW;
@@ -308,6 +312,7 @@ class Radio_Menu {
 		action = "curSub = 2";
 
 		text = "보조"; //--- ToDo: Localize;
+		toolTip = "Alt + 2";
 		x = 0.309219 * safezoneW + safezoneX;
 		y = 0.225 * safezoneH + safezoneY;
 		w = 0.025 * safezoneW;
@@ -330,6 +335,7 @@ class Radio_Menu {
 		action = "curMain = 3";
 
 		text = "메인"; //--- ToDo: Localize;
+		toolTip = "Ctrl + 3";
 		x = 0.283437 * safezoneW + safezoneX;
 		y = 0.258 * safezoneH + safezoneY;
 		w = 0.025 * safezoneW;
@@ -341,6 +347,7 @@ class Radio_Menu {
 		action = "curSub = 3";
 
 		text = "보조"; //--- ToDo: Localize;
+		toolTip = "Alt + 3";
 		x = 0.309219 * safezoneW + safezoneX;
 		y = 0.258 * safezoneH + safezoneY;
 		w = 0.025 * safezoneW;
@@ -363,6 +370,7 @@ class Radio_Menu {
 		action = "curMain = 4";
 
 		text = "메인"; //--- ToDo: Localize;
+		toolTip = "Ctrl + 4";
 		x = 0.283437 * safezoneW + safezoneX;
 		y = 0.291 * safezoneH + safezoneY;
 		w = 0.025 * safezoneW;
@@ -374,6 +382,7 @@ class Radio_Menu {
 		action = "curSub = 4";
 
 		text = "보조"; //--- ToDo: Localize;
+		toolTip = "Alt + 4";
 		x = 0.309219 * safezoneW + safezoneX;
 		y = 0.291 * safezoneH + safezoneY;
 		w = 0.025 * safezoneW;
@@ -396,6 +405,7 @@ class Radio_Menu {
 		action = "curMain = 5";
 
 		text = "메인"; //--- ToDo: Localize;
+		toolTip = "Ctrl + 5";
 		x = 0.283437 * safezoneW + safezoneX;
 		y = 0.324 * safezoneH + safezoneY;
 		w = 0.025 * safezoneW;
@@ -407,6 +417,7 @@ class Radio_Menu {
 		action = "curSub = 5";
 
 		text = "보조"; //--- ToDo: Localize;
+		toolTip = "Alt + 5";
 		x = 0.309219 * safezoneW + safezoneX;
 		y = 0.324 * safezoneH + safezoneY;
 		w = 0.025 * safezoneW;
@@ -429,6 +440,7 @@ class Radio_Menu {
 		action = "curMain = 6";
 
 		text = "메인"; //--- ToDo: Localize;
+		toolTip = "Ctrl + 6";
 		x = 0.283437 * safezoneW + safezoneX;
 		y = 0.357 * safezoneH + safezoneY;
 		w = 0.025 * safezoneW;
@@ -440,6 +452,7 @@ class Radio_Menu {
 		action = "curSub = 6";
 
 		text = "보조"; //--- ToDo: Localize;
+		toolTip = "Alt + 6";
 		x = 0.309219 * safezoneW + safezoneX;
 		y = 0.357 * safezoneH + safezoneY;
 		w = 0.025 * safezoneW;
