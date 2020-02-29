@@ -50,6 +50,7 @@ if(side player == GRLIB_side_friendly) then {
 		};
 		player setCustomAimCoef 0.35;
 		player setUnitRecoilCoefficient 0.6;
+		player ForceFlagTexture "jpg\flag.paa";
 
 		_dialog = createDialog "liberation_deploy";
 		deploy = 0;

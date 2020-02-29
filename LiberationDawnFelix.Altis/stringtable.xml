@@ -139,8 +139,8 @@
 						<Korean>건설 허가 투표가 진행중입니다</Korean>	
 				</Key>
 				<Key ID="STR_BUILDREASON">
-						<Original>You May Have to Explain the Reason to Build</Original>
-						<Korean>해당 장비의 건설 사유를 설명하셔야 될 수도 있습니다.</Korean>
+						<Original>Please explain the reason of the build, through the commander channel</Original>
+						<Korean>건설 사유를 지휘 채널에 설명해주기 바랍니다</Korean>
 				</Key>
 				<Key ID="STR_MANPOWER">
 						<Original>노동 인력</Original>
