@@ -11,7 +11,7 @@ _motd = parseText
 	<br/><t align='center'>등등 여러가지 모토를 가지고 유저분들을 위한 서버를 만들어가려 노력중입니다!</t>
 	<br/><t align='center'>처음 오신분들은 꼭 디스코드 참여하셔서 룰을 확인해주시기 바랍니다!</t>
 	<br/><t align='center'><a color='#FF0000'>(신고 및 건의 , 피드백 환영!)</a></t>
-	<br/><t align='center'><t size='1'>디스코드 클릭 >> <a color='#01A9DB' href='https://discord.gg/KH6sk2U'>Dalix 디스코드</a>
+	<br/><t align='center'><t size='1'>디스코드 클릭 >> <a color='#01A9DB' href='https://discord.gg/fmBJPEA'>Dalix 디스코드</a>
 	<br/><t align='center'><a color='#FF0000' size = '1.1'>U</a> 버튼을 사용해서 분대 참여가 가능합니다 !</t>
 	<br/><t align='center'><a color='#FF0000' size = '1.1'>마우스 휠을 아래로</a> 굴리면 여러 메뉴들을 사용하실 수 있습니다 :)</t>
 	<br/><t align='center' size='1.2'><a color='#FF00FF'>게임이 처음이시라구요 ?</a></t>

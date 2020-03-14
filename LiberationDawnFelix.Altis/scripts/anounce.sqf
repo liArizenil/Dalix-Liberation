@@ -3,7 +3,7 @@ _sltime = 70;
 while {true} do 
 {
 
-    [west, "Base"] sideChat "서버 디스코드 https://discord.gg/wmzTqgS 에서 피드백을 주시면 언제든 감사히 받겠습니다!";
+    [west, "Base"] sideChat "서버 디스코드 https://discord.gg/fmBJPEA 에서 피드백을 주시면 언제든 감사히 받겠습니다!";
     sleep _sltime;
 
     [west, "Base"] sideChat "디스코드에서 반드시 규칙을 자세히 확인하신 뒤 플레이해주시길 바랍니다!";
