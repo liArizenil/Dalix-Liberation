@@ -10,7 +10,7 @@ if(isNil "_get") exitWith {};
 ((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1006)) ctrlSetText format["%1 : %2 건설 요청",name _requestPlayer,_requestclass];
 
 GRLIB_VOTED = 0;
-GRLIB_voting_timer = 15;
+GRLIB_voting_timer = 20;
 
 playSound "beep_target";
 
@@ -44,13 +44,12 @@ while { !isNil{ _requestPlayer getVariable["VoteBuild",nil]; } && GRLIB_VOTED ==
 if(!isNil{ _requestPlayer getVariable["VoteBuild",nil]; } && GRLIB_VOTED == 0) then { //타이머가 끝났고, 투표가 아직 끝나지 않았을 때
 	_get = _requestPlayer getVariable["VoteBuild",nil];
 	_requestPlayer setVariable["VoteBuild",[_get select 0,_get select 1,(_get select 2)+1],true];
-	[[GRLIB_side_friendly,"Base"],format["%1님이 투표에 참여하지 않아 반대처리 되었습니다",name player]] remoteExec ["sideChat",_requestPlayer];
 }
 else{
 	if(GRLIB_VOTED == 1) then {
 		_get = _requestPlayer getVariable["VoteBuild",nil];
 		_requestPlayer setVariable["VoteBuild",[_get select 0,(_get select 1)+1,_get select 2],true];
-		[[GRLIB_side_friendly,"Base"],format["%1님이 찬성하였습니다",name player]] remoteExec ["sideChat",_requestPlayer];
+		[[GRLIB_side_friendly,"Base"],format["%1님이 찬성하였습니다.",name player]] remoteExec ["sideChat",_requestPlayer];
 	};
 	if(GRLIB_VOTED == -1) then {
 		_get = _requestPlayer getVariable["VoteBuild",nil];
@@ -59,7 +58,7 @@ else{
 		}
 		else{
 			_requestPlayer setVariable["VoteBuild",[_get select 0,_get select 1,(_get select 2)+1],true];
-			[[GRLIB_side_friendly,"Base"],format["%1님이 반대하였습니다",name player]] remoteExec ["sideChat",_requestPlayer];
+			[[GRLIB_side_friendly,"Base"],format["%1님이 반대하였습니다.",name player]] remoteExec ["sideChat",_requestPlayer];
 		};
 		
 	};

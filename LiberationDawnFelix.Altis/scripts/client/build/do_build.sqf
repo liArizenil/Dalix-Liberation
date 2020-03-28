@@ -102,6 +102,7 @@ while { true } do {
 			private ["_allgroups", "_vote_in_progress", "_vote_approved", "_timercalc","_classnamecfg"];
 			// VOTING SYSTEM ==============================================================================
 			if (!(buildtype == 6 || buildtype == 99)) then {
+				[GRLIB_side_friendly,"Base"] sideChat "건설 사유를 지휘 무전망에 말씀하시길 권장드립니다.";
 				_allgroups = ["GetAllGroupsOfSide",[GRLIB_side_friendly]] call BIS_fnc_dynamicGroups;
 				_classnamecfg = getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" );
 				player setVariable["VoteBuild",[count _allgroups,0,0],true]; //[총 요청한 사람수,동의받은 수, 거절 받은 수]
@@ -112,7 +113,7 @@ while { true } do {
 				_vote_in_progress = true; //투표가 진행중인가? false 시 통과
 				_vote_approved = true; //false시 건설 거부
 				_timercalc = [] spawn {
-					sleep 20;
+					sleep 25;
 				};
 			}
 			else{
@@ -123,24 +124,19 @@ while { true } do {
 			while { build_confirmed == 1 && alive player } do {
 				//calculate vote
 				if(_vote_in_progress) then {
-					_get = player getVariable ["VoteBuild",nil];
-					if((((_get select 1) + (_get select 2)) / count _allgroups) > 0.6) then { //투표율이 60%를 초과함
-						if(((_get select 1)/((_get select 1) + (_get select 2)))>= 0.6) then { //전체 투표가 이루어진 양 중에서 찬성이 60% 이상일때
+					if(scriptDone _timercalc) then {
+						_get = player getVariable ["VoteBuild",nil];
+						if(((_get select 1)/((_get select 1) + (_get select 2)))>= 0.75) then { //전체 투표가 이루어진 양 중에서 찬성이 75% 이상일때
 							_vote_in_progress = false;
 							player setVariable ["VoteBuild", nil,true];
 							[[GRLIB_side_friendly,"Base"],format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5님의 %6에 대한 건설이 동의되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2,name player,_classnamecfg]] remoteExec ["SideChat",GRLIB_side_friendly];
-						};
-						if(((_get select 2)/((_get select 1) + (_get select 2)))> 0.4) then { //전체 투표가 이루어진 양 중에서 반대가 40% 초과일때 건설 거부
+						}
+						else{
 							_vote_approved = false;
 							_vote_in_progress = false;
 							player setVariable ["VoteBuild", nil,true];
 						};
-					}
-					else{
-						if(scriptDone _timercalc) then {
-							_vote_approved = false;
-							player setVariable ["VoteBuild", nil,true];
-						};
+						player setVariable ["VoteBuild", nil,true];
 					};
 				};
 				_truedir = 90 - (getdir player);
@@ -260,7 +256,7 @@ while { true } do {
 					if(!_vote_approved) then {
 						build_confirmed = 3;
 						GRLIB_ui_notif = "";
-						[[GRLIB_side_friendly,"Base"], format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5 %6님의 %7에 대한 건설이 거부되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2, groupid (group player) ,name player, _classnamecfg]] remoteExec ["sideChat",GRLIB_side_friendly];
+						[[GRLIB_side_friendly,"Base"], format["찬성 %1, 반대 %2 로 %3 %4님의 %5에 대한 건설이 거부되었습니다.",_get select 1,_get select 2, groupid (group player) ,name player, _classnamecfg]] remoteExec ["sideChat",GRLIB_side_friendly];
 						hint localize "STR_CANCEL_HINT";
 					};
 				};
@@ -295,7 +291,7 @@ while { true } do {
 				if ( buildtype == 6 || buildtype == 99 ) then {
 					_vehicle setVectorUp [0,0,1];
 					if(buildtype == 6) then {
-						[gamelogic, format["%1님에 의해 FOB %2 에서 %3이(가) 건설되었습니다", name player, [[] call F_getNearestFob] call F_getFobName, getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" ) ]] remoteExec ["globalChat",[WEST,civilian]];
+						[gamelogic, format["%1님에 의해 FOB %2 에서 %3이(가) 건설되었습니다", name player, [_posfob] call F_getFobName, getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" ) ]] remoteExec ["globalChat",[WEST,civilian]];
 					}
 					else{
 						[gamelogic, format["%1님에 의해 새로운 FOB가 건설되었습니다.", name player]] remoteExec ["globalChat",[WEST,civilian]];
