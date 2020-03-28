@@ -3,6 +3,8 @@ if (isServer) then {
 };
 
 if (hasInterface && side player == GRLIB_side_friendly) then {
+	Mainlabel = [801,802,803,804,805,806];
+	Sublabel = [811,812,813,814,815,816];
 	//============== Main Func ==================================
 	Ari_fnc_RadioAddAction = {
 		player addAction["<t color='#aaaa00'>-- 라디오 열기-- </t><img size='2' image='\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa'/>", "scripts\AdvancedRadio\ui_manage.sqf", [], -100, false, false, '','leader group player == player'];
@@ -66,50 +68,50 @@ if (hasInterface && side player == GRLIB_side_friendly) then {
 	waitUntil {!isNull(findDisplay 46)};
 
 	(findDisplay 46) displayAddEventHandler ["KeyDown", {
-		if(leader player == player) then {
-			private _inputKey = (_this select 1);
-			if(_this select 3) then { //press ctrl (Main Key)
-				if(_inputKey == 0x19) then { //press P
-					if(!isnull(findDisplay 5568)) then {
-						(findDisplay 5568) closeDisplay 0;
-					}else{
-						[] spawn compileFinal preprocessFileLineNumbers "scripts\AdvancedRadio\ui_manage.sqf";
-					};
-				};
-				if(_inputKey > 0x01 && _inputKey < 0x08) then{
-					_inputKey = _inputKey - 1;
-					if(player getVariable "MainCh" != _inputKey) then {
-						if(player getVariable "SubCh" == _inputKey) then {
-							[player getVariable "SubCh"] call Ari_fnc_DisconnectFromSubCh;
+			if(leader player == player) then {
+				private _inputKey = (_this select 1);
+				if(_this select 3) then { //press ctrl (Main Key)
+					if(_inputKey == 0x19) then { //press P
+						if(!isnull(findDisplay 5568)) then {
+							(findDisplay 5568) closeDisplay 0;
+						}else{
+							[] spawn compileFinal preprocessFileLineNumbers "scripts\AdvancedRadio\ui_manage.sqf";
 						};
-						[_inputKey, player getVariable "MainCh"] call Ari_fnc_ChangeMainCh;
-					}
-					else{
-						setCurrentChannel (_inputKey + 5);
 					};
-				};	
-			};
-			if(_this select 4) then { //press Alt (Sub Key)
-				if(_inputKey > 0x01 && _inputKey < 0x08) then{
-					_inputKey = _inputKey - 1;
-					if(player getVariable "MainCh" != _inputKey) then {
-						if(isNil {player getVariable "SubCh"}) then {
-							[_inputKey] call Ari_fnc_ConnectToSubCh;
-						}
-						else{
+					if(_inputKey > 0x01 && _inputKey < 0x08 && isnull(findDisplay 5568)) then{
+						_inputKey = _inputKey - 1;
+						if(player getVariable "MainCh" != _inputKey) then {
 							if(player getVariable "SubCh" == _inputKey) then {
 								[player getVariable "SubCh"] call Ari_fnc_DisconnectFromSubCh;
+							};
+							[_inputKey, player getVariable "MainCh"] call Ari_fnc_ChangeMainCh;
+						}
+						else{
+							setCurrentChannel (_inputKey + 5);
+						};
+					};	
+				};
+				if(_this select 4) then { //press Alt (Sub Key)
+					if(_inputKey > 0x01 && _inputKey < 0x08 && isnull(findDisplay 5568)) then{
+						_inputKey = _inputKey - 1;
+						if(player getVariable "MainCh" != _inputKey) then {
+							if(isNil {player getVariable "SubCh"}) then {
+								[_inputKey] call Ari_fnc_ConnectToSubCh;
 							}
 							else{
-								[_inputKey, player getVariable "SubCh"] call Ari_fnc_ChangeSubCh;
+								if(player getVariable "SubCh" == _inputKey) then {
+									[player getVariable "SubCh"] call Ari_fnc_DisconnectFromSubCh;
+								}
+								else{
+									[_inputKey, player getVariable "SubCh"] call Ari_fnc_ChangeSubCh;
+								};
 							};
+						}
+						else{
+							hint "같은 채널을 동시에 사용하실 수는 없습니다.";
 						};
-					}
-					else{
-						hint "같은 채널을 동시에 사용하실 수는 없습니다.";
 					};
 				};
 			};
-		};
 	}];
 };

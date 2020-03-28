@@ -1,6 +1,4 @@
 //============ UI Controller =====================
-Mainlabel = [801,802,803,804,805,806];
-Sublabel = [811,812,813,814,815,816];
 GetChlistener = {
 	params["_channel"];
 	private _groupnameMain = parseText "--메인--";
