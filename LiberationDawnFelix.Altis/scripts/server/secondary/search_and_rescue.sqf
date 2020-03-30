@@ -104,7 +104,7 @@ if ( _alive_crew_count == 0 ) then {
 	{ [ _x ] spawn { sleep 60; deleteVehicle (_this select 0) } } foreach _pilotUnits;
 };
 
-resources_intel = resources_intel + (10 * _alive_crew_count);
+resources_intel = resources_intel + (15 * _alive_crew_count);
 stats_secondary_objectives = stats_secondary_objectives + 1;
 { deleteVehicle _x; } forEach _objective;
 
