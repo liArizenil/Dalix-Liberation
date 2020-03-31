@@ -74,7 +74,7 @@ light_vehicles = [
 	["C_IDAP_Truck_02_water_F",20,0,20],
 	["B_LSV_01_unarmed_sand_F",15,0,15],
 	["B_LSV_01_armed_sand_F",15,15,15],
-	["B_T_LSV_at_F",15,20,15],
+	["B_LSV_01_AT_F",15,20,15],
 	["B_MRAP_01_F",25,0,25],
 	["B_MRAP_01_hmg_F",25,15,25],
 	["B_MRAP_01_gmg_F",25,20,25],
