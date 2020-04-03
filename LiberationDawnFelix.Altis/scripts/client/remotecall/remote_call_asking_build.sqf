@@ -10,7 +10,7 @@ if(isNil "_get") exitWith {};
 ((uiNamespace getVariable 'GUI_VOTE') displayCtrl (1006)) ctrlSetText format["%1 : %2 건설 요청",name _requestPlayer,_requestclass];
 
 GRLIB_VOTED = 0;
-GRLIB_voting_timer = 20;
+GRLIB_voting_timer = 23;
 
 playSound "beep_target";
 
