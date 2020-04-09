@@ -1,0 +1,83 @@
+respawn = 3;
+respawndelay = 3;
+disabledAI = true;
+
+enableDebugConsole = 1;
+allowFunctionsLog = 0;
+
+onLoadMission = $STR_MISSION_TITLE;
+author = "[RENEW] Arizen [DEDICATE] Dawn, Felix, [번역지원] MD. Faker, [ORIGINAL] Zbug, McKeewa";
+onLoadName = $STR_MISSION_TITLE;
+
+joinUnassigned = 0;
+
+class Header
+{
+	gameType = CTI;
+	minPlayers = 1;
+	maxPlayers = 70;
+};
+
+disableChannels[] = {
+	{ 0, false, true }, { 1, false, true }
+};
+
+#include "ui\liberation_interface.hpp"
+#include "GREUH\UI\GREUH_interface.hpp"
+#include "ui\liberation_notifications.hpp"
+#include "ui\mission_params.hpp"
+
+#include "VAM_GUI\VAM_GUI_controls.hpp"
+#include "VAM_GUI\VAM_GUI_classes.hpp"
+
+#include "scripts\AdvancedRadio\ui\Radio_interface.hpp"
+#include "scripts\GroupTag\ui\dialog.hpp"
+#include "scripts\outlw_magRepack\MagRepack_config.hpp"
+
+class CfgDebriefing
+{
+	class End1
+	{
+		title =	$STR_SORRY;
+		subtitle = "";
+		description = $STR_COMMANDER_NOT_AUTHORIZED;
+		pictureBackground = "";
+	};
+	class DLCDec
+	{
+		title = "Unauthorized DLC Dectected";
+		subtitle = "허가 되지 않은 DLC 발견";
+		description = "Please disable Global Mobilization DLC from Launcher";
+		pictureBackground = "";
+	};
+	class LackPlayer
+	{
+		title = "Need More BLUFOR Soldiers";
+		subtitle = "더 많은 청군이 요구됨";
+		description = "Please wait Until get more BLUFOR soilders";
+		pictureBackground = "";
+	};
+	class Opforneedfob
+	{
+		title = "BLUFOR FOB must be upon running";
+		subtitle = "청군 FOB 가 활성화 되어야합니다.";
+		description = "청군 FOB 가 활성화 되어야만 대항군이 언락 됩니다.";
+		pictureBackground = "";
+	};
+	class Needmoresectors
+	{
+		title = "Need More BLUFOR Sectors";
+		subtitle = "청군이 더 많은 지역을 점령해야됩니다.";
+		description = "Need more BLUFOR sectors for unlock this slot";
+		pictureBackground = "";
+	};
+};
+
+class CfgFunctions 
+{
+	#include "vcom\cfgFunctions.hpp"
+};
+
+class Extended_PreInit_EventHandlers {
+	VCM_CBASettings = call compile preprocessFileLineNumbers "Vcom\Functions\VCM_CBASettings.sqf";
+};
