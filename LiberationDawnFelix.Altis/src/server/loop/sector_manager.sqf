@@ -20,18 +20,21 @@ while { !ENDGAME } do {
 				};
 			};
 		};
+		sleep 0.2;
 	} forEach ( SECTOR_ALL - SECTOR_BLUFOR );
 	diag_log format [ "Full sector scan at %1, active sectors: %2", time, ACTIVE_SECTOR ];
-
 	{
 		if (([ markerpos _x ] call F_sectorOwnership) == CONST_SIDE_OPFOR && !(_x in ATTACK_PROGRESS)) then {
 			[ _x ] spawn F_attackProgressSector;
 		};
+		sleep 0.2;
 	} foreach SECTOR_BLUFOR;
 	{
 		if (([ markerpos _x ] call F_sectorOwnership) == CONST_SIDE_OPFOR && !(_x in ATTACK_PROGRESS)) then {
 			[ _x ] spawn F_attackProgressFob;
 		};
+		sleep 0.5;
 	} forEach FOB_ALL;
+	sleep 1;
 };
 
