@@ -37,11 +37,11 @@ while { _attacktime > 0 && ( _ownership == CONST_SIDE_OPFOR || _ownership == CON
 	_attacktime = _attacktime - 1;
 	_marker setMarkerText format ["%1",[_attacktime] call F_secToTime];
 	_ownership = [ _thispos ] call F_sectorOwnership;
-	sleep 1;
+	uisleep 1;
 };
 
 if(_attacktime < 1) then {
-	_marker setMarkerText "취약";
+	_marker setMarkerText "Vulnerable";
 };
 
 waitUntil {

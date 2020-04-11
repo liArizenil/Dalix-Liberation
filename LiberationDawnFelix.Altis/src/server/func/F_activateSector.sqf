@@ -1,9 +1,53 @@
-
-
 params [ "_sector" ];
 private [ "_sectorpos", "_stopit", "_spawncivs", "_building_ai_max", "_infsquad", "_building_range", "_local_capture_size", "_iedcount","_combat_readiness_increase","_vehtospawn","_managed_units","_squad1", "_squad2", "_squad3", "_squad4", "_minimum_building_positions", "_popfactor", "_sector_despawn_tickets", "_opforcount" ];
 
 waitUntil { !isNil "combat_readiness" };
+
+//
+//wait
+//check status
+//	init
+//	add to active sectors
+//	check sector type
+//	AI setting
+//	Secondary object Setting
+//	spawn setted AI
+//	spawn civ
+//	create Secondary object
+//	while lib done 
+//		sectorownership == blu && secondary object are complete more than 32%
+// 			sector liberated
+//			prisonner ai
+//		no blufor near by
+//			tick +1
+//		else
+//			tick = 0
+//		if tick > 12
+//			escape while loop
+//	despawn everything including dead things $$ check side needed
+//	sleep 60 sec
+//	delete secondary objects
+//	delete secondary missions
+//	remove active sector from active sector array
+//else
+//	deactive
+//scriptdone
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //diag_log format [ "Sector %2 checkpoint A at %1", time, _sector ];
 

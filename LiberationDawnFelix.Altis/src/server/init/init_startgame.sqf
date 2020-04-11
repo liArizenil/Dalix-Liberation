@@ -60,3 +60,5 @@ if ( count GRLIB_all_fobs == 0 ) then {
 		deleteVehicle _fobbox;
 	};
 };
+
+terminate _thisScript;
