@@ -15,12 +15,12 @@ _corrected_amount = round ( (count _squadies_to_spawn) * ([] call F_adaptiveOpfo
 _grp = createGroup GRLIB_side_enemy;
 {
 	if ( ( count units _grp ) < _corrected_amount) then {
-		_x createUnit [_spawnpos, _grp,'this addMPEventHandler ["MPKilled", {_this spawn kill_manager}]'];
+		_x createUnit [_spawnpos, _grp,'this addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]'];
 	};
 	sleep 0.1;
 } foreach _squadies_to_spawn;
 
-if ( _sector in sectors_capture ) then {
+if ( _sector in SECTOR_CAPTURE ) then {
 	_unitidx = 0;
 	{
 		if ( (typeof _x) in original_resistance ) then {

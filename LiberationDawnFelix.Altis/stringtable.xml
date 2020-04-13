@@ -812,7 +812,7 @@
 				<Key ID="STR_CALL_MORTAL">
 						<Original>82mm 박격포 지워 요청</Original>
 				</Key>
-				<Key ID="STR_ACTIVE_SECTORS">
+				<Key ID="STR_SECTOR_ACTIVES">
 						<Original>활성화 지역:</Original>
 				</Key>
 				<Key ID="STR_OVERLOAD_HINT">

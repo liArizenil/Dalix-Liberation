@@ -430,7 +430,7 @@ uavs = [
 	"B_UGV_01_rcws_F"
 ];
 
-elite_vehicles = [
+ELITE_VEHICLES_LINK = [
 	"B_Plane_Fighter_01_F",
 	"B_Plane_Fighter_01_Stealth_F",
 	"B_Plane_CAS_01_Cluster_F",
@@ -913,7 +913,7 @@ boats_names = [ "B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F" ];
 ammobox_transports_typenames = [];
 { ammobox_transports_typenames pushback (_x select 0) } foreach box_transport_config;
 ammobox_transports_typenames = ammobox_transports_typenames select { [ _x ] call F_checkClass };
-elite_vehicles = elite_vehicles select { [ _x ] call F_checkClass };
+ELITE_VEHICLES_LINK = ELITE_VEHICLES_LINK select { [ _x ] call F_checkClass };
 original_resistance = [ "O_G_Soldier_SL_F","O_G_Soldier_A_F","O_G_Soldier_AR_F","O_G_medic_F","O_G_engineer_F","O_G_Soldier_exp_F","O_G_Soldier_GL_F","O_G_Soldier_M_F","O_G_Soldier_F","O_G_Soldier_LAT_F","O_G_Soldier_lite_F","O_G_Sharpshooter_F","O_G_Soldier_TL_F"];
 opfor_infantry = [opfor_sentry,opfor_rifleman,opfor_grenadier,opfor_squad_leader,opfor_team_leader,opfor_marksman,opfor_machinegunner,opfor_heavygunner,opfor_medic,opfor_rpg,opfor_at,opfor_aa,opfor_officer,opfor_sharpshooter,opfor_sniper,opfor_engineer];
 GRLIB_intel_table = "Land_CampingTable_small_F";

@@ -34,7 +34,7 @@ while { _boxes_loaded < _boxes_amount } do {
 	private _next_box = ammobox_o_typename createVehicle (_spawnpos getPos [ 15, 135 ]);
 	sleep 0.5;
 	[ _next_box, 50 ] call _load_box_fnc;
-	_next_box addMPEventHandler ['MPKilled', {_this spawn kill_manager}];
+	_next_box addMPEventHandler ['MPKilled', {_this spawn F_unitKilled}];
 };
 
 sleep 0.5;
@@ -49,7 +49,7 @@ private _convoy_group = group driver _scout_vehicle;
 sleep 0.5;
 
 {
-	_x addEventHandler ["HandleDamage", { private [ "_damage" ]; if ( side (_this select 3) != GRLIB_side_friendly ) then { _damage = 0 } else { _damage = _this select 2 }; _damage } ];
+	_x addEventHandler ["HandleDamage", { private [ "_damage" ]; if ( side (_this select 3) != CONST_SIDE_BLUFOR ) then { _damage = 0 } else { _damage = _this select 2 }; _damage } ];
 } foreach [ _scout_vehicle, _escort_vehicle, _transport_vehicle, _troop_vehicle ];
 
 _convoy_group setFormation "FILE";
@@ -77,7 +77,7 @@ _waypoint setWaypointType "CYCLE";
 _waypoint setWaypointCompletionRadius 50;
 
 private _troops_group = createGroup GRLIB_side_enemy;
-{ _x createUnit [_spawnpos, _troops_group,"this addMPEventHandler [""MPKilled"", {_this spawn kill_manager}]", 0.5, "private"]; } foreach ([] call F_getAdaptiveSquadComp);
+{ _x createUnit [_spawnpos, _troops_group,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"]; } foreach ([] call F_getAdaptiveSquadComp);
 { _x moveInCargo _troop_vehicle } foreach (units _troops_group);
 
 private _convoy_marker = createMarkerLocal [ format [ "convoymarker%1", round time], getpos _transport_vehicle ];

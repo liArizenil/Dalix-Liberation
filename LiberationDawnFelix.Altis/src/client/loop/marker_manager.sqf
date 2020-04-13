@@ -8,7 +8,7 @@ _hostile_markers = [];
 _ticks = 0;
 
 
-waitUntil { !isNil "FOB_ALL" && !isNil "blufor_sectors" };
+waitUntil { !isNil "FOB_ALL" && !isNil "SECTOR_BLUFOR" };
 
 while { true } do {
 	//======== GROUP ICON ========

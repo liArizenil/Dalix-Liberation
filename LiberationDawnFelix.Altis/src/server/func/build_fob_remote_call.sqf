@@ -3,8 +3,8 @@ if (!isServer) exitWith {};
 params [ "_new_fob", "_create_fob_building" ];
 private [ "_fob_building", "_fob_pos" ];
 
-GRLIB_all_fobs pushback _new_fob;
-publicVariable "GRLIB_all_fobs";
+FOB_ALL pushback _new_fob;
+publicVariable "FOB_ALL";
 
 if ( _create_fob_building ) then {
 	_fob_pos = [ (_new_fob select 0) + 20, (_new_fob select 1) + 2, 0 ];

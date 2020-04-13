@@ -9,7 +9,7 @@ _sectorpos = getMarkerPos _sector;
 _idx = 0;
 _nbcivs = round ((3 + (floor (random 7))) * GRLIB_civilian_activity * 0.5);
 _spread = 1;
-if ( _sector in sectors_bigtown ) then {
+if ( _sector in SECTOR_BIGTOWN ) then {
 	_nbcivs = _nbcivs + 10;
 	_spread = 2.5;
 };
@@ -19,7 +19,7 @@ _nbcivs = _nbcivs * ( sqrt ( GRLIB_unitcap ) );
 while { _idx < _nbcivs } do {
 	_spawnpos = [(((_sectorpos select 0) + (75 * _spread)) - (random (150 * _spread))),(((_sectorpos select 1) + (75 * _spread)) - (random (150 * _spread))),0];
 	_grp = createGroup GRLIB_side_civilian;
-	(civilians select (floor (random (count civilians)))) createUnit [_spawnpos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn kill_manager}]", 0.5, "private"];
+	(civilians select (floor (random (count civilians)))) createUnit [_spawnpos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"];
 	_nextciv = ((units _grp) select 0);
 	_createdcivs pushBack _nextciv;
 	[_grp] call add_civ_waypoints;

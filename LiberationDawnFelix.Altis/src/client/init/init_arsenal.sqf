@@ -1,4 +1,4 @@
-if ( side player == GRLIB_side_friendly ) then {
+if ( side player == CONST_SIDE_BLUFOR ) then {
 	if ( isNil "GRLIB_arsenal_weapons" ) then { GRLIB_arsenal_weapons = [] };
 	if ( count GRLIB_arsenal_weapons == 0 ) then {
 		[ missionNamespace, true, false ] call BIS_fnc_addVirtualWeaponCargo;

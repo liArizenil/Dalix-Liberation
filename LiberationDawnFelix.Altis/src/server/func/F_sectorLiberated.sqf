@@ -5,19 +5,19 @@ if (isServer) then {
 	_combat_readiness_increase = 0;
 
 
-	if ( _liberated_sector in sectors_bigtown ) then {
+	if ( _liberated_sector in SECTOR_BIGTOWN ) then {
 		_combat_readiness_increase = (floor (random 10)) * GRLIB_difficulty_modifier;
 	};
 
-	if ( _liberated_sector in sectors_capture ) then {
+	if ( _liberated_sector in SECTOR_CAPTURE ) then {
 		_combat_readiness_increase = (floor (random 6)) * GRLIB_difficulty_modifier;
 	};
 
-	if ( _liberated_sector in sectors_military ) then {
+	if ( _liberated_sector in SECTOR_MILITARY ) then {
 		_combat_readiness_increase = (5 + (floor (random 11))) * GRLIB_difficulty_modifier;
 	};
 
-	if ( _liberated_sector in sectors_factory ) then {
+	if ( _liberated_sector in SECTOR_FACTORY ) then {
 		_combat_readiness_increase = (3 + (floor (random 7))) * GRLIB_difficulty_modifier;
 	};
 
@@ -35,7 +35,7 @@ if (isServer) then {
 	[ _liberated_sector, 0, 0 ] remoteExec ["remote_call_sector", -2];
 	reset_battlegroups_ai = true; publicVariable "reset_battlegroups_ai";
 
-	blufor_sectors pushback _liberated_sector; publicVariable "blufor_sectors";
+	SECTOR_BLUFOR pushback _liberated_sector; publicVariable "SECTOR_BLUFOR";
 	stats_sectors_liberated = stats_sectors_liberated + 1;
 
 	[] call recalculate_caps;
@@ -47,8 +47,8 @@ if (isServer) then {
 
 	sleep 45;
 
-	if ( GRLIB_endgame == 0 ) then {
-		if ( (!( _liberated_sector in sectors_tower )) && (((random (200.0 / (GRLIB_difficulty_modifier * GRLIB_csat_aggressivity) )) < (combat_readiness - 20)) || ( _liberated_sector in sectors_bigtown )) && ([] call F_opforCap < GRLIB_battlegroup_cap) ) then {
+	if ( endgame == 0 ) then {
+		if ( (!( _liberated_sector in sectors_tower )) && (((random (200.0 / (GRLIB_difficulty_modifier * GRLIB_csat_aggressivity) )) < (combat_readiness - 20)) || ( _liberated_sector in SECTOR_BIGTOWN )) && ([] call F_opforCap < GRLIB_battlegroup_cap) ) then {
 			[ _liberated_sector ] spawn spawn_battlegroup;
 		};
 	};

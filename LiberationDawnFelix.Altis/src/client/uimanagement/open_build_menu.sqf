@@ -136,10 +136,10 @@ while { dialog && alive player && (dobuild == 0 || buildtype == 1)} do {
 		};
 
 		if ( buildtype != 8 ) then {
-			{ if ( ( _build_item select 0 ) == ( _x select 0 ) ) exitWith { _base_link = _x select 1; _linked = true; } } foreach GRLIB_vehicle_to_military_base_links;
+			{ if ( ( _build_item select 0 ) == ( _x select 0 ) ) exitWith { _base_link = _x select 1; _linked = true; } } foreach ELITE_VEHICLES_LINK;
 
 			if ( _linked ) then {
-				if ( !(_base_link in blufor_sectors) ) then { _linked_unlocked = false };
+				if ( !(_base_link in SECTOR_BLUFOR) ) then { _linked_unlocked = false };
 			};
 		};
 	};

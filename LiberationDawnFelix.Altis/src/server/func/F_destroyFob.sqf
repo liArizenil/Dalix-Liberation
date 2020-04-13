@@ -1,14 +1,14 @@
-_fobposdestroy = _this select 0;
+private _fobposdestroy = _this select 0;
 
-classnames_to_destroy = [FOB_typename];
+private _classnames_to_destroy = [FOB_typename];
 {
-	classnames_to_destroy = classnames_to_destroy + [(_x select 0)];
+	_classnames_to_destroy = _classnames_to_destroy + [(_x select 0)];
 } foreach buildings;
 
 _nextbuildingsdestroy = (_fobposdestroy nearobjects 150) select { getObjectType _x >= 8 };
-_all_buildings_to_destroy = [];
+private _all_buildings_to_destroy = [];
 {
-	if ( (typeof _x) in classnames_to_destroy ) then {
+	if ( (typeof _x) in _classnames_to_destroy ) then {
 		_all_buildings_to_destroy = _all_buildings_to_destroy + [_x];
 	};
 } foreach _nextbuildingsdestroy;
@@ -16,4 +16,10 @@ _all_buildings_to_destroy = [];
 {
 	_x setdamage 1;
 	sleep (random 3);
-} foreach _all_buildings_to_destroy
+} foreach _all_buildings_to_destroy;
+
+sleep 60;
+
+{
+	deleteVehicle _x;
+} foreach _all_buildings_to_destroy;

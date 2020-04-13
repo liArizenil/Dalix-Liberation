@@ -1,10 +1,11 @@
 sleep 5;
 
-_blufor_bigtowns = blufor_sectors select { _x in sectors_bigtown };
+_blufor_bigtowns = SECTOR_BIGTOWN select { _x in SECTOR_BLUFOR };
 
-if ( count _blufor_bigtowns == count sectors_bigtown ) then {
-	GRLIB_endgame = 1;
-	publicVariable "GRLIB_endgame";
+
+if ( count _blufor_bigtowns == count SECTOR_BIGTOWN ) then {
+	endgame = 1;
+	publicVariable "endgame";
 	{ _x allowDamage false; (vehicle _x) allowDamage false; } foreach allPlayers;
 
 	publicstats = [];

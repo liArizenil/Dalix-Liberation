@@ -70,7 +70,6 @@ while { true } do {
 			_huron setDamage 0;
 		};
 	};
-	unitcap = {(side group _x == CONST_SIDE_BLUFOR) && (alive _x) && ((_x distance lhd) > 250 || (isPlayer _x))} count allUnits;
 
 	stats_playtime = stats_playtime + 1;
 	uiSleep 1;

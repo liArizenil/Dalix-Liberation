@@ -38,23 +38,23 @@ while { true } do {
 		_pos = [(getpos player select 0) + 1,(getpos player select 1) + 1, 0];
 		_grp = group player;
 		if ( manned ) then {
-			_grp = createGroup GRLIB_side_friendly;
+			_grp = createGroup CONST_SIDE_BLUFOR;
 		};
-		_classname createUnit [_pos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn kill_manager}]", 0.5, "private"];
+		_classname createUnit [_pos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"];
 		[gamelogic, format["%1님이 FOB %2 에서 AI를 소환했습니다", name player, [[] call F_getNearestFob] call F_getFobName]] remoteExec ["globalChat",[WEST,civilian]];
 		
 		build_confirmed = 0;
 	} else {
 		if ( buildtype == 8 ) then {
 			_pos = [(getpos player select 0) + 1,(getpos player select 1) + 1, 0];
-			_grp = createGroup GRLIB_side_friendly;
+			_grp = createGroup CONST_SIDE_BLUFOR;
 			_grp setGroupId [format ["%1 %2",squads_names select buildindex, groupId _grp]];
 			_idx = 0;
 			{
 				_unitrank = "private";
 				if(_idx == 0) then { _unitrank = "sergeant"; };
 				if(_idx == 1) then { _unitrank = "corporal"; };
-				_x createUnit [_pos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn kill_manager}]", 0.5, _unitrank];
+				_x createUnit [_pos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, _unitrank];
 				_idx = _idx + 1;
 
 			} foreach _classname;
@@ -102,14 +102,14 @@ while { true } do {
 			private ["_allgroups", "_vote_in_progress", "_vote_approved", "_timercalc","_classnamecfg"];
 			// VOTING SYSTEM ==============================================================================
 			if (!(buildtype == 6 || buildtype == 99)) then {
-				[GRLIB_side_friendly,"Base"] sideChat "건설 사유를 지휘 무전망에 말씀하시길 권장드립니다.";
-				_allgroups = ["GetAllGroupsOfSide",[GRLIB_side_friendly]] call BIS_fnc_dynamicGroups;
+				[CONST_SIDE_BLUFOR,"Base"] sideChat "건설 사유를 지휘 무전망에 말씀하시길 권장드립니다.";
+				_allgroups = ["GetAllGroupsOfSide",[CONST_SIDE_BLUFOR]] call BIS_fnc_dynamicGroups;
 				_classnamecfg = getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" );
 				player setVariable["VoteBuild",[count _allgroups,0,0],true]; //[총 요청한 사람수,동의받은 수, 거절 받은 수]
 				{
 					[player, _classnamecfg] remoteExec ["remote_call_asking_build",leader _x];
 				} forEach (_allgroups);
-				[[GRLIB_side_friendly,"Base"],format["%1 %2님이 FOB %3 근처에서 %4 건설을 요청하였습니다.",groupId (group player),name player, [[] call F_getNearestFob] call F_getFobName ,_classnamecfg]] remoteExec ["sideChat",west];
+				[[CONST_SIDE_BLUFOR,"Base"],format["%1 %2님이 FOB %3 근처에서 %4 건설을 요청하였습니다.",groupId (group player),name player, [[] call F_getNearestFob] call F_getFobName ,_classnamecfg]] remoteExec ["sideChat",west];
 				_vote_in_progress = true; //투표가 진행중인가? false 시 통과
 				_vote_approved = true; //false시 건설 거부
 				_timercalc = [] spawn {
@@ -129,7 +129,7 @@ while { true } do {
 						if(((_get select 1)/((_get select 1) + (_get select 2)))>= 0.75) then { //전체 투표가 이루어진 양 중에서 찬성이 75% 이상일때
 							_vote_in_progress = false;
 							player setVariable ["VoteBuild", nil,true];
-							[[GRLIB_side_friendly,"Base"],format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5님의 %6에 대한 건설이 동의되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2,name player,_classnamecfg]] remoteExec ["SideChat",GRLIB_side_friendly];
+							[[CONST_SIDE_BLUFOR,"Base"],format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5님의 %6에 대한 건설이 동의되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2,name player,_classnamecfg]] remoteExec ["SideChat",CONST_SIDE_BLUFOR];
 						}
 						else{
 							_vote_approved = false;
@@ -256,7 +256,7 @@ while { true } do {
 					if(!_vote_approved) then {
 						build_confirmed = 3;
 						GRLIB_ui_notif = "";
-						[[GRLIB_side_friendly,"Base"], format["찬성 %1, 반대 %2 로 %3 %4님의 %5에 대한 건설이 거부되었습니다.",_get select 1,_get select 2, groupid (group player) ,name player, _classnamecfg]] remoteExec ["sideChat",GRLIB_side_friendly];
+						[[CONST_SIDE_BLUFOR,"Base"], format["찬성 %1, 반대 %2 로 %3 %4님의 %5에 대한 건설이 거부되었습니다.",_get select 1,_get select 2, groupid (group player) ,name player, _classnamecfg]] remoteExec ["sideChat",CONST_SIDE_BLUFOR];
 						hint localize "STR_CANCEL_HINT";
 					};
 				};
@@ -317,8 +317,8 @@ while { true } do {
 				};
 
 				if(buildtype != 6) then {
-					_vehicle addMPEventHandler ["MPKilled", {_this spawn kill_manager}];
-					{ _x addMPEventHandler ["MPKilled", {_this spawn kill_manager}]; } foreach (crew _vehicle);
+					_vehicle addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}];
+					{ _x addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]; } foreach (crew _vehicle);
 
 				};
 			};

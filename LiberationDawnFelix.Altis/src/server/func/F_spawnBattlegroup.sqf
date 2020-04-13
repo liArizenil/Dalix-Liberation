@@ -1,4 +1,4 @@
-if ( GRLIB_endgame == 1 ) exitWith {};
+if ( endgame == 1 ) exitWith {};
 
 private [ "_bg_groups", "_target_size", "_vehicle_pool" ];
 _bg_groups = [];

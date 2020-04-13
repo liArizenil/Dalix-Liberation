@@ -5,7 +5,7 @@ _idact_halo = -1;
 
 waitUntil { !isNil "build_confirmed" };
 waitUntil { !isNil "one_synchro_done" };
-waitUntil { !isNil "GRLIB_all_fobs" };
+waitUntil { !isNil "FOB_ALL" };
 waitUntil { one_synchro_done };
 
 GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer;
@@ -25,7 +25,7 @@ GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer;
 
 player addEventHandler ["Killed",{ GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer; }];
 
-if ( count GRLIB_all_fobs < 1 ) then {
+if ( count FOB_ALL < 1 ) then {
 	["Opforneedfob", false, false,false,false] call BIS_fnc_endMission;
 };
 
@@ -50,7 +50,7 @@ GRLIB_respawn_loadout = [ player, ["repetitive"] ] call F_getLoadout;
 
 while { true } do {
 	_nearsector = [1500,getPos player] call F_getNearestSector;
-	if ( !(_nearsector in blufor_sectors) && _nearsector != "" && alive player && vehicle player == player) then {
+	if ( !(_nearsector in SECTOR_BLUFOR) && _nearsector != "" && alive player && vehicle player == player) then {
 		if ( _idact_build == -1 ) then {
 			_idact_build = player addAction ["<t color='#FFFF00'>" + localize "STR_BUILD_ACTION" + "</t> <img size='2' image='res\ui_build.paa'/>","scripts\client\build\open_build_menu_opfor.sqf","",-985,false,true,"","build_confirmed == 0"];
 		};

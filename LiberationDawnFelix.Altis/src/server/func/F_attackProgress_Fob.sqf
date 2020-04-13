@@ -6,7 +6,7 @@ if ( _ownership != CONST_SIDE_OPFOR ) exitWith {};
 
 if ( CONST_BLUFOR_DEFEND ) then {
 	_grp = creategroup CONST_SIDE_BLUFOR;
-	{ _x createUnit [ _thispos, _grp,'this addMPEventHandler ["MPKilled", {_this spawn kill_manager}]']; } foreach BLUFOR_SQUAD_INF;
+	{ _x createUnit [ _thispos, _grp,'this addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]']; } foreach BLUFOR_SQUAD_INF;
 
 	_grp setCombatMode "GREEN";
 	_grp setBehaviour "COMBAT";
@@ -49,7 +49,7 @@ waitUntil {
 	[ _thispos ] call F_sectorOwnership != CONST_SIDE_OPFOR;
 };
 
-if ( !ENDGAME ) then {
+if ( !endgame ) then {
 	if ( _attacktime <= 1 && ( [ _thispos ] call F_sectorOwnership == CONST_SIDE_OPFOR ) ) then {
 		[ _thispos , 2 ] remoteExec ["remote_call_fob",-2];
 

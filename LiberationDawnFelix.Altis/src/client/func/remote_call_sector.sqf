@@ -26,5 +26,5 @@ if ( _status == 3 ) then {
 	sector_timer = 0;
 };
 
-{ _x setMarkerColorLocal GRLIB_color_enemy; } foreach (sectors_allSectors - blufor_sectors);
-{ _x setMarkerColorLocal GRLIB_color_friendly; } foreach blufor_sectors;
+{ _x setMarkerColorLocal GRLIB_color_enemy; } foreach (SECTOR_ALL - SECTOR_BLUFOR);
+{ _x setMarkerColorLocal GRLIB_color_friendly; } foreach SECTOR_BLUFOR;

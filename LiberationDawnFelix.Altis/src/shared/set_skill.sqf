@@ -11,7 +11,7 @@ if ( vehicle _unit != _unit ) then {
 	_inVehicle = true;
 };
 
-if ( !(GRLIB_autodanger) && (_side == GRLIB_side_friendly)) then {
+if ( !(GRLIB_autodanger) && (_side == CONST_SIDE_BLUFOR)) then {
 	_unit disableAI "AUTOCOMBAT";
 };
 
@@ -26,7 +26,7 @@ if ( _wounded ) then {
 	_unit setSkill ["commanding", 0.1];
 	_unit setSkill ["reloadSpeed", 0.1];
 } else {
-	if ( _side == GRLIB_side_friendly || _side == GRLIB_side_enemy ) then {
+	if ( _side == CONST_SIDE_BLUFOR || _side == GRLIB_side_enemy ) then {
 		_unit setSkill ["aimingspeed", [ 0.35 * _skillmodifier ] call F_limitSkill];
 		if ( _inVehicle ) then {
 			_unit setSkill ["aimingaccuracy", [ 0.65 * _skillmodifier ] call F_limitSkill];

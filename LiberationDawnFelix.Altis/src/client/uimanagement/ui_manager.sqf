@@ -1,10 +1,10 @@
 disableSerialization;
 
-private [ "_overlayshown", "_sectorcontrols", "_active_sectors_hint", "_uiticks", "_attacked_string", "_active_sectors_string", "_color_readiness", "_nearest_active_sector", "_zone_size", "_colorzone", "_bar", "_barwidth", "_first_iteration" ];
+private [ "_overlayshown", "_sectorcontrols", "_SECTOR_ACTIVE_hint", "_uiticks", "_attacked_string", "_SECTOR_ACTIVE_string", "_color_readiness", "_nearest_active_sector", "_zone_size", "_colorzone", "_bar", "_barwidth", "_first_iteration" ];
 
 _overlayshown = false;
 _sectorcontrols = [201,202,203,244,205];
-_active_sectors_hint = false;
+_SECTOR_ACTIVE_hint = false;
 _first_iteration = true;
 GRLIB_ui_notif = "";
 
@@ -76,21 +76,21 @@ while { true } do {
 
 		if ( _uiticks % 25 == 0 ) then {
 
-			if (!isNil "active_sectors" && ( [] call F_opforCap >= GRLIB_sector_cap)) then {
+			if (!isNil "SECTOR_ACTIVE" && ( [] call F_opforCap >= GRLIB_sector_cap)) then {
 
 				((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (517)) ctrlShow true;
 
-				if ( !_active_sectors_hint ) then {
+				if ( !_SECTOR_ACTIVE_hint ) then {
 					hint localize "STR_OVERLOAD_HINT";
-					_active_sectors_hint = true;
+					_SECTOR_ACTIVE_hint = true;
 				};
 
-				_active_sectors_string = "<t align='right' color='#e0e000'>" + (localize "STR_ACTIVE_SECTORS") + "<br/>";
+				_SECTOR_ACTIVE_string = "<t align='right' color='#e0e000'>" + (localize "STR_SECTOR_ACTIVES") + "<br/>";
 				{
-					_active_sectors_string = _active_sectors_string + (markertext _x) + "<br/>";
-				} foreach active_sectors;
-				_active_sectors_string = _active_sectors_string + "</t>";
-				((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (516)) ctrlSetStructuredText parseText _active_sectors_string;
+					_SECTOR_ACTIVE_string = _SECTOR_ACTIVE_string + (markertext _x) + "<br/>";
+				} foreach SECTOR_ACTIVE;
+				_SECTOR_ACTIVE_string = _SECTOR_ACTIVE_string + "</t>";
+				((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (516)) ctrlSetStructuredText parseText _SECTOR_ACTIVE_string;
 
 			} else {
 				((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (516)) ctrlSetStructuredText parseText " ";
@@ -100,13 +100,13 @@ while { true } do {
 			_nearest_active_sector = [ GRLIB_sector_size ] call F_getNearestSector;
 			if ( _nearest_active_sector != "" ) then {
 				_zone_size = GRLIB_capture_size;
-				if ( _nearest_active_sector in sectors_bigtown ) then {
+				if ( _nearest_active_sector in SECTOR_BIGTOWN ) then {
 					_zone_size = GRLIB_capture_size * 1.4;
 				};
 
 				"zone_capture" setmarkerposlocal (markerpos _nearest_active_sector);
 				_colorzone = "ColorGrey";
-				if ( [ markerpos _nearest_active_sector, _zone_size ] call F_sectorOwnership == GRLIB_side_friendly ) then { _colorzone = GRLIB_color_friendly };
+				if ( [ markerpos _nearest_active_sector, _zone_size ] call F_sectorOwnership == CONST_SIDE_BLUFOR ) then { _colorzone = GRLIB_color_friendly };
 				if ( [ markerpos _nearest_active_sector, _zone_size ] call F_sectorOwnership == GRLIB_side_enemy ) then { _colorzone = GRLIB_color_enemy };
 				if ( [ markerpos _nearest_active_sector, _zone_size ] call F_sectorOwnership == GRLIB_side_resistance ) then { _colorzone = "ColorCivilian" };
 				"zone_capture" setmarkercolorlocal _colorzone;
@@ -123,7 +123,7 @@ while { true } do {
 				};
 				((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (205)) ctrlSetText (markerText _nearest_active_sector);
 				{ ((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (_x)) ctrlShow true; } foreach  _sectorcontrols;
-				if ( _nearest_active_sector in blufor_sectors ) then {
+				if ( _nearest_active_sector in SECTOR_BLUFOR ) then {
 					((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (205)) ctrlSetTextColor [0,0.3,1.0,1];
 				} else {
 					((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (205)) ctrlSetTextColor [0.85,0,0,1];

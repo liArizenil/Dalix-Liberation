@@ -29,7 +29,7 @@ if ( (_unit isKindOf "Man") && ( alive _unit ) && (side group _unit == GRLIB_sid
 		_unit setCaptive true;
 
 		waitUntil { sleep 1;
-			!alive _unit || side group _unit == GRLIB_side_friendly
+			!alive _unit || side group _unit == CONST_SIDE_BLUFOR
 		};
 
 		if ( alive _unit ) then {

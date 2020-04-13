@@ -45,7 +45,7 @@ if(!isNil{ _requestPlayer getVariable["VoteBuild",nil]; }) then {
 	if(GRLIB_VOTED == 1) then {
 		_get = _requestPlayer getVariable["VoteBuild",nil];
 		_requestPlayer setVariable["VoteBuild",[_get select 0,(_get select 1)+1,_get select 2],true];
-		[[GRLIB_side_friendly,"Base"],format["%1님이 찬성하였습니다.",name player]] remoteExec ["sideChat",_requestPlayer];
+		[[CONST_SIDE_BLUFOR,"Base"],format["%1님이 찬성하였습니다.",name player]] remoteExec ["sideChat",_requestPlayer];
 	};
 	if(GRLIB_VOTED == -1) then {
 		_get = _requestPlayer getVariable["VoteBuild",nil];
@@ -54,7 +54,7 @@ if(!isNil{ _requestPlayer getVariable["VoteBuild",nil]; }) then {
 		}
 		else{
 			_requestPlayer setVariable["VoteBuild",[_get select 0,_get select 1,(_get select 2)+1],true];
-			[[GRLIB_side_friendly,"Base"],format["%1님이 반대하였습니다.",name player]] remoteExec ["sideChat",_requestPlayer];
+			[[CONST_SIDE_BLUFOR,"Base"],format["%1님이 반대하였습니다.",name player]] remoteExec ["sideChat",_requestPlayer];
 		};
 		
 	};

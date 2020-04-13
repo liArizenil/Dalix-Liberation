@@ -122,7 +122,7 @@ while { true } do {
 		};
 	};
 
-	if ( ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) && alive player && vehicle player == player && GRLIB_permissions_param ) then {
+	if ( ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) && alive player && vehicle player == player && player_permissions_param ) then {
 		if ( _idact_commander == -1 ) then {
 			_idact_commander = player addAction ["<t color='#FF8000'>" + localize "STR_COMMANDER_ACTION" + "</t> <img size='2' image='\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa'/>","scripts\client\commander\open_permissions.sqf","",-995,false,true,"","build_confirmed == 0"];
 		};
@@ -144,7 +144,7 @@ while { true } do {
 		};
 	};
 
-	if ( ( GRLIB_endgame == 0 ) && ( (_fobdistance < _distredeploy || (player distance lhd) < 200) || (player distance _whiskey) < 100 ) && alive player && vehicle player == player && ( ( [ player, 5 ] call F_fetchPermission ) || ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) )) then {
+	if ( ( endgame == 0 ) && ( (_fobdistance < _distredeploy || (player distance lhd) < 200) || (player distance _whiskey) < 100 ) && alive player && vehicle player == player && ( ( [ player, 5 ] call F_fetchPermission ) || ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) )) then {
 		if ( _idact_secondary == -1 ) then {
 			_idact_secondary = player addAction ["<t color='#FFFF00'>" + localize "STR_SECONDARY_OBJECTIVES" + "</t>","scripts\client\ui\secondary_ui.sqf","",-993,false,true,"","build_confirmed == 0"];
 		};
@@ -187,56 +187,4 @@ while { true } do {
 		};
 	};
 	sleep 1;
-};
-
-private [ "_unflippable_vehicles", "_detected_vehicles", "_next_vehicle", "_next_vehicle_already_in_list", "_idact_next" ];
-
-_unflippable_vehicles = [];
-veh_action_distance = 10;
-
-while { true } do {
-
-	if ( [ player, 5 ] call F_fetchPermission ) then {
-
-		_detected_vehicles = (getpos player) nearEntities [["Tank","APC","IFV","Car"], veh_action_distance] select { (count crew _x) == 0 && ((locked _x == 0 || locked _x == 1)) && (_x distance lhd > 1000) };
-
-		{
-			_next_vehicle = _x;
-			_next_vehicle_already_in_list = false;
-			{
-				if ( (_x select 0) == _next_vehicle ) then {
-					_next_vehicle_already_in_list = true;
-				};
-			} foreach _unflippable_vehicles;
-
-			if ( !_next_vehicle_already_in_list ) then {
-				_idact_next = _next_vehicle addAction [ "<t color='#FFFF00'>" + localize "STR_UNFLIP" + "</t> <img size='2' image='res\ui_flipveh.paa'/>", "scripts\client\actions\do_unflip.sqf", "", -950, true, true, "", "build_confirmed == 0 && (_this distance _target < veh_action_distance) && (vehicle player == player)"];
-				_unflippable_vehicles pushback [ _next_vehicle, _idact_next ] ;
-			};
-		} foreach _detected_vehicles;
-
-		{
-			_next_vehicle = _x;
-			_next_vehicle_already_in_list = false;
-			{
-				if ( _x == (_next_vehicle select 0) ) then {
-					_next_vehicle_already_in_list = true;
-				};
-			} foreach _detected_vehicles;
-
-			if ( !_next_vehicle_already_in_list ) then {
-				(_next_vehicle select 0) removeAction (_next_vehicle select 1);
-				_unflippable_vehicles = _unflippable_vehicles - [ _next_vehicle ];
-			};
-
-		} foreach _unflippable_vehicles;
-
-		sleep 3;
-
-	} else {
-		{
-			(_x select 0) removeAction (_x select 1);
-			_unflippable_vehicles = _unflippable_vehicles - [ _x ];
-		} foreach _unflippable_vehicles;
-	};
 };

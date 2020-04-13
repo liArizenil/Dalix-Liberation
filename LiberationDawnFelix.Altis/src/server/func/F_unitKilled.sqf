@@ -9,9 +9,9 @@ if ( isServer ) then {
 	if ( isNil "armor_weight" ) then { armor_weight = 33 };
 	if ( isNil "air_weight" ) then { air_weight = 33 };
 
-	if ( side _killer == GRLIB_side_friendly ) then {
+	if ( side _killer == CONST_SIDE_BLUFOR ) then {
 
-		_nearby_bigtown = sectors_bigtown select {  (!(_x in blufor_sectors)) && ( _unit distance (markerpos _x) < 250 ) };
+		_nearby_bigtown = SECTOR_BIGTOWN select {  (!(_x in SECTOR_BLUFOR)) && ( _unit distance (markerpos _x) < 250 ) };
 		if ( count _nearby_bigtown > 0 ) then {
 			combat_readiness = combat_readiness + (0.5 * GRLIB_difficulty_modifier);
 			stats_readiness_earned = stats_readiness_earned + (0.5 * GRLIB_difficulty_modifier);
@@ -51,7 +51,7 @@ if ( isServer ) then {
 			if ( isPlayer _killer ) then {
 				stats_civilians_killed_by_players = stats_civilians_killed_by_players + 1;
 				if ( GRLIB_civ_penalties ) then {
-					if(side _killer == GRLIB_side_friendly) then {
+					if(side _killer == CONST_SIDE_BLUFOR) then {
 						if((resources_ammo - 200) < 0) then {
 							resources_ammo = 0;
 						}else{
@@ -72,7 +72,7 @@ if ( isServer ) then {
 			};
 		};
 
-		if ( side _killer == GRLIB_side_friendly ) then {
+		if ( side _killer == CONST_SIDE_BLUFOR ) then {
 			if ( side (group _unit) == GRLIB_side_enemy ) then {
 				stats_opfor_soldiers_killed = stats_opfor_soldiers_killed + 1;
 				if ( isplayer _killer ) then {
@@ -80,18 +80,18 @@ if ( isServer ) then {
 				};
 			};
 
-			if ( side (group _unit) == GRLIB_side_friendly ) then {
+			if ( side (group _unit) == CONST_SIDE_BLUFOR ) then {
 				stats_blufor_teamkills = stats_blufor_teamkills + 1;
 			};
 		} else {
-			if ( side (group _unit) == GRLIB_side_friendly ) then {
+			if ( side (group _unit) == CONST_SIDE_BLUFOR ) then {
 				stats_blufor_soldiers_killed = stats_blufor_soldiers_killed + 1;
 			};
 		};
 	} else {
 		if ( typeof _unit in all_hostile_classnames ) then {
 			stats_opfor_vehicles_killed = stats_opfor_vehicles_killed + 1;
-			if ( isplayer _killer && side (group _killer) == GRLIB_side_friendly) then {
+			if ( isplayer _killer && side (group _killer) == CONST_SIDE_BLUFOR) then {
 				stats_opfor_vehicles_killed_by_players = stats_opfor_vehicles_killed_by_players + 1;
 
 				if ( GRLIB_ammo_bounties ) then {

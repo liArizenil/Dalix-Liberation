@@ -48,7 +48,7 @@ if (alive _unit) then {
 	if ( _is_near_fob ) then {
 
 		sleep 5;
-		_grp = createGroup GRLIB_side_friendly;
+		_grp = createGroup CONST_SIDE_BLUFOR;
 		[_unit] joinSilent _grp;
 		_unit playmove "AmovPercMstpSnonWnonDnon_AmovPsitMstpSnonWnonDnon_ground";
 		_unit disableAI "ANIM";
@@ -75,7 +75,7 @@ if (alive _unit) then {
 		while {(count (waypoints _grp)) != 0} do {deleteWaypoint ((waypoints _grp) select 0);};
 		{_x doFollow leader _grp} foreach units _grp;
 
-		_possible_sectors = (sectors_allSectors - blufor_sectors);
+		_possible_sectors = (SECTOR_ALL - SECTOR_BLUFOR);
 		if ( count _possible_sectors > 0 ) then {
 
 			_possible_sectors = [ _possible_sectors , [getpos _unit, 5000] , { (markerPos _x) distance _input0 } , 'ASCEND' ] call BIS_fnc_sortBy;

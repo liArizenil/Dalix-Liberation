@@ -16,7 +16,7 @@ while { dialog && alive player && dojump == 0 } do {
 	if(GRLIB_deploy_timer < 1) then {
 		ctrlSetText[202, format["%1",localize "STR_HALO_PARAM"]];
 		private _nearsector = [1500,halo_position] call F_getNearestSector;
-		if((lhd distance2D halo_position) > 2500 && (((halo_position distance2D (getMarkerPos _nearsector) > 1500) && (_nearsector in blufor_sectors)) || !(_nearsector in blufor_sectors))) then {
+		if((lhd distance2D halo_position) > 2500 && (((halo_position distance2D (getMarkerPos _nearsector) > 1500) && (_nearsector in SECTOR_BLUFOR)) || !(_nearsector in SECTOR_BLUFOR))) then {
 			if( count([] call F_getNearestFob) > 0 ) then {
 				if((halo_position distance2D ([ halo_position ] call F_getNearestFob)) < 2500) then{
 					ctrlEnable [202, false];

@@ -2,7 +2,7 @@ if (isServer) then {
 	[] execVM "scripts\AdvancedRadio\initChannel.sqf";
 };
 
-if (hasInterface && side player == GRLIB_side_friendly) then {
+if (hasInterface && side player == CONST_SIDE_BLUFOR) then {
 	Mainlabel = [801,802,803,804,805,806];
 	Sublabel = [811,812,813,814,815,816];
 	//============== Main Func ==================================

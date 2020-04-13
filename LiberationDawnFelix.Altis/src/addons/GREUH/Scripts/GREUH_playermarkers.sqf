@@ -6,7 +6,7 @@ private _color = "";
 private _ticks = 0;
 private _cfg = configFile >> "cfgVehicles";
 
-if ( side player == GRLIB_side_friendly ) then {
+if ( side player == CONST_SIDE_BLUFOR ) then {
 	_color = GRLIB_color_friendly;
 } else {
 	_color = GRLIB_color_enemy;

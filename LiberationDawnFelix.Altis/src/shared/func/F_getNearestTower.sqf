@@ -4,9 +4,9 @@ private [ "_sector_to_return", "_sectors_to_search", "_sectors_to_search_sorted"
 _sector_to_return = '';
 _sectors_to_search = [];
 if ( _side == GRLIB_side_enemy ) then {
-	_sectors_to_search = (sectors_tower - blufor_sectors);
+	_sectors_to_search = (sectors_tower - SECTOR_BLUFOR);
 } else {
-	_sectors_to_search = blufor_sectors select { _x in sectors_tower };
+	_sectors_to_search = SECTOR_BLUFOR select { _x in sectors_tower };
 };
 
 _sectors_to_search = _sectors_to_search select { (markerPos _x) distance _postosearch < _limit };

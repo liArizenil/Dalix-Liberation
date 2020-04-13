@@ -22,18 +22,6 @@ disableChannels[] = {
 	{ 0, false, true }, { 1, false, true }
 };
 
-#include "ui\liberation_interface.hpp"
-#include "GREUH\UI\GREUH_interface.hpp"
-#include "ui\liberation_notifications.hpp"
-#include "ui\mission_params.hpp"
-
-#include "VAM_GUI\VAM_GUI_controls.hpp"
-#include "VAM_GUI\VAM_GUI_classes.hpp"
-
-#include "scripts\AdvancedRadio\ui\Radio_interface.hpp"
-#include "scripts\GroupTag\ui\dialog.hpp"
-#include "scripts\outlw_magRepack\MagRepack_config.hpp"
-
 class CfgDebriefing
 {
 	class End1

@@ -1,5 +1,5 @@
-waitUntil { !(isNil "GRLIB_player_scores") };
-waitUntil { !isNil "save_is_loaded" };
+waitUntil { !(isNil "player_scores") };
+waitUntil { !isNil "SAVE_LOADED" };
 
 while { true } do {
 
@@ -14,7 +14,7 @@ while { true } do {
 				if ( (getPlayerUID _nextplayer) == (_x select 0) ) exitWith {
 					_nextplayer addScore ((_x select 1) - (score _nextplayer));
 				};
-			} foreach GRLIB_player_scores;
+			} foreach player_scores;
 		};
 	} foreach allPlayers;
 

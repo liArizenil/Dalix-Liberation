@@ -1,5 +1,3 @@
-if ( !isServer ) exitWith {};
-
 params [ "_intel_object" ];
 
 if ( isNull _intel_object ) exitWith {};

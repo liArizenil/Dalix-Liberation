@@ -1,5 +1,3 @@
-if (!isServer) exitWith {};
-
 params [ "_price_a" ];
 
 if ( _price_a > 0 ) then {

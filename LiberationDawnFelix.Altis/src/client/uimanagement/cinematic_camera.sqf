@@ -1,7 +1,7 @@
 private [ "_last_transition", "_last_position", "_cinematic_camera", "_cinematic_pointer", "_positions", "_last_position", "_nearentities", "_camtarget", "_startpos", "_endpos", "_startfov", "_endfov", "_nearest_sector", "_unitname", "_position" ];
 
-if ( isNil "active_sectors" ) then { active_sectors = [] };
-if ( isNil "GRLIB_all_fobs" ) then { GRLIB_all_fobs = [] };
+if ( isNil "SECTOR_ACTIVE" ) then { SECTOR_ACTIVE = [] };
+if ( isNil "FOB_ALL" ) then { FOB_ALL = [] };
 
 cinematic_camera_started = true;
 _last_transition = -1;
@@ -26,23 +26,23 @@ while { cinematic_camera_started } do {
 		_positions = [ getpos lhd ];
 		if ( !first_camera_round ) then {
 
-			if ( count GRLIB_all_fobs > 0 ) then {
+			if ( count FOB_ALL > 0 ) then {
 				for [ {_idx=0},{_idx < 2},{_idx=_idx+1} ] do {
-					_positions pushback (selectRandom GRLIB_all_fobs);
+					_positions pushback (selectRandom FOB_ALL);
 				};
 			};
 
-			if ( count active_sectors > 0 ) then {
+			if ( count SECTOR_ACTIVE > 0 ) then {
 				for [ {_idx=0},{_idx < 5},{_idx=_idx+1} ] do {
-					_positions pushback (getmarkerpos (selectRandom active_sectors));
+					_positions pushback (getmarkerpos (selectRandom SECTOR_ACTIVE));
 				};
 			} else {
 				for [ {_idx=0},{_idx < 5},{_idx=_idx+1} ] do {
-					_positions pushback (getmarkerpos (selectRandom sectors_allSectors));
+					_positions pushback (getmarkerpos (selectRandom SECTOR_ALL));
 				};
 			};
 
-			if ( GRLIB_endgame == 0 ) then {
+			if ( endgame == 0 ) then {
 				 _activeplayers = ( allPlayers select { alive _x && ( _x distance ( getmarkerpos GRLIB_respawn_marker ) ) > 100 } );
 				 if ( count _activeplayers > 0 ) then {
 				 	for [ {_idx=0},{_idx < 3},{_idx=_idx+1} ] do {
@@ -266,9 +266,9 @@ while { cinematic_camera_started } do {
 					if ( _nearest_sector != "" ) then {
 						_nearest_sector = markertext _nearest_sector;
 					} else {
-						_nearfobs = GRLIB_all_fobs select { _x distance _position < 300 };
+						_nearfobs = FOB_ALL select { _x distance _position < 300 };
 						if ( count _nearfobs > 0 ) then {
-							_nearest_sector = format [ "FOB %1", military_alphabet select ( GRLIB_all_fobs find ( _nearfobs select 0 ) ) ];
+							_nearest_sector = format [ "FOB %1", military_alphabet select ( FOB_ALL find ( _nearfobs select 0 ) ) ];
 						};
 					};
 				};

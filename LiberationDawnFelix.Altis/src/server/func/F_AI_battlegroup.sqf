@@ -9,7 +9,7 @@ if (isNil "reset_battlegroups_ai" ) then { reset_battlegroups_ai = false };
 
 sleep (3 + (random 3));
 
-while { ( count units _grp != 0 ) && ( GRLIB_endgame == 0 ) } do {
+while { ( count units _grp != 0 ) && ( endgame == 0 ) } do {
 
 	sleep (5 + (random 5));
 

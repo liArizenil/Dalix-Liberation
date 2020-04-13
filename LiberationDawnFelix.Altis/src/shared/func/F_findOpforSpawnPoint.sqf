@@ -33,7 +33,7 @@ _filtered_possible_sectors = [];
 				_current_sector_distance = (( markerpos _current_sector ) distance (_x));
 			};
 		};
-	} foreach GRLIB_all_fobs;
+	} foreach FOB_ALL;
 
 	if ( _accept_current_sector ) then {
 		{
@@ -44,7 +44,7 @@ _filtered_possible_sectors = [];
 					_current_sector_distance = (( markerpos _current_sector ) distance (markerpos _x));
 				};
 			};
-		} foreach blufor_sectors;
+		} foreach SECTOR_BLUFOR;
 	};
 
 	if ( _accept_current_sector ) then {
@@ -53,12 +53,12 @@ _filtered_possible_sectors = [];
 			if ( (( markerpos _current_sector ) distance (markerpos _x)) < 2000 ) then {
 				_one_opfor_sector_in_range = true;
 			}
-		} foreach (sectors_allSectors - blufor_sectors);
+		} foreach (SECTOR_ALL - SECTOR_BLUFOR);
 		_accept_current_sector = _one_opfor_sector_in_range;
 	};
 
 	if ( _accept_current_sector ) then {
-		if ( ( [markerpos _current_sector, _mindist, GRLIB_side_friendly ] call F_getUnitsCount ) != 0 ) then {
+		if ( ( [markerpos _current_sector, _mindist, CONST_SIDE_BLUFOR ] call F_getUnitsCount ) != 0 ) then {
 			_accept_current_sector = false;
 		};
 	};

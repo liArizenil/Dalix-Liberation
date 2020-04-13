@@ -26,7 +26,7 @@ _backpackcontents = [];
 waitUntil { dialog };
 while { dialog && alive player && dojump == 0 } do {
 	"spawn_marker" setMarkerPosLocal halo_position;
-	if(([1500,halo_position] call F_getNearestSector) in blufor_sectors) then {
+	if(([1500,halo_position] call F_getNearestSector) in SECTOR_BLUFOR) then {
 		ctrlEnable [202, true];
 	}
 	else{

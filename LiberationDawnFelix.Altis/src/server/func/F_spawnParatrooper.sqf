@@ -10,11 +10,11 @@ sleep 0.1;
 private _pilot_group = group ((crew _newvehicle) select 0);
 private _para_group = createGroup GRLIB_side_enemy;
 
-_newvehicle addMPEventHandler ["MPKilled", {_this spawn kill_manager}];
-{ _x addMPEventHandler ["MPKilled", {_this spawn kill_manager}]; } foreach (crew _newvehicle);
+_newvehicle addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}];
+{ _x addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]; } foreach (crew _newvehicle);
 
 while { count units _para_group < 8 } do {
-	opfor_paratrooper createUnit [ getmarkerpos _spawnsector, _para_group, 'this addMPEventHandler ["MPKilled", {_this spawn kill_manager}]'];
+	opfor_paratrooper createUnit [ getmarkerpos _spawnsector, _para_group, 'this addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]'];
 };
 
 { _x moveInCargo _newvehicle } foreach (units _para_group);

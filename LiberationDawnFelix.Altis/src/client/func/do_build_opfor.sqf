@@ -30,7 +30,7 @@ while { true } do {
 		_spawn_point = [(((_spawn_point select 0) + 500) - random 1000),(((_spawn_point select 1) + 500) - random 1000),0];
 		_aircraft = createVehicle [_classname, _spawn_point, [], 0, "FLY"];
 
-		_aircraft addMPEventHandler ['MPKilled', {_this spawn kill_manager}];
+		_aircraft addMPEventHandler ['MPKilled', {_this spawn F_unitKilled}];
 		player moveindriver _aircraft;
 
 		_aircraft flyInHeight (120 + (random 180));
@@ -186,7 +186,7 @@ while { true } do {
 					if( ((surfaceIsWater _truepos) || (surfaceIsWater getpos player))) then {
 						GRLIB_ui_notif = localize "STR_BUILD_ERROR_WATER";
 					};
-					if(!(([1500,getPos player] call F_getNearestSector) in blufor_sectors)) then {
+					if(!(([1500,getPos player] call F_getNearestSector) in SECTOR_BLUFOR)) then {
 						GRLIB_ui_notif = localize "STR_PLACEMENT_IMPOSSIBLE_OPFOR";
 					};
 				};
@@ -224,7 +224,7 @@ while { true } do {
 				sleep 0.2;
 				sleep 0.2;
 
-				_vehicle addMPEventHandler ["MPKilled", {_this spawn kill_manager}];
+				_vehicle addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}];
 			};
 
 			player removeAction _idactcancel;

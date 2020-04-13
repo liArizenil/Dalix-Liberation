@@ -7,13 +7,13 @@ _ownership = [ markerpos _sector ] call F_sectorOwnership;
 if ( _ownership != CONST_SIDE_OPFOR ) exitWith {};
 
 _squad_type = blufor_squad_inf_light;
-if ( _sector in sectors_military ) then {
+if ( _sector in SECTOR_MILITARY ) then {
 	_squad_type = blufor_squad_inf;
 };
 _grpunits = [];
 if ( GRLIB_blufor_defenders ) then {
-	_grp = creategroup GRLIB_side_friendly;
-	{ _x createUnit [ markerpos _sector, _grp,'this addMPEventHandler ["MPKilled", {_this spawn kill_manager}]']; } foreach _squad_type;
+	_grp = creategroup CONST_SIDE_BLUFOR;
+	{ _x createUnit [ markerpos _sector, _grp,'this addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]']; } foreach _squad_type;
 	_grpunits = units _grp;
 };
 _isplayer = (count((playableUnits + switchableUnits) select {(_x distance (markerpos _sector)) < GRLIB_capture_size && isPlayer _x}) > 0);
@@ -31,7 +31,7 @@ _grp setBehaviour "COMBAT";
 sleep 20;
 
 _ownership = [ markerpos _sector ] call F_sectorOwnership;
-if ( _ownership == GRLIB_side_friendly ) exitWith {
+if ( _ownership == CONST_SIDE_BLUFOR ) exitWith {
 	if ( GRLIB_blufor_defenders ) then {
 		{
 			if ( alive _x ) then { deleteVehicle _x };
@@ -58,10 +58,10 @@ waitUntil {
 	[markerpos _sector] call F_sectorOwnership != GRLIB_side_resistance;
 };
 
-if ( GRLIB_endgame == 0 ) then {
+if ( endgame == 0 ) then {
 	if ( _attacktime <= 1 && ( [markerpos _sector] call F_sectorOwnership == GRLIB_side_enemy ) ) then {
-		blufor_sectors = blufor_sectors - [ _sector ];
-		publicVariable "blufor_sectors";
+		SECTOR_BLUFOR = SECTOR_BLUFOR - [ _sector ];
+		publicVariable "SECTOR_BLUFOR";
 		[ _sector, 2 , 0 ] remoteExec ["remote_call_sector",-2];
 		reset_battlegroups_ai = true;
 		trigger_server_save = true;

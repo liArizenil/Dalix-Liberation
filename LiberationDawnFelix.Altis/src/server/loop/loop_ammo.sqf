@@ -1,12 +1,12 @@
-waitUntil { !isNil "save_is_loaded" };
-waitUntil { !isNil "blufor_sectors" };
+waitUntil { !isNil "SAVE_LOADED" };
+waitUntil { !isNil "SECTOR_BLUFOR" };
 waitUntil { !isNil "saved_ammo_res" };
 waitUntil { !isNil "saved_intel_res" };
 
 resources_ammo = saved_ammo_res;
 resources_intel = saved_intel_res;
 
-while { GRLIB_endgame == 0 } do {
+while { endgame == 0 } do {
 
 	_base_tick_period = 4800;
 
@@ -14,11 +14,11 @@ while { GRLIB_endgame == 0 } do {
 
 		_blufor_mil_sectors = [];
 		{
-			if ( _x in sectors_military ) then {
+			if ( _x in SECTOR_MILITARY ) then {
 				_blufor_mil_sectors pushback _x;
 				_base_tick_period = _base_tick_period * 0.82;
 			};
-		} foreach blufor_sectors;
+		} foreach SECTOR_BLUFOR;
 
 		_base_tick_period = _base_tick_period / GRLIB_resources_multiplier;
 
@@ -51,7 +51,7 @@ while { GRLIB_endgame == 0 } do {
 					clearMagazineCargoGlobal _newbox;
 					clearItemCargoGlobal _newbox;
 					clearBackpackCargoGlobal _newbox;
-					_newbox addMPEventHandler ['MPKilled', {_this spawn kill_manager}];
+					_newbox addMPEventHandler ['MPKilled', {_this spawn F_unitKilled}];
 
 					[_newbox, 500 ] remoteExec ["F_setMass"];
 				};

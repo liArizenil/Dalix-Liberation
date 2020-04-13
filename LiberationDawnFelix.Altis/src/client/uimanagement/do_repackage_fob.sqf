@@ -16,8 +16,8 @@ if ( dorepackage > 0 ) then {
 	_fob = [] call F_getNearestFob;
 
 	if ( count _fob > 0 ) then {
-		GRLIB_all_fobs = GRLIB_all_fobs - [ _fob ];
-		publicVariable "GRLIB_all_fobs";
+		FOB_ALL = FOB_ALL - [ _fob ];
+		publicVariable "FOB_ALL";
 	};
 
 	{ deleteVehicle _x }  foreach (( (getpos player) nearobjects [ FOB_typename, 250 ] ) select { getObjectType _x >= 8 });

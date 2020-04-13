@@ -40,10 +40,10 @@ if ( _classname in militia_vehicles ) then {
 } else {
 	createVehicleCrew _newvehicle;
 	sleep 0.1;
-	{ _x addMPEventHandler ['MPKilled', {_this spawn kill_manager}]; } foreach (crew _newvehicle);
+	{ _x addMPEventHandler ['MPKilled', {_this spawn F_unitKilled}]; } foreach (crew _newvehicle);
 };
 
-_newvehicle addMPEventHandler ['MPKilled', {_this spawn kill_manager}];
+_newvehicle addMPEventHandler ['MPKilled', {_this spawn F_unitKilled}];
 if ( _random_rotate ) then {
 	_newvehicle setdir (random 360);
 };

@@ -6,9 +6,9 @@ _frame_pos = [];
 
 GRLIB_force_redeploy = false;
 
-waitUntil { !isNil "GRLIB_all_fobs" };
-waitUntil { !isNil "blufor_sectors" };
-waitUntil { !isNil "save_is_loaded" };
+waitUntil { !isNil "FOB_ALL" };
+waitUntil { !isNil "SECTOR_BLUFOR" };
+waitUntil { !isNil "SAVE_LOADED" };
 
 _spawn_str = "";
 
@@ -25,7 +25,7 @@ if(side player == GRLIB_side_enemy) then {
 	};
 };
 
-if(side player == GRLIB_side_friendly) then {
+if(side player == CONST_SIDE_BLUFOR) then {
 	_basenamestr = "";
 	if ( GRLIB_isAtlasPresent ) then {
 		_basenamestr = "BLUFOR LHD";
@@ -95,8 +95,8 @@ if(side player == GRLIB_side_friendly) then {
 				choiceslist = [ [ _basenamestr, getpos lhd ], ["LZ WHISKEY", getMarkerPos "whiskey"] ];
 			};
 
-			for [{_idx=0},{_idx < count GRLIB_all_fobs},{_idx=_idx+1}] do {
-				choiceslist = choiceslist + [[format [ "FOB %1 - %2", (military_alphabet select _idx),mapGridPosition (GRLIB_all_fobs select _idx) ],GRLIB_all_fobs select _idx]];
+			for [{_idx=0},{_idx < count FOB_ALL},{_idx=_idx+1}] do {
+				choiceslist = choiceslist + [[format [ "FOB %1 - %2", (military_alphabet select _idx),mapGridPosition (FOB_ALL select _idx) ],FOB_ALL select _idx]];
 			};
 
 			if(!_IsVehicle_redeploy) then {

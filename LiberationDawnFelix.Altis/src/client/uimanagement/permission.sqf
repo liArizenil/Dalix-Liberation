@@ -1,4 +1,4 @@
-waitUntil { !isNil "GRLIB_permissions" };
+waitUntil { !isNil "player_permissions" };
 
 private [ "_dialog", "_nextplayer", "_players_array", "_displayname", "_idx", "_control", "_player_uid", "_player_idx", "_player_uids", "_player_permissions", "_modify_permissions" ];
 
@@ -17,7 +17,7 @@ _modify_permissions = [];
 	_player_uid = _x select 0;
 	_player_permissions = [] + ( _x select 1 );
 	_modify_permissions pushback [ _player_uid, _player_permissions ];
-} foreach GRLIB_permissions;
+} foreach player_permissions;
 
 disableSerialization;
 
@@ -189,8 +189,8 @@ while { dialog && alive player } do {
 	} foreach _players_array;
 
 	if ( save_changes == 1 ) then {
-		GRLIB_permissions = _modify_permissions;
-		publicVariable "GRLIB_permissions";
+		player_permissions = _modify_permissions;
+		publicVariable "player_permissions";
 		closeDialog 0;
 	};
 

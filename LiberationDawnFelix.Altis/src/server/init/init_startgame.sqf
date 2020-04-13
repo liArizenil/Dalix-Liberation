@@ -1,10 +1,10 @@
 waitUntil { time > 1 };
-waitUntil { !isNil "GRLIB_all_fobs" };
-waitUntil { !isNil "save_is_loaded" };
+waitUntil { !isNil "FOB_ALL" };
+waitUntil { !isNil "SAVE_LOADED" };
 
 private [ "_fobbox" ];
 
-if ( count GRLIB_all_fobs == 0 ) then {
+if ( count FOB_ALL == 0 ) then {
 
 	if ( GRLIB_build_first_fob ) then {
 		_potentialplaces = [];
@@ -15,7 +15,7 @@ if ( count GRLIB_all_fobs == 0 ) then {
 				if ( ( ( markerPos _nextsector ) distance ( markerPos _x ) ) < 1600 ) then {
 					_acceptsector = false;
 				};
-			} foreach sectors_allSectors;
+			} foreach SECTOR_ALL;
 
 			if ( _acceptsector ) then {
 				_potentialplaces pushBack _nextsector;
@@ -26,7 +26,7 @@ if ( count GRLIB_all_fobs == 0 ) then {
 		[ markerPos _spawnplace, true ] remoteExec ["build_fob_remote_call", 2];
  
 	} else {
-		while { count GRLIB_all_fobs == 0 } do {
+		while { count FOB_ALL == 0 } do {
 
 			if ( GRLIB_isAtlasPresent ) then {
 				_fobbox = FOB_box_typename createVehicle [0,0,50];
@@ -50,7 +50,7 @@ if ( count GRLIB_all_fobs == 0 ) then {
 
 			waitUntil {
 				sleep 1;
-				!(alive _fobbox) || count GRLIB_all_fobs > 0
+				!(alive _fobbox) || count FOB_ALL > 0
 			};
 
 			sleep 15;
