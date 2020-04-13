@@ -1,5 +1,3 @@
-if (!isServer) exitWith {};
-
 params [ "_new_fob", "_create_fob_building" ];
 private [ "_fob_building", "_fob_pos" ];
 
