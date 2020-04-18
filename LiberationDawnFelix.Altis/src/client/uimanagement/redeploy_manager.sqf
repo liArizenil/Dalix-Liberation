@@ -19,7 +19,7 @@ waitUntil { cinematic_camera_stop };
 
 if(side player == GRLIB_side_enemy) then {
 	while { true } do {
-		if ( !GRLIB_fatigue ) then {
+		if ( !CONST_FATIGUE ) then {
 			player enableStamina false;
 		};
 	};
@@ -45,7 +45,7 @@ if(side player == CONST_SIDE_BLUFOR) then {
 
 		_IsVehicle_redeploy = (driver (vehicle player) == player && ((vehicle player) isKindOf "Tank"));
 
-		if ( !GRLIB_fatigue ) then {
+		if ( !CONST_FATIGUE ) then {
 			player enableStamina false;
 		};
 		player setCustomAimCoef 0.35;

@@ -13,9 +13,9 @@ if ( isServer ) then {
 
 		_nearby_bigtown = SECTOR_BIGTOWN select {  (!(_x in SECTOR_BLUFOR)) && ( _unit distance (markerpos _x) < 250 ) };
 		if ( count _nearby_bigtown > 0 ) then {
-			combat_readiness = combat_readiness + (0.5 * GRLIB_difficulty_modifier);
-			stats_readiness_earned = stats_readiness_earned + (0.5 * GRLIB_difficulty_modifier);
-			if ( combat_readiness > 100.0 && GRLIB_difficulty_modifier < 2 ) then { combat_readiness = 100.0 };
+			combat_readiness = combat_readiness + (0.5 * CONST_DIFFICULTY_MODIFIER);
+			stats_readiness_earned = stats_readiness_earned + (0.5 * CONST_DIFFICULTY_MODIFIER);
+			if ( combat_readiness > 100.0 && CONST_DIFFICULTY_MODIFIER < 2 ) then { combat_readiness = 100.0 };
 		};
 
 		if ( _killer isKindOf "Man" ) then {
@@ -50,7 +50,7 @@ if ( isServer ) then {
 			stats_civilians_killed = stats_civilians_killed + 1;
 			if ( isPlayer _killer ) then {
 				stats_civilians_killed_by_players = stats_civilians_killed_by_players + 1;
-				if ( GRLIB_civ_penalties ) then {
+				if ( CONST_CIV_PENALTIES ) then {
 					if(side _killer == CONST_SIDE_BLUFOR) then {
 						if((resources_ammo - 200) < 0) then {
 							resources_ammo = 0;
@@ -94,7 +94,7 @@ if ( isServer ) then {
 			if ( isplayer _killer && side (group _killer) == CONST_SIDE_BLUFOR) then {
 				stats_opfor_vehicles_killed_by_players = stats_opfor_vehicles_killed_by_players + 1;
 
-				if ( GRLIB_ammo_bounties ) then {
+				if ( CONST_AMMO_BOUNTIES ) then {
 					private [ "_bounty" ];
 
 					_bounty = 5;

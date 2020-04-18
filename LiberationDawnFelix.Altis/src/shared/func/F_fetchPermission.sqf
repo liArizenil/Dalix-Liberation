@@ -6,7 +6,7 @@ if ( isNil "player_permissions_cache" ) then { player_permissions_cache = []; };
 
 _ret = false;
 
-if ( !player_permissions_param ) then {
+if ( !CONST_PLAYER_PERMISSION ) then {
 	_ret = true;
 } else {
 	if ( !(isNil "player_permissions") && !(isNull _source) ) then {

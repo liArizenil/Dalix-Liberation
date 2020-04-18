@@ -14,7 +14,7 @@ if ( combat_readiness > 15 ) then {
 		_nearestower = [markerpos _targetsector, GRLIB_side_enemy, GRLIB_radiotower_size * 1.4] call F_getNearestTower;
 
 		if ( _nearestower != "" ) then {
-			_reinforcements_time = (((((markerpos _nearestower) distance (markerpos _targetsector)) / 1000) ^ 1.66 ) * 120) / (GRLIB_difficulty_modifier * GRLIB_csat_aggressivity);
+			_reinforcements_time = (((((markerpos _nearestower) distance (markerpos _targetsector)) / 1000) ^ 1.66 ) * 120) / (CONST_DIFFICULTY_MODIFIER * CONST_CSAT_AGGRESSIVITY);
 			if (_targetsector in SECTOR_BIGTOWN) then {
 				_reinforcements_time = _reinforcements_time * 0.35;
 			};
@@ -28,7 +28,7 @@ if ( combat_readiness > 15 ) then {
 				reinforcements_sector_under_attack = _targetsector;
 				reinforcements_set = true;
 				[ "lib_reinforcements" , [ markertext  _targetsector ] ] remoteExec ["bis_fnc_shownotification", -2];
-				if ( (random combat_readiness) > (20 + (30 / GRLIB_csat_aggressivity) ) ) then {
+				if ( (random combat_readiness) > (20 + (30 / CONST_CSAT_AGGRESSIVITY) ) ) then {
 					[ _targetsector ] spawn send_paratroopers;
 				};
 				stats_reinforcements_called = stats_reinforcements_called + 1;

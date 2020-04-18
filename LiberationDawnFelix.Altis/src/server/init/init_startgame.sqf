@@ -6,7 +6,7 @@ private [ "_fobbox" ];
 
 if ( count FOB_ALL == 0 ) then {
 
-	if ( GRLIB_build_first_fob ) then {
+	if ( CONST_BUILD_FIRST_FOB ) then {
 		_potentialplaces = [];
 		{
 			_nextsector = _x;

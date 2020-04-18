@@ -4,23 +4,23 @@ _save_interval = 20;
 _weathers = [0.4];
 _randtime = 0;
 
-if ( GRLIB_weather_param == 2 ) then {
+if ( CONST_WEATHER == 2 ) then {
 	_weathers = [0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55];
 };
-if ( GRLIB_weather_param == 3 ) then {
+if ( CONST_WEATHER == 3 ) then {
 	_weathers = [0,0.01,0.02,0.03,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.4,0.45,0.5,0.55,0.6,0.7,0.8,0.9,1.0];
 };
 
 while { true } do {
 	if(time % 10 == 0) then { //time accelerate
-		if ( GRLIB_shorter_nights && ( daytime > 21 || daytime < 3 ) ) then {
-			_accelerated_time = GRLIB_time_factor * 3;
+		if ( CONST_SHORT_NIGHTS && ( daytime > 21 || daytime < 3 ) ) then {
+			_accelerated_time = CONST_TIME_FACTOR * 3;
 			if ( _accelerated_time > 100 ) then {
 				_accelerated_time = 100;
 			};
 			setTimeMultiplier _accelerated_time;
 		} else {
-			setTimeMultiplier GRLIB_time_factor;
+			setTimeMultiplier CONST_TIME_FACTOR;
 		};
 	};
 	if(time % 1800 == 0) then {  //weather selection
@@ -48,7 +48,7 @@ while { true } do {
 				stats_readiness_earned = stats_readiness_earned + 0.25;
 			};
 		};
-		if ( combat_readiness > 100.0 && GRLIB_difficulty_modifier < 2 ) then { combat_readiness = 100.0 };
+		if ( combat_readiness > 100.0 && CONST_DIFFICULTY_MODIFIER < 2 ) then { combat_readiness = 100.0 };
 
 		_randtime = floor(random 90);
 	};

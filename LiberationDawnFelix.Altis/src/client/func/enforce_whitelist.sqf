@@ -1,4 +1,4 @@
-if ( !GRLIB_use_whitelist ) exitWith {};
+if ( !CONST_WHITELIST ) exitWith {};
 
 private [ "_commanderobj", "_tagmatch", "_idmatch", "_namematch" ];
 

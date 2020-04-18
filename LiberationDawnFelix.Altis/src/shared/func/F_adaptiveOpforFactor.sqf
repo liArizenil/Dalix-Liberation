@@ -2,7 +2,7 @@ private [ "_bluforcount, _ratio" ];
 
 _ratio = 1.0;
 
-if ( GRLIB_adaptive_opfor ) then {
+if ( CONST_ADAPTIVE_OPFOR ) then {
 
 	_bluforcount = 0.2 * ( CONST_SIDE_BLUFOR countSide allUnits );
 	_bluforcount = _bluforcount + (count allPlayers);

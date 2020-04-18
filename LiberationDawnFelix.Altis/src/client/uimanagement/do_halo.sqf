@@ -9,8 +9,8 @@ if(isNil{ ((group player)getVariable['GroupType',nil])}) exitWith {
 	1 cutRsc ["dosetyourtag","PLAIN",0];
 };
 
-if ( GRLIB_halo_param > 1 && ( GRLIB_last_halo_jump + ( GRLIB_halo_param * 60 ) ) >= time ) exitWith {
-	hint format [ localize "STR_HALO_DENIED_COOLDOWN", ceil ( ( ( GRLIB_last_halo_jump + ( GRLIB_halo_param * 60 ) ) - time ) / 60 ) ];
+if ( CONST_HALO > 1 && ( GRLIB_last_halo_jump + ( CONST_HALO * 60 ) ) >= time ) exitWith {
+	hint format [ localize "STR_HALO_DENIED_COOLDOWN", ceil ( ( ( GRLIB_last_halo_jump + ( CONST_HALO * 60 ) ) - time ) / 60 ) ];
 };
 
 _dialog = createDialog "liberation_halo";

@@ -11,7 +11,7 @@ if ( _sector in SECTOR_MILITARY ) then {
 	_squad_type = blufor_squad_inf;
 };
 _grpunits = [];
-if ( GRLIB_blufor_defenders ) then {
+if ( CONST_BLUFOR_DEF ) then {
 	_grp = creategroup CONST_SIDE_BLUFOR;
 	{ _x createUnit [ markerpos _sector, _grp,'this addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]']; } foreach _squad_type;
 	_grpunits = units _grp;
@@ -32,7 +32,7 @@ sleep 20;
 
 _ownership = [ markerpos _sector ] call F_sectorOwnership;
 if ( _ownership == CONST_SIDE_BLUFOR ) exitWith {
-	if ( GRLIB_blufor_defenders ) then {
+	if ( CONST_BLUFOR_DEF ) then {
 		{
 			if ( alive _x ) then { deleteVehicle _x };
 		} foreach units _grp;
@@ -78,7 +78,7 @@ if ( endgame == 0 ) then {
 
 sleep 160;
 
-if ( GRLIB_blufor_defenders || _isplayer) then {
+if ( CONST_BLUFOR_DEF || _isplayer) then {
 	{
 		if ( alive _x ) then { deleteVehicle _x };
 	} foreach _grpunits;

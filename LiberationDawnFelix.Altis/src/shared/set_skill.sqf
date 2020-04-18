@@ -5,13 +5,13 @@ private _wounded = false;
 (group _unit) allowFleeing 0;
 if ( damage _unit > 0.25 ) then { _wounded = true; };
 
-private _skillmodifier = sqrt GRLIB_difficulty_modifier;
+private _skillmodifier = sqrt CONST_DIFFICULTY_MODIFIER;
 private _inVehicle = false;
 if ( vehicle _unit != _unit ) then {
 	_inVehicle = true;
 };
 
-if ( !(GRLIB_autodanger) && (_side == CONST_SIDE_BLUFOR)) then {
+if ( !(CONST_AUTODANGER) && (_side == CONST_SIDE_BLUFOR)) then {
 	_unit disableAI "AUTOCOMBAT";
 };
 

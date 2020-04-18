@@ -56,7 +56,7 @@ while { true } do {
 		};
 	};
 */
-	if ( (_fobdistance < _distredeploy || (player distance lhd) < 200) && alive player && vehicle player == player && GRLIB_halo_param > 0) then {
+	if ( (_fobdistance < _distredeploy || (player distance lhd) < 200) && alive player && vehicle player == player && CONST_HALO > 0) then {
 		if ( _idact_halo == -1 ) then {
 			_idact_halo = player addAction ["<t color='#80FF80'>" + localize "STR_HALO_ACTION" + "</t> <img size='2' image='res\ui_redeploy.paa'/>","scripts\client\spawn\do_halo.sqf","",-749,false,true,"","build_confirmed == 0"];
 		};
@@ -122,7 +122,7 @@ while { true } do {
 		};
 	};
 
-	if ( ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) && alive player && vehicle player == player && player_permissions_param ) then {
+	if ( ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) && alive player && vehicle player == player && CONST_PLAYER_PERMISSION ) then {
 		if ( _idact_commander == -1 ) then {
 			_idact_commander = player addAction ["<t color='#FF8000'>" + localize "STR_COMMANDER_ACTION" + "</t> <img size='2' image='\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa'/>","scripts\client\commander\open_permissions.sqf","",-995,false,true,"","build_confirmed == 0"];
 		};

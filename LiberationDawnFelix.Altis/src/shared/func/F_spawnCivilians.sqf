@@ -7,14 +7,14 @@ _createdcivs = [];
 _sectorpos = getMarkerPos _sector;
 
 _idx = 0;
-_nbcivs = round ((3 + (floor (random 7))) * GRLIB_civilian_activity * 0.5);
+_nbcivs = round ((3 + (floor (random 7))) * CONST_CIV * 0.5);
 _spread = 1;
 if ( _sector in SECTOR_BIGTOWN ) then {
 	_nbcivs = _nbcivs + 10;
 	_spread = 2.5;
 };
 
-_nbcivs = _nbcivs * ( sqrt ( GRLIB_unitcap ) );
+_nbcivs = _nbcivs * ( sqrt ( CONST_UNITCAP ) );
 
 while { _idx < _nbcivs } do {
 	_spawnpos = [(((_sectorpos select 0) + (75 * _spread)) - (random (150 * _spread))),(((_sectorpos select 1) + (75 * _spread)) - (random (150 * _spread))),0];

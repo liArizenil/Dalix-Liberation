@@ -8,7 +8,7 @@ waitUntil { !isNil "one_synchro_done" };
 waitUntil { !isNil "FOB_ALL" };
 waitUntil { one_synchro_done };
 
-GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer;
+GRLIB_deploy_timer = CONST_OPFOR_TIMER;
 
 [ missionNamespace, "arsenalOpened", {
     disableSerialization;
@@ -23,7 +23,7 @@ GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer;
     GRLIB_respawn_loadout = [ player, ["repetitive"] ] call F_getLoadout;
 }] call BIS_fnc_addScriptedEventHandler;
 
-player addEventHandler ["Killed",{ GRLIB_deploy_timer = GRLIB_Opfor_respawn_timer; }];
+player addEventHandler ["Killed",{ GRLIB_deploy_timer = CONST_OPFOR_TIMER; }];
 
 if ( count FOB_ALL < 1 ) then {
 	["Opforneedfob", false, false,false,false] call BIS_fnc_endMission;
@@ -60,7 +60,7 @@ while { true } do {
 			_idact_build = -1;
 		};
 	};
-	if ( (player distance (getMarkerpos "respawn_east")) < 50 && alive player && vehicle player == player && GRLIB_halo_param > 0) then {
+	if ( (player distance (getMarkerpos "respawn_east")) < 50 && alive player && vehicle player == player && CONST_HALO > 0) then {
 		if ( _idact_halo == -1 ) then {
 			_idact_halo = player addAction ["<t color='#80FF80'>" + localize "STR_HALO_ACTION" + "</t> <img size='2' image='res\ui_redeploy.paa'/>","scripts\client\spawn\do_halo_opfor.sqf","",-749,false,true,"","build_confirmed == 0"];
 		};

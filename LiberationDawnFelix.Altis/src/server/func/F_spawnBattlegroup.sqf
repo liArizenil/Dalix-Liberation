@@ -22,7 +22,7 @@ if ( _spawn_marker != "" ) then {
 	GRLIB_last_battlegroup_time = time;
 
 	_selected_opfor_battlegroup = [];
-	_target_size = GRLIB_battlegroup_size * ([] call F_adaptiveOpforFactor) * (sqrt GRLIB_csat_aggressivity);
+	_target_size = GRLIB_battlegroup_size * ([] call F_adaptiveOpforFactor) * (sqrt CONST_CSAT_AGGRESSIVITY);
 	if ( _target_size >= 16 ) then { _target_size = 16; };
 	if ( combat_readiness < 60 ) then { _target_size = round (_target_size * 0.65) };
 	while { count _selected_opfor_battlegroup < _target_size } do {
@@ -44,7 +44,7 @@ if ( _spawn_marker != "" ) then {
 		last_battlegroup_size = last_battlegroup_size + 1;
 	} foreach _selected_opfor_battlegroup;
 
-	if ( GRLIB_csat_aggressivity > 0.9 ) then {
+	if ( CONST_CSAT_AGGRESSIVITY > 0.9 ) then {
 		[([markerpos _spawn_marker] call F_getNearestBluforObjective) select 0] spawn spawn_air;
 	};
 

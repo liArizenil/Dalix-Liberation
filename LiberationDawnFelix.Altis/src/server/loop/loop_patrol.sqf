@@ -1,7 +1,7 @@
 private _grpList = [];
 private _combat_triggers = [20,40,50,65,80,95];
-if ( GRLIB_unitcap < 0.9 ) then { _combat_triggers = [20,45,90]; };
-if ( GRLIB_unitcap > 1.3 ) then { _combat_triggers = [10,15,20,25,35,40,55,65,70,75,80,85,90,95]; };
+if ( CONST_UNITCAP < 0.9 ) then { _combat_triggers = [20,45,90]; };
+if ( CONST_UNITCAP > 1.3 ) then { _combat_triggers = [10,15,20,25,35,40,55,65,70,75,80,85,90,95]; };
 
 while { !endgame } do {
 	if(count _grpList > {_x < combat_readiness} count _combat_triggers) then { //PATROL

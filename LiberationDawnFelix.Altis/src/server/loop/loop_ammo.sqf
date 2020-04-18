@@ -20,7 +20,7 @@ while { endgame == 0 } do {
 			};
 		} foreach SECTOR_BLUFOR;
 
-		_base_tick_period = _base_tick_period / GRLIB_resources_multiplier;
+		_base_tick_period = _base_tick_period / CONST_RSC_MULTIPLIER;
 
 		if ( _base_tick_period < 300 ) then { _base_tick_period = 300 };
 
@@ -28,7 +28,7 @@ while { endgame == 0 } do {
 
 		if ( count _blufor_mil_sectors > 0 ) then {
 
-			if ( GRLIB_passive_income ) then {
+			if ( CONST_PASSIVE_INCOME ) then {
 
 				_ammo_increase = round (50 + (random 25));
 				resources_ammo = resources_ammo + _ammo_increase;

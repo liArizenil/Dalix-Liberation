@@ -29,8 +29,8 @@ if ( !( _sector in GRLIB_military_sectors_already_activated )) then {
 
 	GRLIB_military_sectors_already_activated pushback _sector;
 
-	if ( !GRLIB_passive_income ) then {
-		_crates_amount = ceil (((0.5 * GRLIB_sector_military_value) + (random (0.5 * GRLIB_sector_military_value ))) * GRLIB_resources_multiplier);
+	if ( !CONST_PASSIVE_INCOME ) then {
+		_crates_amount = ceil (((0.5 * GRLIB_sector_military_value) + (random (0.5 * GRLIB_sector_military_value ))) * CONST_RSC_MULTIPLIER);
 		if ( _crates_amount > 6 ) then { _crates_amount = 6 };
 
 		for [ {_i=0}, {_i < (_crates_amount + 1) }, {_i=_i+1} ] do {

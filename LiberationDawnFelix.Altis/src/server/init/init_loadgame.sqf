@@ -1,5 +1,5 @@
-if ( !(isNil "GRLIB_param_wipe_savegame_1") && !(isNil "GRLIB_param_wipe_savegame_2") ) then {
-	if ( GRLIB_param_wipe_savegame_1 == 1 && GRLIB_param_wipe_savegame_2 == 1 ) then {
+if ( !(isNil "CONST_WIPE_SAVE1") && !(isNil "CONST_WIPE_SAVE2") ) then {
+	if ( CONST_WIPE_SAVE1 == 1 && CONST_WIPE_SAVE2 == 1 ) then {
 		profileNamespace setVariable [ CONST_SAVE_KEY,nil ];
 		saveProfileNamespace;
 	};

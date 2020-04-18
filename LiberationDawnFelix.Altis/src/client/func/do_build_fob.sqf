@@ -1,7 +1,7 @@
 private [ "_minfobdist", "_minsectordist", "_distfob", "_clearedtobuildfob", "_distsector", "_clearedtobuildsector", "_idx" ];
 
-if ( count FOB_ALL >= GRLIB_maximum_fobs ) exitWith {
-	hint format [ localize "STR_HINT_FOBS_EXCEEDED", GRLIB_maximum_fobs ];
+if ( count FOB_ALL >= CONST_MAX_FOBS ) exitWith {
+	hint format [ localize "STR_HINT_FOBS_EXCEEDED", CONST_MAX_FOBS ];
 };
 _minfobdist = 1000;
 _distfob = 1;

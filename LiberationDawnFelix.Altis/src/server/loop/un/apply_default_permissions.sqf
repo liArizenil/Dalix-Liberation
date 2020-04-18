@@ -1,4 +1,4 @@
-if ( !player_permissions_param ) exitWith {};
+if ( !CONST_PLAYER_PERMISSION ) exitWith {};
 
 private [ "_default_permissions", "_all_players_uids", "_old_count" ];
 

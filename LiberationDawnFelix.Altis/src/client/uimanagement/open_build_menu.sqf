@@ -114,11 +114,11 @@ while { dialog && alive player && (dobuild == 0 || buildtype == 1)} do {
 		lbSetCurSel [110, _initindex];
 		_initindex = -1;
 	};
-	GRLIB_max_squad_size = 100;
+	CONST_MAX_SQUAD_SIZE = 100;
 	_selected_item = lbCurSel 110;
 	_affordable = false;
 	_squad_full = false;
-	if ((buildtype == 1) && (count (units group player) >= GRLIB_max_squad_size)) then {
+	if ((buildtype == 1) && (count (units group player) >= CONST_MAX_SQUAD_SIZE)) then {
 		_squad_full = true;
 	};
 

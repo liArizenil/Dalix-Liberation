@@ -1,4 +1,4 @@
-if ( player_permissions_param ) then {
+if ( CONST_PLAYER_PERMISSION ) then {
 
 	waitUntil { !(isNil "player_permissions") };
 
