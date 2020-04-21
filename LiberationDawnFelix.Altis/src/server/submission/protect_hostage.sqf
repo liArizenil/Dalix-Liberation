@@ -20,7 +20,7 @@ _objective pushBack _helofire;
 _helofire setpos (getpos _helowreck);
 _helofire setpos (getpos _helowreck);
 
-private _pilotsGrp = createGroup GRLIB_side_enemy;
+private _pilotsGrp = createGroup CONST_SIDE_OPFOR;
 private _pilotsPos = (getpos _helowreck) getPos [ 25, random 360 ];
 pilot_classname createUnit [ _pilotsPos, _pilotsGrp,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"];
 sleep 0.2;
@@ -33,7 +33,7 @@ private _pilotUnits = units _pilotsGrp;
 	sleep 0.5
 } foreach (_pilotUnits);
 
-private _grppatrol = createGroup GRLIB_side_enemy;
+private _grppatrol = createGroup CONST_SIDE_OPFOR;
 private _patrolcorners = [
 	[ (getpos _helowreck select 0) - 40, (getpos _helowreck select 1) - 40, 0 ],
 	[ (getpos _helowreck select 0) + 40, (getpos _helowreck select 1) - 40, 0 ],
@@ -57,7 +57,7 @@ _waypoint = _grppatrol addWaypoint [(_patrolcorners select 0), 0];
 _waypoint setWaypointType "CYCLE";
 {_x doFollow (leader _grppatrol)} foreach units _grppatrol;
 
-private _grpsentry = createGroup GRLIB_side_enemy;
+private _grpsentry = createGroup CONST_SIDE_OPFOR;
 private _nbsentry = 2 + (floor (random 3));
 
 for [ {_idx=0},{_idx < _nbsentry},{_idx=_idx+1} ] do {

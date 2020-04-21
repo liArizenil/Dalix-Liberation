@@ -99,15 +99,15 @@ while { true } do {
 
 			_nearest_active_sector = [ GRLIB_sector_size ] call F_getNearestSector;
 			if ( _nearest_active_sector != "" ) then {
-				_zone_size = GRLIB_capture_size;
+				_zone_size = CONST_CAPTURE_SIZE;
 				if ( _nearest_active_sector in SECTOR_BIGTOWN ) then {
-					_zone_size = GRLIB_capture_size * 1.4;
+					_zone_size = CONST_CAPTURE_SIZE * 1.4;
 				};
 
 				"zone_capture" setmarkerposlocal (markerpos _nearest_active_sector);
 				_colorzone = "ColorGrey";
 				if ( [ markerpos _nearest_active_sector, _zone_size ] call F_sectorOwnership == CONST_SIDE_BLUFOR ) then { _colorzone = GRLIB_color_friendly };
-				if ( [ markerpos _nearest_active_sector, _zone_size ] call F_sectorOwnership == GRLIB_side_enemy ) then { _colorzone = GRLIB_color_enemy };
+				if ( [ markerpos _nearest_active_sector, _zone_size ] call F_sectorOwnership == CONST_SIDE_OPFOR ) then { _colorzone = GRLIB_color_enemy };
 				if ( [ markerpos _nearest_active_sector, _zone_size ] call F_sectorOwnership == GRLIB_side_resistance ) then { _colorzone = "ColorCivilian" };
 				"zone_capture" setmarkercolorlocal _colorzone;
 

@@ -31,7 +31,7 @@ if ( side player == CONST_SIDE_BLUFOR ) then {
 	};
 };
 
-if ( side player == GRLIB_side_enemy ) then {
+if ( side player == CONST_SIDE_OPFOR ) then {
 	["AmmoboxInit", [opforammobox]] spawn BIS_fnc_arsenal;
     [opforammobox, OPFOR_Weapons, false, true ] call BIS_fnc_addVirtualWeaponCargo;
 	[opforammobox, OPFOR_Mines, false, true ] call BIS_fnc_addVirtualMagazineCargo;

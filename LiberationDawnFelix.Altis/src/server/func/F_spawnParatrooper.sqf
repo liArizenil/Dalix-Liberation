@@ -8,7 +8,7 @@ createVehicleCrew _newvehicle;
 sleep 0.1;
 
 private _pilot_group = group ((crew _newvehicle) select 0);
-private _para_group = createGroup GRLIB_side_enemy;
+private _para_group = createGroup CONST_SIDE_OPFOR;
 
 _newvehicle addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}];
 { _x addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]; } foreach (crew _newvehicle);

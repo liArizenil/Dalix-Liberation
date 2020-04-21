@@ -8,7 +8,7 @@ if(isNil{ ((group player)getVariable['GroupType',nil])}) exitWith {
 	1 cutRsc ["dosetyourtag","PLAIN",0];
 };
 
-_dialog = createDialog "liberation_secondary";
+_dialog = createDialog "ui_secondary";
 dostartsecondary = 0;
 
 waitUntil { dialog };

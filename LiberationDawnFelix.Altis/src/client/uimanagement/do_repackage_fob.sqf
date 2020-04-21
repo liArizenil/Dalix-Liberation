@@ -2,7 +2,7 @@ private [ "_dialog", "_fob", "_fobbox" ];
 
 dorepackage = 0;
 
-_dialog = createDialog "liberation_repackage_fob";
+_dialog = createDialog "ui_repackage_fob";
 waitUntil { dialog };
 
 while { dialog && alive player && dorepackage == 0 } do {

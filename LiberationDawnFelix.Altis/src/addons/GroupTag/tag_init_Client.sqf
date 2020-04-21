@@ -17,7 +17,7 @@ addMissionEventHandler ["eachFrame" , {
 			_cntrlGroupEdit = _display displayCtrl 9777;
 
 			{_cntrlGroupEdit ctrlRemoveAllEventHandlers _x} forEach ["KeyDown" , "SetFocus" ,"KillFocus" ];
-			_cntrlGroupEdit ctrlSetEventHandler ["MouseButtonClick" ," (uiNamespace getVariable 'BIS_dynamicGroups_display') closeDisplay 2; createDialog 'liberation_GroupManager'; "];
+			_cntrlGroupEdit ctrlSetEventHandler ["MouseButtonClick" ," (uiNamespace getVariable 'BIS_dynamicGroups_display') closeDisplay 2; createDialog 'ui_GroupManager'; "];
 
 			waitUntil {uisleep (1/diag_fps); isnil {uiNamespace getVariable "BIS_dynamicGroups_display"}   };
 			GroupTagDialog = nil;

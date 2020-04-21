@@ -6,7 +6,7 @@ _page_delay = 5;
 
 [] spawn cinematic_camera;
 
-_dialog = createDialog "liberation_endscreen";
+_dialog = createDialog "ui_endscreen";
 
 waitUntil { dialog };
 

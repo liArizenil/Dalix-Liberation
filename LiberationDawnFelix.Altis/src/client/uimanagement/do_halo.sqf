@@ -13,7 +13,7 @@ if ( CONST_HALO > 1 && ( GRLIB_last_halo_jump + ( CONST_HALO * 60 ) ) >= time ) 
 	hint format [ localize "STR_HALO_DENIED_COOLDOWN", ceil ( ( ( GRLIB_last_halo_jump + ( CONST_HALO * 60 ) ) - time ) / 60 ) ];
 };
 
-_dialog = createDialog "liberation_halo";
+_dialog = createDialog "ui_halo";
 dojump = 0;
 halo_position = getpos player;
 

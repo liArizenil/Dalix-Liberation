@@ -1,4 +1,4 @@
-class liberation_squad {
+class ui_squad {
 	idd = 5155;
 	movingEnable = false;
 	controlsBackground[] = {};

@@ -1,4 +1,4 @@
-class liberation_build {
+class ui_build {
 	idd = 5501;
 	movingEnable = false;
 	controlsBackground[] = {};

@@ -38,7 +38,7 @@ if((!(_sector in SECTOR_BLUFOR)) &&  (([getmarkerpos _sector, [ _opforcount ] ca
 		if((random 100) > (66 / CONST_DIFFICULTY_MODIFIER)) then { _vehtospawn pushback (selectRandom militia_vehicles); };
 		if((random 100) > (50 / CONST_DIFFICULTY_MODIFIER)) then { _vehtospawn pushback (selectRandom militia_vehicles); };
 		if((random 100) > (33 / CONST_DIFFICULTY_MODIFIER)) then { _vehtospawn pushback (call F_getAdaptiveVehicle); };
-
+		
 		_building_ai_max = round (50 * _popfactor) ;
 		_building_range = 110;
 

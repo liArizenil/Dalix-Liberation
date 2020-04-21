@@ -60,7 +60,7 @@ if (alive _unit) then {
 		deleteVehicle _unit;
 	} else {
 
-		_grp = createGroup GRLIB_side_enemy;
+		_grp = createGroup CONST_SIDE_OPFOR;
 		[_unit] joinSilent _grp;
 		_unit setUnitPos "AUTO";
 		_unit setCaptive false;

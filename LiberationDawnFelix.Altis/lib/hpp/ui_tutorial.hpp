@@ -1,4 +1,4 @@
-class liberation_tutorial {
+class ui_tutorial {
 	idd = 5353;
 	movingEnable = false;
 	controlsBackground[] = {};

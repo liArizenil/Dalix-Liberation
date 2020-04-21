@@ -1,4 +1,4 @@
-class liberation_deploy {
+class ui_deploy {
 	idd = 5201;
 	movingEnable = false;
 	controlsBackground[] = {};

@@ -22,7 +22,7 @@ while { true } do {
 			if ( side _currentgroup == CONST_SIDE_BLUFOR ) then {
 				group_owners set [_idx_group_owner, [_group_owner select 0, _group_owner select 1,_group_owner select 2, (_group_owner select 3) + (count units _currentgroup), (_group_owner select 4), (_group_owner select 5)]];
 			};
-			if ( side _currentgroup == GRLIB_side_enemy ) then {
+			if ( side _currentgroup == CONST_SIDE_OPFOR ) then {
 				group_owners set [_idx_group_owner, [_group_owner select 0, _group_owner select 1,_group_owner select 2, (_group_owner select 3), (_group_owner select 4)  + (count units _currentgroup), (_group_owner select 5)]];
 			};
 			if ( side _currentgroup == GRLIB_side_civilian ) then {

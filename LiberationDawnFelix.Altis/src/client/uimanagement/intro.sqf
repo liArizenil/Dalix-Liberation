@@ -19,7 +19,7 @@ if ( CONST_INTRO ) then {
 showcaminfo = true;
 dostartgame = 0;
 howtoplay = 0;
-_dialog = createDialog "liberation_menu";
+_dialog = createDialog "ui_menu";
 waitUntil { dialog };
 waitUntil { dostartgame == 1 || howtoplay == 1 || !dialog };
 

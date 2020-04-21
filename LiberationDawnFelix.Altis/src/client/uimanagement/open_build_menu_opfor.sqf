@@ -9,7 +9,7 @@ _oldbuildtype = -1;
 _cfg = configFile >> "cfgVehicles";
 _initindex = buildindex;
 
-_dialog = createDialog "liberation_build";
+_dialog = createDialog "ui_build";
 
 waitUntil { dialog };
 

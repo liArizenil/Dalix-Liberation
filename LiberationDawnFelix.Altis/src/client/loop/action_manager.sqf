@@ -166,7 +166,7 @@ while { true } do {
 		};
 	};
 
-	if((_fobdistance < (_distfob + 25) || (player distance _whiskey) < 100) && alive player && vehicle player == player && ([getPos player , 1500 , GRLIB_side_enemy ] call F_getUnitsCount) < 1) then {
+	if((_fobdistance < (_distfob + 25) || (player distance _whiskey) < 100) && alive player && vehicle player == player && ([getPos player , 1500 , CONST_SIDE_OPFOR ] call F_getUnitsCount) < 1) then {
 		if (_ideh_shooting == -1) then{
 			_ideh_shooting = player addEventHandler ["Fired", { 
 				deleteVehicle (_this select 6);

@@ -1,6 +1,6 @@
 private [ "_oldbuildtype", "_cfg", "_initindex", "_dialog", "_iscommandant", "_squadname", "_buildpages", "_build_list", "_classnamevar", "_entrytext", "_icon", "_affordable", "_affordable_crew", "_selected_item", "_linked", "_linked_unlocked", "_base_link", "_link_color", "_link_str" ];
 
-if ( ( [ getpos player , 500 , GRLIB_side_enemy ] call F_getUnitsCount ) > 4 ) exitWith { hint localize "STR_BUILD_ENEMIES_NEARBY"; };
+if ( ( [ getpos player , 500 , CONST_SIDE_OPFOR ] call F_getUnitsCount ) > 4 ) exitWith { hint localize "STR_BUILD_ENEMIES_NEARBY"; };
 if (!(["IsGroupRegistered", [(group player)]] call BIS_fnc_dynamicGroups)) exitWith { 
 	1 cutRsc ["dojoingroup","PLAIN",0];
 };
@@ -14,7 +14,7 @@ _oldbuildtype = -1;
 _cfg = configFile >> "cfgVehicles";
 _initindex = buildindex;
 
-_dialog = createDialog "liberation_build";
+_dialog = createDialog "ui_build";
 waitUntil { dialog };
 
 _iscommandant = false;

@@ -1,4 +1,4 @@
-class liberation_halo {
+class ui_halo {
 	idd = 5203;
 	movingEnable = false;
 	controlsBackground[] = {};

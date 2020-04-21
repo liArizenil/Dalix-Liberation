@@ -8,7 +8,7 @@ if ( _status == 0 ) then {
 	[ "lib_sector_captured", [ markerText _sector ] ] call BIS_fnc_showNotification;
 };
 
-if ( _status == 1 && side player == GRLIB_side_enemy) then {
+if ( _status == 1 && side player == CONST_SIDE_OPFOR) then {
 	[ "lib_sector_attacked", [ markerText _sector ] ] call BIS_fnc_showNotification;
 	"opfor_capture_marker" setMarkerPosLocal ( markerpos _sector );
 	sector_timer = _attacktimer;

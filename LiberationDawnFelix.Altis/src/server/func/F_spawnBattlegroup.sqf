@@ -32,7 +32,7 @@ if ( _spawn_marker != "" ) then {
 	[ _spawn_marker ] remoteExec ["remote_call_battlegroup",-2];
 
 	{
-		_nextgrp = createGroup GRLIB_side_enemy;
+		_nextgrp = createGroup CONST_SIDE_OPFOR;
 		_vehicle = [markerpos _spawn_marker, _x] call F_libSpawnVehicle;
 		sleep 0.5;
 		(crew _vehicle) joinSilent _nextgrp;

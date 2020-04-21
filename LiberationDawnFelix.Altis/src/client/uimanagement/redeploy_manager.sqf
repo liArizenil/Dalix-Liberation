@@ -17,7 +17,7 @@ waitUntil { introDone };
 waitUntil { !isNil "cinematic_camera_stop" };
 waitUntil { cinematic_camera_stop };
 
-if(side player == GRLIB_side_enemy) then {
+if(side player == CONST_SIDE_OPFOR) then {
 	while { true } do {
 		if ( !CONST_FATIGUE ) then {
 			player enableStamina false;
@@ -51,7 +51,7 @@ if(side player == CONST_SIDE_BLUFOR) then {
 		player setCustomAimCoef 0.35;
 		player setUnitRecoilCoefficient 0.6;
 
-		_dialog = createDialog "liberation_deploy";
+		_dialog = createDialog "ui_deploy";
 		deploy = 0;
 		_oldsel = -999;
 

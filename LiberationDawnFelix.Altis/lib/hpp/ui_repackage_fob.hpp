@@ -1,4 +1,4 @@
-class liberation_repackage_fob {
+class ui_repackage_fob {
 	idd = 5755;
 	movingEnable = false;
 	controlsBackground[] = { "OuterBG", "RecycleBG", "OuterBG_F", "InnerBG", "InnerBG_F" };

@@ -1,1 +1,1 @@
-GRLIB_side_enemy countSide allUnits
+CONST_SIDE_OPFOR countSide allUnits

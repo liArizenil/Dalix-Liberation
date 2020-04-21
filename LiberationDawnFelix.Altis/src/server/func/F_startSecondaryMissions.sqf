@@ -1,15 +1,33 @@
-if ( !isServer ) exitWith {};
-if ( isNil "GRLIB_secondary_starting" ) then { GRLIB_secondary_starting = false; };
-if ( GRLIB_secondary_starting ) exitWith { diag_log "Multiple calls to start secondary mission : shouldn't be possible, isn't allowed"; };
-if ( isNil "used_positions" ) then { used_positions = []; };
+if(isNil "ARIZN_SIDE_PROGRESS") then {ARIZN_SIDE_PROGRESS = false;};
+if (ARIZN_SIDE_PROGRESS) exitWith {};
+private _starter = _this select 0;
 
-GRLIB_secondary_starting = true; publicVariable "GRLIB_secondary_starting";
-params [ "_mission_index" , "_starter"];
+//find good position
 
-resources_intel = resources_intel - ( GRLIB_secondary_missions_costs select _mission_index );
 
-if ( _mission_index == 0 ) then { format [ "%1님이 적 전진기지 급습 임무를 시작하였습니다.", name _starter ] remoteExec ["systemChat"]; [] call fob_hunting; };
-if ( _mission_index == 1 ) then { format [ "%1님이 보급차량 탈취 임무를 시작하였습니다.", name _starter ] remoteExec ["systemChat"]; [] call convoy_hijack; };
-if ( _mission_index == 2 ) then { format [ "%1님이 수색, 구출 임무를 시작하였습니다.", name _starter ] remoteExec ["systemChat"]; [] call search_and_rescue; };
+private _pos = POS_OPFOR select {!(_x in used_positions)}; 
 
-GRLIB_secondary_starting = false; publicVariable "GRLIB_secondary_starting";
+if(count _pos > 0) then {
+	ARIZN_SIDE_PROGRESS = true; publicVariable "ARIZN_SIDE_PROGRESS";
+	resources_intel = resources_intel - 20;
+
+	private _sidecount = selectRandom [1,2,3];
+	for "_i" from 1 to _sidecount do { 
+		_task = selectRandom Side_secondary;
+		[_pos] spawn _task;
+	};
+
+	waitUntil{sleep 5; count ARIZN_SIDE_TASKS == _sidecount};
+	waitUntil { sleep 20;
+		({!([_x] call BIS_fnc_taskCompleted)} findIf ARIZN_SIDE_TASKS == -1) || !ARIZN_SIDE_PROGRESS || (CONST_SIDE_BLUFOR countSide allPlayers) < 2
+	};
+
+	{_x call BIS_fnc_deleteTask;} forEach ARIZN_SIDE_TASKS;
+	{deleteVehicle _x;} forEach ARIZN_SIDE_OBJS;
+
+	ARIZN_SIDE_PROGRESS = false; publicVariable "ARIZN_SIDE_PROGRESS";
+}else{
+	
+};
+
+terminate _thisScript;

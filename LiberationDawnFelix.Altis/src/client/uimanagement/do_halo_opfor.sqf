@@ -1,6 +1,6 @@
 private [ "_dialog", "_backpack", "_backpackcontents" ];
 
-_dialog = createDialog "liberation_halo";
+_dialog = createDialog "ui_halo";
 dojump = 0;
 halo_position = getpos player;
 

@@ -1,4 +1,4 @@
-class liberation_recycle {
+class ui_recycle {
 	idd = 5751;
 	movingEnable = false;
 	controlsBackground[] = { "OuterBG", "RecycleBG", "OuterBG_F", "InnerBG", "InnerBG_F" };

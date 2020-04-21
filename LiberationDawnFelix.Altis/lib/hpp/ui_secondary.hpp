@@ -1,4 +1,4 @@
-class liberation_secondary {
+class ui_secondary {
 	idd = 6842;
 	movingEnable = false;
 	controlsBackground[] = {

@@ -31,7 +31,7 @@ while { count _position_indexes < count _squadtospawnnn } do {
 
 diag_log format [ "Spawning building squad Checkpoint C at %1", time ];
 
-_grp = createGroup GRLIB_side_enemy;
+_grp = createGroup CONST_SIDE_OPFOR;
 _idxposit = 0;
 {
 	_x createUnit [ _sectorpos, _grp ];
@@ -53,7 +53,7 @@ _idxposit = 0;
 
 	if ( count units _grp > 10 ) then {
 		_everythingspawned = _everythingspawned + (units _grp);
-		_grp = createGroup GRLIB_side_enemy;
+		_grp = createGroup CONST_SIDE_OPFOR;
 	};
 } foreach _squadtospawnnn;
 

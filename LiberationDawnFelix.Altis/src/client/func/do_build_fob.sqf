@@ -22,10 +22,10 @@ _idx = 0;
 if(_clearedtobuildfob) then {
 	 {
 		if(_x in SECTOR_BLUFOR) then {
-			_minsectordist = GRLIB_capture_size + GRLIB_fob_range + 100;
+			_minsectordist = CONST_CAPTURE_SIZE + GRLIB_fob_range + 100;
 		}
 		else{
-			_minsectordist = GRLIB_capture_size + GRLIB_fob_range + 700;
+			_minsectordist = CONST_CAPTURE_SIZE + GRLIB_fob_range + 700;
 		};
 		if ( player distance (getmarkerpos _x) < _minsectordist ) exitWith {
 			_clearedtobuildsector = false;

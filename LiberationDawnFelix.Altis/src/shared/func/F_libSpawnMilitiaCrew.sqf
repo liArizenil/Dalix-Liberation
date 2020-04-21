@@ -3,7 +3,7 @@ private [ "_grp", "_vehcrew" ];
 
 diag_log format [ "Spawning militia crew at %1", time ];
 
-_grp = createGroup GRLIB_side_enemy;
+_grp = createGroup CONST_SIDE_OPFOR;
 _vehcrew = [];
 while { count units _grp < 3 } do {
 	( selectRandom militia_squad ) createUnit [ getpos _vehicle, _grp,'this addMPEventHandler [''MPKilled'', {_this spawn F_unitKilled}]', 0.5, 'private'];

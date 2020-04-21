@@ -1,4 +1,4 @@
-class liberation_GroupManager
+class ui_GroupManager
 {
 	idd = 5212;
 	movingEnable = false;

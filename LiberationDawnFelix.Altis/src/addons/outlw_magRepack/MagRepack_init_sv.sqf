@@ -56,7 +56,7 @@ outlw_MR_listIDCs = [(missionConfigFile >> "MR_Dialog" >> "Controls")] call outl
 waitUntil {!(isNull (findDisplay 46))};
 
 systemChat localize "STR_MAGREPACK_STARTED";
-if(side player == GRLIB_side_enemy) then {
+if(side player == CONST_SIDE_OPFOR) then {
 	(findDisplay 46) displayAddEventHandler ["KeyDown", "_this call outlw_MR_keyDown;"];
 	systemChat (localize "STR_MAGREPACK_KEY" + (call outlw_MR_keyListToString));
 }

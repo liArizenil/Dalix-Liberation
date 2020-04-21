@@ -1,4 +1,4 @@
-class liberation_arsenal {
+class ui_arsenal {
 	idd = 5251;
 	movingEnable = false;
 	controlsBackground[] = {};

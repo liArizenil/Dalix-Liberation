@@ -12,7 +12,7 @@ while { _spawnpos distance zeropos < 1000 } do {
 };
 
 _corrected_amount = round ( (count _squadies_to_spawn) * ([] call F_adaptiveOpforFactor) );
-_grp = createGroup GRLIB_side_enemy;
+_grp = createGroup CONST_SIDE_OPFOR;
 {
 	if ( ( count units _grp ) < _corrected_amount) then {
 		_x createUnit [_spawnpos, _grp,'this addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]'];

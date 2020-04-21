@@ -5,7 +5,7 @@ edit_loadout = 0;
 respawn_loadout = 0;
 load_from_player = -1;
 exit_on_load = 0;
-createDialog "liberation_arsenal";
+createDialog "ui_arsenal";
 
 _saved_loadouts = profileNamespace getVariable "bis_fnc_saveInventory_data";
 _loadouts_data = [];

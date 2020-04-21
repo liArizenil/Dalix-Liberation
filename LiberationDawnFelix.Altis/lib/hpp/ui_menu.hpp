@@ -1,4 +1,4 @@
-class liberation_menu {
+class ui_menu {
 	idd = 5651;
 	movingEnable = false;
 	controls[] = { "Splash", "Start" };

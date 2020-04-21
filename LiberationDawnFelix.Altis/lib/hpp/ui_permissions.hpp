@@ -1,4 +1,4 @@
-class liberation_permissions {
+class ui_permissions {
 	idd = 5118;
 	movingEnable = false;
 	controlsBackground[] = {};

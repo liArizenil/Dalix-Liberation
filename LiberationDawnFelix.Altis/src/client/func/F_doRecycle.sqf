@@ -5,7 +5,7 @@ _objectinfo = ((light_vehicles + heavy_vehicles + air_vehicles + static_vehicles
 dorecycle = 0;
 
 _cfg = configFile >> "cfgVehicles";
-_dialog = createDialog "liberation_recycle";
+_dialog = createDialog "ui_recycle";
 waitUntil { dialog };
 
 ctrlSetText [ 134, format [ localize "STR_RECYCLING_YIELD", getText (_cfg >> (_objectinfo select 0) >> "displayName" ) ] ];
