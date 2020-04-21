@@ -6,7 +6,7 @@ enableDebugConsole = 1;
 allowFunctionsLog = 0;
 
 onLoadMission = $STR_MISSION_TITLE;
-author = "[RENEW] Arizen [DEDICATE] Dawn, Felix, [번역지원] MD. Faker, [ORIGINAL] Zbug, McKeewa";
+author = "[RENEW] Arizen [DEDICATE] Dawn, Felix [번역지원] MD. Faker [ORIGINAL] Zbug, McKeewa";
 onLoadName = $STR_MISSION_TITLE;
 
 disableChannels[] = {

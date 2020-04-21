@@ -1,5 +1,5 @@
-call compileFinal preprocessFileLineNumbers "src\shared\init\init_shared.sqf";
 call compileFinal preprocessFileLineNumbers "src\server\init\init_func.sqf";
+call compileFinal preprocessFileLineNumbers "src\server\init\init_sidemissions.sqf";
 call compileFinal preprocessFileLineNumbers "src\server\init\init_radioTowers.sqf";
 call compileFinal preprocessFileLineNumbers "src\server\init\init_loadgame.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "src\server\init\init_startgame.sqf";

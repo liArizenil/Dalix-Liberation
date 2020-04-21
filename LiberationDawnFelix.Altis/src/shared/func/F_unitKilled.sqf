@@ -85,9 +85,15 @@ if(!isPlayer _unit) exitWith {
 		( "R_80mm_HE" createVehicle (getPosATL _unit) ) setVelocity [0, 0, -200];
 		deleteVehicle _unit;
 	} else {
-		sleep GRLIB_cleanup_delay;
+		sleep 20;
 		hidebody _unit;
 		sleep 10;
-		deleteVehicle _unit;
+		if(isNull (objectParent _unit)) then {
+			deleteVehicle _unit;
+		}
+		else{
+			(objectParent _unit) deleteVehicleCrew _unit;
+		};
+		
 	};
 };

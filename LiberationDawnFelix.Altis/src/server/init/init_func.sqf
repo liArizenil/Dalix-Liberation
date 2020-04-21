@@ -35,6 +35,6 @@ F_sectorLiberated = compileFinal preprocessFileLineNumbers format[_dir,"sectorLi
 F_spawnAir = compileFinal preprocessFileLineNumbers format[_dir,"spawnAir"];
 F_spawnBattlegroup = compileFinal preprocessFileLineNumbers format[_dir,"spawnBattlegroup"];
 F_spawnParatrooper = compileFinal preprocessFileLineNumbers format[_dir,"spawnParatrooper"];
-F_startSecondaryMissions = compileFinal preprocessFileLineNumbers format[_dir,"startSecondaryMissions"];
+F_startSideMission = compileFinal preprocessFileLineNumbers format[_dir,"startSideMission"];
 F_troupTransport = compileFinal preprocessFileLineNumbers format[_dir,"troupTransport"];
 F_waitActiveSector = compileFinal preprocessFileLineNumbers format[_dir,"waitActiveSector"];
