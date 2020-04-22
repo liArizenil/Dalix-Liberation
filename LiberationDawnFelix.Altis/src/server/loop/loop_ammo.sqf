@@ -6,7 +6,7 @@ waitUntil { !isNil "saved_intel_res" };
 resources_ammo = saved_ammo_res;
 resources_intel = saved_intel_res;
 
-while { endgame == 0 } do {
+while { !endgame } do {
 
 	_base_tick_period = 4800;
 
@@ -51,7 +51,7 @@ while { endgame == 0 } do {
 					clearMagazineCargoGlobal _newbox;
 					clearItemCargoGlobal _newbox;
 					clearBackpackCargoGlobal _newbox;
-					_newbox addMPEventHandler ['MPKilled', {_this spawn F_unitKilled}];
+					_newbox addMPEventHandler ['MPKilled', {call F_unitKilled}];
 
 					[_newbox, 500 ] remoteExec ["F_setMass"];
 				};

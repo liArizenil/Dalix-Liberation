@@ -1,6 +1,6 @@
 private [ "_blufor_ai_groups", "_localgroup", "_is_ai_only", "_commander" ];
 
-while { endgame == 0 } do {
+while { !endgame } do {
 
 	_commander = [] call F_getCommander;
 

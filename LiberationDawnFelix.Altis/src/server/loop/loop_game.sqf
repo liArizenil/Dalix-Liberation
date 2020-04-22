@@ -31,10 +31,10 @@ while { true } do {
 		if ( _chosen_weather >= 0.95 ) then { 2 setRain 0.15 };
 	};
 	if(time % 20 == 0) then { //save
-		trigger_server_save = true;
+		[] spawn F_saveGames;
 	};
 	if(time % 3 == 0) then {
-		please_recalculate = true;
+		[] spawn F_recalcRsc;
 	};
 	if(time % (45 + _randtime) == 0 ) then {
 		if ( (count SECTOR_BLUFOR) >= ((count SECTOR_BLUFOR) * 0.9)) then {

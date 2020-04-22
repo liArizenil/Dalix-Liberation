@@ -12,7 +12,6 @@ if ( CONST_ADAPTIVE_OPFOR ) then {
 	if ( _ratio > 1.0 ) then {
 		_ratio = 1.0;
 	};
-
 };
 
 _ratio

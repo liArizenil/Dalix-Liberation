@@ -4,7 +4,7 @@ _blufor_bigtowns = SECTOR_BIGTOWN select { _x in SECTOR_BLUFOR };
 
 
 if ( count _blufor_bigtowns == count SECTOR_BIGTOWN ) then {
-	endgame = 1;
+	endgame = true;
 	publicVariable "endgame";
 	{ _x allowDamage false; (vehicle _x) allowDamage false; } foreach allPlayers;
 

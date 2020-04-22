@@ -9,7 +9,7 @@ if ( count crew _veh > 0 ) then {
 
 		_grp = createGroup CONST_SIDE_BLUFOR;
 		while { count units _grp < 3 } do {
-			crewman_classname createUnit [ getPos _veh, _grp, 'this addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}] '];
+			crewman_classname createUnit [ getPos _veh, _grp, 'this addMPEventHandler ["MPKilled", {call F_unitKilled}] '];
 		};
 		((units _grp) select 0) moveInDriver _veh;
 		((units _grp) select 1) moveInGunner _veh;

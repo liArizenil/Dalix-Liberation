@@ -11,7 +11,7 @@ while { !endgame } do {
 			if(random 1 >= 0.5) then {
 				_grp = createGroup [CONST_SIDE_OPFOR, true];
 				{
-					_x createUnit [_sector_spawn_pos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"];
+					_x createUnit [_sector_spawn_pos, _grp,"this addMPEventHandler [""MPKilled"", {call F_unitKilled}]", 0.5, "private"];
 				} forEach ([] call F_getAdaptiveSquadComp);
 			}
 			else{

@@ -31,3 +31,5 @@ call F_recalcCaps;
 
 resources_infantry = _newManpower;
 resources_fuel = _newFuel;
+
+terminate _thisScript;

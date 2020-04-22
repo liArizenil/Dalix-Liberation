@@ -40,7 +40,7 @@ while { true } do {
 		if ( manned ) then {
 			_grp = createGroup CONST_SIDE_BLUFOR;
 		};
-		_classname createUnit [_pos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"];
+		_classname createUnit [_pos, _grp,"this addMPEventHandler [""MPKilled"", {call F_unitKilled}]", 0.5, "private"];
 		[gamelogic, format["%1님이 FOB %2 에서 AI를 소환했습니다", name player, [[] call F_getNearestFob] call F_getFobName]] remoteExec ["globalChat",[WEST,civilian]];
 		
 		build_confirmed = 0;
@@ -54,7 +54,7 @@ while { true } do {
 				_unitrank = "private";
 				if(_idx == 0) then { _unitrank = "sergeant"; };
 				if(_idx == 1) then { _unitrank = "corporal"; };
-				_x createUnit [_pos, _grp,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, _unitrank];
+				_x createUnit [_pos, _grp,"this addMPEventHandler [""MPKilled"", {call F_unitKilled}]", 0.5, _unitrank];
 				_idx = _idx + 1;
 
 			} foreach _classname;
@@ -317,8 +317,8 @@ while { true } do {
 				};
 
 				if(buildtype != 6) then {
-					_vehicle addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}];
-					{ _x addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]; } foreach (crew _vehicle);
+					_vehicle addMPEventHandler ["MPKilled", {call F_unitKilled}];
+					{ _x addMPEventHandler ["MPKilled", {call F_unitKilled}]; } foreach (crew _vehicle);
 
 				};
 			};

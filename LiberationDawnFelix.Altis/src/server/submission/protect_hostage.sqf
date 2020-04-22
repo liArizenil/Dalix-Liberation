@@ -22,9 +22,9 @@ _helofire setpos (getpos _helowreck);
 
 private _pilotsGrp = createGroup CONST_SIDE_OPFOR;
 private _pilotsPos = (getpos _helowreck) getPos [ 25, random 360 ];
-pilot_classname createUnit [ _pilotsPos, _pilotsGrp,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"];
+pilot_classname createUnit [ _pilotsPos, _pilotsGrp,"this addMPEventHandler [""MPKilled"", {call F_unitKilled}]", 0.5, "private"];
 sleep 0.2;
-pilot_classname createUnit [ _pilotsPos getPos [ 1, random 360 ], _pilotsGrp,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"];
+pilot_classname createUnit [ _pilotsPos getPos [ 1, random 360 ], _pilotsGrp,"this addMPEventHandler [""MPKilled"", {call F_unitKilled}]", 0.5, "private"];
 sleep 2;
 private _pilotUnits = units _pilotsGrp;
 {
@@ -41,7 +41,7 @@ private _patrolcorners = [
 	[ (getpos _helowreck select 0) - 40, (getpos _helowreck select 1) + 40, 0 ]
 ];
 
-{ _x createUnit [ _patrolcorners select 0, _grppatrol,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"]; } foreach ([] call F_getAdaptiveSquadComp);
+{ _x createUnit [ _patrolcorners select 0, _grppatrol,"this addMPEventHandler [""MPKilled"", {call F_unitKilled}]", 0.5, "private"]; } foreach ([] call F_getAdaptiveSquadComp);
 
 while {(count (waypoints _grppatrol)) != 0} do {deleteWaypoint ((waypoints _grppatrol) select 0);};
 {
@@ -61,7 +61,7 @@ private _grpsentry = createGroup CONST_SIDE_OPFOR;
 private _nbsentry = 2 + (floor (random 3));
 
 for [ {_idx=0},{_idx < _nbsentry},{_idx=_idx+1} ] do {
-	opfor_sentry createUnit [ _pilotsPos getPos [ 1, random 360 ], _grpsentry,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"];
+	opfor_sentry createUnit [ _pilotsPos getPos [ 1, random 360 ], _grpsentry,"this addMPEventHandler [""MPKilled"", {call F_unitKilled}]", 0.5, "private"];
 };
 
 (leader _grpsentry) setDir (random 360);
@@ -76,7 +76,7 @@ if ( combat_readiness < 50 ) then {
 private _vehtospawn = [];
 private _spawnchances = [75,50,15];
 { if (random 100 < _x ) then { _vehtospawn pushBack (selectRandom _vehicle_pool); }; } foreach _spawnchances;
-{ ( [ (getpos _helowreck) getPos [ 30 + (random 30), random 360 ] , _x, true ] call F_libSpawnVehicle ) addMPEventHandler ['MPKilled', {_this spawn F_unitKilled}]; } foreach _vehtospawn;
+{ ( [ (getpos _helowreck) getPos [ 30 + (random 30), random 360 ] , _x, true ] call F_libSpawnVehicle ) addMPEventHandler ['MPKilled', {call F_unitKilled}]; } foreach _vehtospawn;
 
 secondary_objective_position = getpos _helowreck;
 secondary_objective_position_marker = secondary_objective_position getPos [ 800, random 360 ];
@@ -110,4 +110,4 @@ stats_secondary_objectives = stats_secondary_objectives + 1;
 
 GRLIB_secondary_in_progress = -1; publicVariable "GRLIB_secondary_in_progress";
 sleep 1;
-trigger_server_save = true;
+[] spawn F_saveGames;

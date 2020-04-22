@@ -16,7 +16,7 @@ if ( count _allposts > 0 ) then {
 		if ( random 100 > 60 ) then {
 			_unitclasspost = opfor_machinegunner;
 		};
-		_unitclasspost createUnit [ _squadpos, _grp2, 'nextunit_post = this; this addMPEventHandler [''MPKilled'', {_this spawn F_unitKilled}]', 0.5, 'private'];
+		_unitclasspost createUnit [ _squadpos, _grp2, 'nextunit_post = this; this addMPEventHandler [''MPKilled'', {call F_unitKilled}]', 0.5, 'private'];
 		nextunit_post setpos (_building_positions select 1);
 		nextunit_post setdir (180 + (getdir _x ));
 

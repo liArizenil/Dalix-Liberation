@@ -119,7 +119,7 @@ if((!(_sector in SECTOR_BLUFOR)) &&  (([getmarkerpos _sector, [ _opforcount ] ca
 
 	{
 		_vehicle = [_sectorpos, _x] call F_libSpawnVehicle;
-		[group ((crew _vehicle) select 0 ),_sectorpos] spawn add_defense_waypoints;
+		[group ((crew _vehicle) select 0 ),_sectorpos] spawn F_addDefWaypoints;
 		_managed_units pushback _vehicle;
 		{ _managed_units pushback _x; } foreach (crew _vehicle);
 		sleep 0.25;
@@ -157,7 +157,7 @@ if((!(_sector in SECTOR_BLUFOR)) &&  (([getmarkerpos _sector, [ _opforcount ] ca
 	if(_secondary_amount > 0) then {
 		_do_secondary = true;
 		for "_i" from 1 to _secondary_amount do { 
-			_task = selectRandom Sector_secondarys;
+			_task = selectRandom Sector_sides;
 			[_sector ] spawn _task;
 		};
 	}
@@ -167,7 +167,7 @@ if((!(_sector in SECTOR_BLUFOR)) &&  (([getmarkerpos _sector, [ _opforcount ] ca
 
 
 	while { true } do {
-		if ( ([_sectorpos, _local_capture_size] call F_sectorOwnership == CONST_SIDE_BLUFOR) && ( endgame == 0 ) && {( !_do_secondary  || {(({[_x] call BIS_fnc_taskCompleted} count (_sector getVariable ["TASKS",1]))/(_sector getVariable ["TASKS",1]) > 0.3)})} ) exitWith {
+		if ( ([_sectorpos, _local_capture_size] call F_sectorOwnership == CONST_SIDE_BLUFOR) && ( !endgame ) && {( !_do_secondary  || {(({[_x] call BIS_fnc_taskCompleted} count (_sector getVariable ["TASKS",1]))/(_sector getVariable ["TASKS",1]) > 0.3)})} ) exitWith {
 			_sector remoteExec ["sector_liberated_remote_call",2];
 
 			{ [_x] spawn F_AI_prisonner; } foreach ( (getmarkerpos _sector) nearEntities [ [ "Man" ], _local_capture_size * 1.2 ] );

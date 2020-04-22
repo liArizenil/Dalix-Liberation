@@ -34,7 +34,7 @@ while { _boxes_loaded < _boxes_amount } do {
 	private _next_box = ammobox_o_typename createVehicle (_spawnpos getPos [ 15, 135 ]);
 	sleep 0.5;
 	[ _next_box, 50 ] call _load_box_fnc;
-	_next_box addMPEventHandler ['MPKilled', {_this spawn F_unitKilled}];
+	_next_box addMPEventHandler ['MPKilled', {call F_unitKilled}];
 };
 
 sleep 0.5;
@@ -77,7 +77,7 @@ _waypoint setWaypointType "CYCLE";
 _waypoint setWaypointCompletionRadius 50;
 
 private _troops_group = createGroup CONST_SIDE_OPFOR;
-{ _x createUnit [_spawnpos, _troops_group,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"]; } foreach ([] call F_getAdaptiveSquadComp);
+{ _x createUnit [_spawnpos, _troops_group,"this addMPEventHandler [""MPKilled"", {call F_unitKilled}]", 0.5, "private"]; } foreach ([] call F_getAdaptiveSquadComp);
 { _x moveInCargo _troop_vehicle } foreach (units _troops_group);
 
 private _convoy_marker = createMarkerLocal [ format [ "convoymarker%1", round time], getpos _transport_vehicle ];
@@ -160,4 +160,4 @@ stats_secondary_objectives = stats_secondary_objectives + 1;
 [ 5 ] remoteExec ["remote_call_intel" , -2];
 GRLIB_secondary_in_progress = -1; publicVariable "GRLIB_secondary_in_progress";
 sleep 1;
-trigger_server_save = true;
+[] spawn F_saveGames;

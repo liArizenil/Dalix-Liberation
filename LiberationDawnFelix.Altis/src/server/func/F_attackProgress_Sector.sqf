@@ -58,13 +58,13 @@ waitUntil {
 	[markerpos _sector] call F_sectorOwnership != GRLIB_side_resistance;
 };
 
-if ( endgame == 0 ) then {
+if ( !endgame ) then {
 	if ( _attacktime <= 1 && ( [markerpos _sector] call F_sectorOwnership == CONST_SIDE_OPFOR ) ) then {
 		SECTOR_BLUFOR = SECTOR_BLUFOR - [ _sector ];
 		publicVariable "SECTOR_BLUFOR";
 		[ _sector, 2 , 0 ] remoteExec ["remote_call_sector",-2];
 		reset_battlegroups_ai = true;
-		trigger_server_save = true;
+		[] spawn F_saveGames;
 		[] call F_recalcCaps;
 		stats_sectors_lost = stats_sectors_lost + 1;
 		if(_isplayer) then {

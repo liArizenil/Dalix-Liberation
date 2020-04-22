@@ -3,7 +3,7 @@ private [ "_increment", "_opfor_spawn_point", "_all_possible_sectors", "_filtere
 
 _increment = 500;
 _opfor_spawn_point = '';
-_all_possible_sectors = sectors_opfor;
+_all_possible_sectors = POS_OPFOR;
 _filtered_possible_sectors = [];
 
 {

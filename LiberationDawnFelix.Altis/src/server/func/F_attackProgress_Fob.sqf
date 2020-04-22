@@ -6,7 +6,7 @@ if ( _ownership != CONST_SIDE_OPFOR ) exitWith {};
 
 if ( CONST_BLUFOR_DEFEND ) then {
 	_grp = creategroup CONST_SIDE_BLUFOR;
-	{ _x createUnit [ _thispos, _grp,'this addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]']; } foreach BLUFOR_SQUAD_INF;
+	{ _x createUnit [ _thispos, _grp,'this addMPEventHandler ["MPKilled", {call F_unitKilled}]']; } foreach BLUFOR_SQUAD_INF;
 
 	_grp setCombatMode "GREEN";
 	_grp setBehaviour "COMBAT";
@@ -58,7 +58,7 @@ if ( !endgame ) then {
 
 		reset_battlegroups_ai = true;
 		[_thispos] call F_destroyfob;
-		trigger_server_save = true;
+		[] spawn F_saveGames;
 		[] call F_recalculatecaps;
 		stats_fobs_lost = stats_fobs_lost + 1;
 	} else {

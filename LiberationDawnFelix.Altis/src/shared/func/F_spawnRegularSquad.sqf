@@ -15,7 +15,7 @@ _corrected_amount = round ( (count _squadies_to_spawn) * ([] call F_adaptiveOpfo
 _grp = createGroup CONST_SIDE_OPFOR;
 {
 	if ( ( count units _grp ) < _corrected_amount) then {
-		_x createUnit [_spawnpos, _grp,'this addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]'];
+		_x createUnit [_spawnpos, _grp,'this addMPEventHandler ["MPKilled", {call F_unitKilled}]'];
 	};
 	sleep 0.1;
 } foreach _squadies_to_spawn;

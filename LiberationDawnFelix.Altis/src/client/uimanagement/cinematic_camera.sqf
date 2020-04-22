@@ -42,7 +42,7 @@ while { cinematic_camera_started } do {
 				};
 			};
 
-			if ( endgame == 0 ) then {
+			if ( !endgame ) then {
 				 _activeplayers = ( allPlayers select { alive _x && ( _x distance ( getmarkerpos GRLIB_respawn_marker ) ) > 100 } );
 				 if ( count _activeplayers > 0 ) then {
 				 	for [ {_idx=0},{_idx < 3},{_idx=_idx+1} ] do {

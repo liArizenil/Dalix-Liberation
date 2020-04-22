@@ -17,5 +17,5 @@ if ( _price_a > 0 ) then {
 
 	stats_ammo_spent = stats_ammo_spent + _price_a;
 
-	please_recalculate = true;
+	[] spawn F_recalcRsc;
 };

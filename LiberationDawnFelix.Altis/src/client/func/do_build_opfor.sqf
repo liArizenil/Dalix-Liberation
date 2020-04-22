@@ -30,7 +30,7 @@ while { true } do {
 		_spawn_point = [(((_spawn_point select 0) + 500) - random 1000),(((_spawn_point select 1) + 500) - random 1000),0];
 		_aircraft = createVehicle [_classname, _spawn_point, [], 0, "FLY"];
 
-		_aircraft addMPEventHandler ['MPKilled', {_this spawn F_unitKilled}];
+		_aircraft addMPEventHandler ['MPKilled', {call F_unitKilled}];
 		player moveindriver _aircraft;
 
 		_aircraft flyInHeight (120 + (random 180));
@@ -224,7 +224,7 @@ while { true } do {
 				sleep 0.2;
 				sleep 0.2;
 
-				_vehicle addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}];
+				_vehicle addMPEventHandler ["MPKilled", {call F_unitKilled}];
 			};
 
 			player removeAction _idactcancel;

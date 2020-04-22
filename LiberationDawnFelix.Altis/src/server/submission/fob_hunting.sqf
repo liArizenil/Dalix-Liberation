@@ -80,7 +80,7 @@ while { count _idxselected < _defenders_amount } do {
 	_nextpos = _nextentry select 1;
 	_nextpos = [((_base_position select 0) + (_nextpos select 0)),((_base_position select 1) + (_nextpos select 1)),(_nextpos select 2)];
 	_nextdir = _nextentry select 2;
-	_nextclass createUnit [_nextpos, _grpdefenders,"nextdefender = this; this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"];
+	_nextclass createUnit [_nextpos, _grpdefenders,"nextdefender = this; this addMPEventHandler [""MPKilled"", {call F_unitKilled}]", 0.5, "private"];
 	nextdefender setpos _nextpos;
 	nextdefender setdir _nextdir;
 	[nextdefender] spawn building_defence_ai;
@@ -91,7 +91,7 @@ _sentry = ceil ((3 + (floor (random 4))) * ( sqrt ( CONST_UNITCAP ) ) );
 _grpsentry = createGroup CONST_SIDE_OPFOR;
 _base_sentry_pos = [(_base_position select 0) + ((_base_corners select 0) select 0), (_base_position select 1) + ((_base_corners select 0) select 1),0];
 for [ {_idx=0},{_idx < _sentry},{_idx=_idx+1} ] do {
-	opfor_sentry createUnit [_base_sentry_pos, _grpsentry,"this addMPEventHandler [""MPKilled"", {_this spawn F_unitKilled}]", 0.5, "private"];
+	opfor_sentry createUnit [_base_sentry_pos, _grpsentry,"this addMPEventHandler [""MPKilled"", {call F_unitKilled}]", 0.5, "private"];
 };
 
 while {(count (waypoints _grpsentry)) != 0} do {deleteWaypoint ((waypoints _grpsentry) select 0);};
@@ -123,7 +123,7 @@ waitUntil {
 combat_readiness = round (combat_readiness * GRLIB_secondary_objective_impact);
 stats_secondary_objectives = stats_secondary_objectives + 1;
 sleep 1;
-trigger_server_save = true;
+[] spawn F_saveGames;
 sleep 3;
 
 [ 3 ] remoteExec ["remote_call_intel" , -2];

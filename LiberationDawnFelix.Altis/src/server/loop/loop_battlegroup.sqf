@@ -6,6 +6,6 @@ while { !endgame } do {
 	if(count allPlayers > 7) then {
 		_targetPlayer = (selectRandom allPlayers) select {(_x distance (getMarkerPos "respawn_west") > 200) && _x distance lhd > 200 && side _x == CONST_SIDE_BLUFOR};
 		_targetSector = [99999,getPos _targetPlayer] call F_getNearestSector;
-		if ( _targetSector != "" ) then { [ _targetSector ] spawn spawn_air; };
+		if ( _targetSector != "" ) then { [ _targetSector ] spawn F_spawnAir; };
 	};
 };

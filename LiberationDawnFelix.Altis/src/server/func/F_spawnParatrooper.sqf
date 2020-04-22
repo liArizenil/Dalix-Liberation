@@ -10,11 +10,11 @@ sleep 0.1;
 private _pilot_group = group ((crew _newvehicle) select 0);
 private _para_group = createGroup CONST_SIDE_OPFOR;
 
-_newvehicle addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}];
-{ _x addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]; } foreach (crew _newvehicle);
+_newvehicle addMPEventHandler ["MPKilled", {call F_unitKilled}];
+{ _x addMPEventHandler ["MPKilled", {call F_unitKilled}]; } foreach (crew _newvehicle);
 
 while { count units _para_group < 8 } do {
-	opfor_paratrooper createUnit [ getmarkerpos _spawnsector, _para_group, 'this addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}]'];
+	opfor_paratrooper createUnit [ getmarkerpos _spawnsector, _para_group, 'this addMPEventHandler ["MPKilled", {call F_unitKilled}]'];
 };
 
 { _x moveInCargo _newvehicle } foreach (units _para_group);

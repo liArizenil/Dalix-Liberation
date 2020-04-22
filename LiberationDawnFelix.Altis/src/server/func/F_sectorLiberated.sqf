@@ -33,7 +33,7 @@ stats_sectors_liberated = stats_sectors_liberated + 1;
 
 sleep 1;
 
-trigger_server_save = true;
+[] spawn F_saveGames;
 
 sleep 45;
 

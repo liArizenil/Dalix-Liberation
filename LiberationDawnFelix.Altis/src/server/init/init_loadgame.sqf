@@ -151,7 +151,7 @@ if ( !isNil "_saves" ) then {
 				[_class] call F_forceBluforCrew;
 			};
 			if ( !(_class in no_kill_handler_classnames ) ) then {
-				_objects addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}];
+				_objects addMPEventHandler ["MPKilled", {call F_unitKilled}];
 			};
 
 			if ( _class in all_hostile_classnames ) then {
@@ -173,7 +173,7 @@ if ( !isNil "_saves" ) then {
 			_nextunit = _x;
 			_nextpos = [(_nextunit select 1) select 0, (_nextunit select 1) select 1, ((_nextunit select 1) select 2) + 0.2];
 			_nextdir = _nextunit select 2;
-			(_nextunit select 0) createUnit [ _nextpos, _grp, 'this addMPEventHandler ["MPKilled", {_this spawn F_unitKilled}] '];
+			(_nextunit select 0) createUnit [ _nextpos, _grp, 'this addMPEventHandler ["MPKilled", {call F_unitKilled}] '];
 			_nextobj = ((units _grp) select ((count (units _grp)) - 1));
 			_nextobj setPosATL _nextpos;
 			_nextobj setDir _nextdir;

@@ -1,4 +1,4 @@
-if ( endgame == 1 ) exitWith {};
+if (endgame) exitWith {};
 
 private [ "_bg_groups", "_target_size", "_vehicle_pool" ];
 _bg_groups = [];
@@ -36,16 +36,16 @@ if ( _spawn_marker != "" ) then {
 		_vehicle = [markerpos _spawn_marker, _x] call F_libSpawnVehicle;
 		sleep 0.5;
 		(crew _vehicle) joinSilent _nextgrp;
-		[_nextgrp] spawn battlegroup_ai;
+		[_nextgrp] spawn F_AI_battlegroup;
 		_bg_groups pushback _nextgrp;
 		if ( ( _x in opfor_troup_transports ) &&  ( [] call F_opforCap < GRLIB_battlegroup_cap ) ) then {
-			[_vehicle] spawn troup_transport;
+			[_vehicle] spawn F_troupTransport;
 		};
 		last_battlegroup_size = last_battlegroup_size + 1;
 	} foreach _selected_opfor_battlegroup;
 
 	if ( CONST_CSAT_AGGRESSIVITY > 0.9 ) then {
-		[([markerpos _spawn_marker] call F_getNearestBluforObjective) select 0] spawn spawn_air;
+		[([markerpos _spawn_marker] call F_getNearestBluforObjective) select 0] spawn F_spawnAir;
 	};
 
 	sleep 5;
