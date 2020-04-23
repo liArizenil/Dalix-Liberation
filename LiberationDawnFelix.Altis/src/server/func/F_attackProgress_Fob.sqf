@@ -4,6 +4,8 @@ private [ "_attacktime", "_ownership", "_grp", "_marker" ];
 _ownership = [ _thispos ] call F_sectorOwnership;
 if ( _ownership != CONST_SIDE_OPFOR ) exitWith {};
 
+ATTACK_PROGRESS = ATTACK_PROGRESS + [_thispos];
+
 if ( CONST_BLUFOR_DEFEND ) then {
 	_grp = creategroup CONST_SIDE_BLUFOR;
 	{ _x createUnit [ _thispos, _grp,'this addMPEventHandler ["MPKilled", {call F_unitKilled}]']; } foreach BLUFOR_SQUAD_INF;
@@ -24,8 +26,6 @@ if ( _ownership == CONST_SIDE_BLUFOR ) exitWith {
 };
 
 [ _thispos , 1 ] remoteExec ["remote_call_fob",-2];
-
-ATTACK_PROGRESS = ATTACK_PROGRESS + [_thispos];
 
 _marker = createMarker [format ["fob%2",[_thispos] call F_getFobName],_thispos];
 _marker setMarkerType "mil_objective";
@@ -59,11 +59,11 @@ if ( !endgame ) then {
 		reset_battlegroups_ai = true;
 		[_thispos] call F_destroyfob;
 		[] spawn F_saveGames;
-		[] call F_recalculatecaps;
+		[] call F_recalcCaps;
 		stats_fobs_lost = stats_fobs_lost + 1;
 	} else {
 		[ _thispos , 3 ] remoteExec ["remote_call_fob",-2];
-		{ [_x] spawn F_prisonnerAi; } foreach ( (_thispos nearEntities [ "Man", CONST_CAPTURE_SIZE * 0.8]) select { side group _x == CONST_SIDE_OPFOR } );
+		{ [_x] spawn F_AI_prisonner; } foreach ( (_thispos nearEntities [ "Man", CONST_CAPTURE_SIZE * 0.8]) select { side group _x == CONST_SIDE_OPFOR } );
 	};
 	deleteMarker _marker;
 	ATTACK_PROGRESS = ATTACK_PROGRESS - [_thispos];

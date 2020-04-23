@@ -174,7 +174,7 @@ if(side player == CONST_SIDE_BLUFOR) then {
 			_spawn_str = (choiceslist select _idxchoice) select 0;
 
 			if (((choiceslist select _idxchoice) select 0) == _basenamestr) then {
-				call respawn_lhd;
+				player setpos ((getpos lhd) getPos [ random 6, random 360 ]);
 			} else {
 				if (count (choiceslist select _idxchoice) == 3) then {
 					_truck = (choiceslist select _idxchoice) select 2;

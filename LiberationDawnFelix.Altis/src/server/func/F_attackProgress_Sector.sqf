@@ -40,14 +40,14 @@ if ( _ownership == CONST_SIDE_BLUFOR ) exitWith {
 };
 
 if(combat_readiness <= 4583) then {
-	_attacktime = round(-1*((6/25)*combat_readiness) + GRLIB_vulnerability_timer);
+	_attacktime = round(-1*((6/25)*combat_readiness) + CONST_VULNERABILITY_TIMER);
 }
 else{
 	_attacktime = 90;
 };
 [ _sector, 1, _attacktime ] remoteExec ["remote_call_sector",-2];
 
-while { _attacktime > 0 && ( _ownership == CONST_SIDE_OPFOR || _ownership == GRLIB_side_resistance ) } do {
+while { _attacktime > 0 && ( _ownership == CONST_SIDE_OPFOR || _ownership == CONST_SIDE_RESIST ) } do {
 	_ownership = [markerpos _sector] call F_sectorOwnership;
 	_attacktime = _attacktime - 1;
 	sleep 1;
@@ -55,7 +55,7 @@ while { _attacktime > 0 && ( _ownership == CONST_SIDE_OPFOR || _ownership == GRL
 
 waitUntil {
 	sleep 1;
-	[markerpos _sector] call F_sectorOwnership != GRLIB_side_resistance;
+	[markerpos _sector] call F_sectorOwnership != CONST_SIDE_RESIST;
 };
 
 if ( !endgame ) then {

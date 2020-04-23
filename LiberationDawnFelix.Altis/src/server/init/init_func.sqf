@@ -15,7 +15,6 @@ F_checkVictory = compileFinal preprocessFileLineNumbers format[_dir,"checkVictor
 F_Cleaner = compileFinal preprocessFileLineNumbers format[_dir,"Cleaner"];
 F_csatEscapeVehicle = compileFinal preprocessFileLineNumbers format[_dir,"csatEscapeVehicle"];
 F_destroyFob = compileFinal preprocessFileLineNumbers format[_dir,"destroyFob"];
-F_exchangeScore = compileFinal preprocessFileLineNumbers format[_dir,"exchangeScore"];
 F_ied = compileFinal preprocessFileLineNumbers format[_dir,"ied"];
 F_kickPlayer = compileFinal preprocessFileLineNumbers format[_dir,"kickPlayer"];
 F_manageSinglePatrol = compileFinal preprocessFileLineNumbers format[_dir,"manageSinglePatrol"];
