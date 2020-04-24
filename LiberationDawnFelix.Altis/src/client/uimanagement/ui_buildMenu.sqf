@@ -10,32 +10,28 @@ if(isNil{ ((group player)getVariable['GroupType',nil])}) exitWith {
 if ( isNil "buildtype" ) then { buildtype = 1 };
 if ( isNil "buildindex" ) then { buildindex = -1 };
 dobuild = 0;
-_oldbuildtype = -1;
-_cfg = configFile >> "cfgVehicles";
-_initindex = buildindex;
+private _oldbuildtype = -1;
+private _cfg = configFile >> "cfgVehicles";
+private _initindex = buildindex;
 
-_dialog = createDialog "ui_build";
+private _dialog = createDialog "ui_build";
 waitUntil { dialog };
 
-_iscommandant = false;
-if ( player == [] call F_getCommander ) then {
-	_iscommandant = true;
-};
-
+private _iscommandant = (player == [] call F_getCommander);
 ctrlShow [ 108, _iscommandant ];
 ctrlShow [ 1085, _iscommandant ];
 ctrlShow [ 121, _iscommandant ];
 
-_squadname = "";
-_buildpages = [
-localize "STR_BUILD1",
-localize "STR_BUILD2",
-localize "STR_BUILD3",
-localize "STR_BUILD4",
-localize "STR_BUILD5",
-localize "STR_BUILD6",
-localize "STR_BUILD7",
-localize "STR_BUILD8"
+private _squadname = "";
+private _buildpages = [
+	localize "STR_BUILD1",
+	localize "STR_BUILD2",
+	localize "STR_BUILD3",
+	localize "STR_BUILD4",
+	localize "STR_BUILD5",
+	localize "STR_BUILD6",
+	localize "STR_BUILD7",
+	localize "STR_BUILD8"
 ];
 
 while { dialog && alive player && (dobuild == 0 || buildtype == 1)} do {
