@@ -1,0 +1,1 @@
+player addEventHandler ["Respawn", { player addAction ["<t color='#FF8000'>-- 추가 설정 --</t>","GREUH\scripts\GREUH_dialog.sqf","",-999,false,true]; }];

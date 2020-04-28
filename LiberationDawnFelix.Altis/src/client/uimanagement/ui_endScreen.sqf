@@ -4,7 +4,7 @@ if ( isNil "cinematic_camera_started" ) then { cinematic_camera_started = false 
 _line_delay = 0.75;
 _page_delay = 5;
 
-[] spawn cinematic_camera;
+[] spawn F_cinematicCam;
 
 _dialog = createDialog "ui_endscreen";
 
@@ -24,21 +24,21 @@ if ( dialog ) then {
 	if ( _playtime_minutes > 0 ) then { _playtime_str = format [ "%1%4 %2 %3" , _playtime_str, _playtime_minutes, localize "STR_STATS_MINUTES", _comma ]; _comma = ","; };
 	if ( _playtime_seconds > 0 ) then { _playtime_str = format [ "%1%4 %2 %3" , _playtime_str, _playtime_seconds, localize "STR_STATS_SECONDS", _comma ]; _comma = ","; };
 
-	[ 690, format [ "%1 %2", localize "STR_STATS_PLAYTIME", _playtime_str ] ] call write_credit_line;
+	[ 690, format [ "%1 %2", localize "STR_STATS_PLAYTIME", _playtime_str ] ] call F_creditLine;
 };
 
 if ( dialog ) then { sleep 3 };
-if ( dialog ) then {  [ 691, format [ "%1 %2", localize "STR_STATS_1", stats_opfor_soldiers_killed ] ] call write_credit_line; };
+if ( dialog ) then {  [ 691, format [ "%1 %2", localize "STR_STATS_1", stats_opfor_soldiers_killed ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 692, format [ "%1 %2", localize "STR_STATS_2", stats_opfor_killed_by_players ] ] call write_credit_line; };
+if ( dialog ) then {  [ 692, format [ "%1 %2", localize "STR_STATS_2", stats_opfor_killed_by_players ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 693, format [ "%1 %2", localize "STR_STATS_3", stats_blufor_soldiers_killed ] ] call write_credit_line; };
+if ( dialog ) then {  [ 693, format [ "%1 %2", localize "STR_STATS_3", stats_blufor_soldiers_killed ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 694, format [ "%1 %2", localize "STR_STATS_27", stats_blufor_soldiers_recruited ] ] call write_credit_line; };
+if ( dialog ) then {  [ 694, format [ "%1 %2", localize "STR_STATS_27", stats_blufor_soldiers_recruited ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 695, format [ "%1 %2", localize "STR_STATS_4", stats_civilians_killed ] ] call write_credit_line; };
+if ( dialog ) then {  [ 695, format [ "%1 %2", localize "STR_STATS_4", stats_civilians_killed ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 696, format [ "%1 %2", localize "STR_STATS_5", stats_civilians_killed_by_players ] ] call write_credit_line; };
+if ( dialog ) then {  [ 696, format [ "%1 %2", localize "STR_STATS_5", stats_civilians_killed_by_players ] ] call F_creditLine; };
 if ( dialog ) then { sleep _page_delay };
 if ( dialog ) then {
 	ctrlSetText [ 691, "" ];
@@ -52,17 +52,17 @@ if ( dialog ) then {
 
 
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 691, format [ "%1 %2", localize "STR_STATS_7", stats_opfor_vehicles_killed ] ] call write_credit_line; };
+if ( dialog ) then {  [ 691, format [ "%1 %2", localize "STR_STATS_7", stats_opfor_vehicles_killed ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 692, format [ "%1 %2", localize "STR_STATS_8", stats_opfor_vehicles_killed_by_players ] ] call write_credit_line; };
+if ( dialog ) then {  [ 692, format [ "%1 %2", localize "STR_STATS_8", stats_opfor_vehicles_killed_by_players ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 693, format [ "%1 %2", localize "STR_STATS_9", stats_blufor_vehicles_killed ] ] call write_credit_line; };
+if ( dialog ) then {  [ 693, format [ "%1 %2", localize "STR_STATS_9", stats_blufor_vehicles_killed ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 694, format [ "%1 %2", localize "STR_STATS_10", stats_blufor_vehicles_built ] ] call write_credit_line; };
+if ( dialog ) then {  [ 694, format [ "%1 %2", localize "STR_STATS_10", stats_blufor_vehicles_built ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 695, format [ "%1 %2", localize "STR_STATS_11", stats_vehicles_recycled ] ] call write_credit_line; };
+if ( dialog ) then {  [ 695, format [ "%1 %2", localize "STR_STATS_11", stats_vehicles_recycled ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 696, format [ "%1 %2", localize "STR_STATS_12", stats_ammo_spent ] ] call write_credit_line; };
+if ( dialog ) then {  [ 696, format [ "%1 %2", localize "STR_STATS_12", stats_ammo_spent ] ] call F_creditLine; };
 if ( dialog ) then { sleep _page_delay };
 if ( dialog ) then {
 	ctrlSetText [ 691, "" ];
@@ -74,17 +74,17 @@ if ( dialog ) then {
 };
 
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 691, format [ "%1 %2", localize "STR_STATS_13", stats_sectors_liberated ] ] call write_credit_line; };
+if ( dialog ) then {  [ 691, format [ "%1 %2", localize "STR_STATS_13", stats_sectors_liberated ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 692, format [ "%1 %2", localize "STR_STATS_14", stats_sectors_lost ] ] call write_credit_line; };
+if ( dialog ) then {  [ 692, format [ "%1 %2", localize "STR_STATS_14", stats_sectors_lost ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 693, format [ "%1 %2", localize "STR_STATS_15", stats_fobs_built ] ] call write_credit_line; };
+if ( dialog ) then {  [ 693, format [ "%1 %2", localize "STR_STATS_15", stats_fobs_built ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 694, format [ "%1 %2", localize "STR_STATS_16", stats_fobs_lost ] ] call write_credit_line; };
+if ( dialog ) then {  [ 694, format [ "%1 %2", localize "STR_STATS_16", stats_fobs_lost ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 695, format [ "%1 %2", localize "STR_STATS_17", stats_secondary_objectives ] ] call write_credit_line; };
+if ( dialog ) then {  [ 695, format [ "%1 %2", localize "STR_STATS_17", stats_secondary_objectives ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 696, format [ "%1 %2", localize "STR_STATS_18", stats_prisonners_captured ] ] call write_credit_line; };
+if ( dialog ) then {  [ 696, format [ "%1 %2", localize "STR_STATS_18", stats_prisonners_captured ] ] call F_creditLine; };
 if ( dialog ) then { sleep _page_delay };
 if ( dialog ) then {
 	ctrlSetText [ 691, "" ];
@@ -96,15 +96,15 @@ if ( dialog ) then {
 };
 
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 691, format [ "%1 %2", localize "STR_STATS_19", stats_hostile_battlegroups ] ] call write_credit_line; };
+if ( dialog ) then {  [ 691, format [ "%1 %2", localize "STR_STATS_19", stats_hostile_battlegroups ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 692, format [ "%1 %2", localize "STR_STATS_20", stats_reinforcements_called ] ] call write_credit_line; };
+if ( dialog ) then {  [ 692, format [ "%1 %2", localize "STR_STATS_20", stats_reinforcements_called ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 693, format [ "%1 %2", localize "STR_STATS_21", stats_readiness_earned ] ] call write_credit_line; };
+if ( dialog ) then {  [ 693, format [ "%1 %2", localize "STR_STATS_21", stats_readiness_earned ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 694, format [ "%1 %2", localize "STR_STATS_22", stats_ieds_detonated ] ] call write_credit_line; };
+if ( dialog ) then {  [ 694, format [ "%1 %2", localize "STR_STATS_22", stats_ieds_detonated ] ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 695, format [ "%1 %2", localize "STR_STATS_23", stats_spartan_respawns ] ] call write_credit_line; };
+if ( dialog ) then {  [ 695, format [ "%1 %2", localize "STR_STATS_23", stats_spartan_respawns ] ] call F_creditLine; };
 if ( dialog ) then { sleep _page_delay };
 if ( dialog ) then {
 	ctrlSetText [ 691, "" ];
@@ -115,11 +115,11 @@ if ( dialog ) then {
 };
 
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 691, format [ "%1 %2", localize "STR_STATS_24", stats_player_deaths ] ] call write_credit_line; };
+if ( dialog ) then {  [ 691, format [ "%1 %2", localize "STR_STATS_24", stats_player_deaths ] ] call F_creditLine; };
 if ( dialog ) then { sleep 2 };
-if ( dialog ) then {  [ 692, format [ "%1 %2", localize "STR_STATS_6", stats_blufor_teamkills ] ] call write_credit_line; };
+if ( dialog ) then {  [ 692, format [ "%1 %2", localize "STR_STATS_6", stats_blufor_teamkills ] ] call F_creditLine; };
 if ( dialog ) then { sleep 2 };
-if ( dialog ) then {  [ 693, format [ "%1 %2", localize "STR_STATS_25", round (random 69) ] ] call write_credit_line; };
+if ( dialog ) then {  [ 693, format [ "%1 %2", localize "STR_STATS_25", round (random 69) ] ] call F_creditLine; };
 if ( dialog ) then { sleep _page_delay };
 if ( dialog ) then {
 	ctrlSetText [ 691, "" ];
@@ -128,11 +128,11 @@ if ( dialog ) then {
 };
 
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 693, localize "STR_STATS_26" ] call write_credit_line; };
+if ( dialog ) then {  [ 693, localize "STR_STATS_26" ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 694, localize "STR_STATS_28" ] call write_credit_line; };
+if ( dialog ) then {  [ 694, localize "STR_STATS_28" ] call F_creditLine; };
 if ( dialog ) then { sleep _line_delay };
-if ( dialog ) then {  [ 695, localize "STR_STATS_29" ] call write_credit_line; };
+if ( dialog ) then {  [ 695, localize "STR_STATS_29" ] call F_creditLine; };
 
 waitUntil { !dialog };
 cinematic_camera_started = false;

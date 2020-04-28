@@ -13,7 +13,7 @@ while { count GRLIB_preview_spheres < 36 } do {
 { _x setObjectTexture [0, "#(rgb,8,8,3)color(0,1,0,1)"]; } foreach GRLIB_preview_spheres;
 
 if (isNil "manned") then { manned = false };
-if (isNil "gridmode" ) then { gridmode = 0 };
+if (isNil "gridmode" ) then { gridmode = false };
 if (isNil "repeatbuild" ) then { repeatbuild = false };
 if (isNil "build_rotation" ) then { build_rotation = 0 };
 
@@ -71,16 +71,16 @@ while { true } do {
 			_idactsnap = -1;
 			_idactplacebis = -1;
 			if (buildtype != 99 ) then {
-				_idactcancel = player addAction ["<t color='#B0FF00'>" + localize "STR_CANCEL" + "</t> <img size='2' image='res\ui_cancel.paa'/>","scripts\client\build\build_cancel.sqf","",-725,false,true,"","build_confirmed == 1"];
+				_idactcancel = player addAction ["<t color='#B0FF00'>" + localize "STR_CANCEL" + "</t> <img size='2' image='res\ui_cancel.paa'/>",{build_confirmed = 3; GRLIB_ui_notif = ""; hint localize "STR_CANCEL_HINT";},"",-725,false,true,"","build_confirmed == 1"];
 			};
 			if (buildtype == 6 ) then {
-				_idactplacebis = player addAction ["<t color='#B0FF00'>" + localize "STR_PLACEMENT_BIS" + "</t> <img size='2' image='res\ui_confirm.paa'/>","scripts\client\build\build_place_bis.sqf","",-785,false,false,"","build_invalid == 0 && build_confirmed == 1"];
+				_idactplacebis = player addAction ["<t color='#B0FF00'>" + localize "STR_PLACEMENT_BIS" + "</t> <img size='2' image='res\ui_confirm.paa'/>",{build_confirmed = 2; repeatbuild = true; hint localize "STR_CONFIRM_HINT";},"",-785,false,false,"","build_invalid == 0 && build_confirmed == 1"];
 			};
 			if (buildtype == 6 || buildtype == 99) then {
-				_idactsnap = player addAction ["<t color='#B0FF00'>" + localize "STR_GRID" + "</t>","scripts\client\build\do_grid.sqf","",-735,false,false,"","build_confirmed == 1"];
+				_idactsnap = player addAction ["<t color='#B0FF00'>" + localize "STR_GRID" + "</t>",{ gridmode = !gridmode; },"",-735,false,false,"","build_confirmed == 1"];
 			};
-			_idactrotate = player addAction ["<t color='#B0FF00'>" + localize "STR_ROTATION" + "</t> <img size='2' image='res\ui_rotation.paa'/>","scripts\client\build\build_rotate.sqf","",-750,false,false,"","build_confirmed == 1"];
-			_idactplace = player addAction ["<t color='#B0FF00'>" + localize "STR_PLACEMENT" + "</t> <img size='2' image='res\ui_confirm.paa'/>","scripts\client\build\build_place.sqf","",-775,false,true,"","build_invalid == 0 && build_confirmed == 1"];
+			_idactrotate = player addAction ["<t color='#B0FF00'>" + localize "STR_ROTATION" + "</t> <img size='2' image='res\ui_rotation.paa'/>",{build_rotation = build_rotation + 90;},"",-750,false,false,"","build_confirmed == 1"];
+			_idactplace = player addAction ["<t color='#B0FF00'>" + localize "STR_PLACEMENT" + "</t> <img size='2' image='res\ui_confirm.paa'/>",{build_confirmed = 2; hint localize "STR_CONFIRM_HINT"; },"",-775,false,true,"","build_invalid == 0 && build_confirmed == 1"];
 
 			_ghost_spot = (getmarkerpos "ghost_spot") findEmptyPosition [0,100];
 
@@ -100,18 +100,16 @@ while { true } do {
 			{ _x setObjectTexture [0, "#(rgb,8,8,3)color(0,1,0,1)"]; } foreach GRLIB_preview_spheres;
 
 			private ["_allgroups", "_vote_in_progress", "_vote_approved", "_timercalc","_classnamecfg"];
-			// VOTING SYSTEM ==============================================================================
+
 			if (!(buildtype == 6 || buildtype == 99)) then {
 				[CONST_SIDE_BLUFOR,"Base"] sideChat "건설 사유를 지휘 무전망에 말씀하시길 권장드립니다.";
 				_allgroups = ["GetAllGroupsOfSide",[CONST_SIDE_BLUFOR]] call BIS_fnc_dynamicGroups;
 				_classnamecfg = getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" );
 				player setVariable["VoteBuild",[count _allgroups,0,0],true]; //[총 요청한 사람수,동의받은 수, 거절 받은 수]
-				{
-					[player, _classnamecfg] remoteExec ["remote_call_asking_build",leader _x];
-				} forEach (_allgroups);
+				{ [player, _classnamecfg] remoteExec ["F_remote_voteBuild",leader _x]; } forEach (_allgroups);
 				[[CONST_SIDE_BLUFOR,"Base"],format["%1 %2님이 FOB %3 근처에서 %4 건설을 요청하였습니다.",groupId (group player),name player, [[] call F_getNearestFob] call F_getFobName ,_classnamecfg]] remoteExec ["sideChat",west];
-				_vote_in_progress = true; //투표가 진행중인가? false 시 통과
-				_vote_approved = true; //false시 건설 거부
+				_vote_in_progress = true;
+				_vote_approved = true;
 				_timercalc = [] spawn {
 					sleep 25;
 				};
@@ -122,7 +120,6 @@ while { true } do {
 			};
 
 			while { build_confirmed == 1 && alive player } do {
-				//calculate vote
 				if(_vote_in_progress) then {
 					if(scriptDone _timercalc) then {
 						_get = player getVariable ["VoteBuild",nil];
@@ -147,7 +144,7 @@ while { true } do {
 
 				while { _actualdir > 360 } do { _actualdir = _actualdir - 360 };
 				while { _actualdir < 0 } do { _actualdir = _actualdir + 360 };
-				if ( ((buildtype == 6) || (buildtype == 99)) && ((gridmode % 2) == 1) ) then {
+				if ( ((buildtype == 6) || (buildtype == 99)) && gridmode ) then {
 					if ( _actualdir >= 22.5 && _actualdir <= 67.5 ) then { _actualdir = 45 };
 					if ( _actualdir >= 67.5 && _actualdir <= 112.5 ) then { _actualdir = 90 };
 					if ( _actualdir >= 112.5 && _actualdir <= 157.5 ) then { _actualdir = 135 };
@@ -158,11 +155,7 @@ while { true } do {
 					if ( _actualdir <= 22.5 || _actualdir >= 337.5 ) then { _actualdir = 0 };
 				};
 
-				_sphere_idx = 0;
-				{
-					_x setpos (_truepos getPos [_dist, _sphere_idx * 10 ]);
-					_sphere_idx = _sphere_idx + 1;
-				} foreach GRLIB_preview_spheres;
+				{ _x setpos (_truepos getPos [_dist, _forEachIndex * 10 ]); } foreach GRLIB_preview_spheres;
 
 				_vehicle setdir _actualdir;
 
@@ -337,7 +330,7 @@ while { true } do {
 
 			if(buildtype == 99) then {
 				_new_fob = getpos player;
-				[ _new_fob, false ] remoteExec ["build_fob_remote_call",2];
+				[ _new_fob, false ] remoteExec ["F_remote_buildFob",2];
 				buildtype = 1;
 			};
 

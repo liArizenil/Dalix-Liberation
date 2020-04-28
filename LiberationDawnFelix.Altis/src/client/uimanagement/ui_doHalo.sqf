@@ -1,4 +1,3 @@
-private [ "_dialog", "_backpack", "_backpackcontents","_acpara" ];
 
 if ( isNil "GRLIB_last_halo_jump" ) then { GRLIB_last_halo_jump = -6000; };
 
@@ -10,14 +9,14 @@ if(isNil{ ((group player)getVariable['GroupType',nil])}) exitWith {
 };
 
 if ( CONST_HALO > 1 && ( GRLIB_last_halo_jump + ( CONST_HALO * 60 ) ) >= time ) exitWith {
-	hint format [ localize "STR_HALO_DENIED_COOLDOWN", ceil ( ( ( GRLIB_last_halo_jump + ( CONST_HALO * 60 ) ) - time ) / 60 ) ];
+	hint format [ localize "STR_HALO_DENIED_COOLDOWN",(( GRLIB_last_halo_jump + ( CONST_HALO * 60 ) ) - time) call F_secToTime ];
 };
 
-_dialog = createDialog "ui_halo";
+private _dialog = createDialog "ui_halo";
 dojump = 0;
 halo_position = getpos player;
 
-_backpackcontents = [];
+private _backpackcontents = [];
 
 [ "halo_map_event", "onMapSingleClick", { halo_position = _pos } ] call BIS_fnc_addStackedEventHandler;
 
@@ -54,9 +53,9 @@ if ( dojump > 0 ) then {
 	cutRsc ["fasttravel", "PLAIN", 1];
 	playSound "v44para";
 	sleep 4;
-	_backpack = backpack player;
+	private _backpack = backpack player;
 	if ( _backpack != "" && _backpack != "B_Parachute" ) then {
-		_backpackcontents = backpackItems player;
+		private _backpackcontents = backpackItems player;
 		removeBackpack player;
 		sleep 0.1;
 	};
@@ -64,7 +63,7 @@ if ( dojump > 0 ) then {
 
 	player setpos halo_position;
 
-	_acpara = player addAction [format["<t color='#80FF80' size=2> -- [%1] 키를 눌러 낙하산 전개 -- </t>",keyName (actionKeys "Action" select 0)],{ player action ["openParachute"]; },"",90,true,true,"","vehicle player == player"];
+	private _acpara = player addAction [format["<t color='#80FF80' size=2> -- %1 키를 눌러 낙하산 전개 -- </t>",keyName (actionKeys "Action" select 0)],{ player action ["openParachute"]; },"",90,true,true,"","vehicle player == player && !isTouchingGround player"];
 	sleep 4;
 	halojumping = false;
 	waitUntil { !alive player || isTouchingGround player };
