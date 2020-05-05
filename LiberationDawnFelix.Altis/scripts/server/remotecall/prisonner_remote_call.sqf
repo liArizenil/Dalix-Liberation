@@ -10,6 +10,7 @@ if ( isServer ) then {
 		_yield = _resistance_prisonner_intel_yield;
 	};
 	resources_intel = resources_intel + ( _yield + (round (random _yield)));
+	combat_readiness = combat_readiness - ( combat_readiness * 0.02 );
 	stats_prisonners_captured = stats_prisonners_captured + 1;
 	
 	[ 0 ] remoteExec ["remote_call_intel" , -2];
