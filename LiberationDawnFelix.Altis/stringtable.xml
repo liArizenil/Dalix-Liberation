@@ -485,8 +485,8 @@
 						<English>Spotted CSAT FOB at the nearby %1</English>
 				</Key>
 				<Key ID="STR_NOTIFICATION_PRISONER_TEXT">
-						<Original>NATO군이 포로를 포박하였습니다.</Original>
-						<English>NATO Forces Captured the Hostage.</English>
+						<Original>NATO군이 포로에게서 정보를 획득했습니다.</Original>
+						<English>NATO Forces Get the Intel from the Hostage.</English>
 				</Key>
 				<Key ID="STR_NOTIFICATION_DOCUMENT_TEXT">
 						<Original>NATO군이 고가치 자료를 획득하였습니다.</Original>
