@@ -827,6 +827,18 @@ if ( isNil "civilian_vehicles_overwrite" ) then { civilian_vehicles_overwrite = 
 if ( civilian_vehicles_overwrite ) then { civilian_vehicles = civilian_vehicles_extension; } else { civilian_vehicles = civilian_vehicles + civilian_vehicles_extension; };
 
 GRLIB_blacklisted_from_arsenal = [
+	"I_UAV_06_backpack_F",
+	"O_UAV_06_backpack_F",
+	"B_UAV_06_backpack_F",
+	"I_UAV_06_medical_backpack_F",
+	"O_UAV_06_medical_backpack_F",
+	"B_UAV_06_medical_backpack_F",
+	"C_IDAP_UAV_06_medical_backpack_F",
+	"C_IDAP_UAV_06_backpack_F",
+	"C_IDAP_UAV_06_antimine_backpack_F",
+	"C_IDAP_UAV_01_backpack_F",
+	"C_UAV_06_backpack_F",
+	"C_UAV_06_medical_backpack_F",
 	"B_Respawn_Sleeping_bag_blue_F",
 	"B_Respawn_Sleeping_bag_brown_F",
 	"B_Respawn_TentDome_F",
