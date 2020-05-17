@@ -57,6 +57,12 @@ class CfgDebriefing
 		description = "Please wait Until get more BLUFOR soilders";
 		pictureBackground = "";
 	};
+	class OpforBlocked{
+		title = "Opfor blocked";
+		subtitle = "대항군이 비활성화 됨";
+		description = "Opfor play is no longer available";
+		pictureBackground = "";
+	}
 	class Opforneedfob
 	{
 		title = "BLUFOR FOB must be upon running";
@@ -73,11 +79,11 @@ class CfgDebriefing
 	};
 };
 
-class CfgFunctions 
-{
-	#include "vcom\cfgFunctions.hpp"
-};
+//class CfgFunctions 
+//{
+//	#include "vcom\cfgFunctions.hpp"
+//};
 
-class Extended_PreInit_EventHandlers {
-	VCM_CBASettings = call compile preprocessFileLineNumbers "Vcom\Functions\VCM_CBASettings.sqf";
-};
+//class Extended_PreInit_EventHandlers {
+//	VCM_CBASettings = call compile preprocessFileLineNumbers "Vcom\Functions\VCM_CBASettings.sqf";
+//};

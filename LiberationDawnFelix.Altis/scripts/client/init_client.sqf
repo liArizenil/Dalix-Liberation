@@ -46,6 +46,7 @@ if(side player == GRLIB_side_friendly) then {
 	[ player ] joinSilent (createGroup GRLIB_side_friendly);
 };
 if(side player == GRLIB_side_enemy) then {
+	["OpforBlocked", false, false,false,false] call BIS_fnc_endMission;
 	private ["_bluforcount"];
 	_bluforcount = GRLIB_side_friendly countSide (allPlayers);
 		
