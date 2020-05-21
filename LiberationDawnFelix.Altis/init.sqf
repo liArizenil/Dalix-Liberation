@@ -29,7 +29,7 @@ if (!isDedicated && hasInterface) then {
 if ( GRLIB_revive > 0 ) then {
 	[] execVM "FAR_revive\FAR_revive_init.sqf";
 };
-//[] execVM "Vcom\VcomInit.sqf";
+[] execVM "Vcom\VcomInit.sqf";
 [] execVM "scripts\advancedSlingLoadingInit.sqf";
 [] execVM "scripts\fn_advancedTowingInit.sqf";
 [] execVM "scripts\AdvancedRadio\init.sqf";
