@@ -47,6 +47,7 @@ if(side player == GRLIB_side_friendly) then {
 };
 if(side player == GRLIB_side_enemy) then {
 	["OpforBlocked", false, false,false,false] call BIS_fnc_endMission;
+	/*
 	private ["_bluforcount"];
 	_bluforcount = GRLIB_side_friendly countSide (allPlayers);
 		
@@ -78,6 +79,7 @@ if(side player == GRLIB_side_enemy) then {
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\build\do_build_opfor.sqf";
 
 	[ player ] joinSilent (createGroup GRLIB_side_enemy);
+	*/
 };
 
 [] execVM "GF_Earplugs\GF_Earplugs.sqf";
