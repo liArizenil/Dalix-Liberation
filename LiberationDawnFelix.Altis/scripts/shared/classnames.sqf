@@ -163,6 +163,8 @@ static_vehicles = [
 	["B_Radar_System_01_F",50,0,100],
 	["B_AAA_System_01_F",100,200,100],
 	["B_SAM_System_01_F",100,200,100],
+	["B_SAM_System_02_F",100,200,100],
+	["B_SAM_System_03_F",100,250,100],
 	["B_Mortar_01_F",20,0,0]
 ];
 if ( isNil "static_vehicles_extension" ) then { static_vehicles_extension = [] };
