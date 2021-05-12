@@ -45,40 +45,6 @@ if(side player == GRLIB_side_friendly) then {
 
 	[ player ] joinSilent (createGroup GRLIB_side_friendly);
 };
-if(side player == GRLIB_side_enemy) then {
-	["OpforBlocked", false, false,false,false] call BIS_fnc_endMission;
-	private ["_bluforcount"];
-	_bluforcount = GRLIB_side_friendly countSide (allPlayers);
-		
-	if(_bluforcount < 20) then {
-		["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
-	};
-	if(_bluforcount < 23 && {side _x == GRLIB_side_enemy} count (allPlayers) > 2) then {
-		["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
-	};
-	if(typeOf player == "O_Soldier_AT_F") then {
-		if(_bluforcount < 24) then {
-			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
-		};
-	};
-	if(typeOf player == "O_Soldier_AA_F") then {
-		if(_bluforcount < 24) then {
-	      	  ["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
-		};
-	};
-	if(typeOf player == "O_Pilot_F") then {
-		if(_bluforcount < 27) then {
-			["LackPlayer", false, false,false,false] call BIS_fnc_endMission;
-		};
-	};
-
-	build_lists = [[],[],[],Build_opfor_Ground_Vehicles,Build_opfor_Heli,Build_opfor_Air,[],Build_opfor_support,[]];
-	
-	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\action_manager_opfor.sqf";
-	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\build\do_build_opfor.sqf";
-
-	[ player ] joinSilent (createGroup GRLIB_side_enemy);
-};
 
 [] execVM "GF_Earplugs\GF_Earplugs.sqf";
 [] execVM "scripts\autorun.sqf";
