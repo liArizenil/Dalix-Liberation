@@ -31,7 +31,7 @@ while { true } do {
 		} foreach allUnits;
 
 		{
-			if ( ( _x distance lhd > 250 ) && ( _x distance _whiskey > 100 ) && ( _x distance (getmarkerpos GRLIB_OPFOR_respawn_marker) > 300 ) && ( alive _x ) ) then {
+			if ( ( _x distance lhd > 250 ) && ( _x distance _whiskey > 100 ) && ( alive _x ) ) then {
 				_unit = _x;
 				{
 					if ( ( _x select 0 ) == typeof _unit ) then {
