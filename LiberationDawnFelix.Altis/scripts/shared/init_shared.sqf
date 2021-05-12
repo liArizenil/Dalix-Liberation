@@ -1,10 +1,8 @@
 kill_manager = compileFinal preprocessFileLineNumbers "scripts\shared\kill_manager.sqf";
 
 build_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\build_remote_call.sqf";
-opfor_build_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\opfor_build_remote_call.sqf";
 build_fob_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\build_fob_remote_call.sqf";
 cancel_build_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\cancel_build_remote_call.sqf";
-cancel_opfor_build_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\cancel_opfor_build_remote_call.sqf";
 prisonner_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\prisonner_remote_call.sqf";
 recycle_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\recycle_remote_call.sqf";
 reinforcements_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\reinforcements_remote_call.sqf";
@@ -24,7 +22,6 @@ remote_call_ammo_bounty = compileFinal preprocessFileLineNumbers "scripts\client
 remote_call_civ_penalty = compileFinal preprocessFileLineNumbers "scripts\client\remotecall\remote_call_civ_penalty.sqf";
 remote_call_intel = compileFinal preprocessFileLineNumbers "scripts\client\remotecall\remote_call_intel.sqf";
 remote_call_incoming = compileFinal preprocessFileLineNumbers "scripts\client\remotecall\remote_call_incoming.sqf";
-remote_call_opfordeployed = compileFinal preprocessFileLineNumbers "scripts\client\remotecall\remote_call_opfordeployed.sqf";
 remote_call_asking_build = compileFinal preprocessFileLineNumbers "scripts\client\remotecall\remote_call_asking_build.sqf";
 remote_call_reflection = compileFinal preprocessFileLineNumbers "scripts\client\remotecall\remote_call_reflection.sqf";
 
