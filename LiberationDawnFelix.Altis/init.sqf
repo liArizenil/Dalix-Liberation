@@ -10,7 +10,6 @@ enableSaving [ false, false ];
 [] call compileFinal preprocessfilelinenumbers "scripts\shared\init_shared.sqf";
 
 "respawn_west" setMarkerPosLocal [markerPos "respawn_West" select 0, markerPos "respawn_West" select 1, 187];
-"respawn_east" setMarkerPosLocal [markerPos "respawn_East" select 0, markerPos "respawn_East" select 1, 193];
 
 if (isServer) then {
 	["Initialize"] call BIS_fnc_dynamicGroups;
