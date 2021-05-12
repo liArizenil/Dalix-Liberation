@@ -92,12 +92,6 @@ class CfgNotifications
 		color[] = {0,0.35,1,1};
 		sound = "taskUpdated";
 	};
-	class lib_Opfor_deployed : lib_default_notification	
-	{	
-		title = $STR_NOTIFICATION_OPFORDEPLOY_TITLE;	
-		description = $STR_NOTIFICATION_OPFORDEPLOY_TEXT;
-		color[] = {1,0,0,1};
-	};
 	class lib_intel_prisoner : lib_intel
 	{
 		description = $STR_NOTIFICATION_PRISONER_TEXT;
