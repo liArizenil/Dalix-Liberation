@@ -30,12 +30,3 @@ if ( side player == GRLIB_side_friendly ) then {
 		[ missionNamespace, GRLIB_arsenal_backpacks, false ] call BIS_fnc_addVirtualBackpackCargo;
 	};
 };
-
-if ( side player == GRLIB_side_enemy ) then {
-	["AmmoboxInit", [opforammobox]] spawn BIS_fnc_arsenal;
-    [opforammobox, OPFOR_Weapons, false, true ] call BIS_fnc_addVirtualWeaponCargo;
-	[opforammobox, OPFOR_Mines, false, true ] call BIS_fnc_addVirtualMagazineCargo;
-	[opforammobox, OPFOR_Backpacks, false, true ] call BIS_fnc_addVirtualBackpackCargo;
-	[opforammobox, (OPFOR_Uniform + OPFOR_Vest + OPFOR_Helmet + OPFOR_Sight + OPFOR_Muzzles + OPFOR_Goggles + OPFOR_Items), false, true ] call BIS_fnc_addVirtualItemCargo;
-	player addEventHandler ["InventoryOpened", { [] spawn { sleep 0.5; closeDialog 0; }; }];
-};
