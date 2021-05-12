@@ -187,14 +187,6 @@
 					<Original>%1 has been wounded by %2.(Friendly Fire)</Original>
 					<Korean>%2님에 의해 %1님이 부상당했습니다.(오인사격)</Korean>
 				</Key>
-				<Key ID="STR_FAR_OPFORKILLED">
-					<Original>%1(OPFOR) has been killed by %2(BLUFOR)</Original>
-					<Korean>(청군)%2님에 의해 (대항군)%1님이 부상당했습니다.</Korean>
-				</Key>
-				<Key ID="STR_FAR_BLUFORKILLED">
-					<Original>%1(BLUFOR) has been killed by %2(OPFOR)</Original>
-					<Korean>(대항군)%2님에 의해 (청군)%1님이 부상당했습니다.</Korean>
-				</Key>
 				<Key ID="STR_PRESSC">
 					<Original>Press 'C' If You can't move</Original>
 					<Korean>움직여지지 않을 경우 C 키를 눌르세요.</Korean>
@@ -226,10 +218,6 @@
 				<Key ID="STR_CONFIRM_HINT">
 						<Original>건설 완료</Original>
 						<English>Constructed Confirm</English>
-				</Key>
-				<Key ID="STR_PLACEMENT_IMPOSSIBLE_OPFOR">
-						<Original>You Can't Build here, It's not the OPFOR Area or There is obstacle. </Original>
-						<Korean>여기에 건설 할 수 없습니다, 대항군 지역이 아니거나 장애물이 존재합니다.</Korean>
 				</Key>
 				<Key ID="STR_PLACEMENT_IMPOSSIBLE">
 						<Original>여기에 건설 불가능 : %1 가(이) %2 M 안에 있습니다.</Original>
@@ -459,14 +447,6 @@
 				<Key ID="STR_NOTIFICATION_FOBLOST_TEXT">
 						<Original>FOB %1 지역이 파괴되었습니다!</Original>
 						<English>FOB %` has been destroyed</English>
-				</Key>
-				<Key ID="STR_NOTIFICATION_OPFORDEPLOY_TITLE">	
-						<Original>OPFOR player has been Deployed</Original>	
-						<Korean>대항군 플레이어가 배치되었습니다.</Korean>	
-				</Key>	
-				<Key ID="STR_NOTIFICATION_OPFORDEPLOY_TEXT">	
-						<Original>%1 has been deployed near by %2</Original>	
-						<Korean>%1 님이 %2 지역 근방에 배치되었습니다.</Korean>	
 				</Key>
 				<Key ID="STR_NOTIFICATION_BATTLEGROUP_TITLE">
 					<Original>CSAT Forces are approaching</Original>
