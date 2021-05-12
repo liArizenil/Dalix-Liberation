@@ -56,42 +56,37 @@ outlw_MR_listIDCs = [(missionConfigFile >> "MR_Dialog" >> "Controls")] call outl
 waitUntil {!(isNull (findDisplay 46))};
 
 systemChat localize "STR_MAGREPACK_STARTED";
-if(side player == GRLIB_side_enemy) then {
-	(findDisplay 46) displayAddEventHandler ["KeyDown", "_this call outlw_MR_keyDown;"];
-	systemChat (localize "STR_MAGREPACK_KEY" + (call outlw_MR_keyListToString));
-}
-else{
-	player addEventHandler ["InventoryOpened", {
-		[] spawn {
-			private _display = findDisplay 602;
-			while { isNull(_display) } do {
-				_display = findDisplay 602;
-				sleep 0.1;
-			};
-			private _repackbtn = _display ctrlCreate ["RscButton",1966];
-			_repackbtn ctrlSetPosition [0.94,0.04,0.1,0.035];
-			_repackbtn ctrlCommit 0;
-			_repackbtn ctrlSetTextColor [1, 1, 1, 1];
-			_repackbtn ctrlSetText "탄약 재포장";
-			_repackbtn ctrlAddEventHandler ["ButtonClick", 
+
+player addEventHandler ["InventoryOpened", {
+	[] spawn {
+		private _display = findDisplay 602;
+		while { isNull(_display) } do {
+		_display = findDisplay 602;
+		sleep 0.1;
+	};
+		private _repackbtn = _display ctrlCreate ["RscButton",1966];
+		_repackbtn ctrlSetPosition [0.94,0.04,0.1,0.035];
+		_repackbtn ctrlCommit 0;
+		_repackbtn ctrlSetTextColor [1, 1, 1, 1];
+		_repackbtn ctrlSetText "탄약 재포장";
+		_repackbtn ctrlAddEventHandler ["ButtonClick", 
+	{
+		if (outlw_MR_canCreateDialog) then
 			{
-				if (outlw_MR_canCreateDialog) then
+				call outlw_MR_createDialog;
+				true;
+			}
+			else
+			{
+				if (!outlw_MR_keybindingMenuActive) then
 				{
-					call outlw_MR_createDialog;
+					closeDialog 0;
 					true;
-				}
-				else
-				{
-					if (!outlw_MR_keybindingMenuActive) then
-					{
-						closeDialog 0;
-						true;
-					};
 				};
-			}];
-		};
-	}];
-};
+			};
+		}];
+	};
+]};
 
 
 
