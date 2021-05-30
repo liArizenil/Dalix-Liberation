@@ -27,7 +27,6 @@ if(side player == GRLIB_side_friendly) then {
 
 	[] execVM "IgiLoad\IgiLoadInit.sqf";
 	[] execVM "scripts\cratercleaner.sqf";
-	[] execVM "scripts\irstrobe.sqf"; 
 
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\action_manager.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\intel_manager.sqf";
@@ -40,7 +39,6 @@ if(side player == GRLIB_side_friendly) then {
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\offload_diag.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\permissions_warning.sqf";
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\vehicle_permissions.sqf";
-	[] spawn compileFinal preprocessFileLineNumbers "scripts\GroupTag\tag_init_Client.sqf";
 
 	[ player ] joinSilent (createGroup GRLIB_side_friendly);
 };

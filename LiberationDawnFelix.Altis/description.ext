@@ -30,8 +30,6 @@ disableChannels[] = {
 #include "VAM_GUI\VAM_GUI_controls.hpp"
 #include "VAM_GUI\VAM_GUI_classes.hpp"
 
-#include "scripts\outlw_magRepack\MagRepack_config.hpp"
-
 class CfgDebriefing
 {
 	class End1

@@ -2,8 +2,6 @@ one_synchro_done = false;
 synchro_done = false;
 waitUntil { !isNil "sync_vars" };
 
-[ player ] remoteExec ["updateammo_remote_call", 2];
-
 while { true } do {
 
 	waitUntil {
@@ -11,6 +9,7 @@ while { true } do {
 		count sync_vars > 0;
 	};
 	resources_infantry = sync_vars select 0;
+	[ player ] remoteExec ["updateammo_remote_call", 2];
 	resources_fuel = sync_vars select 2;
 	infantry_cap = sync_vars select 3;
 	fuel_cap = sync_vars select 4;

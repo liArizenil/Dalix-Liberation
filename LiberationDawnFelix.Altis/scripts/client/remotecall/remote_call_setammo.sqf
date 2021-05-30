@@ -1,2 +1,3 @@
-params["_amount"];
-resources_ammo = _amount;
+params ["_amt"];
+
+resources_ammo = _amt;
