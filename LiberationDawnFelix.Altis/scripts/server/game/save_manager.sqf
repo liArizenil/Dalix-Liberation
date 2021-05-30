@@ -366,7 +366,7 @@ while { true } do {
 		_stats pushback stats_fobs_lost;
 		_stats pushback stats_readiness_earned;
 
-		greuh_liberation_savegame = [ blufor_sectors, GRLIB_all_fobs, buildings_to_save, time_of_day, round combat_readiness,0,0,0, resources_ammo, _stats,
+		greuh_liberation_savegame = [ blufor_sectors, GRLIB_all_fobs, buildings_to_save, time_of_day, round combat_readiness,0,0,0, SV_resources_ammo, _stats,
 		[ round infantry_weight, round armor_weight, round air_weight ], GRLIB_vehicle_to_military_base_links, GRLIB_permissions, ai_groups, resources_intel, GRLIB_player_scores ];
 
 		profileNamespace setVariable [ GRLIB_save_key, greuh_liberation_savegame ];
