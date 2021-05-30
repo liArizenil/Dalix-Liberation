@@ -163,20 +163,7 @@ if(side player == GRLIB_side_friendly) then {
 					player setpos (_truck getPos [ 5 + (random 3), random 360]);
 				} else {
 					_destpos = ((choiceslist select _idxchoice) select 1);
-					if(_IsVehicle_redeploy) then {
-						_desposempty = _destpos findEmptyPosition [0,100,"B_Heli_Transport_03_unarmed_F"];
-						if(count _desposempty > 2) then {
-							(vehicle player) setpos _desposempty;
-						}
-						else{
-							systemChat "Unable to move your vehicle";
-						};
-						
-					}
-					else{
-						player setpos [((_destpos select 0) + 5) - (random 10),((_destpos select 1) + 5) - (random 10),0];
-					};
-					
+					player setpos [((_destpos select 0) + 5) - (random 10),((_destpos select 1) + 5) - (random 10),0];
 				};
 			};
 
