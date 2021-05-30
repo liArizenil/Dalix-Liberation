@@ -3,7 +3,7 @@ waitUntil { !isNil "blufor_sectors" };
 waitUntil { !isNil "saved_ammo_res" };
 waitUntil { !isNil "saved_intel_res" };
 
-resources_ammo = saved_ammo_res;
+SV_resources_ammo = saved_ammo_res;
 resources_intel = saved_intel_res;
 
 while { GRLIB_endgame == 0 } do {
