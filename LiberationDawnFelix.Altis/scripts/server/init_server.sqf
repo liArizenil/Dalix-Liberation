@@ -74,3 +74,10 @@ wait_to_spawn_sector = compileFinal preprocessFileLineNumbers "scripts\server\se
 		deleteVehicle _x;
 	};
 } foreach allUnits;
+
+[] spawn {
+	sleep 14400;
+	["[알림] 5분 후에 서버가 리스타트 됩니다."]remoteExec ["systemChat", -2];
+	sleep 300;
+	(profileNamespace getVariable ["SERVER_COMMAND_PASSWORD",""]) serverCommand "#restartserver";
+};

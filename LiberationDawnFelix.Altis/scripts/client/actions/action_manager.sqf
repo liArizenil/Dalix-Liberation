@@ -1,5 +1,5 @@
 
-private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander", "_idact_exchscore", "_ideh_shooting" ];
+private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander", "_ideh_shooting" ];
 
 _idact_build = -1;
 _idact_arsenal = -1;
@@ -150,17 +150,6 @@ while { true } do {
 		if ( _idact_secondary != -1 ) then {
 			player removeAction _idact_secondary;
 			_idact_secondary = -1;
-		};
-	};
-	
-	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || ((player distance lhd) < 200)) && alive player && vehicle player == player && ((getPlayerScores player) select 5) > 0) then {
-		if ( _idact_exchscore == -1 ) then {
-			_idact_exchscore = player addAction ["<t color='#80FF80'>" + localize "STR_EXCHANGE_SCORE" + "</t> <img size='2' image='res\ui_recycle.paa'/>","scripts\client\actions\exchange_score.sqf","",-750,false,true,"","build_confirmed == 0"];
-		};
-	} else {
-		if ( _idact_exchscore != -1 ) then {
-			player removeAction _idact_exchscore;
-			_idact_exchscore = -1;
 		};
 	};
 

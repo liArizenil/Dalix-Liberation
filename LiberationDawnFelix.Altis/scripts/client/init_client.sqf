@@ -16,6 +16,7 @@ if ( typeOf player == "VirtualSpectator_F" ) exitWith {
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\ui_manager.sqf";
 };
 
+[] spawn compileFinal preprocessFileLineNumbers "scripts\client\commander\enforce_whitelist.sqf";
 [] call compileFinal preprocessFileLineNumbers "arsenal.sqf";
 
 if(side player == GRLIB_side_friendly) then {
@@ -64,7 +65,6 @@ do_load_box = compileFinal preprocessFileLineNumbers "scripts\client\ammoboxes\d
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\hostile_groups.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\unflip_manager.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\spawn\redeploy_manager.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\client\commander\enforce_whitelist.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\huron_marker.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\sector_manager.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\spot_timer.sqf";

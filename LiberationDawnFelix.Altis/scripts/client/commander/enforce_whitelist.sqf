@@ -36,11 +36,7 @@ if ( !isNull _commanderobj ) then {
 		};
 
 		if ( !( _tagmatch || _idmatch || _namematch ) ) then {
-
-			sleep 1;
-			if ( alive _commanderobj ) then {
-				endMission "END1";
-			};
+			"end1" call BIS_fnc_endMission;
 		};
 	};
 };
