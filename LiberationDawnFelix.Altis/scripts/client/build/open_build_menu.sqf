@@ -108,7 +108,7 @@ while { dialog && alive player && (dobuild == 0 || buildtype == 1)} do {
 		lbSetCurSel [110, _initindex];
 		_initindex = -1;
 	};
-	GRLIB_max_squad_size = 100;
+	GRLIB_max_squad_size = 6;
 	_selected_item = lbCurSel 110;
 	_affordable = false;
 	_squad_full = false;
