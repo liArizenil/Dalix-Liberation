@@ -2,13 +2,6 @@ private [ "_dialog", "_backpack", "_backpackcontents","_acpara" ];
 
 if ( isNil "GRLIB_last_halo_jump" ) then { GRLIB_last_halo_jump = -6000; };
 
-if (!(["IsGroupRegistered", [(group player)]] call BIS_fnc_dynamicGroups)) exitWith { 
-	1 cutRsc ["dojoingroup","PLAIN",0];
-};
-if(isNil{ ((group player)getVariable['GroupType',nil])}) exitWith {
-	1 cutRsc ["dosetyourtag","PLAIN",0];
-};
-
 if ( GRLIB_halo_param > 1 && ( GRLIB_last_halo_jump + ( GRLIB_halo_param * 60 ) ) >= time ) exitWith {
 	hint format [ localize "STR_HALO_DENIED_COOLDOWN", ceil ( ( ( GRLIB_last_halo_jump + ( GRLIB_halo_param * 60 ) ) - time ) / 60 ) ];
 };
