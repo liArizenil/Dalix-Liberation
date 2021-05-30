@@ -31,10 +31,11 @@ while { GRLIB_endgame == 0 } do {
 			if ( GRLIB_passive_income ) then {
 
 				_ammo_increase = round (50 + (random 25));
-				resources_ammo = resources_ammo + _ammo_increase;
-
+				{
+					[_x, _ammo_increase ] call addammo_remote_call;
+					sleep 0.5;
+				} forEach allPlayers
 			} else {
-
 				if ( ( { typeof _x == ammobox_b_typename } count vehicles ) <= ( ceil ( ( count _blufor_mil_sectors ) * 1.3 ) ) ) then {
 
 					_spawnsector = ( selectRandom _blufor_mil_sectors );

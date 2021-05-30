@@ -6,7 +6,7 @@ enableDebugConsole = 1;
 allowFunctionsLog = 0;
 
 onLoadMission = $STR_MISSION_TITLE;
-author = "[수정 및 최적화]Dawn, Felix, [번역지원]MD. Faker, [GREUH] Zbug, [GREUH] McKeewa";
+author = "[시][고인]Dawn, Felix, [번역지원]MD. Faker, [GREUH] Zbug, [GREUH] McKeewa";
 onLoadName = $STR_MISSION_TITLE;
 
 joinUnassigned = 0;
@@ -30,8 +30,6 @@ disableChannels[] = {
 #include "VAM_GUI\VAM_GUI_controls.hpp"
 #include "VAM_GUI\VAM_GUI_classes.hpp"
 
-#include "scripts\AdvancedRadio\ui\Radio_interface.hpp"
-#include "scripts\GroupTag\ui\dialog.hpp"
 #include "scripts\outlw_magRepack\MagRepack_config.hpp"
 
 class CfgDebriefing

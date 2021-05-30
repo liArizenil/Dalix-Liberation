@@ -52,22 +52,10 @@ if ( isServer ) then {
 				stats_civilians_killed_by_players = stats_civilians_killed_by_players + 1;
 				if ( GRLIB_civ_penalties ) then {
 					if(side _killer == GRLIB_side_friendly) then {
-						if((resources_ammo - 200) < 0) then {
-							resources_ammo = 0;
-						}else{
-							resources_ammo = resources_ammo - 200;
-						};
+						[_killer, -200] call addammo_remote_call;
 						combat_readiness = combat_readiness + 400;
 					};
-					if(side _killer == GRLIB_side_enemy) then {
-						if((combat_readiness - 500) < 0) then {
-							combat_readiness = 0;
-						}
-						else{
-							combat_readiness = combat_readiness - 500;
-						};
-					};
-					[ name _unit,  _killer ] remoteExec ["remote_call_civ_penalty",-2];
+					[ name _unit,  _killer ] remoteExec ["remote_call_civ_penalty", _killer];
 				};
 			};
 		};
@@ -105,8 +93,7 @@ if ( isServer ) then {
 					if ( _unit isKindOf "Tank" ) then {
 						_bounty = 10;
 					};
-
-					resources_ammo = resources_ammo + _bounty;
+					[_killer, _bounty] call addammo_remote_call;
 					[ typeOf _unit, _bounty, _killer ] remoteExec ["remote_call_ammo_bounty",-2];
 				};
 			};

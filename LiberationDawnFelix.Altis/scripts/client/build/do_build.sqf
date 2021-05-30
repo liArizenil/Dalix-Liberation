@@ -31,7 +31,7 @@ while { true } do {
 	} else {
 		_classname = ((build_lists select buildtype) select buildindex) select 0;
 		_price = ((build_lists select buildtype) select buildindex) select 2;
-		[ _price, _classname, buildtype ] remoteExec ["build_remote_call",2];
+		[ player, _price, _classname, buildtype ] remoteExec ["build_remote_call", 2];
 	};
 
 	if(buildtype == 1) then {
@@ -99,46 +99,7 @@ while { true } do {
 
 			{ _x setObjectTexture [0, "#(rgb,8,8,3)color(0,1,0,1)"]; } foreach GRLIB_preview_spheres;
 
-			private ["_allgroups", "_vote_in_progress", "_vote_approved", "_timercalc","_classnamecfg"];
-			// VOTING SYSTEM ==============================================================================
-			if (!(buildtype == 6 || buildtype == 99)) then {
-				[GRLIB_side_friendly,"Base"] sideChat "건설 사유를 지휘 무전망에 말씀하시길 권장드립니다.";
-				_allgroups = ["GetAllGroupsOfSide",[GRLIB_side_friendly]] call BIS_fnc_dynamicGroups;
-				_classnamecfg = getText ( configFile >> "cfgVehicles" >> _classname >> "displayName" );
-				player setVariable["VoteBuild",[count _allgroups,0,0],true]; //[총 요청한 사람수,동의받은 수, 거절 받은 수]
-				{
-					[player, _classnamecfg] remoteExec ["remote_call_asking_build",leader _x];
-				} forEach (_allgroups);
-				[[GRLIB_side_friendly,"Base"],format["%1 %2님이 FOB %3 근처에서 %4 건설을 요청하였습니다.",groupId (group player),name player, [[] call F_getNearestFob] call F_getFobName ,_classnamecfg]] remoteExec ["sideChat",west];
-				_vote_in_progress = true; //투표가 진행중인가? false 시 통과
-				_vote_approved = true; //false시 건설 거부
-				_timercalc = [] spawn {
-					sleep 25;
-				};
-			}
-			else{
-				_vote_in_progress = false;
-				_vote_approved = true;
-			};
-
 			while { build_confirmed == 1 && alive player } do {
-				//calculate vote
-				if(_vote_in_progress) then {
-					if(scriptDone _timercalc) then {
-						_get = player getVariable ["VoteBuild",nil];
-						if(((_get select 1)/((_get select 1) + (_get select 2)))>= 0.75) then { //전체 투표가 이루어진 양 중에서 찬성이 75% 이상일때
-							_vote_in_progress = false;
-							player setVariable ["VoteBuild", nil,true];
-							[[GRLIB_side_friendly,"Base"],format["참여율 %1%2, 찬성 %3, 반대 %4 로 %5님의 %6에 대한 건설이 동의되었습니다.",(((_get select 1) + (_get select 2)) / count _allgroups)*100,"%",_get select 1,_get select 2,name player,_classnamecfg]] remoteExec ["SideChat",GRLIB_side_friendly];
-						}
-						else{
-							_vote_approved = false;
-							_vote_in_progress = false;
-							player setVariable ["VoteBuild", nil,true];
-						};
-						player setVariable ["VoteBuild", nil,true];
-					};
-				};
 				_truedir = 90 - (getdir player);
 				_truepos = [((getpos player) select 0) + (_dist * (cos _truedir)), ((getpos player) select 1) + (_dist * (sin _truedir)),0];
 				_actualdir = ((getdir player) + build_rotation);
@@ -212,7 +173,7 @@ while { true } do {
 					GRLIB_conflicting_objects = [];
 				};
 
-				if (!_vote_in_progress && _vote_approved && count _near_objects == 0 && ((_truepos distance _posfob) < _maxdist) && (  ((!surfaceIsWater _truepos) && (!surfaceIsWater getpos player)) || (_classname in boats_names) ) ) then {
+				if (count _near_objects == 0 && ((_truepos distance _posfob) < _maxdist) && (  ((!surfaceIsWater _truepos) && (!surfaceIsWater getpos player)) || (_classname in boats_names) ) ) then {
 					if ( ((buildtype == 6) || (buildtype == 99)) && ((gridmode % 2) == 1) ) then {
 						_vehicle setpos [round (_truepos select 0),round (_truepos select 1), _truepos select 2];
 					} else {
@@ -250,15 +211,6 @@ while { true } do {
 					if((_truepos distance _posfob) > _maxdist) then {
 						GRLIB_ui_notif = format [localize "STR_BUILD_ERROR_DISTANCE",_maxdist];
 					};
-					if(_vote_in_progress) then {
-						GRLIB_ui_notif = localize "STR_BUILD_VOTEPROGRESS";
-					};
-					if(!_vote_approved) then {
-						build_confirmed = 3;
-						GRLIB_ui_notif = "";
-						[[GRLIB_side_friendly,"Base"], format["찬성 %1, 반대 %2 로 %3 %4님의 %5에 대한 건설이 거부되었습니다.",_get select 1,_get select 2, groupid (group player) ,name player, _classnamecfg]] remoteExec ["sideChat",GRLIB_side_friendly];
-						hint localize "STR_CANCEL_HINT";
-					};
 				};
 				sleep 0.05;
 			};
@@ -271,7 +223,7 @@ while { true } do {
 
 			if ( !alive player || build_confirmed == 3 ) then {
 				deleteVehicle _vehicle;
-				[ ((build_lists select buildtype) select buildindex) select 2 ] remoteExec ["cancel_build_remote_call",2];
+				[player, (((build_lists select buildtype) select buildindex) select 2)] remoteExec ["addammo_remote_call", 2];
 			};
 
 			if ( build_confirmed == 2 ) then {

@@ -12,7 +12,7 @@ blufor_sectors = [];
 GRLIB_all_fobs = [];
 buildings_to_save= [];
 combat_readiness = 0;
-saved_ammo_res = 0;
+saved_ammo_res createHashMap;
 stats_opfor_soldiers_killed = 0;
 stats_opfor_killed_by_players = 0;
 stats_blufor_soldiers_killed = 0;
@@ -77,11 +77,6 @@ if ( !isNil "greuh_liberation_savegame" ) then {
 	time_of_day = greuh_liberation_savegame select 3;
 	combat_readiness = greuh_liberation_savegame select 4;
 	saved_ammo_res = greuh_liberation_savegame select 8;
-
-	if ( "capture_13_1_2_26_25" in blufor_sectors ) then { // Patching Molos Airfield which was a town instead of a factory
-		blufor_sectors = blufor_sectors - [ "capture_13_1_2_26_25" ];
-		blufor_sectors = blufor_sectors + [ "factory666" ];
-	};
 
 	if ( count greuh_liberation_savegame > 9 ) then {
 		_stats = greuh_liberation_savegame select 9;
@@ -371,7 +366,7 @@ while { true } do {
 		_stats pushback stats_fobs_lost;
 		_stats pushback stats_readiness_earned;
 
-		greuh_liberation_savegame = [ blufor_sectors, GRLIB_all_fobs, buildings_to_save, time_of_day, round combat_readiness,0,0,0, round resources_ammo, _stats,
+		greuh_liberation_savegame = [ blufor_sectors, GRLIB_all_fobs, buildings_to_save, time_of_day, round combat_readiness,0,0,0, resources_ammo, _stats,
 		[ round infantry_weight, round armor_weight, round air_weight ], GRLIB_vehicle_to_military_base_links, GRLIB_permissions, ai_groups, resources_intel, GRLIB_player_scores ];
 
 		profileNamespace setVariable [ GRLIB_save_key, greuh_liberation_savegame ];

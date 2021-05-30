@@ -1,10 +1,9 @@
 if (!isServer) exitWith {};
 
-params [ "_price_a", "_typename", "_localtype" ];
+params ["_player", "_price_a", "_typename", "_localtype" ];
 
 if ( _price_a > 0 ) then {
-	resources_ammo = resources_ammo - _price_a;
-
+	[_player, -_price_a] call addammo_remote_call;
 	if ( _localtype == 8 ) then {
 		stats_blufor_soldiers_recruited = stats_blufor_soldiers_recruited + 10;
 	} else {
@@ -16,7 +15,6 @@ if ( _price_a > 0 ) then {
 			};
 		};
 	};
-
 	stats_ammo_spent = stats_ammo_spent + _price_a;
 
 	please_recalculate = true;

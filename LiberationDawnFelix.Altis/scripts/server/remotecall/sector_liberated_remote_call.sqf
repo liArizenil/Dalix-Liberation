@@ -26,7 +26,8 @@ if (isServer) then {
 	};
 
 	if ( GRLIB_passive_income ) then {
-		resources_ammo = resources_ammo + (floor (75 + (random 50)));
+		private _amt = (floor (75 + (random 50)));
+		{[_x, _amt] call addammo_remote_call;} forEach allPlayers;
 	};
 
 	combat_readiness = combat_readiness + _combat_readiness_increase;
