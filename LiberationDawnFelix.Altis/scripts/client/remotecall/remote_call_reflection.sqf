@@ -5,6 +5,7 @@ params [ "_KARMA" ];
 _prevkarma = player getVariable ["Karma", 0];
 if(_prevkarma+_KARMA < 6) then {
 	player setVariable ["Karma",_prevkarma+_KARMA,false];
+	[player, -(_KARMA * 100)] remoteExec ["addammo_remote_call", 2];
 }
 else{
 	player setVariable ["Karma",6,false];
