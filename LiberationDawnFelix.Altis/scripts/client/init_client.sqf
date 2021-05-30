@@ -27,7 +27,6 @@ if(side player == GRLIB_side_friendly) then {
 
 	[] execVM "IgiLoad\IgiLoadInit.sqf";
 	[] execVM "scripts\cratercleaner.sqf";
-	[] execVM "scripts\VehicleLimit.sqf";
 	[] execVM "scripts\irstrobe.sqf"; 
 
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\actions\action_manager.sqf";
@@ -48,15 +47,12 @@ if(side player == GRLIB_side_friendly) then {
 
 [] execVM "GF_Earplugs\GF_Earplugs.sqf";
 [] execVM "scripts\autorun.sqf";
-[] execVM "scripts\RuleDiary.sqf";
 [] execVM "scripts\3Dmarkers.sqf";
-[] execVM "scripts\anounce.sqf";
 [] execVM "VAM_GUI\VAM_GUI_init.sqf";
 [] execVM "GREUH\scripts\GREUH_activate.sqf";
 [] execVM "scripts\SimpleHaloDrop.sqf";
 [] execVM "scripts\BlackFishCargo.sqf";
 [] execVM "scripts\SHK_Fastrope.sqf";
-[] execVM "scripts\outlw_magRepack\MagRepack_init_sv.sqf";
 
 ["Preload"] call BIS_fnc_arsenal;
 
@@ -82,7 +78,6 @@ do_load_box = compileFinal preprocessFileLineNumbers "scripts\client\ammoboxes\d
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\synchronise_vars.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\init_arsenal.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\ui_manager.sqf";
-//[] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\tutorial_manager.sqf";
 
 player addMPEventHandler ["MPKilled", {_this spawn kill_manager}];
 player addEventHandler ["Respawn", { if ( !isNil "GRLIB_respawn_loadout" ) then { [ player, GRLIB_respawn_loadout ] call F_setLoadout; }; }];
@@ -93,5 +88,4 @@ player addEventHandler ["Respawn", { if ( !isNil "GRLIB_respawn_loadout" ) then 
 
 waitUntil { alive player };
 
-[] execVM "scripts\motd.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\intro.sqf";

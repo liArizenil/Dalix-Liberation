@@ -39,12 +39,8 @@ if ( _ownership == GRLIB_side_friendly ) exitWith {
 	};
 };
 
-if(combat_readiness <= 4583) then {
-	_attacktime = round(-1*((6/25)*combat_readiness) + GRLIB_vulnerability_timer);
-}
-else{
-	_attacktime = 90;
-};
+_attacktime = GRLIB_vulnerability_timer - round(GRLIB_vulnerability_timer*combat_readiness/100);
+
 [ _sector, 1, _attacktime ] remoteExec ["remote_call_sector",-2];
 
 while { _attacktime > 0 && ( _ownership == GRLIB_side_enemy || _ownership == GRLIB_side_resistance ) } do {
