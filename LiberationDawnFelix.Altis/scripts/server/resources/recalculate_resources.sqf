@@ -1,10 +1,6 @@
-Private ["_whiskey"];
-
 waitUntil { !isNil "save_is_loaded" };
 
 please_recalculate = true;
-
-_whiskey = getmarkerpos "whiskey";
 
 while { true } do {
 	while { true } do {
@@ -18,7 +14,7 @@ while { true } do {
 
 		{
 			if ( ( side group _x == GRLIB_side_friendly ) && ( !isPlayer _x ) ) then {
-				if ( ( _x distance lhd > 250 ) && ( _x distance _whiskey > 100 ) && ( _x distance ( getmarkerpos GRLIB_respawn_marker) > 100 ) && ( alive _x ) ) then {
+				if ( ( _x distance lhd > 250 ) && ( _x distance ( getmarkerpos GRLIB_respawn_marker) > 100 ) && ( alive _x ) ) then {
 					_unit = _x;
 					{
 						if ( ( _x select 0 ) == typeof _unit ) then {
@@ -31,7 +27,7 @@ while { true } do {
 		} foreach allUnits;
 
 		{
-			if ( ( _x distance lhd > 250 ) && ( _x distance _whiskey > 100 ) && ( alive _x ) ) then {
+			if ( ( _x distance lhd > 250 ) && ( alive _x ) ) then {
 				_unit = _x;
 				{
 					if ( ( _x select 0 ) == typeof _unit ) then {

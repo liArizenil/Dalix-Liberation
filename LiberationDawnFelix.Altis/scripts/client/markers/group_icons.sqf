@@ -1,45 +1,4 @@
-private [ "_vehmarkers", "_markedveh", "_cfg", "_vehtomark", "_supporttomark", "_marker", "_whiskey" ];
-
-_whiskey = getMarkerPos "whiskey";
-
-_vehmarkers = [];
-_markedveh = [];
-_cfg = configFile >> "cfgVehicles";
-_vehtomark = [];
-
-_support_to_skip = [
-	ammobox_o_typename,
-	"B_Slingload_01_Repair_F",
-	"B_Slingload_01_Fuel_F",
-	"B_Slingload_01_Ammo_F"
-];
-
-{
-	_vehtomark pushback (_x select 0);
-} foreach light_vehicles + heavy_vehicles + air_vehicles + support_vehicles;
-
-_vehtomark = _vehtomark - _support_to_skip;
-
-while { true } do {
-
-	_markedveh = [];
-	{
-		if ( (alive _x) && ((typeof _x) in _vehtomark) && (count (crew _x) == 0) && (_x distance lhd > 500) && (_x distance _whiskey > 200) ) then {
-			_markedveh pushback _x;
-		};
-	} foreach vehicles;
-
-	if ( count _markedveh != count _vehmarkers ) then {
-		{ deleteMarkerLocal _x; } foreach _vehmarkers;
-		_vehmarkers = [];
-
-		{
-			_marker = createMarkerLocal [ format [ "markedveh%1" ,_x], markers_reset ];
-			_marker setMarkerColorLocal "ColorKhaki";
-			_marker setMarkerTypeLocal "mil_dot";
-			_marker setMarkerSizeLocal [ 0.75, 0.75 ];private [ "_iconed_groups", "_ticks", "_localgroup", "_grouptype", "_groupicon", "_whiskey"];
-
-_whiskey = getMarkerPos "whiskey";
+private [ "_iconed_groups", "_ticks", "_localgroup", "_grouptype", "_groupicon"];
 
 _iconed_groups = [];
 _ticks = 0;
@@ -50,13 +9,13 @@ while { true } do {
 	{
 		if ((_x != group player) && ((side _x == GRLIB_side_friendly))) then {
 			if ( (_x in _iconed_groups) && (
-				(count units _x == 0) ||  (side _x == GRLIB_side_friendly && (((leader _x) distance (getmarkerpos GRLIB_respawn_marker) < 100) || ((leader _x) distance _whiskey > 200) || ((leader _x) distance lhd < 500))))) then {
+				(count units _x == 0) ||  (side _x == GRLIB_side_friendly && (((leader _x) distance (getmarkerpos GRLIB_respawn_marker) < 100) || ((leader _x) distance lhd < 500))))) then {
 				clearGroupIcons _x;
 				_iconed_groups = _iconed_groups - [_x];
 			};
 
 			if ( !(_x in _iconed_groups) && (
-				(count units _x > 0) &&  (side _x == GRLIB_side_friendly && (((leader _x) distance (getmarkerpos GRLIB_respawn_marker) > 100) && ((leader _x) distance _whiskey > 200) && ((leader _x) distance lhd > 500))))) then {
+				(count units _x > 0) &&  (side _x == GRLIB_side_friendly && (((leader _x) distance (getmarkerpos GRLIB_respawn_marker) > 100) && ((leader _x) distance lhd > 500))))) then {
 				clearGroupIcons _x;
 				_localgroup = _x;
 				_grouptype = [_localgroup] call F_getGroupType;
@@ -110,18 +69,4 @@ while { true } do {
 	};
 
 	sleep 4.7;
-};
-
-			_vehmarkers pushback _marker;
-		} foreach _markedveh;
-	};
-
-	{
-		_marker = _vehmarkers select (_markedveh find _x);
-		_marker setMarkerPosLocal getpos _x;
-		_marker setMarkerTextLocal  (getText (_cfg >> typeOf _x >> "displayName"));
-
-	} foreach _markedveh;
-
-	sleep 5;
 };

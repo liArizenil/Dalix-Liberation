@@ -1,5 +1,5 @@
 params [ "_unit" ];
-private [ "_nearestfob", "_is_near_fob", "_is_near_blufor", "_grp", "_waypoint", "_nearblufor", "_nearestwhiskey"];
+private [ "_nearestfob", "_is_near_fob", "_is_near_blufor", "_grp", "_waypoint", "_nearblufor"];
 
 waitUntil {
 	sleep 0.5;
@@ -27,12 +27,6 @@ waitUntil { sleep 5;
 			_is_near_fob = true;
 		};
 	};
-
-	_nearestwhiskey = getmarkerpos "whiskey";
-	if ( ( _unit distance _nearestwhiskey ) < 30 ) then {
-		_is_near_fob = true;
-	};
-
 	_is_near_blufor = false;
 	if ( !_is_near_blufor ) then {
 		{

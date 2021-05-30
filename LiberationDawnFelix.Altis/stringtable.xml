@@ -251,10 +251,6 @@
 						<Original>근처에 수송 차량이 없어서 탄약 박스를 탑재할 수 없습니다.</Original>
 						<English>There is No vehicle at nearby to Load the Ammobox</English>
 				</Key>
-				<Key ID="STR_WHISKEYOFFICER">
-						<Original>Whiskey Operations Officer</Original>
-						<Korean>위스키 작전 장교</Korean>
-				</Key>
 				<Key ID="STR_ARSENALCOMMANDER">
 						<Original>Logistics officer</Original>
 						<Korean>무장 및 장비 보급관</Korean>

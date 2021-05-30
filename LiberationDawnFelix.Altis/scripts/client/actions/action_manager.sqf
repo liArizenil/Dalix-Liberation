@@ -1,7 +1,5 @@
 
-private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander", "_idact_exchscore", "_whiskey","_ideh_shooting" ];
-
-_whiskey = getMarkerPos "whiskey";
+private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander", "_idact_exchscore", "_ideh_shooting" ];
 
 _idact_build = -1;
 _idact_arsenal = -1;
@@ -67,7 +65,7 @@ while { true } do {
 		};
 	};
 
-	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || ( (player distance lhd) < 200 || (player distance _whiskey) < 100) ) && alive player && (vehicle player == player || (driver (vehicle player) == player && ((vehicle player) isKindOf "Tank")))) then {
+	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || (player distance lhd) < 200 ) && alive player && (vehicle player == player || (driver (vehicle player) == player && ((vehicle player) isKindOf "Tank")))) then {
 		if ( _idact_redeploy == -1 ) then {
 			_idact_redeploy = player addAction ["<t color='#80FF80'>" + localize "STR_DEPLOY_ACTION" + "</t> <img size='2' image='res\ui_redeploy.paa'/>","GRLIB_force_redeploy = true","",-750,false,true,"","build_confirmed == 0"];
 		};
@@ -144,7 +142,7 @@ while { true } do {
 		};
 	};
 
-	if ( ( GRLIB_endgame == 0 ) && ( (_fobdistance < _distredeploy || (player distance lhd) < 200) || (player distance _whiskey) < 100 ) && alive player && vehicle player == player && ( ( [ player, 5 ] call F_fetchPermission ) || ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) )) then {
+	if ( ( GRLIB_endgame == 0 ) && ( (_fobdistance < _distredeploy || (player distance lhd) < 200)) && alive player && vehicle player == player && ( ( [ player, 5 ] call F_fetchPermission ) || ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) )) then {
 		if ( _idact_secondary == -1 ) then {
 			_idact_secondary = player addAction ["<t color='#FFFF00'>" + localize "STR_SECONDARY_OBJECTIVES" + "</t>","scripts\client\ui\secondary_ui.sqf","",-993,false,true,"","build_confirmed == 0"];
 		};
@@ -155,7 +153,7 @@ while { true } do {
 		};
 	};
 	
-	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || (((player distance lhd) < 200) || (player distance _whiskey) < 100)) && alive player && vehicle player == player && ((getPlayerScores player) select 5) > 0) then {
+	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || ((player distance lhd) < 200)) && alive player && vehicle player == player && ((getPlayerScores player) select 5) > 0) then {
 		if ( _idact_exchscore == -1 ) then {
 			_idact_exchscore = player addAction ["<t color='#80FF80'>" + localize "STR_EXCHANGE_SCORE" + "</t> <img size='2' image='res\ui_recycle.paa'/>","scripts\client\actions\exchange_score.sqf","",-750,false,true,"","build_confirmed == 0"];
 		};
@@ -166,7 +164,7 @@ while { true } do {
 		};
 	};
 
-	if((_fobdistance < (_distfob + 25) || (player distance _whiskey) < 100) && alive player && vehicle player == player && ([getPos player , 3500 , GRLIB_side_enemy ] call F_getUnitsCount) < 1) then {
+	if(_fobdistance < (_distfob + 25) && alive player && vehicle player == player && ([getPos player , 3500 , GRLIB_side_enemy ] call F_getUnitsCount) < 1) then {
 		if (_ideh_shooting == -1) then{
 			_ideh_shooting = player addEventHandler ["Fired", { 
 				deleteVehicle (_this select 6);

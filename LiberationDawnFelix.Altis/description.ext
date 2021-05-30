@@ -6,7 +6,7 @@ enableDebugConsole = 1;
 allowFunctionsLog = 0;
 
 onLoadMission = $STR_MISSION_TITLE;
-author = "[시][고인]Dawn, Felix, [번역지원]MD. Faker, [GREUH] Zbug, [GREUH] McKeewa";
+author = "[개조] Arizen, GGURRU [고인] Dawn, Felix, [번역지원] MD. Faker, [GREUH] Zbug, [GREUH] McKeewa";
 onLoadName = $STR_MISSION_TITLE;
 
 joinUnassigned = 0;

@@ -35,8 +35,6 @@ if(side player == GRLIB_side_friendly) then {
 
 		GRLIB_force_redeploy = false;
 
-		_IsVehicle_redeploy = (driver (vehicle player) == player && ((vehicle player) isKindOf "Tank"));
-
 		if ( !GRLIB_fatigue ) then {
 			player enableStamina false;
 		};
@@ -80,23 +78,15 @@ if(side player == GRLIB_side_friendly) then {
 		lbSetCurSel [ 203, 0 ];
 
 		while { dialog && alive player && deploy == 0} do {
-			if(_IsVehicle_redeploy) then {
-				choiceslist = [ ["LZ WHISKEY", getMarkerPos "whiskey"] ];
-			}
-			else{
-				choiceslist = [ [ _basenamestr, getpos lhd ], ["LZ WHISKEY", getMarkerPos "whiskey"] ];
-			};
+			choiceslist = [[ _basenamestr, getpos lhd ]];
 
 			for [{_idx=0},{_idx < count GRLIB_all_fobs},{_idx=_idx+1}] do {
 				choiceslist = choiceslist + [[format [ "FOB %1 - %2", (military_alphabet select _idx),mapGridPosition (GRLIB_all_fobs select _idx) ],GRLIB_all_fobs select _idx]];
 			};
+			_respawn_trucks = call F_getMobileRespawns;
 
-			if(!_IsVehicle_redeploy) then {
-				_respawn_trucks = call F_getMobileRespawns;
-
-				for [ {_idx=0},{_idx < count _respawn_trucks},{_idx=_idx+1} ] do {
-					choiceslist = choiceslist + [[format [ "%1 - %2", localize "STR_RESPAWN_TRUCK",mapGridPosition (getpos (_respawn_trucks select _idx)) ],getpos (_respawn_trucks select _idx),(_respawn_trucks select _idx)]];
-				};
+			for [ {_idx=0},{_idx < count _respawn_trucks},{_idx=_idx+1} ] do {
+				choiceslist = choiceslist + [[format [ "%1 - %2", localize "STR_RESPAWN_TRUCK",mapGridPosition (getpos (_respawn_trucks select _idx)) ],getpos (_respawn_trucks select _idx),(_respawn_trucks select _idx)]];
 			};
 
 
