@@ -18,12 +18,7 @@ waitUntil { !isNil "cinematic_camera_stop" };
 waitUntil { cinematic_camera_stop };
 
 if(side player == GRLIB_side_friendly) then {
-	_basenamestr = "";
-	if ( GRLIB_isAtlasPresent ) then {
-		_basenamestr = "BLUFOR LHD";
-	} else {
-		_basenamestr = "BASE CHIMERA";
-	};
+	_basenamestr = "BASE CHIMERA";
 	while { true } do {
 		waitUntil {
 			sleep 0.1;

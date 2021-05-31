@@ -34,7 +34,7 @@ while { true } do {
 
 	_neararsenal = ( (getpos player) nearEntities [ [Arsenal_typename, huron_typename] , _distarsenal ]) select { getObjectType _x >= 8 };
 	_nearfobbox = ( (getpos player) nearEntities [ [ FOB_box_typename, FOB_truck_typename ] , _distbuildfob ] );
-	_nearspawn = ( (getpos player) nearEntities [ [ Respawn_truck_typename] , _distspawn ] );
+	_nearspawn = ( (getpos player) nearEntities [ [Respawn_truck_typename, huron_typename] , _distspawn ] );
 
 	if ( GRLIB_removefobboxes ) then {
 		GRLIB_removefobboxes = false;
@@ -65,7 +65,7 @@ while { true } do {
 		};
 	};
 
-	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || (player distance lhd) < 200 ) && alive player && (vehicle player == player || (driver (vehicle player) == player && ((vehicle player) isKindOf "Tank")))) then {
+	if ( (_fobdistance < _distredeploy || count _nearspawn != 0 || (player distance lhd) < 200 ) && alive player && vehicle player == player) then {
 		if ( _idact_redeploy == -1 ) then {
 			_idact_redeploy = player addAction ["<t color='#80FF80'>" + localize "STR_DEPLOY_ACTION" + "</t> <img size='2' image='res\ui_redeploy.paa'/>","GRLIB_force_redeploy = true","",-750,false,true,"","build_confirmed == 0"];
 		};
