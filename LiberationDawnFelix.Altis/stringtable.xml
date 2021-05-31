@@ -1484,7 +1484,7 @@
 						<Original>민간인 사살에 따른 패널티</Original>
 				</Key>
 				<Key ID="STR_CIV_PENALTY_MESSAGE">
-						<Original>%2에 의한 민간인 %1 사살에 의해 위험도(+400)와 탄약(-200)에 대한 패널티가 발생 됐습니다.</Original>
+						<Original>%2에 의한 민간인 %1 사살에 의해 위험도와 탄약에 대한 패널티가 발생했습니다.</Original>
 				</Key>
 				<Key ID="STR_PARAM_SQUAD_SIZE">
 						<Original>분대당 AI 생성 제한</Original>

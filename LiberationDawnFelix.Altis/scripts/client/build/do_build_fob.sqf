@@ -22,7 +22,7 @@ _idx = 0;
 if(_clearedtobuildfob) then {
 	 {
 		if(_x in blufor_sectors) then {
-			_minsectordist = GRLIB_capture_size + GRLIB_fob_range + 100;
+			_minsectordist = 0;
 		}
 		else{
 			_minsectordist = GRLIB_capture_size + GRLIB_fob_range + 700;

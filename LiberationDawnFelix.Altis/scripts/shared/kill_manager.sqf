@@ -53,7 +53,7 @@ if ( isServer ) then {
 				if ( GRLIB_civ_penalties ) then {
 					if(side _killer == GRLIB_side_friendly) then {
 						[_killer, -200] call addammo_remote_call;
-						combat_readiness = combat_readiness + 400;
+						combat_readiness = combat_readiness + round(random 10);
 					};
 					[ name _unit,  _killer ] remoteExec ["remote_call_civ_penalty", _killer];
 				};
