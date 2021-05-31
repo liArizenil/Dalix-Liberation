@@ -211,8 +211,6 @@ buildings = [
 	["Land_Cargo_House_V1_F",0,0,0],
 	["Land_Medevac_house_V1_F",0,0,0],
 	["Land_Medevac_HQ_V1_F",0,0,0],
-	["Land_Research_house_V1_F",0,0,0],
-	["Land_Research_HQ_F",0,0,0],	
 	["CamoNet_BLUFOR_open_F",0,0,0],
 	["CamoNet_BLUFOR_big_F",0,0,0],
 	["Land_CampingChair_V2_F",0,0,0],
@@ -254,13 +252,12 @@ buildings = [
 	["Land_WaterCooler_01_new_F",0,0,0],
 	["Land_OfficeCabinet_01_F",0,0,0],
 	["Land_OfficeChair_01_F",0,0,0],
-	["OfficeTable_01_new_F",0,0,0],
 	["Land_RattanChair_01_F",0,0,0],
 	["Land_RattanTable_01_F",0,0,0],
 	["Land_MedicalTent_01_white_IDAP_med_closed_F",0,0,0],
 	["Land_MedicalTent_01_white_IDAP_closed_F",0,0,0],
 	["Land_MedicalTent_01_white_IDAP_open_F",0,0,0],
-	["Land_MedicalTent_01_white_IDAP_outer_F",0,0,0],
+	["Land_MedicalTent_01_white_IDAP_outer_F",0,0,0]
 ];
 if ( isNil "buildings_extension" ) then { buildings_extension = [] };
 if ( isNil "buildings_overwrite" ) then { buildings_overwrite = false };
