@@ -263,7 +263,7 @@ if ( buildings_overwrite ) then { buildings = buildings_extension; } else { buil
 
 support_vehicles = [
 	[Arsenal_typename,30,200,0],
-	[Respawn_truck_typename,50,100,50]
+	[Respawn_truck_typename,50,100,50],
 	[FOB_box_typename,100,500,0],	
 	[FOB_truck_typename,100,500,60],
 	["B_APC_Tracked_01_CRV_F",50,30,50],
